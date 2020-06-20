@@ -1,0 +1,233 @@
+enableDebugConsole = 2; //NNS
+respawn = 3;
+respawnDelay = 5; //NNS
+respawnOnStart = -1;
+allowFunctionsLog = 0; //NNS
+
+respawnTemplates[] = {"MenuPosition", "MenuInventory", "Tickets", "Spectator"};
+
+class Header {
+	gameType = Escape;
+	minPlayers = 1;
+	maxPlayers = 12; //NNS
+};
+
+dev = "NNS";
+briefingName = $STR_NNS_Escape_mission_name; //NNS
+author = "NNS";
+overviewPicture = "img\loading_screen_nns.paa"; //NNS
+overviewText = $STR_NNS_Escape_briefing_overview; //NNS
+overviewTextLocked = $STR_NNS_Escape_briefing_overview; //NNS
+onLoadName = $STR_NNS_Escape_mission_name; //NNS
+onLoadMission = $STR_NNS_Escape_briefing_overview; //NNS
+loadScreen = "img\loading_screen_nns.paa"; //NNS
+disabledAI = 1;
+
+// Player loadouts
+#include "LoadoutClasses.inc"
+
+// Custom, non-sandbox groups
+//#include "CustomGroups.inc"
+
+class Params {
+	class Loadouts {
+		title = $STR_A3_Escape_param_respawnLoadouts;
+		values[] = {1, 2, 3};
+		texts[] = {$STR_A3_Escape_param_respawnLoadouts01, $STR_A3_Escape_param_respawnLoadouts02, $STR_A3_Escape_param_respawnLoadouts03};
+		default = 1; //NNS
+		file = "params\respawnLoadouts.sqf";
+	};
+
+	class noOfRespawns {
+		title = $STR_A3_rscdisplaydebriefing_loadstext_mp;
+		values[] = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+		texts[] = {$STR_NNS_Escape_param_unlimited,"0", $STR_A3_Escape_param_respawnGroup10, $STR_A3_Escape_param_respawnGroup20, $STR_A3_Escape_param_respawnGroup30, $STR_A3_Escape_param_respawnGroup40, $STR_A3_Escape_param_respawnGroup50, $STR_A3_Escape_param_respawnGroup100, $STR_A3_Escape_param_respawnIndividual01, $STR_A3_Escape_param_respawnIndividual02, $STR_A3_Escape_param_respawnIndividual03, $STR_A3_Escape_param_respawnIndividual04, $STR_A3_Escape_param_respawnIndividual05, $STR_A3_Escape_param_respawnIndividual10};
+		default = -1; //NNS6
+		file = "params\setRespawn.sqf";
+	};
+
+	class Fog {
+		title = $STR_A3_Param_Fog_Title;
+		values[] = {0,1,3,4}; //NNS: add more
+		texts[] = {$STR_A3_Param_Fog_0, $STR_A3_Param_Fog_1, $STR_A3_Param_Fog_2, $STR_A3_Param_Fog_3}; //NNS: add more
+		default = 3;
+		file = "params\setFog.sqf";
+	};
+
+	class DebugOutputs { //NNS
+		title = $STR_NNS_Escape_param_DebugOutputs_title;
+		values[] = {0,1,2,3};
+		texts[] = {$STR_NNS_Escape_param_disable,$STR_NNS_Escape_param_DebugOutputs_chatbox,$STR_NNS_Escape_param_DebugOutputs_logs,$STR_NNS_Escape_param_DebugOutputs_both};
+		default = 0;
+		file = "params\setDebugOutputs.sqf";
+	};
+	
+	class DebugMenu { //NNS
+		title = $STR_NNS_Escape_param_DebugMenu_title;
+		values[] = {0,1,2};
+		texts[] = {$STR_NNS_Escape_param_disable,$STR_NNS_Escape_param_DebugMenu_admin,$STR_NNS_Escape_param_DebugMenu_all};
+		default = 2;
+		file = "params\setDebugMenu.sqf";
+	};
+
+	class EscapeRulesMenu { //NNS
+		title = $STR_NNS_Escape_param_EscapeRulesMenu_title;
+		values[] = {0,1};
+		texts[] = {$STR_NNS_Escape_param_EscapeRulesMenu_original,$STR_NNS_Escape_param_EscapeRulesMenu_permissive};
+		default = 1;
+		file = "params\setEscapeRules.sqf";
+	};
+	
+	class ZombiesAmountMenu { //NNS
+		title = $STR_NNS_Escape_param_ZombiesAmount_title;
+		values[] = {0,1,2,3};
+		texts[] = {$STR_NNS_Escape_param_ZombiesAmount_limited,$STR_NNS_Escape_param_ZombiesAmount_normal,$STR_NNS_Escape_param_ZombiesAmount_high, "debug (1 zombie)"};
+		default = 1;
+		file = "params\setZombiesCount.sqf";
+	};
+	
+	class AmmoboxAmountMenu { //NNS
+		title = $STR_NNS_Escape_param_AmmoboxAmount_title;
+		values[] = {0,1,2,3};
+		texts[] = {$STR_NNS_Escape_param_AmmoboxAmount_verylow,$STR_NNS_Escape_param_AmmoboxAmount_low,$STR_NNS_Escape_param_AmmoboxAmount_normal,$STR_NNS_Escape_param_AmmoboxAmount_high};
+		default = 0;
+		file = "params\setAmmoboxAmount.sqf";
+	};
+	
+	class StaminaMenu { //NNS
+		title = $STR_NNS_Escape_param_Stamina_title;
+		values[] = {0,1};
+		texts[] = {$STR_NNS_Escape_param_disable,$STR_NNS_Escape_param_enable};
+		default = 0;
+		file = "params\setStamina.sqf";
+	};
+	
+	#define DAYTIMEHOUR_DEFAULT				22
+	#define WEATHER_DEFAULT						100 //NNS: storm
+	#define DEBUGCONSOLE_DEFAULT			1 //NNS
+	#define TIMEACCELERATION_DEFAULT	1
+
+	#define VIEW_DISTANCE_MIN					300
+	#define VIEW_DISTANCE_MAX					500
+	#define VIEW_DISTANCE_DEFAULT   	340
+
+	#include "\a3\functions_f\Params\paramDaytimeHour.inc"
+	#include "\a3\functions_f\Params\paramWeather.inc"
+	#include "\a3\functions_f\Params\paramDebugConsole.inc"
+	#include "\a3\Functions_F_MP_Mark\Params\paramTimeAcceleration.inc"
+	#include "\a3\Functions_F_Heli\Params\paramViewDistance.inc"
+	#include "\a3\functions_f\params\paramRevive.inc"
+};
+
+class CfgDebriefing {
+	class success {
+		title = $STR_A3_mission_completed_title;
+		subtitle = "";
+		description = $STR_A3_EscapeFromMalden_end01Desc;
+	};
+	class end1 {
+		title = $STR_A3_mission_failed_title;
+		description = $STR_A3_EscapeFromTanoa_end03Desc;
+		subtitle = $STR_A3_EscapeFromTanoa_end03Sub;
+	};
+	class end2 {
+		title = $STR_A3_mission_failed_title;
+		description = $STR_A3_EscapeFromTanoa_end02Desc;
+		subtitle = $STR_A3_EscapeFromTanoa_end02Sub;
+	};
+};
+
+class CfgDebriefingSections {
+	class Stats {
+		title = $STR_NNS_Escape_Debrif_Stats_title;
+		variable = "BIS_GlobalStats";
+	};
+};
+
+corpseManagerMode = 1; 		// Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+corpseLimit = 24; 		// Max number of bodies which can be available at the same time. When exceeded, start deleting immediately.
+corpseRemovalMinTime = 300; 	// Minimal time in seconds a body stays in the scene (can't be removed sooner).
+corpseRemovalMaxTime = 360; 	// Maximal time in seconds after which a dead body is removed (can't stay longer).
+
+wreckManagerMode = 1; 		// Type of removed wrecks: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+wreckLimit = 8; 		// Max number of wrecks which can be available at the same time. When exceeded, start deleting immediately.
+wreckRemovalMinTime = 300; 	// Minimal time in seconds a wreck stays in the scene (can't be removed sooner).
+wreckRemovalMaxTime = 360;	// Maximal time in seconds after which a wreck is removed (can't stay longer).
+
+minPlayerDistance = 100;		// Bodies and wrecks in this vicinity of players will not be deleted even if the timer/limit condition is met.
+
+class CfgFunctions {
+	class BIS {
+		class EscapeFromMalden {
+			file = "Functions";
+			class NNS_debugOutput {};	//NNS
+			class EfM_AmmoboxCSAT {};
+			class EfM_AmmoboxSpecial {};
+			class EfM_SupplyboxCSAT {};
+			class EfM_SniperBox {};
+			class NNS_MapDrawLine {};	//NNS
+			class NNS_randomVehicleDamage {};	//NNS
+			class NNS_CompileDebriefingStats {};	//NNS
+			class NNS_CargoTower_Equipments {};	//NNS
+			class NNS_CargoHQ_Equipments {};	//NNS
+			class NNS_groupCenter {};	//NNS
+			class NNS_AmmoboxLimiter {};	//NNS
+			class NNS_LampFlickering {};	//NNS
+			class NNS_StringCapitalize {};	//NNS
+			class NNS_spawnVehicleOnRoad {};	//NNS
+			class NNS_vehicleLightOnOff {};	//NNS
+			class NNS_destroyZone {};	//NNS
+			class NNS_spawnBigFire {}; //NNS
+			class NNS_spawnCivVehi {}; //NNS
+			class NNS_setAllHitPointsDamage {}; //NNS
+			class NNS_PopulateCargoHQ_CSAT {};	//NNS
+			class NNS_populatePost_CSAT {};	//NNS
+			class NNS_populateTower_CSAT {};	//NNS
+			class NNS_spawnFlare {};	//NNS
+		};
+	};
+};
+
+class CfgCommunicationMenu { //NNS
+	class Debug_Menu {
+		text = "Debug Menu";		// Text displayed in the menu and in a notification
+		submenu = "#USER:MENU_COMMS_DEBUG";					// Submenu opened upon activation (expression is ignored when submenu is not empty.)
+		expression = "";	// Code executed upon activation
+		icon = "img\debug_icon.paa";				// Icon displayed permanently next to the command menu
+		enable = "1";					// Simple expression condition for enabling the item
+		removeAfterExpressionCall = 0;	// 1 to remove the item after calling
+	};
+};
+
+class CfgSounds { //NNS
+	sounds[] = {};
+	class LightFlicker01 {name = "lightflicker01"; sound[] = {"audio\lightflicker01.ogg", 0.9, 1, 75}; titles[]	= {};};
+	class LightFlicker02 {name = "lightflicker02"; sound[] = {"audio\lightflicker02.ogg", 0.9, 1, 75}; titles[]	= {};};
+	class LightFlicker03 {name = "lightflicker03"; sound[] = {"audio\lightflicker03.ogg", 0.9, 1, 75}; titles[]	= {};};
+
+	class AmbienceRZheart1 {name = "AmbienceRZheart1"; sound[] = {"@ryanzombies\sounds\heart1.ogg", 3, 1}; titles[] = {};};
+	class AmbienceRZheart2 {name = "AmbienceRZheart2"; sound[] = {"@ryanzombies\sounds\heart2.ogg", 3, 1}; titles[] = {};};
+	class AmbienceRZheart3 {name = "AmbienceRZheart3"; sound[] = {"@ryanzombies\sounds\heart3.ogg", 3, 1}; titles[] = {};};
+	class AmbienceRZheart4 {name = "AmbienceRZheart4"; sound[] = {"@ryanzombies\sounds\heart4.ogg", 3, 1}; titles[] = {};};
+	
+	class AmbienceRZeat1 {name = "AmbienceRZeat1"; sound[] = {"@ryanzombies\sounds\eat1.ogg", 8, 1}; titles[] = {};};
+	class AmbienceRZeat2 {name = "AmbienceRZeat2"; sound[] = {"@ryanzombies\sounds\eat2.ogg", 8, 1}; titles[] = {};};
+	class AmbienceRZeat3 {name = "AmbienceRZeat3"; sound[] = {"@ryanzombies\sounds\eat3.ogg", 8, 1}; titles[] = {};};
+	class AmbienceRZeat4 {name = "AmbienceRZeat4"; sound[] = {"@ryanzombies\sounds\eat4.ogg", 8, 1}; titles[] = {};};
+	class AmbienceRZeat5 {name = "AmbienceRZeat5"; sound[] = {"@ryanzombies\sounds\eat5.ogg", 8, 1}; titles[] = {};};
+};
+
+
+
+class CfgSFX {
+	class BigFire01 {sound0[] = {"@A3\Sounds_F\sfx\fire1_loop", 8, 1.0, 250, 1, 0, 0, 0}; sounds[] = {sound0}; empty[] = {"", 0, 0, 0, 0, 0, 0, 0};};
+	class BigFire02 {sound0[] = {"@A3\Sounds_F\sfx\fire2_loop", 8, 1.0, 250, 1, 0, 0, 0}; sounds[] = {sound0}; empty[] = {"", 0, 0, 0, 0, 0, 0, 0};};
+	class CarAlarm01 {sound0[] = {"@A3\Sounds_F_Orange\MissionSFX\Orange_Car_Alarm_Loop_01", 1.4, 1.0, 350, 1, 0, 0, 0}; sounds[] = {sound0}; empty[] = {"", 0, 0, 0, 0, 0, 0, 0};};
+};
+
+class CfgVehicles {
+	class BigFireSound01 {sound = "BigFire01";};
+	class BigFireSound02 {sound = "BigFire02";};
+	class CarAlarmSound01 {sound = "CarAlarm01";};
+};
+
