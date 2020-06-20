@@ -376,6 +376,7 @@ _zombies_spawner = [zombie_spawner_0,zombie_spawner_1,zombie_spawner_2];
 		_x setVariable ['Type',17,true]; //mixed zombies (no spiders/crawlers)
 		_x setVariable ['Type2',13,true]; //demons
 	} forEach _zombies_spawner_city_big;
+	missionNamespace setVariable ["HighInfCity",_zombies_spawner_city_big,true];
 	
 	//zombies in pre escape phase
 	{
