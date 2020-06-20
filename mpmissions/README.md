@@ -104,7 +104,8 @@ What's done so far (missing some for sure):
 - Cities:
 	- Some buildings are destroyed, if so, there is a chance of big fire.
 	- Some garages can have a civilian vehicle in, jerrycan can be here as well.
-
+	- Random level of infection for some cities.
+	
 - Ambiance: 
 	- Weird noise spawn some time to stress players (no jump scare).
 	- Lamps can sometime flicker with noise.
