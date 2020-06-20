@@ -5,7 +5,7 @@ All of missions on this repo have debug features enable, test these missions wit
 ## EscapeFromMaldenMOD.Malden  
 This mission is based on the original "Escape from Malden" mission.  
   
-![](https://github.com/porcinus/Arma-3/blob/master/mpmissions/EscapeFromMaldenMOD.Malden%20preview/checkpoint0.jpg|width=100)
+![01](https://github.com/porcinus/Arma-3/blob/master/mpmissions/EscapeFromMaldenMOD.Malden%20preview/checkpoint0.jpg | width=200)
 
   
 WIP, work but many things need to be redone the right way.  
