@@ -38,6 +38,12 @@ params [
 	["_alarmMaxDist", 600] //maximum distance before deletion
 ];
 
+//debug note: do not use append, this mess global vars for whatever reason...
+
+private _civClasses;
+private _civWreckClasses;
+private _alarmClasses;
+
 // Check for validity
 if (count _pos < 2) exitWith {["NNS_fnc_spawnCivVehi : invalid position"] call NNS_fnc_debugOutput;};
 
@@ -48,8 +54,8 @@ if (count _civWreckClasses == 0) then {_civWreckClasses = missionNamespace getVa
 if (count _civWreckClasses == 0) then {_wreckChance = 0; ["NNS_fnc_spawnCivVehi : no _civWreckClasses set, wreck change set to 0"] call NNS_fnc_debugOutput;};
 
 if (count _alarmClasses == 0) then {
-	_alarmClasses append (missionNamespace getVariable ["BIS_zombieSlowSoldiers",[]]);
-	_alarmClasses append (missionNamespace getVariable ["BIS_zombieSlowCivilians",[]]);
+	_alarmClasses = missionNamespace getVariable ["BIS_zombieSlowSoldiers",[]];
+	_alarmClasses = _alarmClasses + (missionNamespace getVariable ["BIS_zombieSlowCivilians",[]]);
 };
 //if (count _alarmClasses == 0) then {_wreckChance = 0; ["NNS_fnc_spawnCivVehi : no _alarmClasses set, alarm change set to 0"] call NNS_fnc_debugOutput;};
 

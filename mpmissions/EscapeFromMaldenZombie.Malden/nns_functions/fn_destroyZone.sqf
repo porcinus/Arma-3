@@ -23,24 +23,26 @@ params [
 
 {
 	_tmp = _x; //object pointer
-	if (isClass (configfile >> "CfgVehicles" >> (typeOf _tmp) >> "DestructionEffects" >> "Ruin1") && {!(isObjectHidden _x)}) then { //object class contain a ruin class
-		_rnd = 0.5 + random 0.7;
-		if (_rnd >= 0.95) then {_rnd = 1;}; //force max damage
-		if (_rnd == 1) then {
-			_x setDamage [1, false]; //destroy building
-			if (_allowFire && {random 1 < 0.1}) then { //allow to place a fire
-				[_x,_fireDeletionRadius,true] remoteExec ["NNS_fnc_spawnBigFire",0,true]; //remoteexec fire
-			};
-		} else {
-			if (_carInGarage && {(typeOf _x) in _garageClasses} && {_rnd < 1} && {(random 1) < _carInGarageChance}) then { //car in garage enable and type in garage array and damage < 1
-				_veh = (selectRandom _civCarClasses) createVehicle [0,0,0];
-				_veh setDir ((getDir _x) + 270);
-				_veh setPos (getPos _x);
-				_veh setFuel (random 0.05);
-				{clearMagazineCargoGlobal _x; clearWeaponCargoGlobal _x; clearBackpackCargoGlobal _x; clearItemCargoGlobal _x} forEach [_veh];
-				_veh addItemCargoGlobal ["FirstAidKit",2];
-				_veh enableDynamicSimulation true;
-				[_veh,["hitfuel"],0.2,0.8] call NNS_fnc_randomVehicleDamage;
+	if (allPlayers findIf {_x distance2D _tmp < 150} == -1) then { //if no player nearby
+		if (isClass (configfile >> "CfgVehicles" >> (typeOf _tmp) >> "DestructionEffects" >> "Ruin1") && {!(isObjectHidden _tmp)}) then { //object class contain a ruin class
+			_rnd = 0.5 + random 0.7;
+			if (_rnd >= 0.95) then {_rnd = 1;}; //force max damage
+			if (_rnd == 1) then {
+				_tmp setDamage [1, false]; //destroy building
+				if (_allowFire && {random 1 < 0.1}) then { //allow to place a fire
+					[_tmp,_fireDeletionRadius,true] remoteExec ["NNS_fnc_spawnBigFire",0,true]; //remoteexec fire
+				};
+			} else {
+				if (_carInGarage && {(typeOf _tmp) in _garageClasses} && {_rnd < 1} && {(random 1) < _carInGarageChance}) then { //car in garage enable and type in garage array and damage < 1
+					_veh = (selectRandom _civCarClasses) createVehicle [0,0,0];
+					_veh setDir ((getDir _tmp) + 270);
+					_veh setPos (getPos _tmp);
+					_veh setFuel (random 0.05);
+					{clearMagazineCargoGlobal _x; clearWeaponCargoGlobal _x; clearBackpackCargoGlobal _x; clearItemCargoGlobal _x} forEach [_veh];
+					_veh addItemCargoGlobal ["FirstAidKit",2];
+					_veh enableDynamicSimulation true;
+					[_veh,["hitfuel"],0.2,0.8] call NNS_fnc_randomVehicleDamage;
+				};
 			};
 		};
 	};

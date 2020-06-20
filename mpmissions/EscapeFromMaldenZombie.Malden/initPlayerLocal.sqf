@@ -107,7 +107,6 @@ player addeventhandler ["FiredMan", { //ammo not in grenades,smokes,missile are 
 //NNS : stats : get players stats when map opened
 addMissionEventHandler ["Map", {
 	params ["_mapIsOpened", "_mapIsForced"];
-	//systemChat format ["_mapIsOpened:%1, _mapIsForced:%2",_mapIsOpened,_mapIsForced];
 	
 	if (_mapIsOpened) then {
 		private _nullRecord = objNull createDiaryRecord []; //"declare" _nullRecord

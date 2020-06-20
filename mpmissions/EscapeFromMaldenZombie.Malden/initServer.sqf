@@ -25,7 +25,7 @@ _start_pos_list = [];
 for "_i" from 0 to 100 do { //detect from marker_objective_0 to marker_objective_100
 	_tmpname = format ["respawn_%1", _i]; //parse marker name
 	if (getMarkerColor _tmpname != "") then { //marker exist
-		_start_pos_list append [_tmpname]; //add marker to array
+		_start_pos_list pushBack _tmpname; //add marker to array
 		//[east,_tmpname,_tmpname] call BIS_fnc_addRespawnPosition; //debug, add all respawn
 	};
 };
@@ -421,7 +421,6 @@ missionNamespace setVariable ["lootMarkers",_loot_markers,true];
 //NNS : stats : longest kill / weapon used per player
 addMissionEventHandler ["EntityKilled", {
 	params ["_killed", "_killer", "_instigator"];
-	//systemChat format ["_killed:%1, typeOf:%2 , _killer:%3, _instigator:%4", _killed, typeOf _killed, _killer, _instigator];
 	
 	if (isNull _instigator) then {_instigator = _killer}; // player driven vehicle road kill
 	
@@ -526,27 +525,3 @@ addMissionEventHandler ["EntityKilled", {
 		} else {sleep 60;}; //"day" time, nothing to do, long wait
 	};
 };
-/*
-//NNS: try to handle refuel glitch for escape vehicles when hit by zombies
-[] spawn {
-	//_refuelerTypes = ["O_G_Van_01_fuel_F", "O_Truck_02_fuel_F", "O_Truck_03_fuel_F", "O_T_Truck_02_fuel_F", "O_T_Truck_03_fuel_ghex_F"]; //all allowed refueler type
-	while {true} do {
-		{
-			_vehi = vehicle _x;
-			if (alive _x && {_vehi isKindOf "Air"} && {isTouchingGround _vehi}) then { //current player in air type vehicle and touching ground
-				if (((currentPilot _vehi) isEqualTo _x) && {(fuel _vehi < 1)}) then { //current player is pilot and tank not fuel
-					_nearTrucks = nearestObjects [getPos _vehi, ["Car"], 20]; //all car type object in 15m radius
-					{
-						if (alive _x && {["fuel", toLower (typeOf _x), true] call BIS_fnc_inString}) then { //refueler nearby, add 5% fuel per loop
-						//if (typeOf _x in _refuelerTypes) then { //allowed refueler type nearby, add 5% fuel per loop
-							[_vehi,(fuel _vehi) + 0.05] remoteexec ['setFuel',_vehi];
-							systemChat "eee";
-						};
-					} forEach _nearTrucks;
-				};
-			};
-		} forEach allPlayers; //all player loop
-		sleep 2;
-	};
-};
-*/

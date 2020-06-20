@@ -1,6 +1,7 @@
 /*
 NNS
 Spawn damaged/wreck/untouched vehicle on a road near given position.
+Note: this function doesn't follow road curves. This will maybe implemented in the future if possible.
 
 Dependency: in initServer.sqf
 	BIS_civilCars = ["C_Offroad_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Truck_02_transport_F"];
@@ -27,14 +28,19 @@ params [
 	["_vehiWreckClasses", []] //default wreck vehicles class
 ];
 
+//debug note: do not use append func on _vehiClasses/_vehiWreckClasses, this mess BIS_civilCars for whatever reason...
+
+private _vehiClasses;
+private _vehiWreckClasses;
+
 if (count _pos < 3) then {_pos = getPos player;}; //use player position if no position set
 
 _roads = _pos nearRoads _radius; //get near roads
 if (count _roads == 0) exitWith {[format["NNS_fnc_spawnVehicleOnRoad : no road found around %1, radius:%2",_pos,_radius]] call NNS_fnc_debugOutput;};
 
-if (count _vehiClasses == 0) then {_vehiClasses = BIS_civilCars;}; //default vehicles classes
-if (_addWreckVehi && {count _vehiWreckClasses == 0}) then {_vehiWreckClasses = BIS_civilWreckCars;}; //default wreck vehicles classes
-if (_addWreckVehi) then {_vehiClasses append _vehiWreckClasses}; //merge wreck classes to vehicle classes
+if (count _vehiClasses == 0) then {_vehiClasses = missionNamespace getVariable ["BIS_civilCars",[]];}; //default vehicles classes
+if (_addWreckVehi && {count _vehiWreckClasses == 0}) then {_vehiWreckClasses = missionNamespace getVariable ["BIS_civilWreckCars",[]];}; //default wreck vehicles classes
+if (_addWreckVehi) then {_vehiClasses = _vehiClasses + _vehiWreckClasses}; //merge wreck classes to vehicle classes
 
 _road = selectRandom _roads; //select a random road
 _connectedRoads = roadsConnectedTo _road; //find connected road, used for road direction
@@ -84,6 +90,7 @@ for "_i" from 1 to _randomVehiCount do { //vehicle loop
 	_tmpVehi setPos _tmpNewPos; //vehicle position
 	
 	if (_isWreck) then {
+		_tmpVehi setVectorUp surfaceNormal position _tmpVehi;
 		_tmpVehi enableSimulationGlobal false;
 	} else {
 		_tmpVehi setFuel _vehiFuel;

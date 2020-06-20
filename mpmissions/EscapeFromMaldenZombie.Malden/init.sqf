@@ -5,7 +5,9 @@ disableRemoteSensors true; //disable raycasting calculations
 enableSaving [true, false]; //NNS: test, glitchy when loading from a new game session
 
 //Following part is totally debug related
-BIS_civilCars = ["C_Offroad_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Truck_02_transport_F"];
+if (count (missionNamespace getVariable ["BIS_civilCars",[]]) == 0) then {
+	BIS_civilCars = ["C_Offroad_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Truck_02_transport_F"];
+};
 
 //NNS: add debug functions ingame
 MENU_COMMS_DEBUG =
