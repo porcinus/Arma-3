@@ -82,6 +82,7 @@ Enhanced Movement addon is recommended (https://steamcommunity.com/sharedfiles/f
   
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/main.jpg)](EscapeFromMaldenZombie.Malden%20preview/main.jpg)
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/map.jpg)](EscapeFromMaldenZombie.Malden%20preview/map.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/checkpoint.jpg)](EscapeFromMaldenZombie.Malden%20preview/checkpoint.jpg)
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/northeastbase.jpg)](EscapeFromMaldenZombie.Malden%20preview/northeastbase.jpg)
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/southwestbase.jpg)](EscapeFromMaldenZombie.Malden%20preview/southwestbase.jpg)
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/startheli.jpg)](EscapeFromMaldenZombie.Malden%20preview/startheli.jpg)
