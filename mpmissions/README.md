@@ -1,10 +1,11 @@
-Important note:  
+### Important note:  
 I modify some of theses mission on a daily basis, this repo can be a bit outdated.  
 All of missions on this repo have debug features enable, test these missions with friends.
 
 ## EscapeFromMaldenMOD.Malden  
 This mission is based on the original "Escape from Malden" mission.  
-
+English and French localized.  
+  
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/main.jpg)](EscapeFromMaldenMOD.Malden%20preview/main.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/checkpoint0.jpg)](EscapeFromMaldenMOD.Malden%20preview/checkpoint0.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/checkpoint1.jpg)](EscapeFromMaldenMOD.Malden%20preview/checkpoint1.jpg)
@@ -71,8 +72,59 @@ What's done so far (missing some for sure):
 	- You tell me :P
 ```
 
-## EscapeFromMaldenZombie.Malden
+## EscapeFromMaldenZombie.Malden  
+This mission is based on "EscapeFromMaldenMOD" mission.  
+English and French localized.  
+  
+Require Ryan's Zombies and Demons addon (https://steamcommunity.com/sharedfiles/filedetails/?id=501966277).  
+Enhanced Movement addon is recommended (https://steamcommunity.com/sharedfiles/filedetails/?id=333310405).  
+  
+WIP, some things still need to be done.  
+  
+It still is a escape mission but now with zombies.  
+To be honest, I didn't keep track of codes coming from internet and I am pretty sure some stuff may need some credits.  
+  
+What's done so far (missing some for sure):  
+```
+- Random initial spawn location (more than 5 possible).
+- Track player stats : ammo fired (incl grenades and other stuff), distance traveled (foot and vehicle), accessible from map and defriening.
+- All military units/vehicles converted to CSAT
+- All fuel stations are empty but you can found jerrycan. this will allow you to drain fuel from vehicles tank.
+- Some CSAT patrol can be found on the map.
+- All vehicles on the map are damaged and have low fuel tank level.
+- Renegade punishment by Zeus hand.
 
+- Mission parameters:
+	- Respawn: allow server to set to infinite.
+	- Rules: original escape rules (everybody dead = failed) and permissive.
+	- Zombies amount : 50%, 100%, 150%.
+	- Ammobox contain : 25%, 50%, 75%, 100%.
+	- Stamina : enable or disable.
+
+- Cities:
+	- Some buildings are destroyed, if so, there is a chance of big fire.
+	- Some garages can have a civilian vehicle in, jerrycan can be here as well.
+
+- Ambiance: 
+	- Weird noise spawn some time to stress players (no jump scare).
+	- Lamps can sometime flicker with noise.
+	
+- Looting:
+	- Ammo, weapons and equipements can be found in buildings like cargo tower and HQ.
+	- When looting a soldier zombie, there is a change to add a marker on the map for loot point.
+	- Player can drain or refill vehicle tank when have a jerrycan (inventory screen), can drain tank on refueler
+
+- Workaround:
+	- Zombies addon can create locality problem, when player enter or get out vehicle, light are repared or destroyed to avoid binking effect (sometime work, sometime not).
+	- Refuel of escape vehicles : additional function to force addition of fuel when refueler nearby.
+	- Friendly AI is dumb : a script is used to limit damage (no inclure one shot) from friendly AI.
+
+- Inventory:
+	- Restore previous loadout when respawn, add 25 rounds in primary weapon if empty.
+	- Jerrycan contain visible from inventory screen when have a jerrycan.
+
+- What still need to be done: You tell me :P
+```
 
 
 
