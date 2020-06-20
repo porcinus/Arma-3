@@ -19,7 +19,7 @@ deleteVehicle _trigger;
 [_triggerPos,500] call NNS_fnc_destroyZone;
 
 //NNS: spawn civilian vehicles
-[[7850,9316,0],10,180] call NNS_fnc_spawnVehicleOnRoad;
+[[7850,9316,0],10] call NNS_fnc_spawnVehicleOnRoad;
 
 //NNS : Create civilian vehicle
 _civVehiPos = [

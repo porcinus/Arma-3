@@ -45,4 +45,4 @@ if (checkpoint_09_zombie_0 getVariable ["TotalAmount",-1] != -1) then {
 };
 
 //NNS: spawn civilian vehicles
-[[3762,8370,0],10,180] call NNS_fnc_spawnVehicleOnRoad;
+[[3762,8370,0],10] call NNS_fnc_spawnVehicleOnRoad;

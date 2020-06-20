@@ -31,7 +31,7 @@ checkpoint_01_vehi_0 setPos [3965.34,4533.66,0];
 [_triggerPos,500] call NNS_fnc_destroyZone;
 
 //NNS: spawn civilian vehicles
-[[3962,4565,0],10,180] call NNS_fnc_spawnVehicleOnRoad;
+[[3962,4565,0],10] call NNS_fnc_spawnVehicleOnRoad;
 
 //NNS : Create civilian vehicle
 _civVehiPos = [

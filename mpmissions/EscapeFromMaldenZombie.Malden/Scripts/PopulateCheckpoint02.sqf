@@ -24,4 +24,4 @@ _null = checkpoint_02_tower_0 call NNS_fnc_CargoTower_Equipments;
 [checkpoint_02_ammo_0,0,0,true] call NNS_fnc_AmmoboxLimiter;
 
 //NNS: spawn civilian vehicles
-[[7444,3793,0],10,180] call NNS_fnc_spawnVehicleOnRoad;
+[[7444,3793,0],10] call NNS_fnc_spawnVehicleOnRoad;
