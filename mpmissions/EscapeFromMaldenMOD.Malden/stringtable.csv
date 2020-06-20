@@ -1,0 +1,112 @@
+LANGUAGE, "English", "French"
+
+STR_NNS_Escape_mission_name, "Escape From Malden (mod NNS)", "Escape From Malden (mod NNS)"
+STR_NNS_Escape_briefing_overview, "You're gonna sweat blood...", "Une bonne galere a tous..."
+
+STR_NNS_Escape_param_disable, "Disable", "Désactivé"
+STR_NNS_Escape_param_all, "All", "Tous"
+STR_NNS_Escape_param_normal, "Normal", "Normal"
+
+STR_NNS_Escape_param_respawnLoadouts_overequip, "Over-equipped (100% ammo, full equipment plus ENVG-II, Nightstalker, GPS for everyone)", "Suréquipé (100 % de munitions, équipement complet plus ENVG-II, Nightstalker, GPS pour tous)"
+
+STR_NNS_Escape_param_CustomObjectives_title, "NNS: Optional Objectives (random)", "NNS: Objectifs optionnel (aléatoire)"
+
+STR_NNS_Escape_param_DebugOutputs_title, "NNS: Debug outputs (will spam Chatbox (Global) and/or Server logs)", "NNS: Infos de débuggage (va spammer la chatbox (Globale) et/ou les logs Serveur)"
+STR_NNS_Escape_param_DebugOutputs_chatbox, "Enable (Chatbox)", "Activé (Chatbox)"
+STR_NNS_Escape_param_DebugOutputs_logs, "Enable (Logs)", "Activé (Logs)"
+STR_NNS_Escape_param_DebugOutputs_both, "Enable (Chatbox/Logs)", "Activé (Chatbox/Logs)"
+
+STR_NNS_Escape_param_DebugMenu_title, "NNS: Debug menu (access via Quick command menu > Communication)", "NNS: Menu débuggage (accessible via Menu de commande rapide > Communication)"
+STR_NNS_Escape_param_DebugMenu_admin, "Enable for Admin", "Activé pour Admin"
+STR_NNS_Escape_param_DebugMenu_all, "Enable for All", "Activé pour Tous"
+
+STR_NNS_Escape_param_EnemyCountsMenu_title, "NNS: Limit amount of enemies", "NNS: Limiter le nombre d'ennemis"
+STR_NNS_Escape_param_EnemyCountsMenu_limited, "Limited (Some buildings will be removed)", "Limiter (Certain batiments seront supprimer)"
+
+STR_NNS_Escape_param_EscapeRulesMenu_title, "NNS: Escape rules", "NNS: Règles de l'escape"
+STR_NNS_Escape_param_EscapeRulesMenu_original, "Original", "Original"
+STR_NNS_Escape_param_EscapeRulesMenu_permissive, "Permissive : All players can die without failing the mission", "Permissif : Tous les joueurs peuvent mourir sans échoué la mission"
+
+STR_NNS_Escape_param_EscapeAIskillMenu_title, "NNS: Enemy AI skill", "NNS: Niveau de l'IA ennemie"
+STR_NNS_Escape_param_EscapeAIskillMenu_novice, "Novice (0.25)", "Novice (0.25)"
+STR_NNS_Escape_param_EscapeAIskillMenu_normal, "Normal (0.50)", "Normal (0.50)"
+STR_NNS_Escape_param_EscapeAIskillMenu_expert, "Expert (0.75)", "Expert (0.75)"
+
+
+
+STR_NNS_Escape_Debrif_Stats_title, "Statistics", "Statistiques"
+
+STR_NNS_Escape_CollectIntel_name, "Collect Intel", "Collecter les données"
+STR_NNS_Escape_CollectIntel_collected, "Intel collected", "Données collectées"
+
+STR_NNS_Escape_FreeHostage, "Free hostage", "Libérer l'otage"
+STR_NNS_Escape_Salute, "Salute", "Saluer"
+
+STR_NNS_Escape_Objective_AAvehicles_title, "Destroy AA vehicles", "Détruisez les véhicules AA"
+STR_NNS_Escape_Objective_AAvehicles_desc, "There is a high probability of helicopter presence on site", "Il y a de forte chances que des hélicoptères soit présent sur le site"
+
+STR_NNS_Escape_Objective_JTAGofficer_title, "Eliminate JTAG Officer", "Éliminer l'officier JTAG"
+STR_NNS_Escape_Objective_JTAGofficer_desc, "Beware, location is heavily guarded", "Attention, l'emplacement est fortement gardé"
+
+STR_NNS_Escape_Objective_TowerOfficer_title, "Eliminate Tower Officer", "Éliminer l'officier de la tour"
+STR_NNS_Escape_Objective_TowerOfficer_desc, "Beware, some snipers are present on site", "Attention, des snipers sont présents sur place"
+
+STR_NNS_Escape_Objective_ExploreOldEastCSATbase_title, "Explore old East CSAT camp", "Explorez l'ancien camp CSAT à l'Est"
+STR_NNS_Escape_Objective_ExploreOldSouthCSATbase_title, "Explore old South CSAT camp", "Explorez l'ancien camp CSAT au Sud"
+STR_NNS_Escape_Objective_ExploreOldCSATbase_desc, "Some equipments may still be there. Warning BLUFOR forces may be present. Clean area if possible", "Certains équipements peuvent encore être présents. Des forces BLUFOR peuvent être présentes. Nettoyer la zone si possible"
+
+STR_NNS_Escape_Objective_WestCheckpoint_title, "Clean West NATO checkpoint", "Nettoyer le checkpoint de OTAN à l'Ouest"
+STR_NNS_Escape_Objective_SouthCheckpoint_title, "Clean South NATO checkpoint", "Nettoyer le checkpoint de OTAN au Sud"
+STR_NNS_Escape_Objective_EastCheckpoint_title, "Clean East NATO checkpoint", "Nettoyer le checkpoint de OTAN à l'Est"
+STR_NNS_Escape_Objective_Checkpoint_desc, "Clean whole area", "Nettoyer toute la zone"
+
+STR_NNS_Escape_Objective_Intel_title, "Collect Intel", "Collecter les données"
+STR_NNS_Escape_Objective_Intel_desc, "You will maybe found useful informations", "Vous y trouverez peut-être des informations utiles"
+
+STR_NNS_Escape_Objective_RescueCSATsquad_title, "Release CSAT squad", "Libérer l'escouade CSAT"
+STR_NNS_Escape_Objective_RescueCSATsquad_desc, "If successful, alive units will join you", "En cas de succès, les survivants vous rejoindront"
+
+STR_NNS_Escape_Objective_RescueCSATsquad_speech0, "Thanks for your help, without you, I don't know where we would have end up", "Merci pour votre aide, sans vous, je ne sais pas ce que nous serions devenu"
+STR_NNS_Escape_Objective_RescueCSATsquad_speech1, "I almost failed, but I said nothing, I swear, you believe me, huh?", "J'ai failli craquer, mais j'ai rien dit, je le promet, vous me croyez, hein?"
+STR_NNS_Escape_Objective_RescueCSATsquad_speech2, "Fuckin war, why did I signed up!", "Guerre à la con, pourquoi je me suis engagé putain!"
+STR_NNS_Escape_Objective_RescueCSATsquad_speech3, "No, stop hit me, me friend, tell you everything you want to know. Friend?", "Non, tapez pas moi, moi ami, moi vous dire tout ce que vous voulez savoir. Ami?"
+STR_NNS_Escape_Objective_RescueCSATsquad_speech4, "I'll kill you. Damn, but you're a bud, thanks man", "Je vais te buter. Putain, mais t'est un pote, merci mec"
+STR_NNS_Escape_Objective_RescueCSATsquad_speech5, "Stop hitting me, I know nothing damn, I'm just a private", "Arreté de me taper, je sais rien bordel, je suis juste un troufion"
+STR_NNS_Escape_Objective_RescueCSATsquad_speech6, "I'm going to fuck them all!", "J'vais tous les buter putain!"
+STR_NNS_Escape_Objective_RescueCSATsquad_speech7, "It’s good to see allies, thank you guys!", "Ca fais du bien de voir des alliées, merci les gars!"
+STR_NNS_Escape_Objective_RescueCSATsquad_sniper_speech1, "Hey man, I am aware of one of our sniper team location. Maybe they could help us if we meet them", "Hé mec, je suis au courant de l'emplacement de l'une de nos équipes de sniper. Peut-être qu'ils pourraient nous aider si nous les rejoignons"
+
+STR_NNS_Escape_Objective_MeetCSATsniper_title, "Meet CSAT sniper team", "Rencontrer l'équipe de sniper"
+STR_NNS_Escape_Objective_MeetCSATsniper_desc, "They may agree to join you", "Ils vont probablement vous rejoindront"
+
+STR_NNS_Escape_Objective_MeetCSATsniper_speech0, "So nice seeing some buds", "Pas mécontent de croiser des amis"
+STR_NNS_Escape_Objective_MeetCSATsniper_speech1, "Nice to meet you guys", "Heureux de vous rencontrez les gars"
+STR_NNS_Escape_Objective_MeetCSATsniper_speech2, "So what's the plan, escape from this island?", "Donc c'est quoi le plan, s'échapper de cette ile?"
+STR_NNS_Escape_Objective_MeetCSATsniper_speech3, "We were limited in supplies, thank you guys", "On était limite en provision, merci les gars"
+STR_NNS_Escape_Objective_MeetCSATsniper_speech4, "I don't know how we survived so far", "Je ne sais pas comment on a survécu jusque là"
+STR_NNS_Escape_Objective_MeetCSATsniper_speech5, "Damn NATO troops, I am hurry to leave", "Maudit troupes de l'OTAN, je suis pressé de partir"
+
+STR_NNS_Escape_Objective_SabotagePowerplant_title, "Power station sabotage", "Sabotage de la centrale électrique"
+STR_NNS_Escape_Objective_SabotagePowerplant_desc, "You need to destroy the 3 diesel tanks in order to shutdown the power station. This will lower enemies ability to spot your team inside cities.", "Vous devez détruire les 3 réservoirs diesel afin d'arrêter la centrale électrique. Cela réduira la capacité des ennemis à repérer votre équipe dans les villes."
+
+
+
+
+
+STR_NNS_Debriefing_AmmoUsed_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Ammo&#160;used:</t> %1 Bullet%2%3%4%5%6", "&#160;&#160;&#160;&#160;<t underline='1'>Munitions&#160;utilisé:</t> %1 Balle%2%3%4%5%6"
+STR_NNS_Debriefing_AmmoUsed_HEgrenades, ", %1 HE grenade%2", ", %1 Grenade%2"
+STR_NNS_Debriefing_AmmoUsed_SmokeGrenade, ", %1 Smoke grenade%2", ", %1 Fumigène%2"
+STR_NNS_Debriefing_AmmoUsed_Rockets, ", %1 Rocket%2", ", %1 Missile%2"
+STR_NNS_Debriefing_AmmoUsed_Vehicle, ", %1 shot%2 from Vehicle", ", %1 tir%2 depuis véhicule"
+
+STR_NNS_Debriefing_DistanceTravel_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Distance&#160;traveled:</t> %1m on foot%2", "&#160;&#160;&#160;&#160;<t underline='1'>Distance&#160;parcourue:</t> %1m à pied%2"
+STR_NNS_Debriefing_DistanceTravel_vehicle, ", %1m in vehicle, %2m total", ", %1m en véhicule, %2m au total"
+
+STR_NNS_Debriefing_LongestKill_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Longest&#160;kill:</t> %1m%2", "&#160;&#160;&#160;&#160;<t underline='1'>Frag&#160;distant:</t> %1m%2"
+
+STR_NNS_Debriefing_FriendlyKill_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Friendly&#160;killed:</t> %1%2", "&#160;&#160;&#160;&#160;<t underline='1'>Frag&#160;alliée:</t> %1%2"
+
+
+
+STR_NNS_Debriefing_GroupStats_title, "Group statistics", "Statistiques de groupe"
+
