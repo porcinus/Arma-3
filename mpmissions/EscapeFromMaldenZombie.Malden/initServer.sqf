@@ -63,7 +63,7 @@ _x enableGunLights "forceOn"; _x action ["GunLightOn", _x]; //try to force light
 	_wreckHeli enableSimulation false; //disable simulation
 	
 	waitUntil {sleep 1; {alive _x} count allPlayers == (count allPlayers)}; //wait until all player are alive, here to allow fire sound to work on all clients
-	[_heliCrater, 500, false, true] remoteExec ["BIS_fnc_NNS_spawnBigFire",0,true]; //remoteexec fire
+	[_heliCrater, 500, false, true] remoteExec ["NNS_fnc_spawnBigFire",0,true]; //remoteexec fire
 };
 
  //NNS: Original rules -> Remove respawn after 5min
@@ -108,7 +108,7 @@ addMissionEventHandler ["EntityRespawned",
 		_equipment setDir (getDir _x);
 		_equipment addMagazineCargoGlobal ["150Rnd_93x64_Mag", 3]; //Navid
 		_equipment addMagazineCargoGlobal ["6Rnd_45ACP_Cylinder", 6]; //Zubr
-		[_equipment,0,0,true] call BIS_fnc_NNS_AmmoboxLimiter;
+		[_equipment,0,0,true] call NNS_fnc_AmmoboxLimiter;
 	} forEach nearestObjects [[5250,5780,0], ["Land_Bunker_01_small_F"], 7000];
 };
 
@@ -125,7 +125,7 @@ addMissionEventHandler ["EntityRespawned",
 
 					waitUntil {sleep (5 + (random 5)); allPlayers findIf {(_x distance2d _basePos) < 600} != -1}; //random is here to limit CPU usage when detection happen
 					
-					[format["'CSAT_infantry' spawned (%1m)",player distance2d _basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'CSAT_infantry' spawned (%1m)",player distance2d _basePos]] call NNS_fnc_debugOutput; //debug
 					
 					_newGrp = grpNull;
 					_newGrp = [_basePos, east, configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> (selectRandom BIS_csatGroups), [], [], [0.2, 0.3]] call BIS_fnc_spawnGroup;
@@ -152,7 +152,7 @@ addMissionEventHandler ["EntityRespawned",
 					waitUntil {sleep (15); (allPlayers findIf {(_x distance2d _basePos) > 800} != -1) || ({alive _x} count (units _newGrp) == 0)}; //NNS : wait until all players are far away
 					if !(isNull _newGrp) then {
 						{_x setDamage [1, false];} forEach (units _newGrp); //NNS : kill units from group
-						[format["'CSAT_infantry' group:%1 killed because too far from player",_newGrp]] call BIS_fnc_NNS_debugOutput; //debug
+						[format["'CSAT_infantry' group:%1 killed because too far from player",_newGrp]] call NNS_fnc_debugOutput; //debug
 					};
 				};
 			};
@@ -174,11 +174,11 @@ addMissionEventHandler ["EntityRespawned",
 						_veh setDamage [1, false];
 					} else {
 						_veh disableAI "LIGHTS"; //disable vehicle IA light
-						[_veh,["hitfuel"],0.2,0.8] call BIS_fnc_NNS_randomVehicleDamage;
+						[_veh,["hitfuel"],0.2,0.8] call NNS_fnc_randomVehicleDamage;
 						_veh addMagazineCargoGlobal ["150Rnd_93x64_Mag", 3]; //Navid
 						_veh addMagazineCargoGlobal ["6Rnd_45ACP_Cylinder", 6]; //Zubr
 						sleep 1;
-						[_veh,0,0,true] call BIS_fnc_NNS_AmmoboxLimiter; //limit cargo weapons/ammos
+						[_veh,0,0,true] call NNS_fnc_AmmoboxLimiter; //limit cargo weapons/ammos
 					};
 				};
 			};
@@ -189,7 +189,7 @@ addMissionEventHandler ["EntityRespawned",
 					_dir = (triggerArea _this) select 2; if (_dir < 0) then {_dir = 360 + _dir};
 					deleteVehicle _this;
 					waitUntil {sleep (5 + (random 5)); allPlayers findIf {(_x distance2d _basePos) < 600} != -1}; //random is here to limit CPU usage when detection happen
-					[[_basePos select 0,_basePos select 1],_dir] call BIS_fnc_NNS_spawnCivVehi;
+					[[_basePos select 0,_basePos select 1],_dir] call NNS_fnc_spawnCivVehi;
 				};
 			};
 		} forEach (allMissionObjects "EmptyDetector");
@@ -204,7 +204,7 @@ BIS_Escaped = false; publicVariable "BIS_Escaped";
 	while {!(BIS_Escaped)} do {
 		sleep 5;
 		{if ((((vehicle _x in list BIS_getaway_area_1) || (vehicle _x in list BIS_getaway_area_2) || (vehicle _x in list BIS_getaway_area_3) || (vehicle _x in list BIS_getaway_area_4) || (vehicle _x in list BIS_getaway_area_5) || (vehicle _x in list BIS_getaway_area_6)) && ((vehicle _x isKindOf "Ship") || (vehicle _x isKindOf "Air"))) || (missionNamespace getVariable ["Debug_Win",false]))} forEach (allPlayers) then { //NNS : rework winning condition, original one allow you to win in some case if soldier was in a destroyed heli
-			_null = [false] call BIS_fnc_NNS_CompileDebriefingStats; //NNS : stats : Compile data from players
+			_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 			["objEscape", "Succeeded"] remoteExec ["BIS_fnc_taskSetState",east,true]; //success
 			["success"] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 			BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
@@ -218,7 +218,7 @@ if (BIS_EscapeRules == 0) then {
 		sleep 300; //wait 5min
 		waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} != -1}; //check if at least one player alive
 		waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} == -1}; //check if all players dead
-		_null = [false] call BIS_fnc_NNS_CompileDebriefingStats; //NNS : stats : Compile data from players
+		_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 		["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
 		["end1", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 	};
@@ -238,7 +238,7 @@ if (!([east] call BIS_fnc_respawnTickets == -1) || !(missionNamespace getVariabl
 			
 			if (_remainingTickets < 0) then {_remainingTickets = [east] call BIS_fnc_respawnTickets;}; //ticket but group
 			if (_remainingTickets == 0) then { //no more ticket remaining
-				_null = [false] call BIS_fnc_NNS_CompileDebriefingStats; //NNS : stats : Compile data from players
+				_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 				["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
 				["end1", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 				BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
@@ -251,7 +251,7 @@ if (!([east] call BIS_fnc_respawnTickets == -1) || !(missionNamespace getVariabl
 [] spawn {
 	sleep 300; //wait 5min
 	waitUntil {sleep 5; [BIS_EW01,BIS_EW02,BIS_EW03,BIS_EW04,BIS_EW05,BIS_EW06,BIS_EW07,BIS_EW08,BIS_EW09,BIS_EW10] findIf {canMove _x} == -1}; //check if all vehicles destroyed
-	_null = [false] call BIS_fnc_NNS_CompileDebriefingStats; //NNS : stats : Compile data from players
+	_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 	["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
 	["end2", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 };
@@ -461,14 +461,14 @@ addMissionEventHandler ["EntityKilled", {
 	_zombies_spawner = (_this select 0); //zombie spawner
 	waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} != -1}; //check if at least one player alive
 	_lastRespawnPos = [0,0,0];
-	_groupOldPos = [BIS_grpMain,[0,0,0]] call BIS_fnc_NNS_groupCenter; //initial group position
+	_groupOldPos = [BIS_grpMain,[0,0,0]] call NNS_fnc_groupCenter; //initial group position
 	_spawnerDist = 100; //tmp
 	_spawnerInterval = 2.5; //interval between update
 	_spawnerIncreaseInterval = round (1800 / (count _zombies_spawner - 1)); //interval where zombie spawner will be upgraded
 	while {true} do {
 		_ignorePlayers = [];
 		{if (_x getVariable ["recovery",false]) then {_ignorePlayers pushBack _x;};} forEach (units BIS_grpMain); //add to ignore list
-		_groupNewPos = [BIS_grpMain, _groupOldPos, _ignorePlayers] call BIS_fnc_NNS_groupCenter; //group center
+		_groupNewPos = [BIS_grpMain, _groupOldPos, _ignorePlayers] call NNS_fnc_groupCenter; //group center
 		if !(getMarkerColor "marker_respawn" == "") then {"marker_respawn" setMarkerPos _groupNewPos;}; //move respawn marker
 		
 		_currentZombieStage = floor (time / _spawnerIncreaseInterval); //compute current stage
@@ -490,7 +490,7 @@ addMissionEventHandler ["EntityKilled", {
 			
 			//debug
 			//_tmpmarker_name = format["tmpmarker%1%2%3",random 10000,random 10000,random 10000]; //marker name to avoid "colision"
-			//[_tmpmarker_name,_groupNewPos,_spawnerPos,"ColorRed",1,1,_spawnerInterval] call BIS_fnc_NNS_MapDrawLine; //draw line from initial to new position
+			//[_tmpmarker_name,_groupNewPos,_spawnerPos,"ColorRed",1,1,_spawnerInterval] call NNS_fnc_MapDrawLine; //draw line from initial to new position
 		};
 		_groupOldPos = _groupNewPos; //backup position
 		sleep _spawnerInterval; //wait
@@ -517,7 +517,7 @@ addMissionEventHandler ["EntityKilled", {
 						_tmpHitpoints = getAllHitPointsDamage _tmpObj;
 						if !(count _tmpHitpoints == 0) then {_lightAlive = {_x < 0.9} count (_tmpHitpoints select 2);}; //count light hitpoint < 0.9 damage
 						if (_lightAlive > 0) then {
-							[_tmpObj] remoteExec ["BIS_fnc_NNS_LampFlickering"]; //remoteexec a flicker on each clients
+							[_tmpObj] remoteExec ["NNS_fnc_LampFlickering"]; //remoteexec a flicker on each clients
 						};
 					};
 					sleep (5/_lampCount); //allow 5sec for the whole array

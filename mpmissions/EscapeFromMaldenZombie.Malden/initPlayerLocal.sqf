@@ -161,7 +161,7 @@ addMissionEventHandler ["Map", {
 player addEventHandler ["GetInMan", {
 	params ["_unit", "_role", "_vehicle", "_turret"];
 	if !(sunOrMoon == 1) then { //moon time
-		[_vehicle,"ON"] call BIS_fnc_NNS_vehicleLightOnOff; //restore headlights
+		[_vehicle,"ON"] call NNS_fnc_vehicleLightOnOff; //restore headlights
 		player action ["LightOn", _vehicle]; //turn on light
 	};
 }];
@@ -171,7 +171,7 @@ player addEventHandler ["GetOutMan", {
 	params ["_unit", "_role", "_vehicle", "_turret"];
 	if (local _vehicle) then { //vehicle is local
 	//if ({(_x in _vehicle && {alive _x})} count allPlayers == 0) then { //no more player in vehicle
-		[_vehicle,"OFF"] call BIS_fnc_NNS_vehicleLightOnOff; //destroy headlights
+		[_vehicle,"OFF"] call NNS_fnc_vehicleLightOnOff; //destroy headlights
 	};
 	if !(sunOrMoon == 1) then {player action ["GunLightOn", player]}; //turn on flashlight if moon time
 }];

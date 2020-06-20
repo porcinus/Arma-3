@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=8593;
+		nextID=8728;
 	};
 	class Camera
 	{
 		pos[]={7547.5186,349.45966,10413.203};
-		dir[]={0.17019705,-0.84101373,0.51365209};
-		up[]={0.26453066,0.54098928,0.79834229};
-		aside[]={0.9492988,6.7567453e-007,-0.31454816};
+		dir[]={0.54289055,-0.74756908,0.38281032};
+		up[]={0.6109882,0.66413844,0.4308269};
+		aside[]={0.57631534,-1.1311204e-007,-0.81731224};
 	};
 };
 binarizationWanted=0;
@@ -27410,7 +27410,7 @@ class Mission
 							{
 								text="Corton";
 								condition="allPlayers findIf {_x inArea thisTrigger} != -1";
-								onActivation="[corton_vehi_0,[""hitfuel""],0.3,0.7] call BIS_fnc_NNS_randomVehicleDamage; corton_vehi_0 setFuel (random 0.05); [corton_vehi_0,0,0,true] call BIS_fnc_NNS_AmmoboxLimiter;";
+								onActivation="[corton_vehi_0,[""hitfuel""],0.3,0.7] call NNS_fnc_randomVehicleDamage; corton_vehi_0 setFuel (random 0.05); [corton_vehi_0,0,0,true] call NNS_fnc_AmmoboxLimiter;";
 								sizeA=300;
 								sizeB=300;
 								activationBy="EAST";
@@ -30507,7 +30507,7 @@ class Mission
 							};
 							id=506;
 							type="Box_East_WpsSpecial_F";
-							atlOffset=1.0350037;
+							atlOffset=1.032196;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -30567,7 +30567,7 @@ class Mission
 							};
 							id=507;
 							type="Box_CSAT_Equip_F";
-							atlOffset=1.3850098;
+							atlOffset=1.3795166;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -30787,7 +30787,7 @@ class Mission
 						};
 					};
 					id=6345;
-					atlOffset=-223.40079;
+					atlOffset=-223.40076;
 				};
 				class Item26
 				{
@@ -34553,7 +34553,7 @@ class Mission
 							class Attributes
 							{
 								text="Vineyard";
-								onActivation="BIS_VineyardBox call BIS_fnc_EfM_SupplyboxCSAT;  " \n "BIS_Vineyard_Vehi_0 setFuel (random 0.05);  " \n "BIS_Vineyard_Vehi_0 setVehicleAmmo (0.05 + random 0.1);   " \n "[BIS_Vineyard_Vehi_0,0,0,true] call BIS_fnc_NNS_AmmoboxLimiter; " \n "[BIS_Vineyard_Vehi_0,[""hitfuel""],0.3,0.7] call BIS_fnc_NNS_randomVehicleDamage;";
+								onActivation="BIS_VineyardBox call BIS_fnc_EfM_SupplyboxCSAT;  " \n "BIS_Vineyard_Vehi_0 setFuel (random 0.05);  " \n "BIS_Vineyard_Vehi_0 setVehicleAmmo (0.05 + random 0.1);   " \n "[BIS_Vineyard_Vehi_0,0,0,true] call NNS_fnc_AmmoboxLimiter; " \n "[BIS_Vineyard_Vehi_0,[""hitfuel""],0.3,0.7] call NNS_fnc_randomVehicleDamage;";
 								sizeA=100;
 								sizeB=100;
 								activationBy="EAST";

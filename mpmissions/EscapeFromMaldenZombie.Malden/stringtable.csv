@@ -1,0 +1,96 @@
+LANGUAGE, "English", "French"
+
+STR_NNS_Escape_mission_name, "Escape From Zombies (NNS)", "Escape From Zombies (NNS)"
+STR_NNS_Escape_mission_version, "v19-06-20-1", "v19-06-20-1"
+STR_NNS_Escape_briefing_overview, "Good luck...", "Bonne chance..."
+
+STR_NNS_Escape_briefing_0, "Following massive outbreak on the little island of Malden, all military forces on zone received orders to evacuate.", "A la suite d'une épidémie massive sur la petite île de Malden, toutes les forces militaires de la zone ont reçu l'ordre d'évacuer."
+STR_NNS_Escape_briefing_1, "The helicopter you and your team were in has been forced to make a emergency land due to a turbine failure.", "L'hélicoptère dans lequel vous et votre équipe étiez a été contraint de faire un atterrissage d'urgence en raison d'une panne de turbine."
+STR_NNS_Escape_briefing_2, "Some locations like <marker name='BIS_mrkSouthBase'>South West</marker>, <marker name='BIS_mrkBase'>East</marker> military base or the <marker name='BIS_mrkAirbase'>airport</marker> should still have working vehicules that can help you to escape.", "Certains emplacements comme la base militaire au <marker name='BIS_mrkSouthBase'>Sud-Ouest</marker> et à <marker name='BIS_mrkBase'>l'Est</marker> ou <marker name='BIS_mrkAirbase'>l'aéroport</marker> devraient toujours avoir des véhicules en état de marche qui pourraient vous aider à vous échapper."
+STR_NNS_Escape_briefing_3, "<marker name='BIS_mrkNorthEastBase'>North East</marker> military site may also have a good amount of equipments left.", "Le site militaire du <marker name='BIS_mrkNorthEastBase'>Nord-Est</marker> peut également avoir une bonne quantité d'équipements sur place."
+STR_NNS_Escape_briefing_4, "Some CSAT squads have failed to reach the evacuation zones in time and are currently stuck on the island.", "Certaines équipes CSAT n'ont pas réussi à rejoindre les zones d'évacuation à temps et sont actuellement bloqués sur l'île."
+STR_NNS_Escape_briefing_5, "Be friendly, try not to shoot at them.", "Soyez amical, essayez de ne pas leurs tirer dessus."
+
+STR_NNS_Escape_approachingLocation, "Approaching %1 (%2m)", "%1 à proximité (%2m)"
+STR_NNS_Escape_location_SouthWestBase, "South West base", "base militaire Sud Ouest"
+STR_NNS_Escape_location_SouthOldBase, "Old South base", "ancienne base militaire Sud"
+STR_NNS_Escape_location_EastOldBase, "Old East base", "ancienne base militaire Est"
+
+
+
+
+STR_NNS_Escape_param_disable, "Disable", "Désactivé"
+STR_NNS_Escape_param_all, "All", "Tous"
+STR_NNS_Escape_param_normal, "Normal", "Normal"
+STR_NNS_Escape_param_enable, "Enable", "Activé"
+STR_NNS_Escape_param_disable, "Disable", "Désactivé"
+STR_NNS_Escape_param_unlimited, "Unlimited", "Illimité"
+
+STR_NNS_Escape_param_respawnLoadouts_overequip, "Over-equipped (100% ammo, full equipment and GPS for everyone)", "Suréquipé (100 % de munitions, équipement complet et GPS pour tous)"
+
+STR_NNS_Escape_param_DebugOutputs_title, "NNS: Debug outputs (will spam Chatbox (Global) and/or Server logs)", "NNS: Infos de débuggage (va spammer la chatbox (Globale) et/ou les logs Serveur)"
+STR_NNS_Escape_param_DebugOutputs_chatbox, "Enable (Chatbox)", "Activé (Chatbox)"
+STR_NNS_Escape_param_DebugOutputs_logs, "Enable (Logs)", "Activé (Logs)"
+STR_NNS_Escape_param_DebugOutputs_both, "Enable (Chatbox/Logs)", "Activé (Chatbox/Logs)"
+
+STR_NNS_Escape_param_DebugMenu_title, "NNS: Debug menu (access via Quick command menu > Communication)", "NNS: Menu débuggage (accessible via Menu de commande rapide > Communication)"
+STR_NNS_Escape_param_DebugMenu_admin, "Enable for Admin", "Activé pour Admin"
+STR_NNS_Escape_param_DebugMenu_all, "Enable for All", "Activé pour Tous"
+
+STR_NNS_Escape_param_EscapeRulesMenu_title, "NNS: Escape rules", "NNS: Règles de l'escape"
+STR_NNS_Escape_param_EscapeRulesMenu_original, "Original", "Original"
+STR_NNS_Escape_param_EscapeRulesMenu_permissive, "Permissive : All players can die without failing the mission", "Permissif : Tous les joueurs peuvent mourir sans échoué la mission"
+
+STR_NNS_Escape_param_ZombiesAmount_title, "NNS: Zombies Amount", "NNS: Quantité de zombies"
+STR_NNS_Escape_param_ZombiesAmount_limited, "Limited", "Limitée (50%)"
+STR_NNS_Escape_param_ZombiesAmount_normal, "Normal", "Normal"
+STR_NNS_Escape_param_ZombiesAmount_high, "High", "Elevé (150%)"
+
+STR_NNS_Escape_param_AmmoboxAmount_title, "NNS: Ammo box content", "NNS: Contenu caisse de munitions"
+STR_NNS_Escape_param_AmmoboxAmount_verylow, "Limited (0-25%)", "Limitée (0-25%)"
+STR_NNS_Escape_param_AmmoboxAmount_low, "Limited (25-50%)", "Limitée (25-50%)"
+STR_NNS_Escape_param_AmmoboxAmount_normal, "Normal (50-75%)", "Normal (50-75%)"
+STR_NNS_Escape_param_AmmoboxAmount_high, "High (75-100%)", "Elevé (75-100%)"
+
+STR_NNS_Escape_param_Stamina_title, "NNS: Stamina", "NNS: Endurance"
+
+
+
+
+STR_NNS_LootMarkerFound_title, "Loot marker added to the map", "Marqueur d'équipement ajouté sur la carte"
+
+
+
+
+
+STR_NNS_Escape_Debrif_Stats_title, "Team statistics", "Statistiques d'équipe"
+STR_NNS_Escape_Debrif_Stats_team, "Team", "Équipe"
+STR_NNS_Escape_Debrif_Stats_nodata, "No data received yet.", "Aucune donnée n'a encore été reçue."
+
+STR_NNS_Debriefing_AmmoUsed_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Ammo&#160;used:</t> %1 Bullet%2%3%4%5%6", "&#160;&#160;&#160;&#160;<t underline='1'>Munitions&#160;utilisé:</t> %1 Balle%2%3%4%5%6"
+STR_NNS_Debriefing_AmmoUsed_HEgrenades, ", %1 HE grenade%2", ", %1 Grenade%2"
+STR_NNS_Debriefing_AmmoUsed_SmokeGrenade, ", %1 Smoke grenade%2", ", %1 Fumigène%2"
+STR_NNS_Debriefing_AmmoUsed_Rockets, ", %1 Rocket%2", ", %1 Missile%2"
+STR_NNS_Debriefing_AmmoUsed_Vehicle, ", %1 shot%2 from Vehicle", ", %1 tir%2 depuis véhicule"
+
+STR_NNS_Debriefing_DistanceTravel_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Distance&#160;traveled:</t> %1m on foot%2", "&#160;&#160;&#160;&#160;<t underline='1'>Distance&#160;parcourue:</t> %1m à pied%2"
+STR_NNS_Debriefing_DistanceTravel_vehicle, ", %1m in vehicle, %2m total", ", %1m en véhicule, %2m au total"
+
+STR_NNS_Debriefing_LongestKill_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Longest&#160;kill:</t> %1m%2", "&#160;&#160;&#160;&#160;<t underline='1'>Frag&#160;distant:</t> %1m%2"
+
+STR_NNS_Debriefing_FriendlyKill_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Friendly&#160;killed:</t> %1%2", "&#160;&#160;&#160;&#160;<t underline='1'>Frag&#160;alliée:</t> %1%2"
+
+STR_NNS_Debriefing_GroupStats_title, "Group statistics", "Statistiques du groupe"
+
+
+STR_NNS_Escape_FuelCanister, "Jerrycan", "Jerrican"
+STR_NNS_Escape_TakeFuelCanister, "Take jerrycan", "Prendre le jerrican"
+STR_NNS_Escape_FuelTank_drain, "Drain the fuel tank", "Siphonner le réservoir de carburant"
+STR_NNS_Escape_FuelTank_draincargo, "Drain the tank", "Siphonner la citerne"
+STR_NNS_Escape_FuelTank_fill, "Fill the fuel tank", "Remplir le réservoir de carburant"
+
+STR_NNS_Escape_Objective_title, "Recover tanker", "Camion citerne"
+STR_NNS_Escape_Objective_desc, "Military base lost communication with 2 tankers around <marker name='mrkRefueler0'>theses</marker> <marker name='mrkRefueler1'>locations</marker> a few hours ago. With one of these, you should be able to refuel the helicopters.", "Il y a quelques heures, la base militaire a perdu la communication avec 2 camions citerne autour de <marker name='mrkRefueler0'>ces</marker> <marker name='mrkRefueler1'>positions</marker>. Avec l'un d'entre eux, vous devriez pouvoir faire le plein des hélicoptères."
+
+
+

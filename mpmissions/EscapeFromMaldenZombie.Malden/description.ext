@@ -160,30 +160,37 @@ class CfgFunctions {
 	class BIS {
 		class EscapeFromMalden {
 			file = "Functions";
-			class NNS_debugOutput {};	//NNS
 			class EfM_AmmoboxCSAT {};
 			class EfM_AmmoboxSpecial {};
 			class EfM_SupplyboxCSAT {};
 			class EfM_SniperBox {};
-			class NNS_MapDrawLine {};	//NNS
-			class NNS_randomVehicleDamage {};	//NNS
-			class NNS_CompileDebriefingStats {};	//NNS
-			class NNS_CargoTower_Equipments {};	//NNS
-			class NNS_CargoHQ_Equipments {};	//NNS
-			class NNS_groupCenter {};	//NNS
-			class NNS_AmmoboxLimiter {};	//NNS
-			class NNS_LampFlickering {};	//NNS
-			class NNS_StringCapitalize {};	//NNS
-			class NNS_spawnVehicleOnRoad {};	//NNS
-			class NNS_vehicleLightOnOff {};	//NNS
-			class NNS_destroyZone {};	//NNS
-			class NNS_spawnBigFire {}; //NNS
-			class NNS_spawnCivVehi {}; //NNS
-			class NNS_setAllHitPointsDamage {}; //NNS
-			class NNS_PopulateCargoHQ_CSAT {};	//NNS
-			class NNS_populatePost_CSAT {};	//NNS
-			class NNS_populateTower_CSAT {};	//NNS
-			class NNS_spawnFlare {};	//NNS
+		};
+	};
+	
+	class NNS {
+		class EscapeFromMalden {
+			file = "nns_functions";
+			//class test {};
+			class debugOutput {};
+			class MapDrawLine {};
+			class randomVehicleDamage {};
+			class CompileDebriefingStats {};
+			class CargoTower_Equipments {};
+			class CargoHQ_Equipments {};
+			class groupCenter {};
+			class AmmoboxLimiter {};
+			class LampFlickering {};
+			class StringCapitalize {};
+			class spawnVehicleOnRoad {};
+			class vehicleLightOnOff {};
+			class destroyZone {};
+			class spawnBigFire {};
+			class spawnCivVehi {};
+			class setAllHitPointsDamage {};
+			class PopulateCargoHQ_CSAT {};
+			class populatePost_CSAT {};
+			class populateTower_CSAT {};
+			class spawnFlare {};
 		};
 	};
 };
@@ -216,8 +223,6 @@ class CfgSounds { //NNS
 	class AmbienceRZeat4 {name = "AmbienceRZeat4"; sound[] = {"@ryanzombies\sounds\eat4.ogg", 8, 1}; titles[] = {};};
 	class AmbienceRZeat5 {name = "AmbienceRZeat5"; sound[] = {"@ryanzombies\sounds\eat5.ogg", 8, 1}; titles[] = {};};
 };
-
-
 
 class CfgSFX {
 	class BigFire01 {sound0[] = {"@A3\Sounds_F\sfx\fire1_loop", 8, 1.0, 250, 1, 0, 0, 0}; sounds[] = {sound0}; empty[] = {"", 0, 0, 0, 0, 0, 0, 0};};
