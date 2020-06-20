@@ -1,6 +1,7 @@
 ### Important note:  
 I modify some of theses mission on a daily basis, this repo can be a bit outdated.  
 All of missions on this repo have debug features enable, test these missions with friends.
+Not tested on dedicated server.
 
 ## EscapeFromMaldenMOD.Malden  
 This mission is based on the original "Escape from Malden" mission.  
@@ -17,7 +18,7 @@ English and French localized.
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/south-west-base.jpg)](EscapeFromMaldenMOD.Malden%20preview/south-west-base.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/whiteboard.jpg)](EscapeFromMaldenMOD.Malden%20preview/whiteboard.jpg)
 
-WIP, work but many things need to be redone the right way.  
+WIP, work but many things need to be redone the right way. I stated this modification while lacking a lot of knowledge about ArmA scripting. Don't look at scripts, you will tear blood...
   
 My main idea is to allow me and a group of friends to really enjoy this mission.  
 To be honest, I didn't keep track of codes coming from internet and I am pretty sure some stuff may need some credits.  
@@ -79,14 +80,14 @@ English and French localized.
 Require Ryan's Zombies and Demons addon (https://steamcommunity.com/sharedfiles/filedetails/?id=501966277).  
 Enhanced Movement addon is recommended (https://steamcommunity.com/sharedfiles/filedetails/?id=333310405).  
   
-[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/main.jpg)](EscapeFromMaldenZombie.Malden%20preview/main.jpg)  
-[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/map.jpg)](EscapeFromMaldenZombie.Malden%20preview/map.jpg)  
-[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/northeastbase.jpg)](EscapeFromMaldenZombie.Malden%20preview/northeastbase.jpg)  
-[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/southwestbase.jpg)](EscapeFromMaldenZombie.Malden%20preview/southwestbase.jpg)  
-[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/startheli.jpg)](EscapeFromMaldenZombie.Malden%20preview/startheli.jpg)  
-[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/city-fire.jpg)](EscapeFromMaldenZombie.Malden%20preview/city-fire.jpg)  
-[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan1.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan1.jpg)  
-[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan2.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan2.jpg)  
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/main.jpg)](EscapeFromMaldenZombie.Malden%20preview/main.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/map.jpg)](EscapeFromMaldenZombie.Malden%20preview/map.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/northeastbase.jpg)](EscapeFromMaldenZombie.Malden%20preview/northeastbase.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/southwestbase.jpg)](EscapeFromMaldenZombie.Malden%20preview/southwestbase.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/startheli.jpg)](EscapeFromMaldenZombie.Malden%20preview/startheli.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/city-fire.jpg)](EscapeFromMaldenZombie.Malden%20preview/city-fire.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan1.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan1.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan2.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan2.jpg)
   
 WIP, some things still need to be done.  
   
