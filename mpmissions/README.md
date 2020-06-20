@@ -79,6 +79,15 @@ English and French localized.
 Require Ryan's Zombies and Demons addon (https://steamcommunity.com/sharedfiles/filedetails/?id=501966277).  
 Enhanced Movement addon is recommended (https://steamcommunity.com/sharedfiles/filedetails/?id=333310405).  
   
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/main.jpg)](EscapeFromMaldenZombie.Malden%20preview/main.jpg)  
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/map.jpg)](EscapeFromMaldenZombie.Malden%20preview/map.jpg)  
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/northeastbase.jpg)](EscapeFromMaldenZombie.Malden%20preview/northeastbase.jpg)  
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/southwestbase.jpg)](EscapeFromMaldenZombie.Malden%20preview/southwestbase.jpg)  
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/startheli.jpg)](EscapeFromMaldenZombie.Malden%20preview/startheli.jpg)  
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/city-fire.jpg)](EscapeFromMaldenZombie.Malden%20preview/city-fire.jpg)  
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan1.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan1.jpg)  
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan2.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan2.jpg)  
+  
 WIP, some things still need to be done.  
   
 It still is a escape mission but now with zombies.  
