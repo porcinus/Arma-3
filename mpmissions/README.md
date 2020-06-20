@@ -1,4 +1,4 @@
-### EscapeFromMaldenMOD.Malden  
+## EscapeFromMaldenMOD.Malden  
 This mission is based on the original "Escape from Malden" mission.  
   
 WIP, work but many things need to be redone the right way.  
@@ -55,5 +55,9 @@ What's done so far (missing some for sure):
 	- Disable if possible the noise effect when end of mission occurs (not sure it is possible).
 	- You tell me :P
 ```
+
+## EscapeFromMaldenZombie.Malden
+
+
 
 
