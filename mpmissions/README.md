@@ -14,9 +14,7 @@ This mission is based on the original "Escape from Malden" mission.
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/intel1.jpg)](EscapeFromMaldenMOD.Malden%20preview/intel1.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/rescue.jpg)](EscapeFromMaldenMOD.Malden%20preview/rescue.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/south-west-base.jpg)](EscapeFromMaldenMOD.Malden%20preview/south-west-base.jpg)
-
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/whiteboard.jpg)](EscapeFromMaldenMOD.Malden%20preview/whiteboard.jpg)
-
 
 WIP, work but many things need to be redone the right way.  
   
