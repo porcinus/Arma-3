@@ -426,6 +426,7 @@ player setVariable ["canisterFuel", 10];
 //NNS: punish teamkiller
 [] spawn {
 	while {sleep 10; true} do {
+		if !(rating player < 0) then {player addRating -(rating player)};
 		if ((rating player < -2000) && {vehicle player == player}) then { //renegade and not in vehicle
 			[player, nil, true] spawn BIS_fnc_moduleLightning; //zeus punishment
 			player setDamage 1; //kill player
