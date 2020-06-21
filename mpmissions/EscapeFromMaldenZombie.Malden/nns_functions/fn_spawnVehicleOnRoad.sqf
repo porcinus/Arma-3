@@ -1,15 +1,38 @@
 /*
 NNS
 Spawn damaged/wreck/untouched vehicle on a road near given position.
-Note: this function try to follow road "curves" as best as possible.
+Note: 
+- This function try to follow road "curves" as best as possible, use n-1 road angle in case of crossroad, does not work with broken road connection, can fail with specific crossroad.
+- It is not bulletproof as boundingBoxReal function detect wrong vehicle size for wreck objects.
+- Limited to 999 road objects.
 
-Dependency: in initServer.sqf
-	BIS_civilCars = ["C_Offroad_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Truck_02_transport_F"];
-	BIS_civilWreckCars = ["Land_Wreck_Ural_F","Land_Wreck_Truck_dropside_F","Land_Wreck_Truck_F","Land_Wreck_Van_F","Land_Wreck_Offroad_F","Land_Wreck_Offroad2_F","Land_Wreck_Car_F"];
+Dependencies:
+	in initServer.sqf:
+		BIS_civilCars = ["C_Offroad_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Truck_02_transport_F"];
+		BIS_civilWreckCars = ["Land_Wreck_Ural_F","Land_Wreck_Truck_dropside_F","Land_Wreck_Truck_F","Land_Wreck_Van_F","Land_Wreck_Offroad_F","Land_Wreck_Offroad2_F","Land_Wreck_Car_F"];
 
+	in description.ext:
+		class CfgFunctions {
+			class NNS {
+				class missionfunc {
+					file = "nns_functions";
+					class debugOutput {};
+					class randomVehicleDamage {};
+					class setAllHitPointsDamage {};
+					class spawnVehicleOnRoad {};
+				};
+			};
+		};
+
+	nns_functions folder:
+		fn_debugOutput.sqf
+		fn_randomVehicleDamage.sqf
+		fn_setAllHitPointsDamage.sqf
+		fn_spawnVehicleOnRoad.sqf
 
 Example: 
 _null = [getPos player] call NNS_fnc_spawnVehicleOnRoad;
+_null = [getPos player,25,true,[],500,0,0.5,0.6,0,true,[],2] call NNS_fnc_spawnVehicleOnRoad; //spawn 500 vehicles on road player is in
 
 */
 
@@ -25,31 +48,28 @@ params [
 	["_vehiDamageMax", 0.8], //vehicle max damage
 	["_vehiFuel", 0], //vehicle fuel
 	["_addWreckVehi", true], //allow wreck vehicles
-	["_vehiWreckClasses", []] //default wreck vehicles class
+	["_vehiWreckClasses", []], //default wreck vehicles class
+	["_simpleObject", false]
 ];
 
-
-getAngle = {
+getAngle = { //compute angle between 2 object function
 	_pos_start = getPos (_this select 0);
 	_pos_end = getPos (_this select 1);
 	((_pos_start select 0)-(_pos_end select 0)) atan2 ((_pos_start select 1)-(_pos_end select 1));
 };
-
-//debug note: do not use append func on _vehiClasses/_vehiWreckClasses, this mess BIS_civilCars for whatever reason...
 
 private _vehiClasses;
 private _vehiWreckClasses;
 
 if (count _pos < 3) then {_pos = getPos player;}; //use player position if no position set
 
-_roads = _pos nearRoads _radius; //get near roads
-if (count _roads == 0) exitWith {[format["NNS_fnc_spawnVehicleOnRoad : no road found around %1, radius:%2",_pos,_radius]] call NNS_fnc_debugOutput;};
+_lastRoad = [_pos, _radius] call BIS_fnc_nearestRoad; //get near roads
+if (isNull _lastRoad) exitWith {[format["NNS_fnc_spawnVehicleOnRoad : no road found around %1, radius:%2",_pos,_radius]] call NNS_fnc_debugOutput;};
 
 if (count _vehiClasses == 0) then {_vehiClasses = missionNamespace getVariable ["BIS_civilCars",[]];}; //default vehicles classes
 if (_addWreckVehi && {count _vehiWreckClasses == 0}) then {_vehiWreckClasses = missionNamespace getVariable ["BIS_civilWreckCars",[]];}; //default wreck vehicles classes
 if (_addWreckVehi) then {_vehiClasses = _vehiClasses + _vehiWreckClasses}; //merge wreck classes to vehicle classes
 _dirCorrection = 0; if (_reverseDirection) then {_dirCorrection = 180;};
-
 
 _randomVehiCount = _vehiToSpawn + round(random _vehiToSpawnRandom); //amount of vehicle to spawn
 _vehiCount = 0; //vehicle already spawned
@@ -57,45 +77,75 @@ _lastVehiLength = 0; //backup current vehicle length for next loop
 _lastLane = 1; _consecutiveSameLane = 0; //used to shift lane
 _tmpVehiClasses = _vehiClasses; //store vehicle classes without last one used
 
-_lastRoad = selectRandom _roads; //select a random neaby road
 _connectedRoads = roadsConnectedTo _lastRoad; //find connected road
 _angleLast = 0; //starting connected road angle
+if (count _connectedRoads == 0) exitWith {[format["NNS_fnc_spawnVehicleOnRoad : no connected road found around %1, radius:%2",_pos,_radius]] call NNS_fnc_debugOutput;}; //roadsConnectedTo failed
+if (count _connectedRoads == 1) then {_connectedRoads set [1, _connectedRoads select 0];}; //only one connected road, add a second one for _reverseDirection
 if (_reverseDirection) then {_angleLast = ([_lastRoad,_connectedRoads select 1] call getAngle);
 } else {_angleLast = ([_lastRoad,_connectedRoads select 0] call getAngle);};
 
-_remainDist = 0;
+_angleLast1 = _angleLast; //angle n-1, used for crossroads
+_lastRoad1 = _lastRoad; //road n-1, used for crossroads
+_remainDist = 0; //road center to center distance
 _lastPos = [0,0,0]; //last spawned vehicle position, used to limit collide
+_failedDetection = 0; //connected roads retry
 
 for "_i" from 0 to 999 do { //roads loop
 	_connectedRoads = roadsConnectedTo _lastRoad; //find connected road
+	_connectedRoadsCount = count _connectedRoads; //connected road count
 	_selectedRoad = objNull; //reset selected road
 	_angleCurr = 0; //new road angle
+	_distHighest = 0; //store road distance
+	_angleLowest = 179; //store lower angle found, start value limit max angle allowed
+	_angleRoad = 0; //store new road right angle
+	_tmpAngleLast = _angleLast; //last road angle to use
+	//_tmpRoadLast = _lastRoad;
 	//_tmpMarkerName = format ["mrk%1%2%3%4", random 1000, random 1000, random 1000, random 1000]; _tmpMarker = createMarker [_tmpMarkerName, getPos _lastRoad]; _tmpMarkerName setMarkerColor "ColorRed"; _tmpMarker setMarkerType "mil_destroy";
+	_tmpDiff = 0;
+	
+	if (_connectedRoadsCount > 2) then {_tmpAngleLast = _angleLast1;}; //crossroad, use n-1 road as reference angle
+	
 	{
-		_angleCurr = [_lastRoad,_x] call getAngle; //road angle
-		/*
-		_tmpAngles = [_angleLast,_angleCurr]; //angle array for min/max
-		_tmpDiff = abs ((selectMax _tmpAngles) - (selectMin _tmpAngles)); //angle difference
-		*/
-		
-		_tmpDiff = abs (_angleLast - _angleCurr); //angle difference
-		//if (_i == 0) then {
-		//	_tmpDiff = _tmpDiff - _dirCorrection
-		//};
-		
-		//systemChat format ["_i:%1, _tmpDiff:%2",_i,_tmpDiff];
-		
-		
-		if (_tmpDiff < 130) exitWith {_selectedRoad = _x}; //proper road found
+		_angleCurr = [_lastRoad, _x] call getAngle; //connected road angle
+		_tmpDiff = abs (abs (((_tmpAngleLast - _angleCurr) + 180) mod 360) - 180); //angle difference
+		if (_tmpDiff < _angleLowest) then { //current angle diff lower than lowest angle detected
+			_angleLowest = _tmpDiff; //backup angle diff
+			_angleRoad = _angleCurr; //backup current road angle
+			_selectedRoad = _x; //backup object
+		};
+		//diag_log format ["_i:%1, _connectedRoadsCount:%2, _angleLast:%3, _angleCurr:%4, _angleLowest:%5, _tmpDiff:%6",_i,_connectedRoadsCount,_angleLast,_angleCurr,_angleLowest,_tmpDiff];
 	} forEach _connectedRoads; //search right connected road
 	
+	if (_connectedRoadsCount > 2 && _angleLowest > 5) then { //crossroad and lowest angle over 5deg
+		//diag_log format ["_i:%1, _connectedRoadsCount:%2, _angleLast:%3, _angleCurr:%4, _angleLowest:%5, _tmpDiff:%6",_i,_connectedRoadsCount,_angleLast,_angleCurr,_angleLowest,_tmpDiff];
+		{
+			_tmpDiff = _lastRoad1 distance2D _x; //distance between roads center
+			_angleCurr = [_lastRoad1,_x] call getAngle; //connected road angle
+			_tmpAngleDiff = abs (abs (((_angleLast1 - _angleCurr) + 180) mod 360) - 180); //angle difference
+			if (_tmpDiff > _distHighest && _tmpAngleDiff < 20) then { //highest distance but diff angle under 20deg
+				_distHighest = _tmpDiff; //backup distance diff
+				_angleRoad = _angleCurr; //backup current road angle
+				_selectedRoad = _x; //backup object
+			};
+		} forEach _connectedRoads; //search right connected road
+	};
+	
 	if (isNull _selectedRoad) then {
-		_i = 1000; //no road found, kill loop
-		["NNS_fnc_spawnVehicleOnRoad : no valid connected road found"] call NNS_fnc_debugOutput;
+		_failedDetection = _failedDetection + 1; //increment retry counter
+		if !(_failedDetection == 3) then { //allow 3 retry
+			_lastRoad = [getPos _lastRoad, _radius, [_lastRoad]] call BIS_fnc_nearestRoad; //try to found a "connected" broken road
+			//systemChat "try to fix broken";
+		} else {_lastRoad = objNull;}; //destroy last road object
+		
+		if !(isNull _lastRoad) then { //failed to detect proper road
+			_i = 1000; //no road found, kill loop
+			//systemChat "broken";
+			["NNS_fnc_spawnVehicleOnRoad : no valid connected road found"] call NNS_fnc_debugOutput;
+		};
 	} else {
 		//_tmpMarkerName = format ["mrk%1%2%3%4", random 1000, random 1000, random 1000, random 1000]; _tmpMarker = createMarker [_tmpMarkerName, getPos _lastRoad]; _tmpMarkerName setMarkerColor "ColorRed"; _tmpMarker setMarkerType "mil_destroy";
 		//_tmpMarkerName = format ["mrk%1%2%3%4", random 1000, random 1000, random 1000, random 1000]; _tmpMarker = createMarker [_tmpMarkerName, getPos _selectedRoad]; _tmpMarkerName setMarkerColor "ColorYellow"; _tmpMarker setMarkerType "mil_destroy"; _tmpMarker setMarkerText format ["%1",_i];
-		_remainDist = (_lastRoad distance2d _selectedRoad)/* - _remainDist*/; //center to center distance
+		_remainDist = (_lastRoad distance2d _selectedRoad); //center to center distance
 		_roadDir = _lastRoad getDir _selectedRoad; //road direction
 		_currentDist = 0; //distance from starting road center
 		_spaceRemain = true; //reset remaining space
@@ -106,10 +156,12 @@ for "_i" from 0 to 999 do { //roads loop
 			_tmpVehiClasses = _vehiClasses - [_tmpVehiClass]; //vehicle classes without last one used
 			if (count _tmpVehiClasses == 0) then {_tmpVehiClasses = _vehiClasses;}; //only one vehicle in main vehicle classes array
 			if (_tmpVehiClass in _vehiWreckClasses) then {_isWreck = true;};
+			_tmpVehi = objNull;
+			if (_simpleObject) then {_tmpVehi = createSimpleObject [_tmpVehiClass, [0,0,0]]; //create simple object
+			} else {_tmpVehi = _tmpVehiClass createVehicle [0,0,0];}; //create vehicle
 			
-			_tmpVehi = _tmpVehiClass createVehicle [0,0,0]; //create vehicle
-			_tmpVehibox = boundingBoxReal _tmpVehi; _tmpVehiLength = abs (((_tmpVehibox select 1) select 1) - ((_tmpVehibox select 0) select 1)) * 1.2; //vehicle length
-			_tmpDirCorr = 0; if (_isWreck) then {_tmpVehiLength = _tmpVehiLength * 1.2; _tmpDirCorr = 180;}; //wreck vehicles size is a bit off and direction reversed
+			_tmpVehibox = boundingBoxReal _tmpVehi; _tmpVehiLength = abs (((_tmpVehibox select 1) select 1) - ((_tmpVehibox select 0) select 1)) * 1.3; //vehicle length
+			_tmpDirCorr = 0; if (_isWreck) then {_tmpVehiLength = _tmpVehiLength * 1.6; _tmpDirCorr = 180;}; //wreck vehicles size is a bit off and direction reversed
 			
 			_tmpLane = selectRandom [-1,1]; //select a lane
 			if (_consecutiveSameLane == 3 && {_tmpLane == _lastLane}) then {_tmpLane = _tmpLane * -1;}; //rnd is a bitch, force other lane
@@ -119,7 +171,7 @@ for "_i" from 0 to 999 do { //roads loop
 			if (_remainDist < 0) then {_spaceRemain = false}; //no space left
 			
 			if (_tmpLane != _lastLane) then { //lane has change
-				_tmpVehiLength = _tmpVehiLength * (0.4 + random 0.4); //new vehicle length
+				_tmpVehiLength = _tmpVehiLength * (0.5 + random 0.5); //new vehicle length
 				_lastLane = _tmpLane; //backup last lane
 				_consecutiveSameLane = 0; //reset consecutive lane
 			} else {
@@ -127,39 +179,52 @@ for "_i" from 0 to 999 do { //roads loop
 				_consecutiveSameLane = _consecutiveSameLane + 1; //update consecutive lane
 			};
 			
-			_currentDist = _currentDist + _tmpVehiDist;//(_lastVehiLength / 2) + (_tmpVehiLength / 2); //distance from road center
+			_currentDist = _currentDist + _tmpVehiDist; //distance from road center
 			_lastVehiLength = _tmpVehiLength; //backup current vehicle length for next loop
 			
-			_tmpPos = _lastRoad getPos [2, _roadDir + (90 * _tmpLane)]; //"select" random lane
+			_tmpPos = _lastRoad getPos [2 + random 0.3, _roadDir + (90 * _tmpLane)]; //"select" random lane
 			_tmpNewPos = _tmpPos getPos [_currentdist, _roadDir];
-			//_tmpNewPos = _tmpPos getPos [_currentdist, _roadDir + 180];
 			
 			if ((_tmpNewPos distance2D _lastPos) > (_tmpVehiLength / 2)) then { //enough space to spawn vehicle
-				
 				_tmpVehi setDir (180 + (_roadDir - 45) + (random 45) + (random 45) + _tmpDirCorr); //vehicle direction, more randomness
-				_tmpVehi setPos _tmpNewPos; //vehicle position
+				if (_simpleObject) then { //simple object
+					_tmpNewPos set [2, getTerrainHeightASL _tmpNewPos]; //proper height
+					_tmpVehi setPosASL _tmpNewPos; //set position
+					_tmpVehi setVectorUp surfaceNormal position _tmpVehi; //proper vector up
+					if (_addWreckVehi && !_isWreck) then {
+						if (isArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "Damage" >> "mat")) then { //class has materials
+							_tmpVehiAllMats = getArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "Damage" >> "mat"); //get class materials
+							_tmpVehiAllMatsCount = count _tmpVehiAllMats; //get class materials count
+							if (_tmpVehiAllMatsCount > 0 && {_tmpVehiAllMatsCount mod 3 == 0}) then { //has materials and mod of 3 : normal, damages, destroyed
+								for "_i" from 0 to (_tmpVehiAllMatsCount - 1) step 3 do { //material loop
+									_selectionIndex = floor (_i/3); //compute selection index
+									_material = _tmpVehiAllMats select round (_i + random 2); //select material
+									_tmpVehi setObjectMaterialGlobal [_selectionIndex, _material]; //global apply
+								};
+							};
+						};
+					};
+				} else {_tmpVehi setPos _tmpNewPos;}; //set vehicle position
 				
-				//_tmpMarkerName = format ["mrk%1%2%3%4", random 1000, random 1000, random 1000, random 1000]; _tmpMarker = createMarker [_tmpMarkerName, _tmpNewPos]; _tmpMarkerName setMarkerColor "ColorGreen"; _tmpMarker setMarkerType "mil_destroy"; _tmpMarker setMarkerText format ["%1",_i];
-				
-				if (_isWreck) then {
-					//_tmpVehi setVectorUp surfaceNormal position _tmpVehi;
-					//_tmpVehi enableSimulationGlobal false;
-				} else {
-					_tmpVehi setFuel _vehiFuel;
-					[_tmpVehi,[],_vehiDamageMin,_vehiDamageMax] call NNS_fnc_randomVehicleDamage;
-					clearMagazineCargoGlobal _tmpVehi; clearWeaponCargoGlobal _tmpVehi; clearBackpackCargoGlobal _tmpVehi; clearItemCargoGlobal _tmpVehi;
+				if !(_isWreck) then { //not wreck
+					_tmpVehi setFuel _vehiFuel; //set fuel
+					[_tmpVehi,[],_vehiDamageMin,_vehiDamageMax] call NNS_fnc_randomVehicleDamage; //set hitpoint damage
+					clearMagazineCargoGlobal _tmpVehi; clearWeaponCargoGlobal _tmpVehi; clearBackpackCargoGlobal _tmpVehi; clearItemCargoGlobal _tmpVehi; //empty vehicle
 				};
 				
 				_vehiCount = _vehiCount + 1; //increment spawned vehicle count
 			};
 			
 			if ((_vehiCount + 1) > _randomVehiCount) then {_i = 1000; _spaceRemain = false}; //kill all loop
-			//if (_remainDist - _tmpVehiDist < 0) then {_spaceRemain = false}; //kill loop, avoid overlap
 			_lastPos = _tmpNewPos; //backup vehicle position
 		};
 		
 		if ((_vehiCount + 1) > _randomVehiCount) then {_i = 1000;}; //kill loop
-		_angleLast = _angleCurr; //angle backup
+		_angleLast1 = _angleLast; //angle n-1 backup
+		_angleLast = _angleRoad; //angle backup
+		_lastRoad1 = _lastRoad; //road n-1, backup
 		_lastRoad = _selectedRoad; //road backup
 	};
 };
+
+[format["NNS_fnc_spawnVehicleOnRoad : spawned vehicles:%1",_vehiCount]] call NNS_fnc_debugOutput;
