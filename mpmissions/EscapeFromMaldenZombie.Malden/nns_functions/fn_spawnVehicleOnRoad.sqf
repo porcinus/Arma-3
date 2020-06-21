@@ -32,7 +32,7 @@ Dependencies:
 
 Example: 
 _null = [getPos player] call NNS_fnc_spawnVehicleOnRoad;
-_null = [getPos player,25,true,[],500,0,0.5,0.6,0,true,[],2] call NNS_fnc_spawnVehicleOnRoad; //spawn 500 vehicles on road player is in
+_null = [getPos player,25,true,[],500,0,0.5,0.6,0,true,[],true] call NNS_fnc_spawnVehicleOnRoad; //spawn 500 vehicles on road player is in
 
 */
 
