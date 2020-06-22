@@ -77,6 +77,9 @@ _lastVehiLength = 0; //backup current vehicle length for next loop
 _lastLane = 1; _consecutiveSameLane = 0; //used to shift lane
 _tmpVehiClasses = _vehiClasses; //store vehicle classes without last one used
 
+_vehiMatIndex = []; //contain already recovered classname for materials
+_vehiMats = []; //contain materials, incl damage and destruct if exists
+
 _connectedRoads = roadsConnectedTo _lastRoad; //find connected road
 _angleLast = 0; //starting connected road angle
 if (count _connectedRoads == 0) exitWith {[format["NNS_fnc_spawnVehicleOnRoad : no connected road found around %1, radius:%2",_pos,_radius]] call NNS_fnc_debugOutput;}; //roadsConnectedTo failed
@@ -191,16 +194,51 @@ for "_i" from 0 to 999 do { //roads loop
 					_tmpNewPos set [2, getTerrainHeightASL _tmpNewPos]; //proper height
 					_tmpVehi setPosASL _tmpNewPos; //set position
 					_tmpVehi setVectorUp surfaceNormal position _tmpVehi; //proper vector up
-					if (_addWreckVehi && !_isWreck) then {
-						if (isArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "Damage" >> "mat")) then { //class has materials
-							_tmpVehiAllMats = getArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "Damage" >> "mat"); //get class materials
-							_tmpVehiAllMatsCount = count _tmpVehiAllMats; //get class materials count
-							if (_tmpVehiAllMatsCount > 0 && {_tmpVehiAllMatsCount mod 3 == 0}) then { //has materials and mod of 3 : normal, damages, destroyed
-								for "_i" from 0 to (_tmpVehiAllMatsCount - 1) step 3 do { //material loop
-									_selectionIndex = floor (_i/3); //compute selection index
-									_material = _tmpVehiAllMats select round (_i + random 2); //select material
-									_tmpVehi setObjectMaterialGlobal [_selectionIndex, _material]; //global apply
+					if (_addWreckVehi && !_isWreck) then { //yes, this whole part is only here to add damaged effect to simple objects
+						_tmpVehiHasDamaged = false;
+						_tmpVehiHasDestroyed = false;
+						if !(_tmpVehiClass in _vehiMatIndex) then { //need to extract vehicle usable materials
+							if (isArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "hiddenSelectionsTextures") && {isArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "Damage" >> "mat")}) then {
+								_vehiHiddenSelec = getArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "hiddenSelectionsTextures"); //extract hiddenSelectionsTextures, array index should be linked to materials
+								_vehiDamagedMats = getArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "Damage" >> "mat"); //get class damaged materials
+								if (count _vehiHiddenSelec > 0 && count _vehiDamagedMats > 0) then {
+									_tmpVehiMatsArray = []; //"main" material array
+									{
+										_tmpVehiMats = []; //tmp array to store materials
+										_cleanFilename = _x splitString ""; //split all caracters
+										_cleanFilenameCount = (count _cleanFilename) - 1; //char count
+										_cleanFilename deleteRange [_cleanFilenameCount - 6, _cleanFilenameCount]; //remove "_co.paa", if filename doesn't follow this rules, that sucks
+										if (_cleanFilename select 0 == "\\") then {_cleanFilename deleteAt 0}; //remove first char if start with \
+										_cleanFilename = toLower (_cleanFilename joinString ""); //convert to string, lowercase
+										
+										_vehiDamagedMats apply {toLower _x}; //damaged materials lowercase
+										//_vehiMatNormal = format ["%1.rvmat",_cleanFilename]; //non damaged material filename
+										_vehiMatDamaged = format ["%1_damage.rvmat",_cleanFilename]; //damaged material filename
+										_vehiMatDestruct = format ["%1_destruct.rvmat",_cleanFilename]; //destruct material filename
+										
+										//if !(_vehiDamagedMats findIf {[_x, _vehiMatNormal, false] call BIS_fnc_inString} == -1) then {_tmpVehiMats pushBack _vehiMatNormal;}; //non damaged material is listed
+										if !(_vehiDamagedMats findIf {[_x, _vehiMatDamaged, false] call BIS_fnc_inString} == -1) then {_tmpVehiMats pushBack _vehiMatDamaged;}; //damaged material is listed
+										if !(_vehiDamagedMats findIf {[_x, _vehiMatDestruct, false] call BIS_fnc_inString} == -1) then {_tmpVehiMats pushBack _vehiMatDestruct;}; //destruct material is listed
+										
+										if (count _tmpVehiMats > 0) then {_tmpVehiMatsArray append [_tmpVehiMats]; //found some usable material
+										} else {_tmpVehiMatsArray append [];}; //found nothing
+									} forEach _vehiHiddenSelec; //hiddenSelectionsTextures loop
+									
+									if (count _tmpVehiMatsArray > 0) then { //found some usable material
+										_vehiMatIndex pushBack _tmpVehiClass; //add vehicle class to index
+										_vehiMats append [_tmpVehiMatsArray]; //add vehicle material to index
+									};
 								};
+							};
+						};
+						
+						if (_tmpVehiClass in _vehiMatIndex && {isArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "hiddenSelectionsTextures")}) then { //material entry exist
+							_vehiHiddenSelec = getArray (configfile >> "CfgVehicles" >> _tmpVehiClass >> "hiddenSelectionsTextures"); //extract hiddenSelectionsTextures, array index should be linked to materials
+							_tmpVehiMats = _vehiMats select (_vehiMatIndex find _tmpVehiClass); //get vehicle extracted materials
+							
+							for "_i" from 0 to ((count _vehiHiddenSelec) - 1) do { //material loop
+								_tmpMats = (_tmpVehiMats select _i); //current index materials
+								if (count _tmpMats > 0) then {_tmpVehi setObjectMaterialGlobal [_i, selectRandom _tmpMats];}; //materials exists for current index, apply random material
 							};
 						};
 					};
