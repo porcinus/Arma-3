@@ -1,13 +1,21 @@
 /*
-NNS : Move all objects/trigger/markers taking a trigger/object as center with a given radius to a random new position.
+NNS
+Select all user placed objects/trigger/markers taking a trigger/object as center with a given radius to new position.
+
+new position array format:
+[
+	[X,Y,Dir], //random location 1
+	[X,Y,Dir], //random location 2
+	... //random location n
+]
+
 Important note : Rotation to new location is based on center trigger/object direction.
 
 example : [BIS_Checkpoint_04,[[7919,10098,90],[7810,4210,65]],100] execVM 'ObjectGroupMover.sqf';
 
 */
 
-params
-[
+params [
 	["_trigger",objNull],
 	["_newPosArray",[]], //[[rnd_x1,rnd_y1,rnd_dir1],[rnd_x2,rnd_y2,rnd_dir2],.....]
 	["_radius",50], //used for objects detection and waypoint position

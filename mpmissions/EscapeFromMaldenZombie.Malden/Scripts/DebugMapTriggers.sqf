@@ -1,4 +1,16 @@
-//NNS: draw all triggers on the map, used for debug
+/*
+NNS : Draw all triggers on the map
+
+example : [] execVM 'scripts\DebugCountUnits.sqf';
+
+to disable :
+	_tmp = player getVariable ['draw_debug_trigger_handle',objNull];
+	if !(_tmp isEqualTo objNull) then {
+		(findDisplay 12 displayCtrl 51) ctrlRemoveEventHandler ['Draw', _tmp];
+		player setVariable ['draw_debug_trigger_handle',objNull];
+	};
+
+*/
 
 disableSerialization;
 

@@ -4,8 +4,13 @@ Limit Weapon / Ammo into Ammo box
 If min and max not set and BIS_ammoboxAmount variable set in missionNamespace, this will be used as default.
 Allow to replace 'if possible' ammo by tracer equivalent.
 
-Example: _null = [ammobox] call NNS_fnc_AmmoboxLimiter;
-Example: _null = [ammobox,0.1, 0.75] call NNS_fnc_AmmoboxLimiter;
+Example:
+_null = [ammobox] call NNS_fnc_AmmoboxLimiter;
+[ammobox] execVM 'nns_functions\fn_AmmoboxLimiter.sqf';
+
+_null = [ammobox,0.1, 0.75] call NNS_fnc_AmmoboxLimiter;
+[ammobox,0.1, 0.75] execVM 'nns_functions\fn_AmmoboxLimiter.sqf';
+
 */
 
 // Params

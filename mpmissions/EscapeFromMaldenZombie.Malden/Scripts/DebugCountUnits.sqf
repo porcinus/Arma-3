@@ -1,4 +1,8 @@
-//NNS: count all units on map
+/*
+NNS : count all units on map, output to debug
+
+example : [] execVM 'scripts\DebugCountUnits.sqf';
+*/
 
 _west_count=0; _west_alive_count=0; _west_active_count=0;
 _east_count=0; _east_alive_count=0; _east_active_count=0;

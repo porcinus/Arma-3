@@ -8,20 +8,20 @@ Allowed type : "mk82", "mortar", "cluster"
 
 */
 
-params
-[
+params [
 	["_target",objNull],
-	["_pos",objNull],
-	["_type",objNull]
+	["_pos",[]],
+	["_type",""]
 ];
 
-if (_type isEqualTo objNull) exitWith {["ClusterBomb type needed"] call NNS_fnc_debugOutput;};
+if (_type == "") exitWith {["ClusterBomb.sqf: Type needed"] call NNS_fnc_debugOutput;};
+if (count _pos < 2) exitWith {["ClusterBomb.sqf: Valid position needed"] call NNS_fnc_debugOutput;};
 
 _explosion_radius = 0; _explosion_count = 1;
 if (_type == "mk82") then {_explosion_radius = 1; _explosion_count = 1;};
 if (_type == "mortar") then {_explosion_radius = 60; _explosion_count = 10;};
 if (_type == "cluster") then {_explosion_radius = 40; _explosion_count = 16;};
-if (_explosion_radius==0) exitWith {["Wrong ClusterBomb type"] call NNS_fnc_debugOutput;};
+if (_explosion_radius==0) exitWith {["ClusterBomb.sqf: Invalid type"] call NNS_fnc_debugOutput;};
 
 for "_i" from 1 to _explosion_count do {
 	if (count _pos > 1) then { // valid position

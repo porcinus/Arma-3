@@ -1,10 +1,12 @@
 /*
 NNS
-Spawn damaged/wreck/untouched vehicle on a road near given position.
+Spawn damaged/wreck/untouched vehicles on a road near given position.
+"Simplified" version, for Advanced version, see fn_spawnVehicleOnRoad_Adv.sqf.
+
 Note: 
 - This function try to follow road "curves" as best as possible, use n-1 road angle in case of crossroad, does not work with broken road connection, can fail with specific crossroad.
 - It is not bulletproof as boundingBoxReal function detect wrong vehicle size for wreck objects.
-- Limited to 999 road objects.
+- Limited to 999 road objects (over 20km depending on map).
 
 Dependencies:
 	in initServer.sqf:
@@ -32,7 +34,7 @@ Dependencies:
 
 Example: 
 _null = [getPos player] call NNS_fnc_spawnVehicleOnRoad;
-_null = [getPos player,25,true,[],500,0,0.5,0.6,0,true,[],true] call NNS_fnc_spawnVehicleOnRoad; //spawn 500 vehicles on road player is in
+_null = [getPos player,25,true,[],500,0,0.5,0.6,0,1,true,[],true] call NNS_fnc_spawnVehicleOnRoad; //spawn 500 vehicles on road player is in
 
 */
 
@@ -47,6 +49,7 @@ params [
 	["_vehiDamageMin", 0.4], //vehicle min damage
 	["_vehiDamageMax", 0.8], //vehicle max damage
 	["_vehiFuel", 0], //vehicle fuel
+	["_vehiSpacing", 1], //vehicle length overscale (ratio, not meter)
 	["_addWreckVehi", true], //allow wreck vehicles
 	["_vehiWreckClasses", []], //default wreck vehicles class
 	["_simpleObject", false]

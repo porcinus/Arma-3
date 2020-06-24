@@ -1,4 +1,10 @@
-//NNS: count all units on map, endlessly until var trigged
+/*
+NNS : count all units on map, endlessly until var trigged, output to hint
+
+set "DebugCountUnitsLoop" var to false to kill loop
+
+example : [] execVM 'scripts\DebugCountUnits.sqf';
+*/
 
 missionNamespace setVariable ["DebugCountUnitsLoop",true,true];
 
@@ -42,14 +48,6 @@ while {missionNamespace getVariable ["DebugCountUnitsLoop",true]} do {
 	_output pushBack format["civilian: %1 ,alive: %2 ,active: %3",_civilian_count,_civilian_alive_count,_civilian_active_count];
 	
 	[_output joinString "\n"] remoteExec ["hint"];
-	
-/*
-	["Current units count:",false,true,false,true] call NNS_fnc_debugOutput; //debug
-	[format["west: %1 ,alive: %2 ,active: %3",_west_count,_west_alive_count,_west_active_count],false,true,false,true] call NNS_fnc_debugOutput; //debug
-	[format["east: %1 ,alive: %2 ,active: %3",_east_count,_east_alive_count,_east_active_count],false,true,false,true] call NNS_fnc_debugOutput; //debug
-	[format["resistance: %1 ,alive: %2 ,active: %3",_resistance_count,_resistance_alive_count,_resistance_active_count],false,true,false,true] call NNS_fnc_debugOutput; //debug
-	[format["civilian: %1 ,alive: %2 ,active: %3",_civilian_count,_civilian_alive_count,_civilian_active_count],false,true,false,true] call NNS_fnc_debugOutput; //debug
-	*/
 	
 	sleep 5;
 }

@@ -1,7 +1,15 @@
-// NNS : full rework, look glitchy with crew in vehicle not destroyed, ignore agents
+/*
+NNS : Delete empty group / destroyed vehicle if players are far enough, ignore agents.
+"BIS_grpMain" (player group) need to be set in missionNamespace.
+Each check is done with 30sec interval.
 
-params
-[
+example :
+	[] execVM 'scripts\DeleteEmptyGroups.sqf';
+	[1200] execVM 'scripts\DeleteEmptyGroups.sqf';
+
+*/
+
+params [
 	["_maxDist",1800]
 ];
 

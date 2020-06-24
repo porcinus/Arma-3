@@ -182,6 +182,7 @@ class CfgFunctions {
 			class LampFlickering {};
 			class StringCapitalize {};
 			class spawnVehicleOnRoad {};
+			//class spawnVehicleOnRoad_Adv {}; //too overkill for this mission
 			class vehicleLightOnOff {};
 			class destroyZone {};
 			class spawnBigFire {};
