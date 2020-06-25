@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=9088;
+		nextID=9133;
 	};
 	class Camera
 	{
-		pos[]={3023.0701,513.54224,7312.2852};
-		dir[]={0.10443025,-0.51224262,0.85251337};
-		up[]={0.062283896,0.85882944,0.50846386};
-		aside[]={0.99262333,-4.0697159e-008,-0.12159362};
+		pos[]={1729.1497,96.223839,1356.2559};
+		dir[]={-0.92310429,-0.35504559,0.148067};
+		up[]={-0.35058933,0.93483293,0.056234758};
+		aside[]={0.15838397,-6.8391273e-008,0.98742354};
 	};
 };
 binarizationWanted=0;
@@ -4716,7 +4716,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="South West Base";
-					state=3;
 					class Entities
 					{
 						items=143;
@@ -8592,14 +8591,13 @@ class Mission
 								angles[]={0,2.1442299,0};
 							};
 							side="Empty";
-							flags=1;
+							flags=5;
 							class Attributes
 							{
 								skill=0.2;
 							};
 							id=5834;
 							type="Land_PortableLight_double_F";
-							atlOffset=4.77845;
 						};
 						class Item96
 						{
@@ -8688,7 +8686,7 @@ class Mission
 							};
 							id=5839;
 							type="Land_PortableLight_double_F";
-							atlOffset=4.1243286;
+							atlOffset=1.3130722;
 						};
 						class Item101
 						{
@@ -8733,14 +8731,14 @@ class Mission
 								angles[]={0,3.3036447,0};
 							};
 							side="Empty";
-							flags=1;
+							flags=5;
 							class Attributes
 							{
 								skill=0.2;
 							};
 							id=5860;
 							type="Land_PortableLight_double_F";
-							atlOffset=4.1384888;
+							atlOffset=0.12761688;
 						};
 						class Item104
 						{
@@ -11561,7 +11559,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Checkpoint 01";
-					state=3;
 					class Entities
 					{
 						items=16;
@@ -12028,7 +12025,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Checkpoint 02";
-					state=3;
 					class Entities
 					{
 						items=25;
@@ -12720,7 +12716,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Checkpoint 03";
-					state=3;
 					class Entities
 					{
 						items=22;
@@ -13437,7 +13432,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Checkpoint 04";
-					state=3;
 					class Entities
 					{
 						items=20;
@@ -14001,7 +13995,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Checkpoint 05";
-					state=3;
 					class Entities
 					{
 						items=20;
@@ -14570,7 +14563,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Checkpoint 06";
-					state=3;
 					class Entities
 					{
 						items=20;
@@ -15137,7 +15129,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Communication Station";
-					state=3;
 					class Entities
 					{
 						items=17;
@@ -15876,7 +15867,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Airbase";
-					state=3;
 					class Entities
 					{
 						items=17;
@@ -17778,7 +17768,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="North East Base";
-					state=3;
 					class Entities
 					{
 						items=54;
@@ -18911,13 +18900,12 @@ class Mission
 								angles[]={0,1.5686675,0};
 							};
 							side="Empty";
-							flags=1;
+							flags=5;
 							class Attributes
 							{
 							};
 							id=6297;
 							type="Land_PortableLight_double_F";
-							atlOffset=1.2208252;
 						};
 						class Item36
 						{
@@ -19469,13 +19457,13 @@ class Mission
 								angles[]={0,4.4621754,0};
 							};
 							side="Empty";
-							flags=1;
+							flags=5;
 							class Attributes
 							{
 							};
 							id=6624;
 							type="Land_PortableLight_double_F";
-							atlOffset=3.1265182;
+							atlOffset=1.9073486e-006;
 						};
 						class Item49
 						{
@@ -19486,13 +19474,12 @@ class Mission
 								angles[]={0,3.0426829,0};
 							};
 							side="Empty";
-							flags=1;
+							flags=5;
 							class Attributes
 							{
 							};
 							id=6625;
 							type="Land_PortableLight_double_F";
-							atlOffset=1.230135;
 						};
 						class Item50
 						{
@@ -19642,7 +19629,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Pessagne";
-					state=3;
 					class Entities
 					{
 						items=5;
@@ -20055,7 +20041,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Cancon";
-					state=3;
 					class Entities
 					{
 						items=2;
@@ -20423,7 +20408,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="South Old Base";
-					state=3;
 					class Entities
 					{
 						items=83;
@@ -23731,7 +23715,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="La Riviere";
-					state=3;
 					class Entities
 					{
 						items=5;
@@ -24144,7 +24127,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Larche";
-					state=3;
 					class Entities
 					{
 						items=6;
@@ -24651,7 +24633,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Saint Louis";
-					state=3;
 					class Entities
 					{
 						items=3;
@@ -25039,7 +25020,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Houdan";
-					state=3;
 					class Entities
 					{
 						items=5;
@@ -25506,7 +25486,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Dourdan";
-					state=3;
 					class Entities
 					{
 						items=4;
@@ -25908,7 +25887,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="La Trinite";
-					state=3;
 					class Entities
 					{
 						items=11;
@@ -26007,7 +25985,7 @@ class Mission
 							};
 							id=1046;
 							type="Headgear_H_HelmetCrew_O";
-							atlOffset=0.72221375;
+							atlOffset=0.46998596;
 						};
 						class Item3
 						{
@@ -26498,7 +26476,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Harbor";
-					state=3;
 					class Entities
 					{
 						items=10;
@@ -27286,7 +27263,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Corton";
-					state=3;
 					class Entities
 					{
 						items=5;
@@ -27427,7 +27403,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Chapoi";
-					state=3;
 					class Entities
 					{
 						items=4;
@@ -27830,7 +27805,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Blanches";
-					state=3;
 					class Entities
 					{
 						items=5;
@@ -28264,7 +28238,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Small base";
-					state=3;
 					class Entities
 					{
 						items=9;
@@ -28850,7 +28823,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Military island";
-					state=3;
 					class Entities
 					{
 						items=14;
@@ -30487,7 +30459,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Bunker";
-					state=3;
 					class Entities
 					{
 						items=10;
@@ -30507,7 +30478,7 @@ class Mission
 							};
 							id=506;
 							type="Box_East_WpsSpecial_F";
-							atlOffset=1.0350037;
+							atlOffset=1.032196;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -30567,7 +30538,7 @@ class Mission
 							};
 							id=507;
 							type="Box_CSAT_Equip_F";
-							atlOffset=1.3850098;
+							atlOffset=1.3795166;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -30627,7 +30598,7 @@ class Mission
 							};
 							id=383;
 							type="Headgear_H_HelmetSpecO_ocamo";
-							atlOffset=0.6000061;
+							atlOffset=0.45733643;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -30787,13 +30758,12 @@ class Mission
 						};
 					};
 					id=6345;
-					atlOffset=-223.40079;
+					atlOffset=-223.40076;
 				};
 				class Item26
 				{
 					dataType="Layer";
 					name="Lolisse";
-					state=3;
 					class Entities
 					{
 						items=2;
@@ -31160,7 +31130,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="East Old Base";
-					state=3;
 					class Entities
 					{
 						items=73;
@@ -33343,14 +33312,14 @@ class Mission
 								angles[]={0,1.0736163,0};
 							};
 							side="Empty";
-							flags=1;
+							flags=5;
 							class Attributes
 							{
 								disableSimulation=1;
 							};
 							id=5775;
 							type="Land_DirtPatch_01_6x8_F";
-							atlOffset=0.69987965;
+							atlOffset=0.068448067;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -33391,7 +33360,7 @@ class Mission
 							};
 							id=5776;
 							type="Land_DirtPatch_01_6x8_F";
-							atlOffset=1.2599649;
+							atlOffset=0.62919426;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -33792,7 +33761,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Arudy";
-					state=3;
 					class Entities
 					{
 						items=8;
@@ -34257,7 +34225,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Caches";
-					state=3;
 					class Entities
 					{
 						items=15;
@@ -34872,7 +34839,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Checkpoint 07";
-					state=3;
 					class Entities
 					{
 						items=61;
@@ -36816,10 +36782,11 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={6300.1543,75.036552,3514.5132};
-								angles[]={0,3.1568351,0};
+								position[]={6300.1543,74.456528,3514.5132};
+								angles[]={6.1732306,3.1568351,0.082214102};
 							};
 							side="Empty";
+							flags=4;
 							class Attributes
 							{
 								skill=0.2;
@@ -36828,7 +36795,6 @@ class Mission
 							};
 							id=5422;
 							type="Land_ToiletBox_F";
-							atlOffset=0.58002472;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -36858,10 +36824,11 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={6297.9663,74.91851,3514.4888};
-								angles[]={0,3.1568351,0};
+								position[]={6297.9663,74.279709,3514.4888};
+								angles[]={6.1732306,3.1568351,0.079035431};
 							};
 							side="Empty";
+							flags=4;
 							class Attributes
 							{
 								skill=0.2;
@@ -36870,7 +36837,6 @@ class Mission
 							};
 							id=5448;
 							type="Land_ToiletBox_F";
-							atlOffset=0.63880157;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -37283,13 +37249,12 @@ class Mission
 						};
 					};
 					id=6352;
-					atlOffset=-36.900463;
+					atlOffset=-36.929493;
 				};
 				class Item31
 				{
 					dataType="Layer";
 					name="Checkpoint 09";
-					state=3;
 					class Entities
 					{
 						items=85;
@@ -37302,13 +37267,14 @@ class Mission
 								angles[]={0,1.027615,0};
 							};
 							side="Empty";
+							flags=4;
 							class Attributes
 							{
 								name="checkpoint_09_ammo_1";
 							};
 							id=5629;
 							type="Box_East_Wps_F";
-							atlOffset=0.24699402;
+							atlOffset=0.00076293945;
 						};
 						class Item1
 						{
@@ -40479,7 +40445,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Goisse";
-					state=3;
 					class Entities
 					{
 						items=2;
@@ -40847,7 +40812,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Checkpoint 08";
-					state=3;
 					class Entities
 					{
 						items=60;
@@ -42763,10 +42727,11 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={7556.7642,34.610924,4910.2227};
-								angles[]={0,0.86208153,0};
+								position[]={7556.7642,31.191385,4910.2227};
+								angles[]={0.107583,0.86208153,6.1535168};
 							};
 							side="Empty";
+							flags=4;
 							class Attributes
 							{
 								skill=0.2;
@@ -42775,7 +42740,6 @@ class Mission
 							};
 							id=5485;
 							type="Land_ToiletBox_F";
-							atlOffset=3.4195366;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -42805,10 +42769,11 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={7558.2314,34.628685,4908.5996};
-								angles[]={0,0.86208153,0};
+								position[]={7558.2314,31.175329,4908.5996};
+								angles[]={0.107583,0.86208153,6.1535168};
 							};
 							side="Empty";
+							flags=4;
 							class Attributes
 							{
 								skill=0.2;
@@ -42817,7 +42782,6 @@ class Mission
 							};
 							id=5511;
 							type="Land_ToiletBox_F";
-							atlOffset=3.4533539;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -43229,13 +43193,12 @@ class Mission
 						};
 					};
 					id=6353;
-					atlOffset=-36.683414;
+					atlOffset=-36.844765;
 				};
 				class Item34
 				{
 					dataType="Layer";
 					name="Debug Zone";
-					state=3;
 					class Entities
 					{
 						items=24;
@@ -43955,7 +43918,7 @@ class Mission
 				};
 			};
 			id=6312;
-			atlOffset=18.561966;
+			atlOffset=18.520721;
 		};
 		class Item3
 		{
