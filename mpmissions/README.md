@@ -54,7 +54,7 @@ What's done so far (missing some for sure):
 	- A military base on South West corner: possible escape position.
 	- Power station in "La Rivière" (depend on optional objectives).
 	- "Random" initial respawn position.
-	- End mission statistics tab: 
+	- End mission statistics tab (Partial data in Map): 
 		- For each player: Fire shots (bullet, HE, smoke, rocket, vehicle), distance travelled (foot, vehicle), longest kill (incl weapon name), friendly kills.
 		- For group: cumulative fire shots (bullet, HE, smoke, rocket ,vehicle), longest kill (incl player name), friendly kills (incl player name).
 
