@@ -1,7 +1,8 @@
 ### Important note:  
 I modify some of theses mission on a daily basis, this repo can be a bit outdated.  
-All of missions on this repo have debug features enable, test these missions with friends.
-Not tested on dedicated server.
+All of missions on this repo have debug features enable, test these missions with friends.  
+Not tested on dedicated server.  
+Some missions share functions or scripts, this doesn't mean all are sync (uptodate).  
 
 ## EscapeFromMaldenMOD.Malden  
 This mission is based on the original "Escape from Malden" mission.  
