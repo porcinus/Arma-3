@@ -15,12 +15,12 @@ class Header {
 dev = "Vasek, mod by NNS";
 briefingName = $STR_NNS_mission_name; //NNS
 author = $STR_A3_Bohemia_Interactive;
-overviewPicture = "a3\Missions_F_Exp\data\img\MP_EscapeFromTanoa_overview_CA.paa";
+overviewPicture = "img\loading_screen_nns.paa"; //NNS
 overviewText = $STR_NNS_briefing_overview; //NNS
 overviewTextLocked = $STR_NNS_briefing_overview; //NNS
 onLoadName = $STR_NNS_mission_name; //NNS
 onLoadMission = $STR_NNS_briefing_overview; //NNS
-loadScreen = "a3\Missions_F_Exp\data\img\MP_EscapeFromTanoa_overview_CA.paa";
+overviewPicture = "img\loading_screen_nns.paa"; //NNS
 disabledAI = 1;
 
 // Player loadouts
