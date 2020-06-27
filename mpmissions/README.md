@@ -39,6 +39,7 @@ What's done so far (missing some for sure):
 	- Populate city/triggers: condition now work fine (regarding distances), every spawning stuff moved to associate script, player warned when approaching city/checkpoint.
 	- Special events: mortar disabled.
 	- Removed Tanoa specific stuff.
+	- Rework loadout: one per class, limited with a script afterward.
 
 - Added:
 	- Additional objectives (not need to complete the escape mission): Eliminate unit (x2), Clean checkpoint (x3), Explore old base (x2), Collect intel (x2), Power station sabotage (x1).
@@ -91,6 +92,7 @@ What's done so far (may miss some for sure):
 - Regarding the original stuff (little modifications/full rework).
 	- Empty group cleanup script: full rework.
 	- Special events: mortar disabled.
+	- Rework loadout: one per class, limited with a script afterward.
 
 - Added:
 	- If standard equipment option selected: Allow player to respawn with their previous equipment.
