@@ -1,6 +1,9 @@
 
 if (isNil {missionNamespace getVariable "Debug_Win"}) then {missionNamespace setVariable ["Debug_Win",false,true];}; //force win
 
+//NNS : delete all AI
+{deletevehicle _x} forEach units BIS_grpMain;
+
 //NNS : Add random respawn position
 _start_pos_list = [];
 for "_i" from 0 to 100 do { //detect from marker_objective_0 to marker_objective_100

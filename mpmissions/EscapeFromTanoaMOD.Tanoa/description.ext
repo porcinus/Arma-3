@@ -21,7 +21,7 @@ overviewTextLocked = $STR_NNS_briefing_overview; //NNS
 onLoadName = $STR_NNS_mission_name; //NNS
 onLoadMission = $STR_NNS_briefing_overview; //NNS
 loadScreen = "img\loading_screen_nns.paa"; //NNS
-disabledAI = 1;
+disabledAI = 0;
 
 // Player loadouts
 #include "LoadoutClasses.inc"
