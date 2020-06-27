@@ -25,14 +25,14 @@ params
 if (count _barnPos < 3) exitWith {["RescueCSATsquad.sqf : position/dir needed"] call BIS_fnc_NNS_debugOutput;};
 
 hostageSpeech = [ //speech array when hostages are freed
-localize "STR_NNS_Escape_Objective_RescueCSATsquad_speech0",
-localize "STR_NNS_Escape_Objective_RescueCSATsquad_speech1",
-localize "STR_NNS_Escape_Objective_RescueCSATsquad_speech2",
-localize "STR_NNS_Escape_Objective_RescueCSATsquad_speech3",
-localize "STR_NNS_Escape_Objective_RescueCSATsquad_speech4",
-localize "STR_NNS_Escape_Objective_RescueCSATsquad_speech5",
-localize "STR_NNS_Escape_Objective_RescueCSATsquad_speech6",
-localize "STR_NNS_Escape_Objective_RescueCSATsquad_speech7"
+localize "STR_NNS_Objective_RescueCSATsquad_speech0",
+localize "STR_NNS_Objective_RescueCSATsquad_speech1",
+localize "STR_NNS_Objective_RescueCSATsquad_speech2",
+localize "STR_NNS_Objective_RescueCSATsquad_speech3",
+localize "STR_NNS_Objective_RescueCSATsquad_speech4",
+localize "STR_NNS_Objective_RescueCSATsquad_speech5",
+localize "STR_NNS_Objective_RescueCSATsquad_speech6",
+localize "STR_NNS_Objective_RescueCSATsquad_speech7"
 ];
 
 _barn = objNull;
@@ -77,7 +77,7 @@ if !([_tmptaskID] call BIS_fnc_taskExists) then { //task not exist
 		hostageSpeech deleteAt (hostageSpeech find _currentSpeech); //remove selected speech from array
 		[
 			_x, //unit
-			localize "STR_NNS_Escape_FreeHostage", //displayed action title
+			localize "STR_NNS_FreeHostage", //displayed action title
 			"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa", //icon when action not running
 			"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", //icon when action in progess
 			"_this distance _target < 3 && alive _target", //condition to allow action
@@ -126,7 +126,7 @@ if !([_tmptaskID] call BIS_fnc_taskExists) then { //task not exist
 	
 	if (count _taskID > 0) then { //taskID is set
 		if (isNull _taskOwner) then {_taskOwner = group player;}; //task owner set to player group
-		[_taskOwner,_taskID,[localize "STR_NNS_Escape_Objective_RescueCSATsquad_desc",localize "STR_NNS_Escape_Objective_RescueCSATsquad_title",""],[_barnPos select 0,_barnPos select 1,0],"ASSIGNED",1,true,"RescueHostage"] call BIS_fnc_taskCreate;
+		[_taskOwner,_taskID,[localize "STR_NNS_Objective_RescueCSATsquad_desc",localize "STR_NNS_Objective_RescueCSATsquad_title",""],[_barnPos select 0,_barnPos select 1,0],"ASSIGNED",1,true,"RescueHostage"] call BIS_fnc_taskCreate;
 		
 		[_taskOwner,_taskID,_grpCSAT,_taskIDsniper,_initialEmitterPos] spawn {
 			_taskOwner = _this select 0; //task owner
@@ -148,7 +148,7 @@ if !([_tmptaskID] call BIS_fnc_taskExists) then { //task not exist
 				[_group,group player] spawn BIS_fnc_stalk; //group follow player group
 				for "_i" from 1 to _groupunitcount do { //search for first alive unit
 					if (alive (_groupUnits select _i)) then {
-						[format["%1 (%2) : %3",name (_groupUnits select _i),gettext (configFile >> "CfgVehicles" >> typeOf (_groupUnits select _i) >> "displayName"),localize "STR_NNS_Escape_Objective_RescueCSATsquad_sniper_speech1"]] remoteExec ["systemChat",0,true];
+						[format["%1 (%2) : %3",name (_groupUnits select _i),gettext (configFile >> "CfgVehicles" >> typeOf (_groupUnits select _i) >> "displayName"),localize "STR_NNS_Objective_RescueCSATsquad_sniper_speech1"]] remoteExec ["systemChat",0,true];
 						sleep 2;
 						_initialEmitterPos = _this select 4; //recover emiter position
 						_initialEmitterCone = 45; //default ignore cone

@@ -28,12 +28,12 @@ params
 if (count _centerPos < 2) exitWith {["MeetCSATsniper.sqf : position/dir needed"] call BIS_fnc_NNS_debugOutput;};
 
 sniperSpeech = [ //speech array when hostages are freed
-localize "STR_NNS_Escape_Objective_MeetCSATsniper_speech0",
-localize "STR_NNS_Escape_Objective_MeetCSATsniper_speech1",
-localize "STR_NNS_Escape_Objective_MeetCSATsniper_speech2",
-localize "STR_NNS_Escape_Objective_MeetCSATsniper_speech3",
-localize "STR_NNS_Escape_Objective_MeetCSATsniper_speech4",
-localize "STR_NNS_Escape_Objective_MeetCSATsniper_speech5"
+localize "STR_NNS_Objective_MeetCSATsniper_speech0",
+localize "STR_NNS_Objective_MeetCSATsniper_speech1",
+localize "STR_NNS_Objective_MeetCSATsniper_speech2",
+localize "STR_NNS_Objective_MeetCSATsniper_speech3",
+localize "STR_NNS_Objective_MeetCSATsniper_speech4",
+localize "STR_NNS_Objective_MeetCSATsniper_speech5"
 ];
 
 _tmptaskID = "objectiveMeetCSATsniper"; //bypass if no task id set
@@ -146,7 +146,7 @@ if !([_tmptaskID] call BIS_fnc_taskExists) then { //task not exist
 		
 		[
 			_x, //unit
-			localize "STR_NNS_Escape_Salute", //displayed action title
+			localize "STR_NNS_Salute", //displayed action title
 			"img\holdAction_talk.paa", //icon when action not running
 			"img\holdAction_talk.paa", //icon when action in progess
 			"_this distance _target < 3 && alive _target && ((group _target) != (group _this))", //condition to allow action
@@ -177,7 +177,7 @@ if !([_tmptaskID] call BIS_fnc_taskExists) then { //task not exist
 	
 	if (count _taskID > 0) then { //taskID is set
 		if (isNull _taskOwner) then {_taskOwner = group player;}; //task owner set to player group
-		[_taskOwner,_taskID,[localize "STR_NNS_Escape_Objective_MeetCSATsniper_desc",localize "STR_NNS_Escape_Objective_MeetCSATsniper_title",""],[_forest select 0,_forest select 1,0],"ASSIGNED",1,true,"talk"] call BIS_fnc_taskCreate;
+		[_taskOwner,_taskID,[localize "STR_NNS_Objective_MeetCSATsniper_desc",localize "STR_NNS_Objective_MeetCSATsniper_title",""],[_forest select 0,_forest select 1,0],"ASSIGNED",1,true,"talk"] call BIS_fnc_taskCreate;
 		
 		[_taskOwner,_taskID,_grpCSAT] spawn {
 			_taskOwner = _this select 0; //task owner

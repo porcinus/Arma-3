@@ -60,7 +60,7 @@ if (typeName (_arguments select 0) == "ARRAY") then {{[_x] call ExecArguments;} 
 
 if !(_actionCompleted) then {["Intel.sqf : warning, no valid argument passed, typo?"] call BIS_fnc_NNS_debugOutput;};
 
-[name player, localize "STR_NNS_Escape_CollectIntel_collected"] remoteExec ["BIS_fnc_showSubtitle",0,true];
+[name player, localize "STR_NNS_CollectIntel_collected"] remoteExec ["BIS_fnc_showSubtitle",0,true];
 [_target] remoteExec ["removeAllActions",0,true]; //remove action for all clients and JIP
 
 
