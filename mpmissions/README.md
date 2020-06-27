@@ -91,10 +91,11 @@ Enhanced Movement addon is recommended (https://steamcommunity.com/sharedfiles/f
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan1.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan1.jpg)
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan2.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan2.jpg)
   
-WIP, some things still need to be done.  
-  
 It still is a escape mission but now with zombies.  
 To be honest, I didn't keep track of codes coming from internet and I am pretty sure some stuff may need some credits.  
+  
+WIP, some things still need to be done but look stable for now.  
+Some locality problem can happen when a zombie hit a vehicle. Sadly, this problem is related to Ryan's Zombies and Demons addon and can't be fixed by me.  
   
 What's done so far (missing some for sure):  
 ```
