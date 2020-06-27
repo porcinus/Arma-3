@@ -3,7 +3,7 @@ I modify some of theses mission on a daily basis, this repo can be a bit outdate
 All of missions on this repo have debug features enable, test these missions with friends.  
 Not tested on dedicated server.  
 Some missions share functions or scripts, this doesn't mean all are sync (uptodate).  
-
+  
 ## EscapeFromMaldenMOD.Malden  
 This mission is based on the original "Escape from Malden" mission.  
 English and French localized.  
@@ -73,7 +73,36 @@ What's done so far (missing some for sure):
 	- Disable if possible the noise effect when end of mission occurs (not sure it is possible).
 	- You tell me :P
 ```
+  
+## EscapeFromTanoaMOD.Tanoa  
+This mission is based on the original "Escape from Malden" mission.  
+English and French localized.  
+  
+My main idea is to allow me and a group of friends to really enjoy this mission.  
+  
+What's done so far (may miss some for sure):
+```
+- Additional options on mission selection:
+	- Custom Escape rules: Original or Permissive (don't loss if everyone is dead, initial respawn trigger remain).
+	- Possibility to disable stamina.
 
+- Regarding the original stuff (little modifications/full rework).
+	- Empty group cleanup script: full rework.
+	- Special events: mortar disabled.
+
+- Added:
+	- If standard equipment option selected: Allow player to respawn with their previous equipment.
+	- End mission statistics tab (Partial data in Map): 
+		- For each player: Fire shots (bullet, HE, smoke, rocket, vehicle), distance travelled (foot, vehicle), longest kill (incl weapon name), friendly kills.
+		- For group: cumulative fire shots (bullet, HE, smoke, rocket ,vehicle), longest kill (incl player name), friendly kills (incl player name).
+
+- Specific stuff:
+	- When respawn, player is teleported in a radius of 50m to limit risk of successive die if stuck in a ambush.
+	
+- What still need to be done:
+	- You tell me :P
+```
+  
 ## EscapeFromMaldenZombie.Malden  
 This mission is based on "EscapeFromMaldenMOD" mission.  
 English and French localized.  
@@ -139,6 +168,6 @@ What's done so far (missing some for sure):
 
 - What still need to be done: You tell me :P
 ```
-
+  
 
 
