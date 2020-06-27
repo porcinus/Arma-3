@@ -380,7 +380,7 @@ missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["Preloa
 	missionNamespace setVariable ["_initialRespawn", nil];
 	
 	playMusic "AmbientTrack01_F_EPB"; //initial music
-	
+	/*
 	if (didJIP and (time > 30)) then {
 		player enableSimulationGlobal false;
 		player enableSimulation false;
@@ -389,7 +389,7 @@ missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["Preloa
 		forceRespawn player;
 		deleteVehicle player;
 	};
-	
+	*/
 	//NNS : turn on flashlight and NVG if night
 	if !(sunOrMoon == 1) then { //moon time, not perfect but work for most
 		waitUntil {alive player};

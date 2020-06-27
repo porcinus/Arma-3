@@ -4,6 +4,9 @@ if (isNil {missionNamespace getVariable "DebugOutputs_Chatbox"}) then {missionNa
 if (isNil {missionNamespace getVariable "DebugOutputs_Logs"}) then {missionNamespace setVariable ["DebugOutputs_Logs",false,true];}; //used when description.ext debug entry disable
 if (isNil {missionNamespace getVariable "Debug_Win"}) then {missionNamespace setVariable ["Debug_Win",false,true];}; //force win
 
+//NNS : delete all AI
+{deletevehicle _x} forEach units BIS_grpMain;
+
 // Definitions of vehicles and groups to be spawned
 BIS_civilCars = ["C_Offroad_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Truck_02_transport_F"];
 BIS_civilWreckCars = ["Land_Wreck_Ural_F","Land_Wreck_Truck_dropside_F","Land_Wreck_Truck_F","Land_Wreck_Van_F","Land_Wreck_Offroad_F","Land_Wreck_Offroad2_F","Land_Wreck_Car_F"];
