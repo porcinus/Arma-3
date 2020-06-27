@@ -5,9 +5,9 @@ Populate East Old Base
 //NNS : advise player for ahead location
 private _trigger = _this select 0;
 private _triggerPos = getPos _trigger;
-private _locationName = localize "STR_NNS_Escape_location_EastOldBase"; //try to recover location name
+private _locationName = localize "STR_NNS_location_EastOldBase"; //try to recover location name
 _distance = round (_triggerPos vectorDistance (getPos player)); //marker length
-[format[localize "STR_NNS_Escape_approachingLocation",[_locationName] call NNS_fnc_StringCapitalize,_distance]] remoteExec ["systemChat"];
+[format[localize "STR_NNS_approachingLocation",[_locationName] call NNS_fnc_StringCapitalize,_distance]] remoteExec ["systemChat"];
 
 //NNS : delete trigger
 deleteVehicle _trigger;

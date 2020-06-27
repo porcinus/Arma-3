@@ -5,9 +5,9 @@ NNS : Populate south west base (created from scratch)
 //NNS : advise player for ahead location
 private _trigger = _this select 0;
 private _triggerPos = getPos _trigger;
-private _locationName = localize "STR_NNS_Escape_location_SouthWestBase"; //try to recover location name
+private _locationName = localize "STR_NNS_location_SouthWestBase"; //try to recover location name
 _distance = round (_triggerPos vectorDistance (getPos player)); //marker length
-[format[localize "STR_NNS_Escape_approachingLocation",[_locationName] call NNS_fnc_StringCapitalize,_distance]] remoteExec ["systemChat"];
+[format[localize "STR_NNS_approachingLocation",[_locationName] call NNS_fnc_StringCapitalize,_distance]] remoteExec ["systemChat"];
 
 //NNS : delete trigger
 deleteVehicle _trigger;
@@ -150,7 +150,7 @@ _mrkRefueler0 setMarkerType "hd_unknown"; //"mrkRefueler0" setMarkerColor "Color
 _mrkRefueler1 = createMarker ["mrkRefueler1", getPos southwestbase_refueler_1];
 _mrkRefueler1 setMarkerType "hd_unknown"; //"mrkRefueler1" setMarkerColor "ColorRed";
 
-[BIS_grpMain,["southwestbaserefueler","objEscape"],[localize "STR_NNS_Escape_Objective_desc",localize "STR_NNS_Escape_Objective_title",""],objNull,"ASSIGNED",1,true,"scout"] call BIS_fnc_taskCreate;
+[BIS_grpMain,["southwestbaserefueler","objEscape"],[localize "STR_NNS_Objective_desc",localize "STR_NNS_Objective_title",""],objNull,"ASSIGNED",1,true,"scout"] call BIS_fnc_taskCreate;
 
 [_triggerPos,[southwestbase_refueler_0, southwestbase_refueler_1]] spawn {
 	_pos = _this select 0; //trigger position

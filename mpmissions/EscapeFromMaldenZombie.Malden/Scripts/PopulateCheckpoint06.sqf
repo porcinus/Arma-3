@@ -6,7 +6,7 @@ Populate Checkpoint
 private _trigger = _this select 0;
 private _triggerPos = getPos _trigger;
 _distance = round (_triggerPos vectorDistance (getPos player)); //marker length
-[format[localize "STR_NNS_Escape_approachingLocation",[localize "STR_A3_escape_marker_checkpoint"] call NNS_fnc_StringCapitalize,_distance]] remoteExec ["systemChat"];
+[format[localize "STR_NNS_approachingLocation",[localize "STR_A3_escape_marker_checkpoint"] call NNS_fnc_StringCapitalize,_distance]] remoteExec ["systemChat"];
 
 //NNS : delete trigger
 deleteVehicle _trigger;
