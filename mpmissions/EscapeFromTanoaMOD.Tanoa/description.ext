@@ -20,7 +20,7 @@ overviewText = $STR_NNS_briefing_overview; //NNS
 overviewTextLocked = $STR_NNS_briefing_overview; //NNS
 onLoadName = $STR_NNS_mission_name; //NNS
 onLoadMission = $STR_NNS_briefing_overview; //NNS
-overviewPicture = "img\loading_screen_nns.paa"; //NNS
+loadScreen = "img\loading_screen_nns.paa"; //NNS
 disabledAI = 1;
 
 // Player loadouts
