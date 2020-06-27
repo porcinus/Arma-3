@@ -57,7 +57,7 @@ _initSpawn = [east,"marker_respawn","Respawn"] call BIS_fnc_addRespawnPosition; 
 
 if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Remove respawn after 5min
 	[_initSpawn] spawn {
-		sleep 10; //wait 5min
+		sleep 300; //wait 5min
 		waitUntil {sleep 5; allPlayers findIf {alive _x} != -1}; //check if at least one player alive
 		deleteMarker "marker_respawn"; //remove respawn
 		//deleteVehicle respawnball; //remove respawn

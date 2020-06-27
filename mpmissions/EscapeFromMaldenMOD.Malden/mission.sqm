@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3613;
+		nextID=3661;
 	};
 	class Camera
 	{
 		pos[]={697.31171,47.458588,12166.565};
-		dir[]={-0.055112541,-0.42963114,-0.90133649};
-		up[]={-0.026221661,0.90299881,-0.4288393};
-		aside[]={-0.99815106,-1.0840449e-007,0.061029769};
+		dir[]={0.30966979,-0.55993795,-0.76850855};
+		up[]={0.20927782,0.828529,-0.51936561};
+		aside[]={-0.92754513,-4.2608008e-007,-0.37375623};
 	};
 };
 binarizationWanted=0;
@@ -337,6 +337,7 @@ randomSeed=14809642;
 class ScenarioData
 {
 	author="NNS,  original by wattywatts";
+	respawn=3;
 	wreckRemovalMaxTime=3600;
 };
 class CustomAttributes
@@ -361,7 +362,7 @@ class CustomAttributes
 					};
 					class value
 					{
-						items=1;
+						items=4;
 						class Item0
 						{
 							class data
@@ -373,7 +374,49 @@ class CustomAttributes
 										"STRING"
 									};
 								};
-								value="None";
+								value="Counter";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="MenuInventory";
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="MenuPosition";
+							};
+						};
+						class Item3
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="Spectator";
 							};
 						};
 					};
@@ -501,7 +544,8 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="@STR_NNS_Escape_mission_name";
+		briefingName="@STR_NNS_mission_name";
+		overviewText="@STR_NNS_mission_version";
 		timeOfChanges=1800.0002;
 		startWind=0.1;
 		startWaves=0.1;

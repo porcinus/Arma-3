@@ -13,13 +13,13 @@ class Header {
 };
 
 dev = "Vasek, mod by NNS";
-briefingName = $STR_NNS_Escape_mission_name; //NNS
+briefingName = $STR_NNS_mission_name; //NNS
 author = $STR_A3_Bohemia_Interactive;
 overviewPicture = "img\loading_screen_nns.paa"; //NNS
-overviewText = $STR_NNS_Escape_briefing_overview; //NNS
-overviewTextLocked = $STR_NNS_Escape_briefing_overview; //NNS
-onLoadName = $STR_NNS_Escape_mission_name; //NNS
-onLoadMission = $STR_NNS_Escape_briefing_overview; //NNS
+overviewText = $STR_NNS_briefing_overview; //NNS
+overviewTextLocked = $STR_NNS_briefing_overview; //NNS
+onLoadName = $STR_NNS_mission_name; //NNS
+onLoadMission = $STR_NNS_briefing_overview; //NNS
 loadScreen = "img\loading_screen_nns.paa"; //NNS
 disabledAI = 1;
 
@@ -33,7 +33,7 @@ class Params {
 	class Loadouts {
 		title = $STR_A3_Escape_param_respawnLoadouts;
 		values[] = {0, 1, 2, 3};
-		texts[] = {$STR_NNS_Escape_param_respawnLoadouts_overequip, $STR_A3_Escape_param_respawnLoadouts01, $STR_A3_Escape_param_respawnLoadouts02, $STR_A3_Escape_param_respawnLoadouts03};
+		texts[] = {$STR_NNS_param_respawnLoadouts_overequip, $STR_A3_Escape_param_respawnLoadouts01, $STR_A3_Escape_param_respawnLoadouts02, $STR_A3_Escape_param_respawnLoadouts03};
 		default = 0; //NNS
 		file = "params\respawnLoadouts.sqf";
 	};
@@ -79,49 +79,49 @@ class Params {
 	};
 
 	class CustomObjectives { //NNS
-		title = $STR_NNS_Escape_param_CustomObjectives_title;
+		title = $STR_NNS_param_CustomObjectives_title;
 		values[] = {0,1,2,3,4,5,6};
-		texts[] = {$STR_NNS_Escape_param_disable,"1","2","3","4","5",$STR_NNS_Escape_param_all};
+		texts[] = {$STR_NNS_param_disable,"1","2","3","4","5",$STR_NNS_param_all};
 		default = 6;
 		file = "params\setCustomObjectives.sqf";
 	};
 
 	class DebugOutputs { //NNS
-		title = $STR_NNS_Escape_param_DebugOutputs_title;
+		title = $STR_NNS_param_DebugOutputs_title;
 		values[] = {0,1,2,3};
-		texts[] = {$STR_NNS_Escape_param_disable,$STR_NNS_Escape_param_DebugOutputs_chatbox,$STR_NNS_Escape_param_DebugOutputs_logs,$STR_NNS_Escape_param_DebugOutputs_both};
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_DebugOutputs_chatbox,$STR_NNS_param_DebugOutputs_logs,$STR_NNS_param_DebugOutputs_both};
 		default = 0;
 		file = "params\setDebugOutputs.sqf";
 	};
 	
 	class DebugMenu { //NNS
-		title = $STR_NNS_Escape_param_DebugMenu_title;
+		title = $STR_NNS_param_DebugMenu_title;
 		values[] = {0,1,2};
-		texts[] = {$STR_NNS_Escape_param_disable,$STR_NNS_Escape_param_DebugMenu_admin,$STR_NNS_Escape_param_DebugMenu_all};
-		default = 2;
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_DebugMenu_admin,$STR_NNS_param_DebugMenu_all};
+		default = 0;
 		file = "params\setDebugMenu.sqf";
 	};
 
 	class EnemyCountsMenu { //NNS
-		title = $STR_NNS_Escape_param_EnemyCountsMenu_title;
+		title = $STR_NNS_param_EnemyCountsMenu_title;
 		values[] = {0,1};
-		texts[] = {$STR_NNS_Escape_param_normal,$STR_NNS_Escape_param_EnemyCountsMenu_limited};
+		texts[] = {$STR_NNS_param_normal,$STR_NNS_param_EnemyCountsMenu_limited};
 		default = 0;
 		file = "params\setEnemyCountsMenu.sqf";
 	};
 	
 	class EscapeRulesMenu { //NNS
-		title = $STR_NNS_Escape_param_EscapeRulesMenu_title;
+		title = $STR_NNS_param_EscapeRulesMenu_title;
 		values[] = {0,1};
-		texts[] = {$STR_NNS_Escape_param_EscapeRulesMenu_original,$STR_NNS_Escape_param_EscapeRulesMenu_permissive};
+		texts[] = {$STR_NNS_param_EscapeRulesMenu_original,$STR_NNS_param_EscapeRulesMenu_permissive};
 		default = 1;
 		file = "params\setEscapeRules.sqf";
 	};
 	
 	class EscapeAIskillMenu { //NNS
-		title = $STR_NNS_Escape_param_EscapeAIskillMenu_title;
+		title = $STR_NNS_param_EscapeAIskillMenu_title;
 		values[] = {0,1,2};
-		texts[] = {$STR_NNS_Escape_param_EscapeAIskillMenu_novice,$STR_NNS_Escape_param_EscapeAIskillMenu_normal,$STR_NNS_Escape_param_EscapeAIskillMenu_expert};
+		texts[] = {$STR_NNS_param_EscapeAIskillMenu_novice,$STR_NNS_param_EscapeAIskillMenu_normal,$STR_NNS_param_EscapeAIskillMenu_expert};
 		default = 1;
 		file = "params\setAIskill.sqf";
 	};
@@ -163,7 +163,7 @@ class CfgDebriefing {
 
 class CfgDebriefingSections {
 	class Stats {
-		title = $STR_NNS_Escape_Debrif_Stats_title;
+		title = $STR_NNS_Debrif_Stats_title;
 		variable = "BIS_GlobalStats";
 	};
 };

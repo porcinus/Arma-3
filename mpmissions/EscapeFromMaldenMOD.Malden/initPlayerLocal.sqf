@@ -152,6 +152,67 @@ player addeventhandler ["FiredMan", { //ammo not in grenades,smokes,missile are 
 	player setVariable ["shot_fired",_shot_fired]; //update var
 }];
 
+//NNS : stats : set public stats accessible from map
+[] spawn {
+	while {sleep 5; true} do {
+		_distance_traveled = player getVariable ["distance_traveled",[0,0]]; //foot, vehicle
+		_shot_fired = player getVariable ["shot_fired",[0,0,0,0,0]]; //bullet, grenade, smoke, rocket, from vehicle
+		player setVariable ["stats", [_shot_fired,_distance_traveled], true]; //public
+	};
+};
+
+//NNS : stats : get players stats when map opened
+addMissionEventHandler ["Map", {
+	params ["_mapIsOpened", "_mapIsForced"];
+	
+	if (_mapIsOpened) then {
+		private _nullRecord = objNull createDiaryRecord []; //"declare" _nullRecord
+		_record = player getVariable ["TeamStatsRecord",_nullRecord]; //recover record
+		if (!(player diarySubjectExists "TeamStats")) then {player createDiarySubject ["TeamStats", localize "STR_NNS_Debrif_Stats_title"];}; //subject not exist, create it
+		if (_record isEqualTo _nullRecord) then { //record not exist
+			_record = player createDiaryRecord ["TeamStats", [localize "STR_NNS_Debrif_Stats_team", localize "STR_NNS_Debrif_Stats_nodata"], taskNull, "", false]; //create record
+			player setVariable ["TeamStatsRecord", _record]; //backup record
+		};
+		
+		if !(_record isEqualTo _nullRecord) then { //record not null
+			_players_stats = []; //store array
+			_shot_fired_group = [0,0,0,0,0]; //store used ammo for whole group
+			
+			{ //players loop
+				_tmpStats = _x getVariable ["stats",[]]; //recover player stats
+				if (count _tmpStats == 2) then {
+					_players_stats pushBack format["<font color='#99ffffff'>%1:</font><br/>",name _x]; //player name
+					
+					_shot_fired = _tmpStats select 0;
+					_shot_fired_group set [0, (_shot_fired_group select 0) + (_shot_fired select 0)]; _shot_fired_group set [1, (_shot_fired_group select 1) + (_shot_fired select 1)]; _shot_fired_group set [2, (_shot_fired_group select 2) + (_shot_fired select 2)]; _shot_fired_group set [3, (_shot_fired_group select 3) + (_shot_fired select 3)]; _shot_fired_group set [4, (_shot_fired_group select 4) + (_shot_fired select 4)];
+					_players_stats pushBack format[localize "STR_NNS_Debriefing_AmmoUsed_title",(_shot_fired select 0),["","s"] select ((_shot_fired select 0) > 1),
+					[format[localize "STR_NNS_Debriefing_AmmoUsed_HEgrenades",(_shot_fired select 1),["","s"] select ((_shot_fired select 1) > 1)], ""] select ((_shot_fired select 1) == 0),
+					[format[localize "STR_NNS_Debriefing_AmmoUsed_SmokeGrenade",(_shot_fired select 2),["","s"] select ((_shot_fired select 2) > 1)], ""] select ((_shot_fired select 2) == 0),
+					[format[localize "STR_NNS_Debriefing_AmmoUsed_Rockets",(_shot_fired select 3),["","s"] select ((_shot_fired select 3) > 1)], ""] select ((_shot_fired select 3) == 0),
+					[format[localize "STR_NNS_Debriefing_AmmoUsed_Vehicle",(_shot_fired select 4),["","s"] select ((_shot_fired select 4) > 1)], ""] select ((_shot_fired select 4) == 0)];
+					_players_stats pushBack "<br/>"; //linebreak
+					
+					_distance_traveled = _tmpStats select 1;
+					_players_stats pushBack format[localize "STR_NNS_Debriefing_DistanceTravel_title",round (_distance_traveled select 0),
+					[format[localize "STR_NNS_Debriefing_DistanceTravel_vehicle",round (_distance_traveled select 1),round ((_distance_traveled select 0)+(_distance_traveled select 1))], ""] select (round (_distance_traveled select 1) == 0)]; //distance traveled
+					_players_stats pushBack "<img image='#(argb,8,8,3)color(1,1,1,0.1)' height='1' width='640' /><br/>"; //linebreak
+				};
+			} forEach allPlayers;
+			
+			if (count _players_stats > 0) then { //some data recovered, compile group data
+				_players_stats pushBack format["<font color='#99ffffff'>%1:</font><br/>",localize "STR_NNS_Debriefing_GroupStats_title"]; //title
+				_players_stats pushBack format[localize "STR_NNS_Debriefing_AmmoUsed_title",(_shot_fired_group select 0),["","s"] select ((_shot_fired_group select 0) > 1),
+				[format[localize "STR_NNS_Debriefing_AmmoUsed_HEgrenades",(_shot_fired_group select 1),["","s"] select ((_shot_fired_group select 1) > 1)], ""] select ((_shot_fired_group select 1) == 0),
+				[format[localize "STR_NNS_Debriefing_AmmoUsed_SmokeGrenade",(_shot_fired_group select 2),["","s"] select ((_shot_fired_group select 2) > 1)], ""] select ((_shot_fired_group select 2) == 0),
+				[format[localize "STR_NNS_Debriefing_AmmoUsed_Rockets",(_shot_fired_group select 3),["","s"] select ((_shot_fired_group select 3) > 1)], ""] select ((_shot_fired_group select 3) == 0),
+				[format[localize "STR_NNS_Debriefing_AmmoUsed_Vehicle",(_shot_fired_group select 4),["","s"] select ((_shot_fired_group select 4) > 1)], ""] select ((_shot_fired_group select 4) == 0)];
+				
+				player setDiaryRecordText [["TeamStats", _record], [localize "STR_NNS_Debrif_Stats_team", _players_stats joinString ""]];
+			};
+		};
+	};
+}];
+
 //NNS : drawable Whitebaord
 [] spawn {
 	sleep 60;
