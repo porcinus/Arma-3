@@ -78,6 +78,8 @@ What's done so far (missing some for sure):
 This mission is based on the original "Escape from Malden" mission.  
 English and French localized.  
   
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/main.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/main.jpg)
+  
 My main idea is to allow me and a group of friends to really enjoy this mission.  
   
 What's done so far (may miss some for sure):
