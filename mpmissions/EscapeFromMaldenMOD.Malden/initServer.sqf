@@ -29,6 +29,9 @@ if (isNil {missionNamespace getVariable "Debug_Win"}) then {missionNamespace set
 //NNS : very important
 "donotmoveoriginalcheckpointtriggers" setMarkerAlpha 0;
 
+//NNS : delete all AI
+{deletevehicle _x} forEach units BIS_grpMain;
+
 // Definitions of vehicles and groups to be spawned
 BIS_civilCars = ["C_Offroad_01_F","C_Quadbike_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Truck_02_transport_F"];
 BIS_supportVehicles = ["C_Van_01_fuel_F","C_Truck_02_fuel_F","C_Offroad_01_repair_F"];
