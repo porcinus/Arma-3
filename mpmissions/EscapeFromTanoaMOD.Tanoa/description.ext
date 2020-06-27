@@ -1,0 +1,219 @@
+enableDebugConsole = 2; //NNS
+respawn = 3;
+respawnDelay = 5; //NNS
+respawnOnStart = -1;
+allowFunctionsLog = 0; //NNS
+
+respawnTemplates[] = {"MenuPosition", "MenuInventory", "Tickets", "Spectator"};
+
+class Header {
+	gameType = Escape;
+	minPlayers = 1;
+	maxPlayers = 10;
+};
+
+dev = "Vasek, mod by NNS";
+briefingName = $STR_NNS_mission_name; //NNS
+author = $STR_A3_Bohemia_Interactive;
+overviewPicture = "a3\Missions_F_Exp\data\img\MP_EscapeFromTanoa_overview_CA.paa";
+overviewText = $STR_NNS_briefing_overview; //NNS
+overviewTextLocked = $STR_NNS_briefing_overview; //NNS
+onLoadName = $STR_NNS_mission_name; //NNS
+onLoadMission = $STR_NNS_briefing_overview; //NNS
+loadScreen = "a3\Missions_F_Exp\data\img\MP_EscapeFromTanoa_overview_CA.paa";
+disabledAI = 1;
+
+// Player loadouts
+#include "LoadoutClasses.inc"
+
+// Custom, non-sandbox groups
+#include "CustomGroups.inc"
+
+class Params
+{
+	class Loadouts
+	{
+		title = $STR_A3_Escape_param_respawnLoadouts;
+		values[] = {0, 1, 2};
+		texts[] = {$STR_A3_Escape_param_respawnLoadouts01, $STR_A3_Escape_param_respawnLoadouts02, $STR_A3_Escape_param_respawnLoadouts03};
+		default = 0; //NNS
+		file = "params\respawnLoadouts.sqf";
+	};
+
+	class EnemyEquipment
+	{
+		title = $STR_A3_Escape_param_enemyEquipment;
+		values[] = {0, 1};
+		texts[] = {$STR_A3_Escape_param_enemyEquipment01, $STR_A3_Escape_param_enemyEquipment02};
+		default = 0; //NNS
+		file = "params\enemyEquipment.sqf";
+	};
+
+	class noOfRespawns
+	{
+		title = $STR_A3_rscdisplaydebriefing_loadstext_mp;
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+		texts[] = {"0", $STR_A3_Escape_param_respawnGroup10, $STR_A3_Escape_param_respawnGroup20, $STR_A3_Escape_param_respawnGroup30, $STR_A3_Escape_param_respawnGroup40, $STR_A3_Escape_param_respawnGroup50, $STR_A3_Escape_param_respawnGroup100, $STR_A3_Escape_param_respawnIndividual01, $STR_A3_Escape_param_respawnIndividual02, $STR_A3_Escape_param_respawnIndividual03, $STR_A3_Escape_param_respawnIndividual04, $STR_A3_Escape_param_respawnIndividual05, $STR_A3_Escape_param_respawnIndividual10};
+		default = 6; //NNS
+		file = "params\setRespawn.sqf";
+	};
+
+	class SpecialEvents
+	{
+		title = $STR_A3_Escape_param_enemySupports;
+		values[] = {0, 1};
+		texts[] = {$STR_disabled, $STR_A3_Escape_param_enemySupportsOn};
+		default = 1;
+		file = "params\setSpecialEvents.sqf";
+	};
+
+	class AllowCrewInImmobile
+	{
+		title = $STR_A3_Escape_param_fubar;
+		values[] = {0, 1};
+		texts[] = {$STR_A3_Escape_param_fubarLeave, $STR_A3_Escape_param_fubarStay};
+		default = 0; //NNS
+		file = "params\setCrewInImmobile.sqf";
+	};
+
+	class Earthquakes
+	{
+		title = $STR_A3_Escape_param_earthquakes;
+		values[] = {0, 1};
+		texts[] = {$STR_disabled, $STR_enabled};
+		default = 1;
+		file = "params\setEarthquakes.sqf";
+	};
+
+	class Fog
+	{
+		title = $STR_A3_Param_Fog_Title;
+		values[] = {0,1,2};
+		texts[] = {$STR_A3_Param_Fog_0, $STR_A3_Param_Fog_1, $STR_A3_Param_Fog_2};
+		default = 0;
+		file = "params\setFog.sqf";
+	};
+
+	class EscapeRulesMenu { //NNS
+		title = $STR_NNS_param_EscapeRulesMenu_title;
+		values[] = {0,1};
+		texts[] = {$STR_NNS_param_EscapeRulesMenu_original,$STR_NNS_param_EscapeRulesMenu_permissive};
+		default = 1;
+		file = "params\setEscapeRules.sqf";
+	};
+	
+	class StaminaMenu { //NNS
+		title = $STR_NNS_param_Stamina_title;
+		values[] = {0,1};
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_enable};
+		default = 0;
+		file = "params\setStamina.sqf";
+	};
+	
+	#define DAYTIMEHOUR_DEFAULT		17
+	#define WEATHER_DEFAULT			0 //NNS
+	#define DEBUGCONSOLE_DEFAULT		1 //NNS
+	#define TIMEACCELERATION_DEFAULT	1
+
+	#define VIEW_DISTANCE_MIN		1000
+	#define VIEW_DISTANCE_MAX		3500
+	#define VIEW_DISTANCE_DEFAULT		1500
+
+	#include "\a3\functions_f\Params\paramDaytimeHour.inc"
+	#include "\a3\functions_f\Params\paramWeather.inc"
+	#include "\a3\functions_f\Params\paramDebugConsole.inc"
+	#include "\a3\Functions_F_MP_Mark\Params\paramTimeAcceleration.inc"
+	#include "\a3\Functions_F_Heli\Params\paramViewDistance.inc"
+        #include "\a3\functions_f\params\paramRevive.inc"
+};
+
+class CfgDebriefing
+{
+	class End1
+	{
+        	title = $STR_A3_mission_completed_title;
+        	subtitle = "";
+        	description = $STR_A3_EscapeFromTanoa_end01Desc;
+	};
+	class Loser: End1
+	{
+        	title = $STR_A3_mission_failed_title;
+        	description = $STR_A3_EscapeFromTanoa_end03Desc;
+		subtitle = $STR_A3_EscapeFromTanoa_end03Sub;
+	};
+};
+
+class CfgDebriefingSections {
+	class Stats {
+		title = $STR_NNS_Debrif_Stats_title;
+		variable = "BIS_GlobalStats";
+	};
+};
+
+corpseManagerMode = 1; 		// Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+corpseLimit = 24; 		// Max number of bodies which can be available at the same time. When exceeded, start deleting immediately.
+corpseRemovalMinTime = 300; 	// Minimal time in seconds a body stays in the scene (can't be removed sooner).
+corpseRemovalMaxTime = 360; 	// Maximal time in seconds after which a dead body is removed (can't stay longer).
+
+wreckManagerMode = 1; 		// Type of removed wrecks: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+wreckLimit = 8; 		// Max number of wrecks which can be available at the same time. When exceeded, start deleting immediately.
+wreckRemovalMinTime = 300; 	// Minimal time in seconds a wreck stays in the scene (can't be removed sooner).
+wreckRemovalMaxTime = 360;	// Maximal time in seconds after which a wreck is removed (can't stay longer).
+
+minPlayerDistance = 50;	// Bodies and wrecks in this vicinity of players will not be deleted even if the timer/limit condition is met.
+
+class CfgSounds
+{
+	sounds[] = {};
+	class DistantMortar
+	{
+		name = "Distant mortar fire";
+		sound[] = {"@A3\Sounds_F\arsenal\weapons_static\Mortar\Mortar82mm_distShot_01", 1, 1};
+		titles[] = {0,""};
+	};
+	class DistantHowitzer
+	{
+		name = "Distant howitzer fire";
+		sound[] = {"@A3\Sounds_F\arsenal\weapons_vehicles\cannon_155mm\CannonHeavy_distShot", 0.5, 1};
+		titles[] = {0,""};
+	};
+};
+
+class CfgFunctions
+{
+	class BIS
+	{
+		class EscapeFromTanoa
+		{
+			file = "Functions";
+			class EfT_DisplayTickets	{};
+			class EfT_SyndikatStalkers	{};
+			class EfT_ViperStalkers		{};
+			class EfT_SniperTeam		{};
+			class EfT_HouseFind		{};
+			class EfT_HousePopulate		{};
+			class EfT_AmmoboxNATO		{};
+			class EfT_SupplyboxNATO		{};
+			class EfT_AmmoboxCSAT		{};
+			class EfT_AmmoboxCSATBase	{};
+			class EfT_AmmoboxSyndikat	{};
+			class EfT_AmmoboxSpecial	{};
+			class EfT_LimitFAKs		{};
+			class EfT_CreateMinefield	{};
+			class EfT_PopulateCheckpoint	{};
+			class EfT_PopulatePost		{};
+			class EfT_PopulateTower		{};
+			class EfT_SpecialEvents		{};
+		};
+	};
+	
+	
+	class NNS {
+		class EscapeFromMalden {
+			file = "nns_functions";
+			class debugOutput {};
+			class CompileDebriefingStats {};
+			class groupCenter {};
+		};
+	};
+};

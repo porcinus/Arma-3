@@ -1,0 +1,41 @@
+LANGUAGE, "English", "French"
+
+STR_NNS_mission_name, "Escape From Tanoa (mod NNS)", "Escape From Tanoa (mod NNS)"
+STR_NNS_mission_version, "v06-27-20-1", "v06-27-20-1"
+STR_NNS_briefing_overview, "You're gonna sweat blood...", "Une bonne galere a tous..."
+
+STR_NNS_param_EscapeRulesMenu_title, "NNS: Escape rules", "NNS: Règles de l'escape"
+STR_NNS_param_EscapeRulesMenu_original, "Original", "Original"
+STR_NNS_param_EscapeRulesMenu_permissive, "Permissive : All players can die without failing the mission", "Permissif : Tous les joueurs peuvent mourir sans échoué la mission"
+
+
+STR_NNS_param_disable, "Disable", "Désactivé"
+STR_NNS_param_all, "All", "Tous"
+STR_NNS_param_normal, "Normal", "Normal"
+STR_NNS_param_enable, "Enable", "Activé"
+STR_NNS_param_disable, "Disable", "Désactivé"
+STR_NNS_param_unlimited, "Unlimited", "Illimité"
+
+STR_NNS_param_Stamina_title, "Stamina", "Endurance"
+
+
+
+
+STR_NNS_Debrif_Stats_title, "Team statistics", "Statistiques d'équipe"
+STR_NNS_Debrif_Stats_team, "Team", "Équipe"
+STR_NNS_Debrif_Stats_nodata, "No data received yet.", "Aucune donnée n'a encore été reçue."
+
+STR_NNS_Debriefing_AmmoUsed_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Ammo&#160;used:</t> %1 Bullet%2%3%4%5%6", "&#160;&#160;&#160;&#160;<t underline='1'>Munitions&#160;utilisé:</t> %1 Balle%2%3%4%5%6"
+STR_NNS_Debriefing_AmmoUsed_HEgrenades, ", %1 HE grenade%2", ", %1 Grenade%2"
+STR_NNS_Debriefing_AmmoUsed_SmokeGrenade, ", %1 Smoke grenade%2", ", %1 Fumigène%2"
+STR_NNS_Debriefing_AmmoUsed_Rockets, ", %1 Rocket%2", ", %1 Missile%2"
+STR_NNS_Debriefing_AmmoUsed_Vehicle, ", %1 shot%2 from Vehicle", ", %1 tir%2 depuis véhicule"
+
+STR_NNS_Debriefing_DistanceTravel_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Distance&#160;traveled:</t> %1m on foot%2", "&#160;&#160;&#160;&#160;<t underline='1'>Distance&#160;parcourue:</t> %1m à pied%2"
+STR_NNS_Debriefing_DistanceTravel_vehicle, ", %1m in vehicle, %2m total", ", %1m en véhicule, %2m au total"
+
+STR_NNS_Debriefing_LongestKill_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Longest&#160;kill:</t> %1m%2", "&#160;&#160;&#160;&#160;<t underline='1'>Frag&#160;distant:</t> %1m%2"
+
+STR_NNS_Debriefing_FriendlyKill_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Friendly&#160;killed:</t> %1%2", "&#160;&#160;&#160;&#160;<t underline='1'>Frag&#160;alliée:</t> %1%2"
+
+STR_NNS_Debriefing_GroupStats_title, "Group statistics", "Statistiques du groupe"
