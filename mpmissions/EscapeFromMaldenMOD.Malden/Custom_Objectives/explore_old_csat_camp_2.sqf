@@ -3,7 +3,7 @@ if !(["objective8"] call BIS_fnc_taskExists) then {
 	task_completed_8 = false;
 	destroyed_camp_02_cleared = false; //may be deleted in the future
 	destroyed_camp_02_discovered = false;
-	[BIS_grpMain,["objective8","objEscape"],[localize "STR_NNS_Escape_Objective_ExploreOldCSATbase_desc",localize "STR_NNS_Escape_Objective_ExploreOldEastCSATbase_title",""],getMarkerPos "objective_zone_8","ASSIGNED",1,true,"scout"] call BIS_fnc_taskCreate;
+	[BIS_grpMain,["objective8","objEscape"],[localize "STR_NNS_Objective_ExploreOldCSATbase_desc",localize "STR_NNS_Objective_ExploreOldEastCSATbase_title",""],getMarkerPos "objective_zone_8","ASSIGNED",1,true,"scout"] call BIS_fnc_taskCreate;
 
 	[] spawn {
 		{ // set random damage and fuel to tanks/truck

@@ -1,7 +1,7 @@
 if !(["objective0"] call BIS_fnc_taskExists) then {
 	task_completed_0 = false;
 
-	[BIS_grpMain,["objective0","objEscape"],[localize "STR_NNS_Escape_Objective_JTAGofficer_desc",localize "STR_NNS_Escape_Objective_JTAGofficer_title",""],getMarkerPos "objective_zone_0","ASSIGNED",1,true,"kill"] call BIS_fnc_taskCreate;
+	[BIS_grpMain,["objective0","objEscape"],[localize "STR_NNS_Objective_JTAGofficer_desc",localize "STR_NNS_Objective_JTAGofficer_title",""],getMarkerPos "objective_zone_0","ASSIGNED",1,true,"kill"] call BIS_fnc_taskCreate;
 
 	[] spawn {
 		while {!task_completed_0} do {

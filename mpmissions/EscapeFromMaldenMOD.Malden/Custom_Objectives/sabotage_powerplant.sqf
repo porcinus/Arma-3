@@ -56,7 +56,7 @@ if !(["objective11"] call BIS_fnc_taskExists) then {
 	
 	waitUntil {sleep 5; daytime > 20}; //wait until night
 	
-	[BIS_grpMain,["objective11","objEscape"],[localize "STR_NNS_Escape_Objective_SabotagePowerplant_desc",localize "STR_NNS_Escape_Objective_SabotagePowerplant_title",""],getMarkerPos "objective_zone_11","ASSIGNED",1,true,"destroy"] call BIS_fnc_taskCreate;
+	[BIS_grpMain,["objective11","objEscape"],[localize "STR_NNS_Objective_SabotagePowerplant_desc",localize "STR_NNS_Objective_SabotagePowerplant_title",""],getMarkerPos "objective_zone_11","ASSIGNED",1,true,"destroy"] call BIS_fnc_taskCreate;
 
 	[_building3,_building4,_building5] spawn {
 		fueltank0 = param [0, objNull];

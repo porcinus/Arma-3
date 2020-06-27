@@ -11,16 +11,16 @@ if !(["objective10"] call BIS_fnc_taskExists) then {
 	for "_i" from 0 to 3 do { //select 4 random object and 4 random marker to reveal
 		_rndObject = _objects call BIS_fnc_selectRandom; //select random object
 		_rndMarker = _markerListHide call BIS_fnc_selectRandom; //select random marker
-		[_rndObject, [localize "STR_NNS_Escape_CollectIntel_name", "scripts\Intel.sqf", ["markeralpha",_rndMarker,1]]] remoteExec ["addAction", 0, true]; //add action
+		[_rndObject, [localize "STR_NNS_CollectIntel_name", "scripts\Intel.sqf", ["markeralpha",_rndMarker,1]]] remoteExec ["addAction", 0, true]; //add action
 		_objects deleteAt (_objects find _rndObject); //remove from object array
 		_markerListHide deleteAt (_markerListHide find _rndMarker); //remove from marker array
 	};
 	
 	//Rescue CSAT squat, lead to CSAT sniper if success
-	[(_objects select 0), [localize "STR_NNS_Escape_CollectIntel_name", "scripts\Intel.sqf", ["execvm","scripts\RescueCSATsquad.sqf",[_hostageBarn,["rescueCSATsquad1","objEscape"],BIS_grpMain,["meetCSATsniper1","objEscape"]]]]] remoteExec ["addAction", 0, true]; //add action
+	[(_objects select 0), [localize "STR_NNS_CollectIntel_name", "scripts\Intel.sqf", ["execvm","scripts\RescueCSATsquad.sqf",[_hostageBarn,["rescueCSATsquad1","objEscape"],BIS_grpMain,["meetCSATsniper1","objEscape"]]]]] remoteExec ["addAction", 0, true]; //add action
 	
-	//[[(_objects select 0), [localize "STR_NNS_Escape_CollectIntel_name", "scripts\Intel.sqf", ["execvm","TMP.sqf",["bla1","bla2","bla3","bla4"]]]], "addAction", true, true] call BIS_fnc_MP; //add action
-	//[[(_objects select 1), [localize "STR_NNS_Escape_CollectIntel_name", "scripts\Intel.sqf", ["execvm","TMP.sqf",["bla1","bla2","bla3","bla4"],true]]], "addAction", true, true] call BIS_fnc_MP; //add action
+	//[[(_objects select 0), [localize "STR_NNS_CollectIntel_name", "scripts\Intel.sqf", ["execvm","TMP.sqf",["bla1","bla2","bla3","bla4"]]]], "addAction", true, true] call BIS_fnc_MP; //add action
+	//[[(_objects select 1), [localize "STR_NNS_CollectIntel_name", "scripts\Intel.sqf", ["execvm","TMP.sqf",["bla1","bla2","bla3","bla4"],true]]], "addAction", true, true] call BIS_fnc_MP; //add action
 	
 	//Add drawable whiteboard
 	_whiteboardObjects = missionNamespace getVariable ["NNS_WhiteboardDraw",[]];
@@ -28,7 +28,7 @@ if !(["objective10"] call BIS_fnc_taskExists) then {
 	} else {_whiteboardObjects pushBack objective10_whiteboard0;};
 	missionNamespace setVariable ["NNS_WhiteboardDraw",_whiteboardObjects,true];
 	
-	[BIS_grpMain,["objective10","objEscape"],[localize "STR_NNS_Escape_Objective_Intel_desc",localize "STR_NNS_Escape_Objective_Intel_title",""],getMarkerPos "objective_zone_10","ASSIGNED",1,true,"intel"] call BIS_fnc_taskCreate;
+	[BIS_grpMain,["objective10","objEscape"],[localize "STR_NNS_Objective_Intel_desc",localize "STR_NNS_Objective_Intel_title",""],getMarkerPos "objective_zone_10","ASSIGNED",1,true,"intel"] call BIS_fnc_taskCreate;
 
 	[] spawn {
 		while {!task_completed_10} do {
