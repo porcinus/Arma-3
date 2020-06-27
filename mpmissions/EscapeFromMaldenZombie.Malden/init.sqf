@@ -121,29 +121,3 @@ MENU_COMMS_DEBUG_EXTREME = [
 	["/!\ Destroy terrain objects (1km)",[0],"",-5,[["expression", "{_x setDamage 1;} foreach nearestTerrainObjects [player,[],1000]; ['/!\ Destroy terrain objects (1km)',false,true,false,true] call NNS_fnc_debugOutput;"]],"1","1", "\A3\ui_f\data\IGUI\Cfg\Cursors\selectOver_ca.paa"],
 	["/!\ Remove objects (500m)",[0],"",-5,[["expression", "{if(group _x != group player && typeOf vehicle _x != 'Sign_Arrow_Large_Green_F') then {_x removeAllMPEventHandlers 'MPKilled';deleteVehicle _x;};} forEach nearestObjects [player, ['all'], 500]; ['/!\ Remove objects (500m)',false,true,false,true] call NNS_fnc_debugOutput;"]],"1","1", "\A3\ui_f\data\IGUI\Cfg\Cursors\selectOver_ca.paa"]
 ];
-
-
-/*
-
-
-
-
-
-
-attack_ca.paa
-freelook_ca.paa
-iconComplex_ca.paa    ***
-iconCursorSupport_ca.paa
-selectOver_ca.paa
-tactical_ca.paa
-weapon_ca.paa
-board_ca.paa
-
-
-
-
-
-
-
-
-*/

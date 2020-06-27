@@ -409,7 +409,7 @@ _zombies_spawner = [zombie_spawner_0,zombie_spawner_1,zombie_spawner_2];
 
 //NNS : add pick action to all fuel canister on map
 {
-	[_x, [localize "STR_NNS_Escape_TakeFuelCanister", {(_this select 1) setVariable ["haveCanister", true]; deleteVehicle (_this select 0);}, nil, 1.5, true, true, "", "[true, false] select (player getVariable ['haveCanister', false])", 2]] remoteExec ["addAction", 0, true];
+	[_x, [localize "STR_NNS_TakeFuelCanister", {(_this select 1) setVariable ["haveCanister", true]; deleteVehicle (_this select 0);}, nil, 1.5, true, true, "", "[true, false] select (player getVariable ['haveCanister', false])", 2]] remoteExec ["addAction", 0, true];
 } forEach nearestObjects [[5250,5780,0], ["Land_CanisterFuel_F"], 8000];
 
 //NNS: hide all loot markers

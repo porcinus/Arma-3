@@ -32,7 +32,7 @@ if !(BIS_stamina) then {player enablestamina false;};
 if (BIS_loadoutLevel < 2) then {player setUnitTrait ["Medic",true]; player setUnitTrait ["Engineer",true]};
 
 // Create diary for each player
-_null = player createDiaryRecord ["Diary", [localize "str_a3_diary_execution_title", format ["%1<br/><br/>%2<br/><br/>%3<br/><br/>%4<br/><br/>%5<br/><br/>%6",localize "STR_NNS_Escape_briefing_0",localize "STR_NNS_Escape_briefing_1",localize "STR_NNS_Escape_briefing_2",localize "STR_NNS_Escape_briefing_3",localize "STR_NNS_Escape_briefing_4",localize "STR_NNS_Escape_briefing_5"]]];
+_null = player createDiaryRecord ["Diary", [localize "str_a3_diary_execution_title", format ["%1<br/><br/>%2<br/><br/>%3<br/><br/>%4<br/><br/>%5<br/><br/>%6",localize "STR_NNS_briefing_0",localize "STR_NNS_briefing_1",localize "STR_NNS_briefing_2",localize "STR_NNS_briefing_3",localize "STR_NNS_briefing_4",localize "STR_NNS_briefing_5"]]];
 
 // Add respawn tickets if set to individual unit
 _respawnTickets = missionNamespace getVariable ["BIS_respawnTickets",-1];
@@ -111,9 +111,9 @@ addMissionEventHandler ["Map", {
 	if (_mapIsOpened) then {
 		private _nullRecord = objNull createDiaryRecord []; //"declare" _nullRecord
 		_record = player getVariable ["TeamStatsRecord",_nullRecord]; //recover record
-		if (!(player diarySubjectExists "TeamStats")) then {player createDiarySubject ["TeamStats", localize "STR_NNS_Escape_Debrif_Stats_title"];}; //subject not exist, create it
+		if (!(player diarySubjectExists "TeamStats")) then {player createDiarySubject ["TeamStats", localize "STR_NNS_Debrif_Stats_title"];}; //subject not exist, create it
 		if (_record isEqualTo _nullRecord) then { //record not exist
-			_record = player createDiaryRecord ["TeamStats", [localize "STR_NNS_Escape_Debrif_Stats_team", localize "STR_NNS_Escape_Debrif_Stats_nodata"], taskNull, "", false]; //create record
+			_record = player createDiaryRecord ["TeamStats", [localize "STR_NNS_Debrif_Stats_team", localize "STR_NNS_Debrif_Stats_nodata"], taskNull, "", false]; //create record
 			player setVariable ["TeamStatsRecord", _record]; //backup record
 		};
 		
@@ -150,7 +150,7 @@ addMissionEventHandler ["Map", {
 				[format[localize "STR_NNS_Debriefing_AmmoUsed_Rockets",(_shot_fired_group select 3),["","s"] select ((_shot_fired_group select 3) > 1)], ""] select ((_shot_fired_group select 3) == 0),
 				[format[localize "STR_NNS_Debriefing_AmmoUsed_Vehicle",(_shot_fired_group select 4),["","s"] select ((_shot_fired_group select 4) > 1)], ""] select ((_shot_fired_group select 4) == 0)];
 				
-				player setDiaryRecordText [["TeamStats", _record], [localize "STR_NNS_Escape_Debrif_Stats_team", _players_stats joinString ""]];
+				player setDiaryRecordText [["TeamStats", _record], [localize "STR_NNS_Debrif_Stats_team", _players_stats joinString ""]];
 			};
 		};
 	};
@@ -285,10 +285,10 @@ player addEventHandler ["InventoryOpened", {
 				_vehiProgress progressSetPosition (fuel _container);
 				_vehiProgressFrame = _inventoryDisplay ctrlCreate ["RscFrame", -1, _drainGrp]; _vehiProgressFrame ctrlSetPosition [_invPadding, _invPadding, _buttonW, _progressH]; _vehiProgressFrame ctrlSetTextColor _invFrameColor; _vehiProgressFrame ctrlCommit 0;
 				for "_i" from 1 to 9 do {_tmpX = _invPadding + (_buttonW / 10) * _i; _tmpCtl = _inventoryDisplay ctrlCreate ["RscLine", -1, _drainGrp]; _tmpCtl ctrlSetPosition [_tmpX, _invPadding, 0, _progressH]; _tmpCtl ctrlSetTextColor _invFrameColor; _tmpCtl ctrlCommit 0;};
-				_drainButton = _inventoryDisplay ctrlCreate ["RscButton", 10000, _drainGrp]; _drainButton ctrlSetPosition [_invPadding, _buttonY, _buttonW, _buttonH]; _drainButton ctrlSetText localize "STR_NNS_Escape_FuelTank_drain"; _drainButton ctrlSetFontHeight _buttonFS; _drainButton buttonSetAction "[1] call RefuelFnc"; _drainButton ctrlCommit 0;
+				_drainButton = _inventoryDisplay ctrlCreate ["RscButton", 10000, _drainGrp]; _drainButton ctrlSetPosition [_invPadding, _buttonY, _buttonW, _buttonH]; _drainButton ctrlSetText localize "STR_NNS_FuelTank_drain"; _drainButton ctrlSetFontHeight _buttonFS; _drainButton buttonSetAction "[1] call RefuelFnc"; _drainButton ctrlCommit 0;
 				if ((fuel _container == 0) || {(player getVariable ["canisterFuel", 0]) == _canisterFuelCap}) then {_drainButton ctrlEnable false;}; //no fuel or canister full, disable control
 				if (_hasCargo) then {
-					_cargoButton = _inventoryDisplay ctrlCreate ["RscButton", 10002, _drainGrp]; _cargoButton ctrlSetPosition [_invPadding, _buttonY + _invPadding + _buttonH, _buttonW, _buttonH]; _cargoButton ctrlSetText localize "STR_NNS_Escape_FuelTank_draincargo"; _cargoButton ctrlSetFontHeight _buttonFS; _cargoButton buttonSetAction "[2] call RefuelFnc"; _cargoButton ctrlCommit 0;
+					_cargoButton = _inventoryDisplay ctrlCreate ["RscButton", 10002, _drainGrp]; _cargoButton ctrlSetPosition [_invPadding, _buttonY + _invPadding + _buttonH, _buttonW, _buttonH]; _cargoButton ctrlSetText localize "STR_NNS_FuelTank_draincargo"; _cargoButton ctrlSetFontHeight _buttonFS; _cargoButton buttonSetAction "[2] call RefuelFnc"; _cargoButton ctrlCommit 0;
 					if ((player getVariable ["canisterFuel", 0]) == _canisterFuelCap) then {_cargoButton ctrlEnable false;}; //canister full, disable control
 				};
 				
@@ -299,7 +299,7 @@ player addEventHandler ["InventoryOpened", {
 				_fillProgress progressSetPosition ((player getVariable ["canisterFuel", 0]) / _canisterFuelCap);
 				_fillProgressFrame = _inventoryDisplay ctrlCreate ["RscFrame", -1, _fillGrp]; _fillProgressFrame ctrlSetPosition [_invPadding, _invPadding, _buttonW, _progressH]; _fillProgressFrame ctrlSetTextColor _invFrameColor; _fillProgressFrame ctrlCommit 0;
 				for "_i" from 1 to 9 do {_tmpX = _invPadding + (_buttonW / 10) * _i; _tmpCtl = _inventoryDisplay ctrlCreate ["RscLine", -1, _fillGrp]; _tmpCtl ctrlSetPosition [_tmpX, _invPadding, 0, _progressH]; _tmpCtl ctrlSetTextColor _invFrameColor; _tmpCtl ctrlCommit 0;};
-				_fillButton = _inventoryDisplay ctrlCreate ["RscButton", 10001, _fillGrp]; _fillButton ctrlSetPosition [_invPadding, _buttonY, _buttonW, _buttonH]; _fillButton ctrlSetText localize "STR_NNS_Escape_FuelTank_fill"; _fillButton ctrlSetFontHeight _buttonFS; _fillButton buttonSetAction "[0] call RefuelFnc"; _fillButton ctrlCommit 0;
+				_fillButton = _inventoryDisplay ctrlCreate ["RscButton", 10001, _fillGrp]; _fillButton ctrlSetPosition [_invPadding, _buttonY, _buttonW, _buttonH]; _fillButton ctrlSetText localize "STR_NNS_FuelTank_fill"; _fillButton ctrlSetFontHeight _buttonFS; _fillButton buttonSetAction "[0] call RefuelFnc"; _fillButton ctrlCommit 0;
 				if (player getVariable ["canisterFuel", 0] == 0 || {fuel _container > 0.99}) then {_fillButton ctrlEnable false;}; //no fuel in canister, disable control
 				
 				//update all progressbars / buttons
@@ -329,7 +329,7 @@ player addEventHandler ["InventoryOpened", {
 				_invPlayerW = _invPlayerPos select 2; //player inventory width
 				_canisterGrp = _inventoryDisplay ctrlCreate ["RscControlsGroupNoScrollbars", -1]; _canisterGrp ctrlSetPosition [_invPlayerX, (_invPlayerPos select 1) + (_invPlayerPos select 3) + _invPadding]; _canisterGrp ctrlCommit 0;
 				_canisterBg = _inventoryDisplay ctrlCreate ["RscText", -1, _canisterGrp]; _canisterBg ctrlSetPosition [0, 0, _invPlayerW, (_invPadding * 2) + _progressH]; _canisterBg ctrlSetBackgroundColor _invBgColor; _canisterBg ctrlCommit 0;
-				_canisterTxt = _inventoryDisplay ctrlCreate ["RscText", -1, _canisterGrp]; _canisterTxt ctrlSetPosition [_invPadding - 0.008, _invPadding, _invPlayerW - (_invPadding * 2), _progressH]; _canisterTxt ctrlSetText (localize "STR_NNS_Escape_FuelCanister"); _canisterTxt ctrlSetTextColor _invTxtColor; _canisterTxt ctrlSetFontHeight _textH; _canisterTxt ctrlSetBackgroundColor [0, 0, 0, 0]; _canisterTxt ctrlCommit 0;
+				_canisterTxt = _inventoryDisplay ctrlCreate ["RscText", -1, _canisterGrp]; _canisterTxt ctrlSetPosition [_invPadding - 0.008, _invPadding, _invPlayerW - (_invPadding * 2), _progressH]; _canisterTxt ctrlSetText (localize "STR_NNS_FuelCanister"); _canisterTxt ctrlSetTextColor _invTxtColor; _canisterTxt ctrlSetFontHeight _textH; _canisterTxt ctrlSetBackgroundColor [0, 0, 0, 0]; _canisterTxt ctrlCommit 0;
 				_txtW = (ctrlTextWidth _canisterTxt) - 0.016; //not include 0.008 margin
 				_progressX = _txtW + (_invPadding * 2);
 				_progressW = _invPlayerW - (_progressX + _invPadding);

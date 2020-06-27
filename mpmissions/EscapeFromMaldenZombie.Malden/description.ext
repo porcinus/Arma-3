@@ -13,13 +13,13 @@ class Header {
 };
 
 dev = "NNS";
-briefingName = $STR_NNS_Escape_mission_name; //NNS
+briefingName = $STR_NNS_mission_name; //NNS
 author = "NNS";
 overviewPicture = "img\loading_screen_nns.paa"; //NNS
-overviewText = $STR_NNS_Escape_briefing_overview; //NNS
-overviewTextLocked = $STR_NNS_Escape_briefing_overview; //NNS
-onLoadName = $STR_NNS_Escape_mission_name; //NNS
-onLoadMission = $STR_NNS_Escape_briefing_overview; //NNS
+overviewText = $STR_NNS_briefing_overview; //NNS
+overviewTextLocked = $STR_NNS_briefing_overview; //NNS
+onLoadName = $STR_NNS_mission_name; //NNS
+onLoadMission = $STR_NNS_briefing_overview; //NNS
 loadScreen = "img\loading_screen_nns.paa"; //NNS
 disabledAI = 1;
 
@@ -41,7 +41,7 @@ class Params {
 	class noOfRespawns {
 		title = $STR_A3_rscdisplaydebriefing_loadstext_mp;
 		values[] = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-		texts[] = {$STR_NNS_Escape_param_unlimited,"0", $STR_A3_Escape_param_respawnGroup10, $STR_A3_Escape_param_respawnGroup20, $STR_A3_Escape_param_respawnGroup30, $STR_A3_Escape_param_respawnGroup40, $STR_A3_Escape_param_respawnGroup50, $STR_A3_Escape_param_respawnGroup100, $STR_A3_Escape_param_respawnIndividual01, $STR_A3_Escape_param_respawnIndividual02, $STR_A3_Escape_param_respawnIndividual03, $STR_A3_Escape_param_respawnIndividual04, $STR_A3_Escape_param_respawnIndividual05, $STR_A3_Escape_param_respawnIndividual10};
+		texts[] = {$STR_NNS_param_unlimited,"0", $STR_A3_Escape_param_respawnGroup10, $STR_A3_Escape_param_respawnGroup20, $STR_A3_Escape_param_respawnGroup30, $STR_A3_Escape_param_respawnGroup40, $STR_A3_Escape_param_respawnGroup50, $STR_A3_Escape_param_respawnGroup100, $STR_A3_Escape_param_respawnIndividual01, $STR_A3_Escape_param_respawnIndividual02, $STR_A3_Escape_param_respawnIndividual03, $STR_A3_Escape_param_respawnIndividual04, $STR_A3_Escape_param_respawnIndividual05, $STR_A3_Escape_param_respawnIndividual10};
 		default = -1; //NNS6
 		file = "params\setRespawn.sqf";
 	};
@@ -55,49 +55,49 @@ class Params {
 	};
 
 	class DebugOutputs { //NNS
-		title = $STR_NNS_Escape_param_DebugOutputs_title;
+		title = $STR_NNS_param_DebugOutputs_title;
 		values[] = {0,1,2,3};
-		texts[] = {$STR_NNS_Escape_param_disable,$STR_NNS_Escape_param_DebugOutputs_chatbox,$STR_NNS_Escape_param_DebugOutputs_logs,$STR_NNS_Escape_param_DebugOutputs_both};
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_DebugOutputs_chatbox,$STR_NNS_param_DebugOutputs_logs,$STR_NNS_param_DebugOutputs_both};
 		default = 0;
 		file = "params\setDebugOutputs.sqf";
 	};
 	
 	class DebugMenu { //NNS
-		title = $STR_NNS_Escape_param_DebugMenu_title;
+		title = $STR_NNS_param_DebugMenu_title;
 		values[] = {0,1,2};
-		texts[] = {$STR_NNS_Escape_param_disable,$STR_NNS_Escape_param_DebugMenu_admin,$STR_NNS_Escape_param_DebugMenu_all};
-		default = 2;
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_DebugMenu_admin,$STR_NNS_param_DebugMenu_all};
+		default = 0;
 		file = "params\setDebugMenu.sqf";
 	};
 
 	class EscapeRulesMenu { //NNS
-		title = $STR_NNS_Escape_param_EscapeRulesMenu_title;
+		title = $STR_NNS_param_EscapeRulesMenu_title;
 		values[] = {0,1};
-		texts[] = {$STR_NNS_Escape_param_EscapeRulesMenu_original,$STR_NNS_Escape_param_EscapeRulesMenu_permissive};
+		texts[] = {$STR_NNS_param_EscapeRulesMenu_original,$STR_NNS_param_EscapeRulesMenu_permissive};
 		default = 1;
 		file = "params\setEscapeRules.sqf";
 	};
 	
 	class ZombiesAmountMenu { //NNS
-		title = $STR_NNS_Escape_param_ZombiesAmount_title;
+		title = $STR_NNS_param_ZombiesAmount_title;
 		values[] = {0,1,2,3};
-		texts[] = {$STR_NNS_Escape_param_ZombiesAmount_limited,$STR_NNS_Escape_param_ZombiesAmount_normal,$STR_NNS_Escape_param_ZombiesAmount_high, "debug (1 zombie)"};
+		texts[] = {$STR_NNS_param_ZombiesAmount_limited,$STR_NNS_param_ZombiesAmount_normal,$STR_NNS_param_ZombiesAmount_high, "debug (1 zombie)"};
 		default = 1;
 		file = "params\setZombiesCount.sqf";
 	};
 	
 	class AmmoboxAmountMenu { //NNS
-		title = $STR_NNS_Escape_param_AmmoboxAmount_title;
+		title = $STR_NNS_param_AmmoboxAmount_title;
 		values[] = {0,1,2,3};
-		texts[] = {$STR_NNS_Escape_param_AmmoboxAmount_verylow,$STR_NNS_Escape_param_AmmoboxAmount_low,$STR_NNS_Escape_param_AmmoboxAmount_normal,$STR_NNS_Escape_param_AmmoboxAmount_high};
+		texts[] = {$STR_NNS_param_AmmoboxAmount_verylow,$STR_NNS_param_AmmoboxAmount_low,$STR_NNS_param_AmmoboxAmount_normal,$STR_NNS_param_AmmoboxAmount_high};
 		default = 0;
 		file = "params\setAmmoboxAmount.sqf";
 	};
 	
 	class StaminaMenu { //NNS
-		title = $STR_NNS_Escape_param_Stamina_title;
+		title = $STR_NNS_param_Stamina_title;
 		values[] = {0,1};
-		texts[] = {$STR_NNS_Escape_param_disable,$STR_NNS_Escape_param_enable};
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_enable};
 		default = 0;
 		file = "params\setStamina.sqf";
 	};
@@ -139,7 +139,7 @@ class CfgDebriefing {
 
 class CfgDebriefingSections {
 	class Stats {
-		title = $STR_NNS_Escape_Debrif_Stats_title;
+		title = $STR_NNS_Debrif_Stats_title;
 		variable = "BIS_GlobalStats";
 	};
 };
