@@ -156,6 +156,7 @@ My main idea is to allow me and a group of friends to really enjoy this mission.
 What's done so far (may miss some for sure):
 ```
 - Additional options on mission selection:
+	- Better equipment (ENVG-II, Nightstalker, GPS for everyone).
 	- Custom Escape rules: Original or Permissive (don't loss if everyone is dead, initial respawn trigger remain).
 	- Possibility to disable stamina.
 
