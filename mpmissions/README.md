@@ -147,6 +147,8 @@ What's done so far (missing some for sure):
 This mission is based on the original "Escape from Malden" mission.  
 English and French localized.  
   
+##### Important note: Win condition glitch present in original mission is currently in Testing.
+  
 [![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/main.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/main.jpg)
   
 My main idea is to allow me and a group of friends to really enjoy this mission.  
@@ -158,6 +160,7 @@ What's done so far (may miss some for sure):
 	- Possibility to disable stamina.
 
 - Regarding the original stuff (little modifications/full rework).
+	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and its destroyed.
 	- Empty group cleanup script: full rework.
 	- Special events: mortar disabled.
 	- Rework loadout: one per class, limited with a script afterward.
