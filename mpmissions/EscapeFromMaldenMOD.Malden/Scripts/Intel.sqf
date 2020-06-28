@@ -27,7 +27,7 @@ _actionCompleted = false;
 ExecArguments = { //parse and do argument 
 	params ["_argument"];
 	
-	[format ["Intel.sqf : _argument: %1",_argument]] call BIS_fnc_NNS_debugOutput; //debug
+	[format ["Intel.sqf : _argument: %1",_argument]] call NNS_fnc_debugOutput; //debug
 	
 	if ((_argument select 0) == "none") then {_actionCompleted = true;}; //nothing to do
 
@@ -53,12 +53,12 @@ ExecArguments = { //parse and do argument
 
 
 
-if (count _arguments == 0) exitWith {["Intel.sqf : wrong arguments"] call BIS_fnc_NNS_debugOutput;};
+if (count _arguments == 0) exitWith {["Intel.sqf : wrong arguments"] call NNS_fnc_debugOutput;};
 
 if (typeName (_arguments select 0) == "ARRAY") then {{[_x] call ExecArguments;} forEach _arguments; //group of arguments
 } else {[_arguments] call ExecArguments;}; //single argument
 
-if !(_actionCompleted) then {["Intel.sqf : warning, no valid argument passed, typo?"] call BIS_fnc_NNS_debugOutput;};
+if !(_actionCompleted) then {["Intel.sqf : warning, no valid argument passed, typo?"] call NNS_fnc_debugOutput;};
 
 [name player, localize "STR_NNS_CollectIntel_collected"] remoteExec ["BIS_fnc_showSubtitle",0,true];
 [_target] remoteExec ["removeAllActions",0,true]; //remove action for all clients and JIP

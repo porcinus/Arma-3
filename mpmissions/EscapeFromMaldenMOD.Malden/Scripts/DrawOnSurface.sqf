@@ -16,7 +16,7 @@ params [
 ["_drawCleanDistance",125] //cleaning distance
 ];
 
-if (count (_objectList) == 0) exitWith {["DrawOnSurface.sqf : Need at least one object to draw on"] call BIS_fnc_NNS_debugOutput;};
+if (count (_objectList) == 0) exitWith {["DrawOnSurface.sqf : Need at least one object to draw on"] call NNS_fnc_debugOutput;};
 
 //DrawOnObject draw start section
 waituntil {!isnull (finddisplay 46)}; //wait until viewpoint initialized

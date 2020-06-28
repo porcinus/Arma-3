@@ -14,7 +14,7 @@ deleteVehicle _trigger;
 //NNS : Populate building / ammo box
 _null = BIS_Tower_Port1 call BIS_fnc_EfM_populateTower;
 _null = BIS_Tower_Port2 call BIS_fnc_EfM_populateTower;
-_null = BIS_Tower_Port2 call BIS_fnc_NNS_Populate_CargoTower_More;
+_null = BIS_Tower_Port2 call NNS_fnc_Populate_CargoTower_More;
 
 // Empty vehicles
 _boat01 = "C_Rubberboat" createVehicle [8495.92,3797.15,6.1];
@@ -50,7 +50,7 @@ _grp01 = grpNull;
 _grp01 = [_pos01a, west, configFile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad", [], [], [0.3, 0.4]] call BIS_fnc_spawnGroup;
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp01];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp01)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp01);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp01);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp01);
 _grp01 enableDynamicSimulation true;
 
@@ -72,7 +72,7 @@ _grp02 = grpNull;
 _grp02 = [_pos02a, west, configFile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSentry", [], [], [0.3, 0.4]] call BIS_fnc_spawnGroup;
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp02];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp02)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp02);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp02);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp02);
 _grp02 enableDynamicSimulation true;
 
@@ -82,4 +82,4 @@ _wp02c = _grp02 addWaypoint [_pos02a, 0];
 _wp02c setWaypointType "Cycle";
 
 
-[[_grp01,_grp02]] call BIS_fnc_NNS_AInoPower; //powergrid off
+[[_grp01,_grp02]] call NNS_fnc_AInoPower; //powergrid off

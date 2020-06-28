@@ -47,7 +47,7 @@ _grp01 = grpNull;
 _grp01 = [_pos01a, west, configFile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad", [], [], [0.3, 0.4]] call BIS_fnc_spawnGroup;
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp01];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp01)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp01);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp01);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp01);
 _grp01 enableDynamicSimulation true;
 
@@ -70,7 +70,7 @@ _grp02 = grpNull;
 _grp02 = [_pos02a, west, configFile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad", [], [], [0.3, 0.4]] call BIS_fnc_spawnGroup;
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp02];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp02)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp02);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp02);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp02);
 _grp02 enableDynamicSimulation true;
 
@@ -92,7 +92,7 @@ _grp03 = grpNull;
 _grp03 = [_pos03a, west, configFile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfTeam", [], [], [0.3, 0.4]] call BIS_fnc_spawnGroup;
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp03];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp03)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp03);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp03);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp03);
 _grp03 enableDynamicSimulation true;
 
@@ -104,4 +104,4 @@ _wp03c setWaypointType "Cycle";
 	// Remove backpack with spare NLAWs
 	// {if (typeOf _x == "B_Soldier_LAT_F") then {removeBackpackGlobal _x}} forEach (units _grp03);
 
-[[_grp01,_grp02,_grp03]] call BIS_fnc_NNS_AInoPower; //powergrid off
+[[_grp01,_grp02,_grp03]] call NNS_fnc_AInoPower; //powergrid off

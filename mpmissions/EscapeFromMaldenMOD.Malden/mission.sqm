@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3661;
+		nextID=3685;
 	};
 	class Camera
 	{
-		pos[]={697.31171,47.458588,12166.565};
-		dir[]={0.30966979,-0.55993795,-0.76850855};
-		up[]={0.20927782,0.828529,-0.51936561};
-		aside[]={-0.92754513,-4.2608008e-007,-0.37375623};
+		pos[]={671.07538,72.269531,12218.605};
+		dir[]={0.95624399,-0.24910302,-0.15359843};
+		up[]={0.24596786,0.96846938,-0.039509036};
+		aside[]={-0.15859464,5.3627809e-007,-0.9873662};
 	};
 };
 binarizationWanted=0;
@@ -5641,7 +5641,7 @@ class Mission
 					};
 					id=65;
 					type="EmptyDetectorAreaR50";
-					atlOffset=0.10534668;
+					atlOffset=0.35482788;
 				};
 				class Item14
 				{
@@ -21782,7 +21782,7 @@ class Mission
 							{
 								name="trigger_objective_6";
 								condition="allPlayers findIf {_x inArea thisTrigger} != -1";
-								onActivation="_null = destroyed_camp_01_post_0 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_post_1 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_post_2 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_post_3 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_post_4 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_hq_0 call BIS_fnc_NNS_Populate_CargoHQ; " \n "_null = destroyed_camp_01_hq_1 call BIS_fnc_NNS_Populate_CargoHQ; " \n "destroyed_camp_01_spawned=true;" \n "deleteVehicle thisTrigger;";
+								onActivation="_null = destroyed_camp_01_post_0 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_post_1 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_post_2 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_post_3 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_post_4 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_01_hq_0 call NNS_fnc_Populate_CargoHQ; " \n "_null = destroyed_camp_01_hq_1 call NNS_fnc_Populate_CargoHQ; " \n "destroyed_camp_01_spawned=true;" \n "deleteVehicle thisTrigger;";
 								sizeA=750;
 								sizeB=750;
 								activationBy="EAST";
@@ -24531,7 +24531,7 @@ class Mission
 							{
 								name="trigger_objective_8";
 								condition="allPlayers findIf {_x inArea thisTrigger} != -1";
-								onActivation="_null = destroyed_camp_02_post_0 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_post_1 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_post_2 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_post_3 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_post_4 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_hq_0 call BIS_fnc_NNS_Populate_CargoHQ; " \n "destroyed_camp_02_spawned=true;" \n "deleteVehicle thisTrigger;";
+								onActivation="_null = destroyed_camp_02_post_0 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_post_1 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_post_2 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_post_3 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_post_4 call BIS_fnc_EfM_populatePost; " \n "_null = destroyed_camp_02_hq_0 call NNS_fnc_Populate_CargoHQ; " \n "destroyed_camp_02_spawned=true;" \n "deleteVehicle thisTrigger;";
 								sizeA=750;
 								sizeB=750;
 								activationBy="EAST";

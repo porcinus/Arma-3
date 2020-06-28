@@ -14,4 +14,4 @@ params
 
 
 
-[format ["TMP.sqf : blablabla : _par1: %1, _par2: %2, _par3: %3, _par4: %4",_par1,_par2,_par3,_par4]] call BIS_fnc_NNS_debugOutput;
+[format ["TMP.sqf : blablabla : _par1: %1, _par2: %2, _par3: %3, _par4: %4",_par1,_par2,_par3,_par4]] call NNS_fnc_debugOutput;

@@ -25,7 +25,7 @@ params
 	["_forestIgnoreAngle",0] //ignore cone
 ];
 
-if (count _centerPos < 2) exitWith {["MeetCSATsniper.sqf : position/dir needed"] call BIS_fnc_NNS_debugOutput;};
+if (count _centerPos < 2) exitWith {["MeetCSATsniper.sqf : position/dir needed"] call NNS_fnc_debugOutput;};
 
 sniperSpeech = [ //speech array when hostages are freed
 localize "STR_NNS_Objective_MeetCSATsniper_speech0",
@@ -137,7 +137,7 @@ if !([_tmptaskID] call BIS_fnc_taskExists) then { //task not exist
 	
 	{
 		_x setRank "PRIVATE"; _x setUnitRank "PRIVATE";  //set unit as private to avoid control taking when freed
-		[_x,"sniper"] call BIS_fnc_NNS_AIskill; //set unit skill
+		[_x,"sniper"] call NNS_fnc_AIskill; //set unit skill
 		//_x setSkill ["AimingAccuracy",0.90]; //boost unit skill
 		_x setCombatMode "WHITE"; //Hold Fire, Engage At Will
 		

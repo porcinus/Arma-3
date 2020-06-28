@@ -32,7 +32,7 @@ if (vehicle player == player) then { //not spawned in vehicle
 	player setDir ((player getRelDir _old_pos)+(getDir player)); //direction to initial position
 	if (BIS_loadoutLevel == 0) then {
 		_tmpmarker_name = format["tmpmarker%1",name player]; //marker name to avoid "colision"
-		[_tmpmarker_name,_old_pos,_new_pos,"ColorBlack",0.3,0.75,30] call BIS_fnc_NNS_MapDrawLine; //draw line from initial to new position
+		[_tmpmarker_name,_old_pos,_new_pos,"ColorBlack",0.3,0.75,30] call NNS_fnc_MapDrawLine; //draw line from initial to new position
 	};
 };
 
@@ -62,7 +62,7 @@ if !(_playerMoved) then { //player not moved for whatever reason
 	player setDir ((player getRelDir _old_pos)+(getDir player)); //direction to initial position
 	if (BIS_loadoutLevel == 0) then {
 		_tmpmarker_name = format["tmpmarker%1",name player]; //marker name to avoid "colision"
-		[_tmpmarker_name,_old_pos,_new_pos,"ColorBlack",0.3,0.75,30] call BIS_fnc_NNS_MapDrawLine; //draw line from initial to new position
+		[_tmpmarker_name,_old_pos,_new_pos,"ColorBlack",0.3,0.75,30] call NNS_fnc_MapDrawLine; //draw line from initial to new position
 	};
 };
 */

@@ -4,7 +4,7 @@ waitUntil {visibleMap};
 
 findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", 
 {
-	//[format["_target: %1",_this select 0]] call BIS_fnc_NNS_debugOutput; //debug
+	//[format["_target: %1",_this select 0]] call NNS_fnc_debugOutput; //debug
 	_this select 0 drawIcon 
 	[
 		getMissionPath "img\escape.paa",

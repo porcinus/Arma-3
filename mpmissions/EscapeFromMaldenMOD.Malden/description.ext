@@ -198,7 +198,6 @@ class CfgFunctions {
 	class BIS {
 		class EscapeFromMalden {
 			file = "Functions";
-			class NNS_debugOutput {};	//NNS
 			class EfM_ReconTeam {};
 			class EfM_SniperTeam {};
 			class EfM_AmmoboxNATO {};
@@ -212,19 +211,27 @@ class CfgFunctions {
 			class EfM_SupplyboxCSAT {};
 			class EfM_SupplyboxNATO {};
 			class EfM_SniperBox {};
-			class NNS_Populate_CargoTower_More {};	//NNS
-			class NNS_Populate_CargoHQ {};	//NNS
-			class NNS_Populate_CargoHQ_More {};	//NNS
-			class NNS_Populate_BagBunkerTower {};	//NNS
-			class NNS_MapDrawLine {};	//NNS
-			class NNS_FoundNearestEnemy {};	//NNS
-			class NNS_unstuckAI {};	//NNS
-			class NNS_randomVehicleDamage {};	//NNS
-			class NNS_CompileDebriefingStats {};	//NNS
-			class NNS_AIskill {};	//NNS
-			class NNS_AInoPower {};	//NNS
-			class NNS_CleanBuilding {};	//NNS
-			class NNS_groupCenter {};	//NNS
+		};
+	};
+	
+	class NNS { //NNS
+		class EscapeFromMalden {
+			file = "nns_functions";
+			//class test {};
+			class debugOutput {};
+			class Populate_CargoTower_More {};
+			class Populate_CargoHQ {};
+			class Populate_CargoHQ_More {};
+			class Populate_BagBunkerTower {};
+			class MapDrawLine {};
+			class FoundNearestEnemy {};
+			class unstuckAI {};
+			class randomVehicleDamage {};
+			class CompileDebriefingStats {};
+			class AIskill {};
+			class AInoPower {};
+			class CleanBuilding {};
+			class groupCenter {};
 		};
 	};
 };

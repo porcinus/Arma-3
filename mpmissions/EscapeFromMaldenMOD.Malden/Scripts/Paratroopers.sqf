@@ -2,7 +2,7 @@
 private _heli = _this;
 private _dir = getDir _heli;
 
-[format["Paratroopers : _heli: %1 ,typeOf _heli: %2, %3m",_heli, typeOf _heli, player distance _heli]] call BIS_fnc_NNS_debugOutput; //debug
+[format["Paratroopers : _heli: %1 ,typeOf _heli: %2, %3m",_heli, typeOf _heli, player distance _heli]] call NNS_fnc_debugOutput; //debug
 
 // Create paratroopers and let them chase players
 _grp = createGroup west;

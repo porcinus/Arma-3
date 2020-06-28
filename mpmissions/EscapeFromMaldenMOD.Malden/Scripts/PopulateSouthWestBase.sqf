@@ -13,16 +13,16 @@ deleteVehicle _trigger;
 
 //NNS : Populate building / ammo box
 _null = objective_9_tower_0 call BIS_fnc_EfM_populateTower;
-_null = objective_9_tower_0 call BIS_fnc_NNS_Populate_CargoTower_More;
+_null = objective_9_tower_0 call NNS_fnc_Populate_CargoTower_More;
 _null = objective_9_tower_1 call BIS_fnc_EfM_populateTower;
 _null = objective_9_tower_2 call BIS_fnc_EfM_populateTower;
 _null = objective_9_post_0 call BIS_fnc_EfM_populatePost;
 _null = objective_9_post_1 call BIS_fnc_EfM_populatePost;
 _null = objective_9_post_2 call BIS_fnc_EfM_populatePost;
 _null = objective_9_post_3 call BIS_fnc_EfM_populatePost;
-_null = objective_9_hq_0 call BIS_fnc_NNS_Populate_CargoHQ;
-_null = objective_9_hq_0 call BIS_fnc_NNS_Populate_CargoHQ_More;
-_null = objective_9_hq_1 call BIS_fnc_NNS_Populate_CargoHQ;
+_null = objective_9_hq_0 call NNS_fnc_Populate_CargoHQ;
+_null = objective_9_hq_0 call NNS_fnc_Populate_CargoHQ_More;
+_null = objective_9_hq_1 call NNS_fnc_Populate_CargoHQ;
 
 //enable existing units
 {
@@ -52,7 +52,7 @@ _wpslammer02 = _slammerGroup addWaypoint [[1698,1624,0],0];
 _wpslammer03 = _slammerGroup addWaypoint [[1455,1400,0],0];
 _wpslammer04 = _slammerGroup addWaypoint [[1619,1255,0],0]; _wpslammer04 setWaypointType "Cycle";
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach _slammerCrew};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach _slammerCrew;
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach _slammerCrew;
 //{_x setSkill ["AimingAccuracy",0.2]} forEach _slammerCrew;
 if (missionNamespace getVariable "BIS_crewInImmobile" == 1) then {_slammer allowCrewInImmobile true;};
 sleep 2;
@@ -62,7 +62,7 @@ _heli = createVehicle ["B_Heli_Transport_01_F", [1666,1308,0], [], 0, "FLY"]; _s
 createVehicleCrew _heli; _heliCrew = crew _heli; _heliGroup = group (_heliCrew select 0);
 _heliGroup setBehaviour "Careless"; _heliGroup setCombatMode "YELLOW";
 _heliGroup enableDynamicSimulation true;
-{[_x] call BIS_fnc_NNS_AIskill;} forEach _heliCrew;
+{[_x] call NNS_fnc_AIskill;} forEach _heliCrew;
 //{_x setSkill ["AimingAccuracy",0.5]} forEach _heliCrew;
 _wpheli01 = _heliGroup addWaypoint [[1500,1268,90],100];
 _wpheli02 = _heliGroup addWaypoint [[1338,1397,90],100];

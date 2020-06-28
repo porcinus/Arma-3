@@ -44,11 +44,11 @@ while {missionNamespace getVariable ["DebugCountUnitsLoop",true]} do {
 	[_output joinString "\n"] remoteExec ["hint",0,true];
 	
 /*
-	["Current units count:",false,true,false,true] call BIS_fnc_NNS_debugOutput; //debug
-	[format["west: %1 ,alive: %2 ,active: %3",_west_count,_west_alive_count,_west_active_count],false,true,false,true] call BIS_fnc_NNS_debugOutput; //debug
-	[format["east: %1 ,alive: %2 ,active: %3",_east_count,_east_alive_count,_east_active_count],false,true,false,true] call BIS_fnc_NNS_debugOutput; //debug
-	[format["resistance: %1 ,alive: %2 ,active: %3",_resistance_count,_resistance_alive_count,_resistance_active_count],false,true,false,true] call BIS_fnc_NNS_debugOutput; //debug
-	[format["civilian: %1 ,alive: %2 ,active: %3",_civilian_count,_civilian_alive_count,_civilian_active_count],false,true,false,true] call BIS_fnc_NNS_debugOutput; //debug
+	["Current units count:",false,true,false,true] call NNS_fnc_debugOutput; //debug
+	[format["west: %1 ,alive: %2 ,active: %3",_west_count,_west_alive_count,_west_active_count],false,true,false,true] call NNS_fnc_debugOutput; //debug
+	[format["east: %1 ,alive: %2 ,active: %3",_east_count,_east_alive_count,_east_active_count],false,true,false,true] call NNS_fnc_debugOutput; //debug
+	[format["resistance: %1 ,alive: %2 ,active: %3",_resistance_count,_resistance_alive_count,_resistance_active_count],false,true,false,true] call NNS_fnc_debugOutput; //debug
+	[format["civilian: %1 ,alive: %2 ,active: %3",_civilian_count,_civilian_alive_count,_civilian_active_count],false,true,false,true] call NNS_fnc_debugOutput; //debug
 	*/
 	
 	sleep 5;

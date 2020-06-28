@@ -138,9 +138,9 @@ addMissionEventHandler ["EntityRespawned",
 					waitUntil {sleep (5 + (random 5)); allPlayers findIf {(_x distance2d _basePos) < 800} != -1}; //random is here to limit CPU usage when detection happen
 					//waitUntil {sleep (5 + (random 5)); ({(_x distance2d _basePos) < 800} count allPlayers > 0)}; //random is here to limit CPU usage when detection happen
 
-					[format["'NATO_infantry' spawned (%1m)",player distance2d _basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'NATO_infantry' spawned (%1m)",player distance2d _basePos]] call NNS_fnc_debugOutput; //debug
 					
-					//if ({side _x == west} count allGroups > 120) exitWith {["Too many WEST groups at the same time!"] call BIS_fnc_NNS_debugOutput;};
+					//if ({side _x == west} count allGroups > 120) exitWith {["Too many WEST groups at the same time!"] call NNS_fnc_debugOutput;};
 
 					_newGrp = grpNull;
 					_newGrp = [_basePos, west, missionConfigFile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> (selectRandom BIS_NATOPatrols), [], [], [0.2, 0.3]] call BIS_fnc_spawnGroup;
@@ -150,7 +150,7 @@ addMissionEventHandler ["EntityRespawned",
 					// Limit unit equipment if set by server
 					if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach units _newGrp};
 
-					{[_x] call BIS_fnc_NNS_AIskill;} forEach (units _newGrp); //NNS: set skill
+					{[_x] call NNS_fnc_AIskill;} forEach (units _newGrp); //NNS: set skill
 					//{_x setSkill ["AimingAccuracy",random 0.5]} forEach (units _newGrp); // Limit aiming accuracy
 
 					if ((random 1) > 0.65) then {_stalk = [_newGrp,group (allPlayers select 0)] spawn BIS_fnc_stalk;
@@ -163,13 +163,13 @@ addMissionEventHandler ["EntityRespawned",
 					waitUntil {sleep (15); allPlayers findIf {(_x distance2d _basePos) > 1800} != -1}; //NNS : wait until all players are far away
 					//waitUntil {sleep (15); ({(_x distance2d _basePos) > 1800} count allPlayers > 0)}; //NNS : wait until all players are far away
 					if !(isNull _newGrp) then {{_x setDamage [1, false];} forEach (units _newGrp);}; //NNS : kill units from group
-					[format["'NATO_infantry' group:%1 killed because too far from player",_newGrp]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'NATO_infantry' group:%1 killed because too far from player",_newGrp]] call NNS_fnc_debugOutput; //debug
 					
 					//recreate trigger
 					_newtrg = createTrigger ["EmptyDetector", _basePos, true];
 					_newtrg setTriggerArea [_rad, _rad, 0, false];
 					_newtrg setTriggerText "NATO_infantry";
-					[format["Trigger 'NATO_infantry' recreated at %1",_basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["Trigger 'NATO_infantry' recreated at %1",_basePos]] call NNS_fnc_debugOutput; //debug
 				};
 			};
 			
@@ -182,21 +182,21 @@ addMissionEventHandler ["EntityRespawned",
 					waitUntil {sleep (5 + (random 5)); allPlayers findIf {(_x distance2d _basePos) < 1000} != -1}; //random is here to limit CPU usage when detection happen
 					//waitUntil {sleep (5 + (random 5)); ({(_x distance2d _basePos) < 1000} count allPlayers > 0)}; //random is here to limit CPU usage when detection happen
 					
-					[format["'NATO_sniper' spawned (%1m)",player distance2d _basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'NATO_sniper' spawned (%1m)",player distance2d _basePos]] call NNS_fnc_debugOutput; //debug
 
 					_newGrp = [_basePos select 0,_basePos select 1] call BIS_fnc_EfM_sniperTeam;
-					//if ({side _x == west} count allGroups > 120) exitWith {["Too many WEST groups at the same time!"] call BIS_fnc_NNS_debugOutput;};
+					//if ({side _x == west} count allGroups > 120) exitWith {["Too many WEST groups at the same time!"] call NNS_fnc_debugOutput;};
 					
 					waitUntil {sleep (15); allPlayers findIf {(_x distance2d _basePos) > 1800} != -1}; //NNS : wait until all players are far away
 					//waitUntil {sleep (15); ({(_x distance2d _basePos) > 1800} count allPlayers > 0)}; //NNS : wait until all players are far away
 					if !(isNull _newGrp) then {{_x setDamage [1, false];} forEach (units _newGrp);}; //NNS : kill units from group
-					[format["'NATO_sniper' group:%1 killed because too far from player",_newGrp]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'NATO_sniper' group:%1 killed because too far from player",_newGrp]] call NNS_fnc_debugOutput; //debug
 					
 					//recreate trigger
 					_newtrg = createTrigger ["EmptyDetector", _basePos, true];
 					_newtrg setTriggerArea [_rad, _rad, 0, false];
 					_newtrg setTriggerText "NATO_sniper";
-					[format["Trigger 'NATO_sniper' recreated at %1",_basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["Trigger 'NATO_sniper' recreated at %1",_basePos]] call NNS_fnc_debugOutput; //debug
 				};
 			};
 
@@ -209,21 +209,21 @@ addMissionEventHandler ["EntityRespawned",
 					waitUntil {sleep (5 + (random 5)); allPlayers findIf {(_x distance2d _basePos) < 800} != -1}; //random is here to limit CPU usage when detection happen
 					//waitUntil {sleep (5 + (random 5)); ({(_x distance2d _basePos) < 800} count allPlayers > 0)}; //random is here to limit CPU usage when detection happen
 					
-					[format["'NATO_recon' spawned (%1m)",player distance2d _basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'NATO_recon' spawned (%1m)",player distance2d _basePos]] call NNS_fnc_debugOutput; //debug
 
 					_newGrp = [_basePos select 0,_basePos select 1] call BIS_fnc_EfM_reconTeam;
-					//if ({side _x == west} count allGroups > 120) exitWith {["Too many WEST groups at the same time!"] call BIS_fnc_NNS_debugOutput;};
+					//if ({side _x == west} count allGroups > 120) exitWith {["Too many WEST groups at the same time!"] call NNS_fnc_debugOutput;};
 					
 					waitUntil {sleep (15); allPlayers findIf {(_x distance2d _basePos) > 1800} != -1}; //NNS : wait until all players are far away
 					//waitUntil {sleep (15); ({(_x distance2d _basePos) > 1800} count allPlayers > 0)}; //NNS : wait until all players are far away
 					if !(isNull _newGrp) then {{_x setDamage [1, false];} forEach (units _newGrp);}; //NNS : kill units from group
-					[format["'NATO_recon' group:%1 killed because too far from player",_newGrp]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'NATO_recon' group:%1 killed because too far from player",_newGrp]] call NNS_fnc_debugOutput; //debug
 					
 					//recreate trigger
 					_newtrg = createTrigger ["EmptyDetector", _basePos, true];
 					_newtrg setTriggerArea [_rad, _rad, 0, false];
 					_newtrg setTriggerText "NATO_recon";
-					[format["Trigger 'NATO_recon' recreated at %1",_basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["Trigger 'NATO_recon' recreated at %1",_basePos]] call NNS_fnc_debugOutput; //debug
 				};
 			};
 			
@@ -236,9 +236,9 @@ addMissionEventHandler ["EntityRespawned",
 					waitUntil {sleep (12 + (random 5)); allPlayers findIf {(_x distance2d _basePos) < 800} != -1}; //random is here to limit CPU usage when detection happen
 					//waitUntil {sleep (12 + (random 5)); ({(_x distance2d _basePos) < 800} count allPlayers > 0)}; //random is here to limit CPU usage when detection happen
 					
-					[format["'FIA_infantry' spawned (%1m)",player distance2d _basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'FIA_infantry' spawned (%1m)",player distance2d _basePos]] call NNS_fnc_debugOutput; //debug
 
-					//if ({side _x == east} count allGroups > 120) exitWith {["Too many EAST groups at the same time!"] call BIS_fnc_NNS_debugOutput;};
+					//if ({side _x == east} count allGroups > 120) exitWith {["Too many EAST groups at the same time!"] call NNS_fnc_debugOutput;};
 
 					_newGrp = grpNull;
 					_newGrp = [_basePos, east, missionConfigFile >> "CfgGroups" >> "East" >> "OPF_G_F" >> "Infantry" >> (selectRandom BIS_FIAPatrols), [], [], [0.2, 0.3]] call BIS_fnc_spawnGroup;
@@ -252,10 +252,10 @@ addMissionEventHandler ["EntityRespawned",
 					// Limit unit equipment if set by server
 					if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach units _newGrp};
 
-					{[_x] call BIS_fnc_NNS_AIskill;} forEach (units _newGrp); //NNS: set skill
+					{[_x] call NNS_fnc_AIskill;} forEach (units _newGrp); //NNS: set skill
 					//{_x setSkill ["AimingAccuracy",random 0.5]} forEach (units _newGrp); // Limit aiming accuracy
 					
-					_tmp_nearest_enemy = [units _newGrp select 0, 800] call BIS_fnc_NNS_FoundNearestEnemy; //found nearest enemy
+					_tmp_nearest_enemy = [units _newGrp select 0, 800] call NNS_fnc_FoundNearestEnemy; //found nearest enemy
 					if !(_tmp_nearest_enemy isEqualTo objNull) then {
 						_stalk = [_newGrp,group _tmp_nearest_enemy] spawn BIS_fnc_stalk;
 					} else {
@@ -267,13 +267,13 @@ addMissionEventHandler ["EntityRespawned",
 					waitUntil {sleep (15); allPlayers findIf {(_x distance2d _basePos) > 1800} != -1}; //NNS : wait until all players are far away
 					//waitUntil {sleep (15); ({(_x distance2d _basePos) > 1800} count allPlayers > 0)}; //NNS : wait until all players are far away
 					if !(isNull _newGrp) then {{_x setDamage [1, false];} forEach (units _newGrp);}; //NNS : kill units from group
-					[format["'FIA_infantry' group:%1 killed because too far from player",_newGrp]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'FIA_infantry' group:%1 killed because too far from player",_newGrp]] call NNS_fnc_debugOutput; //debug
 					
 					//recreate trigger
 					_newtrg = createTrigger ["EmptyDetector", _basePos, true];
 					_newtrg setTriggerArea [_rad, _rad, 0, false];
 					_newtrg setTriggerText "FIA_infantry";
-					[format["Trigger 'FIA_infantry' recreated at %1",_basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["Trigger 'FIA_infantry' recreated at %1",_basePos]] call NNS_fnc_debugOutput; //debug
 				};
 			};
 			
@@ -289,7 +289,7 @@ addMissionEventHandler ["EntityRespawned",
 					waitUntil {sleep (2.5 + (random 2.5)); allPlayers findIf {(_x distance2d _basePos) < 800} != -1}; //random is here to limit CPU usage when detection happen
 					//waitUntil {sleep (2.5 + (random 2.5)); ({(_x distance _basePos) < 800} count allPlayers > 0)}; //random is here to limit CPU usage when detection happen
 
-					[format["'NATO_patrolVeh' spawned (%1m)",player distance2d _basePos]] call BIS_fnc_NNS_debugOutput; //debug
+					[format["'NATO_patrolVeh' spawned (%1m)",player distance2d _basePos]] call NNS_fnc_debugOutput; //debug
 
 					_vehClass = switch (_vehType) do {
 						case "MRAP": {selectRandom ["B_MRAP_01_gmg_F","B_MRAP_01_hmg_F"]};
@@ -349,7 +349,7 @@ addMissionEventHandler ["EntityRespawned",
 					// Limit unit equipment if set by server
 					if ((missionNamespace getVariable "BIS_enemyEquipment" == 1) and {_vehType != "UGV"}) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _vehGroup)};
 
-					{[_x] call BIS_fnc_NNS_AIskill;} forEach (units _vehGroup); //NNS: set skill
+					{[_x] call NNS_fnc_AIskill;} forEach (units _vehGroup); //NNS: set skill
 					//{_x setSkill ["AimingAccuracy",random 0.25]} forEach (units _vehGroup); // Limit aiming accuracy
 					_vehGroup enableDynamicSimulation true; // Enable Dynamic simulation
 				};
@@ -384,7 +384,7 @@ publicVariable "BIS_Escaped";
 		sleep 5;
 		
 		{if ((((vehicle _x in list BIS_getaway_area_1) || (vehicle _x in list BIS_getaway_area_2) || (vehicle _x in list BIS_getaway_area_3) || (vehicle _x in list BIS_getaway_area_4)) && ((vehicle _x isKindOf "Ship") || (vehicle _x isKindOf "Air"))) || (missionNamespace getVariable ["Debug_Win",false]))} forEach (allPlayers) then { //NNS : rework winning condition, original one allow you to win in some case if soldier was in a destroyed heli
-			_null = [false] call BIS_fnc_NNS_CompileDebriefingStats; //NNS : stats : Compile data from players
+			_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 			["objEscape", "Succeeded"] remoteExec ["BIS_fnc_taskSetState",east,true]; //success
 			["success"] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 			BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
@@ -399,7 +399,7 @@ if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Mission fail if everyo
 		waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} == -1}; //check if all players dead
 		//waitUntil {sleep 5; {alive _x} count (units BIS_grpMain) > 0}; //check if at least one player alive
 		//waitUntil {sleep 5; {alive _x} count (units BIS_grpMain) == 0}; //check if all players dead
-		_null = [false] call BIS_fnc_NNS_CompileDebriefingStats; //NNS : stats : Compile data from players
+		_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 		["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
 		["end1", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 	};
@@ -420,7 +420,7 @@ if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Mission fail if everyo
 		if (_remainingTickets < 0) then {_remainingTickets = [east] call BIS_fnc_respawnTickets;}; //ticket but group
 		
 		if (_remainingTickets == 0) then { //no more ticket remaining
-			_null = [false] call BIS_fnc_NNS_CompileDebriefingStats; //NNS : stats : Compile data from players
+			_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 			["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
 			["end1", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 			BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
@@ -432,7 +432,7 @@ if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Mission fail if everyo
 	sleep 300; //wait 5min
 	waitUntil {sleep 5; [BIS_EW01,BIS_EW02,BIS_EW03,BIS_EW04,BIS_EW05,BIS_EW06,BIS_EW07,BIS_EW08,BIS_EW09,BIS_EW10] findIf {canMove _x} == -1}; //check if all vehicles destroyed
 	//waitUntil {sleep 5; {canMove _x} count [BIS_EW01,BIS_EW02,BIS_EW03,BIS_EW04,BIS_EW05,BIS_EW06,BIS_EW07,BIS_EW08,BIS_EW09,BIS_EW10] == 0}; //check if all vehicles destroyed
-	_null = [false] call BIS_fnc_NNS_CompileDebriefingStats; //NNS : stats : Compile data from players
+	_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 	["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
 	["end2", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 };
@@ -491,13 +491,13 @@ if (!CustomObjectivesCreated && BIS_customObjectives!=0 && (count _custom_object
 	
 	{
 		_selected_custom_objectives = format ["Custom_Objectives\%1.sqf", _x]; //format filename
-		[format["Objective : %1",_selected_custom_objectives]] call BIS_fnc_NNS_debugOutput; //debug
+		[format["Objective : %1",_selected_custom_objectives]] call NNS_fnc_debugOutput; //debug
 		_null = [] execVM _selected_custom_objectives;
 	} forEach _custom_objectives_selected_list; //objectives loop
 	
 	{
 		_selected_custom_objectives_toclean = format ["Custom_Objectives\%1_cleanup.sqf", _x]; //format filename
-		[format["Objective cleanup : %1",_selected_custom_objectives_toclean]] call BIS_fnc_NNS_debugOutput; //debug
+		[format["Objective cleanup : %1",_selected_custom_objectives_toclean]] call NNS_fnc_debugOutput; //debug
 		_null = [] execVM _selected_custom_objectives_toclean;
 	} forEach _custom_objectives_toclean_list; //unused objectives cleanup loop
 	
@@ -505,7 +505,7 @@ if (!CustomObjectivesCreated && BIS_customObjectives!=0 && (count _custom_object
 }else{ //want no objective, clean everything
 	{
 		_selected_custom_objectives_toclean = format ["Custom_Objectives\%1_cleanup.sqf", _x]; //format filename
-		[format["Objective cleanup : %1",_selected_custom_objectives_toclean]] call BIS_fnc_NNS_debugOutput; //debug
+		[format["Objective cleanup : %1",_selected_custom_objectives_toclean]] call NNS_fnc_debugOutput; //debug
 		_null = [] execVM _selected_custom_objectives_toclean;
 	} forEach _custom_objectives_list; //objectives cleanup loop
 };
@@ -545,7 +545,7 @@ addMissionEventHandler ["EntityKilled", {
 		if !(count _initSpawn == 0) then { //initial respaw still exist
 			_ignorePlayers = [];
 			{if (_x getVariable ["recovery",false]) then {_ignorePlayers pushBack _x;};} forEach (units BIS_grpMain); //add to ignore list
-			_lastRespawnPos = [BIS_grpMain, _lastRespawnPos, _ignorePlayers] call BIS_fnc_NNS_groupCenter; //get group center
+			_lastRespawnPos = [BIS_grpMain, _lastRespawnPos, _ignorePlayers] call NNS_fnc_groupCenter; //get group center
 			if !(getMarkerColor "marker_respawn" == "") then {"marker_respawn" setMarkerPos _lastRespawnPos;}; //move respawn marker
 			//if !(isNull respawnball) then {respawnball setPos _lastRespawnPos;}; //move respawn object
 		};

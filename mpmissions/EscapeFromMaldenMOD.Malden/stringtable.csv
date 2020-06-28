@@ -1,7 +1,7 @@
 LANGUAGE, "English", "French"
 
 STR_NNS_mission_name, "Escape From Malden (mod NNS)", "Escape From Malden (mod NNS)"
-STR_NNS_mission_version, "v06-27-20-1", "v06-27-20-1"
+STR_NNS_mission_version, "v06-29-20-1", "v06-29-20-1"
 STR_NNS_briefing_overview, "You're gonna sweat blood...", "Une bonne galere a tous..."
 
 STR_NNS_param_disable, "Disable", "Désactivé"
@@ -34,8 +34,6 @@ STR_NNS_param_EscapeAIskillMenu_normal, "Normal (0.50)", "Normal (0.50)"
 STR_NNS_param_EscapeAIskillMenu_expert, "Expert (0.75)", "Expert (0.75)"
 
 
-
-STR_NNS_Debrif_Stats_title, "Statistics", "Statistiques"
 
 STR_NNS_CollectIntel_name, "Collect Intel", "Collecter les données"
 STR_NNS_CollectIntel_collected, "Intel collected", "Données collectées"

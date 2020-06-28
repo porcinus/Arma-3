@@ -22,7 +22,7 @@ params
 	["_initialEmitterPos",[],[]] //position of the initial creator
 ];
 
-if (count _barnPos < 3) exitWith {["RescueCSATsquad.sqf : position/dir needed"] call BIS_fnc_NNS_debugOutput;};
+if (count _barnPos < 3) exitWith {["RescueCSATsquad.sqf : position/dir needed"] call NNS_fnc_debugOutput;};
 
 hostageSpeech = [ //speech array when hostages are freed
 localize "STR_NNS_Objective_RescueCSATsquad_speech0",
@@ -42,7 +42,7 @@ _barnDir = _barnPos select 2; //barn direction
 //try to detect a existing barn
 {
 	if (typeOf _x in ["Land_Barn_01_brown_F","Land_Barn_01_grey_F"]) then {
-		["RescueCSATsquad.sqf : existing barn detected"] call BIS_fnc_NNS_debugOutput;
+		["RescueCSATsquad.sqf : existing barn detected"] call NNS_fnc_debugOutput;
 		_barn = _x; _barnPos = getPosASL _x; _barnDir = getDir _x;
 	};
 } forEach (_barnPos nearObjects 50); //object detection loop
@@ -70,7 +70,7 @@ if !([_tmptaskID] call BIS_fnc_taskExists) then { //task not exist
 		_x setCaptive 1; //set as captive
 		_x doWatch _barn; //force unit to look at building center
 		_x switchMove (selectRandom ["Acts_AidlPsitMstpSsurWnonDnon01","Acts_AidlPsitMstpSsurWnonDnon02","Acts_AidlPsitMstpSsurWnonDnon03"]); //set animation as hostage
-		[_x,"specops"] call BIS_fnc_NNS_AIskill; //set unit skill
+		[_x,"specops"] call NNS_fnc_AIskill; //set unit skill
 		//_x setSkill ["AimingAccuracy",0.85]; //boost unit skill
 		_x disableAI "RADIOPROTOCOL"; //disable ability to use radio
 		_currentSpeech = selectRandom hostageSpeech; //select a freed speach
@@ -113,7 +113,7 @@ if !([_tmptaskID] call BIS_fnc_taskExists) then { //task not exist
 	_unitNato05 = _grpNato createUnit ["B_Soldier_F", _barn buildingPos 1, [], 1, "CAN_COLLIDE"]; _unitNato05 setPosASL (AGLToASL (_barn buildingPos 1)); _unitNato05 setFormDir (random 360);
 	_unitNato06 = _grpNato createUnit ["B_engineer_F", _barn buildingPos 1, [], 4, "CAN_COLLIDE"]; _unitNato06 setPosASL (AGLToASL (_barn buildingPos 1)); _unitNato06 setFormDir (random 360);
 
-	{_x setUnitPos "Up"; [_x] call BIS_fnc_NNS_AIskill;} forEach (units _grpNato); //Nato unit loop
+	{_x setUnitPos "Up"; [_x] call NNS_fnc_AIskill;} forEach (units _grpNato); //Nato unit loop
 	_grpNato setBehaviour "SAFE"; _grpNato setCombatMode "YELLOW";
 	_grpNato enableDynamicSimulation true;
 	

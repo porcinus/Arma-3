@@ -15,13 +15,13 @@ params
 	["_type",objNull]
 ];
 
-if (_type isEqualTo objNull) exitWith {["ClusterBomb type needed"] call BIS_fnc_NNS_debugOutput;};
+if (_type isEqualTo objNull) exitWith {["ClusterBomb type needed"] call NNS_fnc_debugOutput;};
 
 _explosion_radius = 0; _explosion_count = 1;
 if (_type == "mk82") then {_explosion_radius = 1; _explosion_count = 1;};
 if (_type == "mortar") then {_explosion_radius = 60; _explosion_count = 10;};
 if (_type == "cluster") then {_explosion_radius = 40; _explosion_count = 16;};
-if (_explosion_radius==0) exitWith {["Wrong ClusterBomb type"] call BIS_fnc_NNS_debugOutput;};
+if (_explosion_radius==0) exitWith {["Wrong ClusterBomb type"] call NNS_fnc_debugOutput;};
 
 for "_i" from 1 to _explosion_count do {
 	if (count _pos > 1) then { // valid position

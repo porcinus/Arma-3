@@ -39,7 +39,7 @@ if(_color == "red") then {_arrow = 'Sign_Arrow_Large_F' createVehicle [0,0,0];};
 if(_color == "cyan") then {_arrow = 'Sign_Arrow_Large_Cyan_F' createVehicle [0,0,0];};
 if(_color == "green") then {_arrow = 'Sign_Arrow_Large_Green_F' createVehicle [0,0,0];};
 
-if (_arrow isEqualTo objNull) exitWith {["Failed to create Arrow, color problem?"] call BIS_fnc_NNS_debugOutput;};
+if (_arrow isEqualTo objNull) exitWith {["Failed to create Arrow, color problem?"] call NNS_fnc_debugOutput;};
 
 _arrow attachTo [_target, [0,0,1.2], 'Head'];
 
