@@ -2081,7 +2081,7 @@ class Mission
 						angles[]={0,6.1434016,0};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.2;
@@ -2090,7 +2090,7 @@ class Mission
 					};
 					id=1461;
 					type="O_T_Crew_F";
-					atlOffset=31.055;
+					atlOffset=0.00025558472;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2161,7 +2161,7 @@ class Mission
 				};
 			};
 			id=1457;
-			atlOffset=31.055;
+			atlOffset=0.00025558472;
 		};
 		class Item39
 		{
@@ -2172,7 +2172,7 @@ class Mission
 				angles[]={0,6.1434016,0};
 			};
 			side="East";
-			flags=2;
+			flags=6;
 			class Attributes
 			{
 				ammo=0.5;
@@ -2182,7 +2182,7 @@ class Mission
 			};
 			id=1458;
 			type="O_T_APC_Wheeled_02_rcws_v2_ghex_F";
-			atlOffset=31.055;
+			atlOffset=0.00025558472;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6852,13 +6852,12 @@ class Mission
 						angles[]={0,3.0171156,0};
 					};
 					side="Empty";
-					flags=1;
+					flags=5;
 					class Attributes
 					{
 					};
 					id=2869;
 					type="Land_CncBarrierMedium_F";
-					atlOffset=30.808285;
 				};
 				class Item120
 				{
@@ -6869,13 +6868,12 @@ class Mission
 						angles[]={0,3.0171156,0};
 					};
 					side="Empty";
-					flags=1;
+					flags=5;
 					class Attributes
 					{
 					};
 					id=2870;
 					type="Land_CncBarrierMedium_F";
-					atlOffset=30.779877;
 				};
 				class Item121
 				{
@@ -7082,13 +7080,13 @@ class Mission
 						angles[]={0,4.5922489,0};
 					};
 					side="Empty";
+					flags=4;
 					class Attributes
 					{
 						aiRadarUsage=2140110735;
 					};
 					id=3011;
 					type="Land_Wreck_Offroad2_F";
-					atlOffset=30.907082;
 				};
 			};
 			id=2181;
