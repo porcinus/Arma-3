@@ -18,18 +18,18 @@ params
 ];
 
 // Check for validity
-if (isNull _tower01) exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing unit tower %1 used!",_tower01]] call BIS_fnc_NNS_debugOutput;};
-if (isNull _tower02) exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing unit tower %1 used!",_tower02]] call BIS_fnc_NNS_debugOutput;};
-if (getMarkerType _marker01 == "") exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing marker %1 used!",_marker01]] call BIS_fnc_NNS_debugOutput;};
-if (getMarkerType _marker02 == "") exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing marker %1 used!",_marker02]] call BIS_fnc_NNS_debugOutput;};
-if (getMarkerType _marker03 == "") exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing marker %1 used!",_marker03]] call BIS_fnc_NNS_debugOutput;};
-if (getMarkerType _marker04 == "") exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing marker %1 used!",_marker04]] call BIS_fnc_NNS_debugOutput;};
+if (isNull _tower01) exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing unit tower %1 used!",_tower01]] call NNS_fnc_debugOutput;};
+if (isNull _tower02) exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing unit tower %1 used!",_tower02]] call NNS_fnc_debugOutput;};
+if (getMarkerType _marker01 == "") exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing marker %1 used!",_marker01]] call NNS_fnc_debugOutput;};
+if (getMarkerType _marker02 == "") exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing marker %1 used!",_marker02]] call NNS_fnc_debugOutput;};
+if (getMarkerType _marker03 == "") exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing marker %1 used!",_marker03]] call NNS_fnc_debugOutput;};
+if (getMarkerType _marker04 == "") exitWith {[format["BIS_fnc_EfM_populateCheckpoint : Non-existing marker %1 used!",_marker04]] call NNS_fnc_debugOutput;};
 
 //NNS : advice player for ahead location
 _distance = round ((getPos _tower01) vectorDistance (getPos player)); //marker length
 [format["Enemy checkpoint ahead (%1m)",_distance]] remoteExec ["systemChat",0,true];
 
-[format["BIS_fnc_EfM_populateCheckpoint : %1",player distance2d _tower01]] call BIS_fnc_NNS_debugOutput; //debug
+[format["BIS_fnc_EfM_populateCheckpoint : %1",player distance2d _tower01]] call NNS_fnc_debugOutput; //debug
 
 
 // Create group on 1st tower
@@ -47,7 +47,7 @@ _unit02 setPosASL _pos02;
 
 {_x setUnitPos "Up"; _x disableAI "Path"; _x setDir ((getDir _tower01) - 180)} forEach [_unit01,_unit02];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp01)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp01);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp01);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp01);
 
 _grp01 enableDynamicSimulation true;
@@ -67,7 +67,7 @@ _unit04 setPosASL _pos04;
 
 {_x setUnitPos "Up"; _x disableAI "Path"; _x setDir ((getDir _tower02) - 180)} forEach [_unit03,_unit04];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp02)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp02);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp02);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp02);
 
 _grp02 enableDynamicSimulation true;
@@ -82,7 +82,7 @@ _unit08 = _grp03 createUnit ["B_Soldier_LAT_F", getMarkerPos _marker01, [], 0, "
 
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp03];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp03)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp03);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp03);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp03);
 
 _wp01 = _grp03 addWaypoint [getMarkerPos _marker01, 0];

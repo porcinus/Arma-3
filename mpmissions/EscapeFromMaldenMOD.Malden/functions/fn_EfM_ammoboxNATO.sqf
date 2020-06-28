@@ -7,7 +7,7 @@ params
 ];
 
 // Check for validity
-if (isNull _box) exitWith {[format["BIS_fnc_EfM_ammoboxNATO : Non-existing unit box %1 used!",_box]] call BIS_fnc_NNS_debugOutput;};
+if (isNull _box) exitWith {[format["BIS_fnc_EfM_ammoboxNATO : Non-existing unit box %1 used!",_box]] call NNS_fnc_debugOutput;};
 
 {clearMagazineCargoGlobal _x, clearWeaponCargoGlobal _x, clearItemCargoGlobal _x, clearBackpackCargoGlobal _x} forEach [_box];
 
@@ -55,3 +55,7 @@ _box addWeaponCargoGlobal ["launch_B_Titan_F",1];
 // Backpacks
 _box addBackpackCargoGlobal ["B_AssaultPack_rgr",1 + (round random 1)];
 _box addBackpackCargoGlobal ["B_Kitbag_rgr",1];
+
+//Titan AT
+_box addMagazineCargoGlobal ["Titan_AT",2];
+_box addWeaponCargoGlobal ["launch_B_Titan_short_F",1];

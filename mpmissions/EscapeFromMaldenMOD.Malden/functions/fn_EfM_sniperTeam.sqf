@@ -54,7 +54,7 @@ _unit02 setPosASL [_axisX + 1,_axisY,0];
 //_unit02 setSkill ["AimingAccuracy",0.75];
 _unit02 setUnitLoadout _spotter;
 
-{[_x,"sniper"] call BIS_fnc_NNS_AIskill;} forEach (units _newGrp);
+{[_x,"sniper"] call NNS_fnc_AIskill;} forEach (units _newGrp);
 
 // Enable Dynamic simulation
 _newGrp enableDynamicSimulation true;

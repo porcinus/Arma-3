@@ -12,9 +12,9 @@ params
 
 
 // Check for validity
-if (isNull _post) exitWith {[format["BIS_fnc_EfM_populatePost : Non-existing post %1 used!",_post]] call BIS_fnc_NNS_debugOutput;};
+if (isNull _post) exitWith {[format["BIS_fnc_EfM_populatePost : Non-existing post %1 used!",_post]] call NNS_fnc_debugOutput;};
 
-[format["BIS_fnc_EfM_populatePost : %1",player distance2d _post]] call BIS_fnc_NNS_debugOutput; //debug
+[format["BIS_fnc_EfM_populatePost : %1",player distance2d _post]] call NNS_fnc_debugOutput; //debug
 
 // Create group on the post
 _grp01 = createGroup west;
@@ -32,9 +32,9 @@ _unit02 setPosASL _pos02;
 
 {_x setUnitPos "Up"; _x disableAI "Path"; _x setDir ((getDir _post) - 180)} forEach [_unit01,_unit02];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp01)};
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp01);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp01);
 //{_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp01);
 
 _grp01 enableDynamicSimulation true;
 
-[[_grp01]] call BIS_fnc_NNS_AInoPower; //NNS: powergrid off
+[[_grp01]] call NNS_fnc_AInoPower; //NNS: powergrid off

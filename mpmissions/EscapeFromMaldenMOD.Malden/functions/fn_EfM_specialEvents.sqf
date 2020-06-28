@@ -39,7 +39,7 @@ _BIS_EfM_default_events = ["Blackfoot","Pawnee","Paradrop","Orca","Huron"];
 
 if (BIS_EfM_events isEqualTo objNull) then {
 	BIS_EfM_events = _BIS_EfM_default_events; publicVariable "BIS_EfM_events";
-	[format["BIS_fnc_EfM_specialEvents : BIS_EfM_events set to default : %1",BIS_EfM_events]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : BIS_EfM_events set to default : %1",BIS_EfM_events]] call NNS_fnc_debugOutput; //debug
 };
 
 _delayFinal = (((random (_delayMax - _delayMin)) + _delayMin) * 60);
@@ -48,14 +48,14 @@ _event = selectRandom BIS_EfM_events;
 if (_forcedevent != "") then {  //no specific event defined
 	_runonce = true; //force to run only once
 	_event = _forcedevent;
-	[format["BIS_fnc_EfM_specialEvents : Forced event (run once) : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : Forced event (run once) : %1",_event]] call NNS_fnc_debugOutput; //debug
 };
 
 // Remove the selected event from array so it's not repeated. If all events happened, restart it.
 BIS_EfM_events = BIS_EfM_events - [_event];
 if (count BIS_EfM_events == 0) then { //NNS : implement additionnal events
 	BIS_EfM_events = _BIS_EfM_default_events;
-	[format["BIS_fnc_EfM_specialEvents : BIS_EfM_events reset to default : %1",BIS_EfM_events]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : BIS_EfM_events reset to default : %1",BIS_EfM_events]] call NNS_fnc_debugOutput; //debug
 };
 
 // Trigger next event
@@ -68,7 +68,7 @@ if(!_runonce) then { //restart after delay
 
 // MORTAR - NNS: not used 
 if (_event == "Mortar") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	"DistantMortar" remoteExec ["playSound"]; sleep 2;
 	"DistantMortar" remoteExec ["playSound"]; sleep 2;
@@ -85,7 +85,7 @@ if (_event == "Mortar") then {
 
 // CLUSTER - not used (Orange has better clusters anyway)
 if (_event == "Cluster") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	"DistantHowitzer" remoteExec ["playSound"];
 	sleep 5;
@@ -99,7 +99,7 @@ if (_event == "Cluster") then {
 
 // PARADROP
 if (_event == "Paradrop") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	_target = selectRandom allPlayers;
 	_targetPos = getPosATL _target;
@@ -111,7 +111,7 @@ if (_event == "Paradrop") then {
 	_heliCrew = crew _heli;
 	_heliGroup = group (_heliCrew select 0);
 	_heli animateDoor ["Door_1_source",1,false];
-	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _heli, player distance _heli]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _heli, player distance _heli]] call NNS_fnc_debugOutput; //debug
 
 	_heli flyInHeight 100;
 	_heli forceSpeed 50;
@@ -135,7 +135,7 @@ if (_event == "Paradrop") then {
 	// Paradrop
 	waitUntil {sleep 1; (_heli distance2D _targetPos) < 400};
 
-	[format["BIS_fnc_EfM_specialEvents : %1 : Starting script",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : Starting script",_event]] call NNS_fnc_debugOutput; //debug
 	_null = _heli execVM "Scripts\Paratroopers.sqf";
 
 	// Delete heli when far away
@@ -146,12 +146,12 @@ if (_event == "Paradrop") then {
 	
 	{deleteVehicle _x} forEach (_heliCrew + [_heli]);
 	deleteGroup _heliGroup;
-	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call NNS_fnc_debugOutput; //debug
 };
 
 // BLACKFISH GUNSHIP
 if (_event == "Blackfish") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	_target = selectRandom allPlayers;
 	_targetPos = getPosATL _target;
@@ -165,7 +165,7 @@ if (_event == "Blackfish") then {
 	_heli flyInHeight 500;
 	_heliGroup allowFleeing 0;
 	_heli setVehicleLock "LOCKEDPLAYER";
-	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _heli, player distance _heli]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _heli, player distance _heli]] call NNS_fnc_debugOutput; //debug
 	
 	_wpHeli01 = _heliGroup addWaypoint [_targetPos, 0];
 	_wpHeli01 setWaypointType "Loiter";
@@ -207,12 +207,12 @@ if (_event == "Blackfish") then {
 	
 	{deleteVehicle _x} forEach (_heliCrew + [_heli]);
 	deleteGroup (_heliGroup);
-	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call NNS_fnc_debugOutput; //debug
 };
 
 // CAS - 2 Littlebirds
 if (_event == "Pawnee") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	_target = selectRandom allPlayers;
 	_targetPos = getPosATL _target;
@@ -223,25 +223,25 @@ if (_event == "Pawnee") then {
 	createVehicleCrew _cas;
 	_casCrew = crew _cas;
 	_casGroup = group (_casCrew select 0);
-	{[_x,"sniper"] call BIS_fnc_NNS_AIskill;} forEach units _casGroup; //NNS : set skills
+	{[_x,"sniper"] call NNS_fnc_AIskill;} forEach units _casGroup; //NNS : set skills
 	//{ _x setSkill .9; } forEach units _casGroup; //NNS : set skills
 	_cas setPosATL _cas_rndpos;
 	_cas flyInHeight 75;
 	_cas setVehicleLock "LOCKEDPLAYER";
-	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas, player distance _cas]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas, player distance _cas]] call NNS_fnc_debugOutput; //debug
 
 	// 2nd Pawnee
 	_cas2 = createVehicle ["B_Heli_Light_01_armed_F", [50,50,75], [], 0, "FLY"];
 	createVehicleCrew _cas2;
 	_casCrew2 = crew _cas2;
 	_casGroup2 = group (_casCrew2 select 0);
-	{[_x,"sniper"] call BIS_fnc_NNS_AIskill;} forEach units _casGroup2; //NNS : set skills
+	{[_x,"sniper"] call NNS_fnc_AIskill;} forEach units _casGroup2; //NNS : set skills
 	//{ _x setSkill .9; } forEach units _casGroup2; //NNS : set skills
 	[_casGroup2] join _casGroup;
 	_cas2 setPosATL [(_cas_rndpos select 0) + 100,(_cas_rndpos select 1) + 100,(_cas_rndpos select 2)]; //NNS : align on random pos
 	_cas2 flyInHeight 75;
 	_cas2 setVehicleLock "LOCKEDPLAYER";
-	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas2, player distance _cas2]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas2, player distance _cas2]] call NNS_fnc_debugOutput; //debug
 
 	// Waypoints
 	_wpCAS01 = _casGroup addWaypoint [_targetPos, 0];
@@ -253,7 +253,7 @@ if (_event == "Pawnee") then {
 	_wpCAS04 setWaypointType "Cycle";
 
 	//detect stuck unit
-	_null = [driver _cas,15,5,[[_targetPos], [_targetPos getPos [250,random 360],"SaD"], [_targetPos getPos [250,random 360],"SaD"], [_targetPos,"Cycle"]]] call BIS_fnc_NNS_unstuckAI;
+	_null = [driver _cas,15,5,[[_targetPos], [_targetPos getPos [250,random 360],"SaD"], [_targetPos getPos [250,random 360],"SaD"], [_targetPos,"Cycle"]]] call NNS_fnc_unstuckAI;
 
 	// If the cas is disabled, kill the crew
 	_null = [_cas,_casCrew] spawn {
@@ -279,12 +279,12 @@ if (_event == "Pawnee") then {
 	
 	{deleteVehicle _x} forEach (_casCrew) + [_cas,_cas2];
 	deleteGroup _casGroup;
-	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call NNS_fnc_debugOutput; //debug
 };
 
 // CAS - Comanche
 if (_event == "Blackfoot") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	_target = selectRandom allPlayers;
 	_targetPos = getPosATL _target;
@@ -296,7 +296,7 @@ if (_event == "Blackfoot") then {
 	_cas setPosATL [(_targetPos select 0) + ((250 + random 250) * (selectRandom _signednumber)),(_targetPos select 1) - (2000 * (selectRandom _signednumber)), 100]; //NNS : random position
 	_cas flyInHeight 100;
 	_cas setVehicleLock "LOCKEDPLAYER";
-	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas, player distance _cas]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas, player distance _cas]] call NNS_fnc_debugOutput; //debug
 
 	// Waypoints
 	_wpCAS01 = _casGroup addWaypoint [_targetPos, 0];
@@ -308,7 +308,7 @@ if (_event == "Blackfoot") then {
 	_wpCAS04 setWaypointType "Cycle";
 	
 	//detect stuck unit
-	_null = [driver _cas,15,5,[[_targetPos], [_targetPos getPos [250,random 360],"SaD"], [_targetPos getPos [250,random 360],"SaD"], [_targetPos,"Cycle"]]] call BIS_fnc_NNS_unstuckAI;
+	_null = [driver _cas,15,5,[[_targetPos], [_targetPos getPos [250,random 360],"SaD"], [_targetPos getPos [250,random 360],"SaD"], [_targetPos,"Cycle"]]] call NNS_fnc_unstuckAI;
 
 	// If the cas is disabled, kill the crew
 	_null = [_cas,_casCrew] spawn {
@@ -347,12 +347,12 @@ if (_event == "Blackfoot") then {
 	
 	{deleteVehicle _x} forEach (_casCrew) + [_cas];
 	deleteGroup _casGroup;
-	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call NNS_fnc_debugOutput; //debug
 };
 
 // CAS - A10
 if (_event == "A10") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	_target = selectRandom allPlayers;
 	_targetPos = getPosATL _target;
@@ -366,7 +366,7 @@ if (_event == "A10") then {
 	_cas setVehicleLock "LOCKEDPLAYER";
 	_wpCAS01 = _casGroup addWaypoint [_targetPos, 0];
 	_wpCAS01 setWaypointType "Guard";
-	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas, player distance _cas]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas, player distance _cas]] call NNS_fnc_debugOutput; //debug
 
 	{_cas reveal [_x,4]} forEach (allPlayers);
 
@@ -407,12 +407,12 @@ if (_event == "A10") then {
 	
 	{deleteVehicle _x} forEach (_casCrew) + [_cas];
 	deleteGroup _casGroup;
-	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call NNS_fnc_debugOutput; //debug
 };
 
  //NNS : CAS - Orca, imported from excape tanoa
 if (_event == "Orca") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	_target = selectRandom allPlayers;
 	_targetPos = getPosATL _target;
@@ -423,12 +423,12 @@ if (_event == "Orca") then {
 	_casCrew = crew _cas;
 	_tmpgrp = createGroup west; {[_x] joinSilent _tmpgrp;} forEach _casCrew; //NNS : convert crew to west side
 	_casGroup = group (_casCrew select 0);
-	{[_x,"sniper"] call BIS_fnc_NNS_AIskill;} forEach units _casGroup; //NNS : set skills
+	{[_x,"sniper"] call NNS_fnc_AIskill;} forEach units _casGroup; //NNS : set skills
 	//{ _x setSkill .9; } forEach units _casGroup; //NNS : set skills
 	_cas setPosATL [(_targetPos select 0) + ((250 + random 250) * (selectRandom _signednumber)),(_targetPos select 1) - (2000 * (selectRandom _signednumber)), 75]; //NNS : random position
 	_cas flyInHeight 75;
 	_cas setVehicleLock "LOCKEDPLAYER";
-	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas, player distance _cas]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _cas, player distance _cas]] call NNS_fnc_debugOutput; //debug
 
 	// Waypoints
 	_wpCAS01 = _casGroup addWaypoint [_targetPos, 0];
@@ -440,7 +440,7 @@ if (_event == "Orca") then {
 	_wpCAS04 setWaypointType "Cycle";
 	
 	//detect stuck unit
-	_null = [driver _cas,15,5,[[_targetPos], [_targetPos getPos [400,random 360],"SaD"], [_targetPos getPos [400,random 360],"SaD"], [_targetPos,"Cycle"]]] call BIS_fnc_NNS_unstuckAI;
+	_null = [driver _cas,15,5,[[_targetPos], [_targetPos getPos [400,random 360],"SaD"], [_targetPos getPos [400,random 360],"SaD"], [_targetPos,"Cycle"]]] call NNS_fnc_unstuckAI;
 
 	// Reveal players to pilot
 	//{(driver _cas) reveal [_x,4]} forEach allPlayers;
@@ -478,13 +478,13 @@ if (_event == "Orca") then {
 	
 	{deleteVehicle _x} forEach (_casCrew) + [_cas];
 	deleteGroup _casGroup;
-	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call NNS_fnc_debugOutput; //debug
 };
 
  //NNS : Huron - Paradrop, will try to land if possible, paradrop 8 soldier if can't
  
 if (_event == "Huron") then {
-	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1",_event]] call NNS_fnc_debugOutput; //debug
 
 	_target = selectRandom allPlayers;
 	_targetPos = getPosATL _target;
@@ -497,7 +497,7 @@ if (_event == "Huron") then {
 	_heliCrew = crew _heli;
 	_heliGroup = group (_heliCrew select 0);
 	_heli setVehicleLock "LOCKEDPLAYER";
-	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _heli, player distance _heli]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : %2 created (%3m)",_event, typeOf _heli, player distance _heli]] call NNS_fnc_debugOutput; //debug
 
 	_heliGroup setBehaviour "Careless";
 	_heliGroup setCombatMode "YELLOW";
@@ -515,7 +515,7 @@ if (_event == "Huron") then {
 	_lz_pos = [_lz_ran_pos, 0, 150, 20, 0, 0.5, 0] call BIS_fnc_findSafePos; //safe place based on inital LZ pos
 
 	if !(_target distance _lz_pos < 400) then { //if failed to select LZ 400m near target, retry once after 10 sec
-		[format["BIS_fnc_EfM_specialEvents : %1 : Failed to select proper LZ, retry in 10sec",_event]] call BIS_fnc_NNS_debugOutput; //debug
+		[format["BIS_fnc_EfM_specialEvents : %1 : Failed to select proper LZ, retry in 10sec",_event]] call NNS_fnc_debugOutput; //debug
 		sleep 10;
 		_lz_ran_pos = [[[getPos _target, 150]],[]] call BIS_fnc_randomPos; //get initial random pos for LZ
 		_lz_pos = [_lz_ran_pos, 0, 150, 20, 0, 0.5, 0] call BIS_fnc_findSafePos; //safe place based on inital LZ pos
@@ -525,7 +525,7 @@ if (_event == "Huron") then {
 	
 	if (alive _heli && (_target distance _lz_pos < 400)) then { //LZ 400m near target selected
 		_lz = 'Land_HelipadEmpty_F' createVehicle _lz_pos; //create invisible helipad for LZ
-		[format["BIS_fnc_EfM_specialEvents : %1 : LZ created (%2m)",_event, player distance _lz_pos]] call BIS_fnc_NNS_debugOutput; //debug
+		[format["BIS_fnc_EfM_specialEvents : %1 : LZ created (%2m)",_event, player distance _lz_pos]] call NNS_fnc_debugOutput; //debug
 		
 		_heli doMove [_lz_pos select 0,_lz_pos select 1,20]; //start move to lz, note: move looks better than a real checkpoint for landing
 		
@@ -545,7 +545,7 @@ if (_event == "Huron") then {
 				_tmp_alt = (((_distance-_ramp_end)/(_ramp_start-_ramp_end))*(_alt_max-_alt_min))+_alt_min; //compute new altitude
 				
 				_heli forceSpeed _tmp_speed; _heli flyInHeight _tmp_alt; //set new speed / altitude
-				//[format["_tmp_speed: %1 ,_tmp_alt: %2",_tmp_speed,_tmp_alt]] call BIS_fnc_NNS_debugOutput; //debug
+				//[format["_tmp_speed: %1 ,_tmp_alt: %2",_tmp_speed,_tmp_alt]] call NNS_fnc_debugOutput; //debug
 				sleep 1;
 			};
 		};
@@ -556,7 +556,7 @@ if (_event == "Huron") then {
 		if (alive _heli) then {
 			doStop _heli; //stop heli move
 			_heli land "GET OUT"; //order pilot to land
-			[format["BIS_fnc_EfM_specialEvents : %1 : Start landing : %2m",_event,player distance _heli]] call BIS_fnc_NNS_debugOutput; //debug
+			[format["BIS_fnc_EfM_specialEvents : %1 : Start landing : %2m",_event,player distance _heli]] call NNS_fnc_debugOutput; //debug
 		};
 		
 		waitUntil{sleep 1; ((alive _heli) && (isTouchingGround _heli)) || !(alive _heli)}; //wait until heli is touching ground or heli destroyed
@@ -566,14 +566,14 @@ if (_event == "Huron") then {
 			if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp)}; //limit equipement
 			_grp deleteGroupWhenEmpty true;  // Mark for auto deletion and enable Dynamic simulation
 			_grp enableDynamicSimulation true;  // enable Dynamic simulation
-			{[_x,"specops"] call BIS_fnc_NNS_AIskill;} forEach units _grp; //set skills
+			{[_x,"specops"] call NNS_fnc_AIskill;} forEach units _grp; //set skills
 			//{_x setSkill .75;} forEach units _grp; //set skills
 			sleep 2;
-			[format["BIS_fnc_EfM_specialEvents : %1 : Touching ground : %2m",_event,player distance _heli]] call BIS_fnc_NNS_debugOutput; //debug
+			[format["BIS_fnc_EfM_specialEvents : %1 : Touching ground : %2m",_event,player distance _heli]] call NNS_fnc_debugOutput; //debug
 			_heli flyInHeight 0; //pin to ground
 			_heli animateDoor ["Door_rear_source", 1, false]; //open cargo door
 			sleep 1;
-			[format["BIS_fnc_EfM_specialEvents : %1 : Start unload",_event]] call BIS_fnc_NNS_debugOutput; //debug
+			[format["BIS_fnc_EfM_specialEvents : %1 : Start unload",_event]] call NNS_fnc_debugOutput; //debug
 			
 			{ //disembark units if heli still alive
 				if (alive _heli && isTouchingGround _heli) then { //extra secutity to avoid unload when in air
@@ -587,7 +587,7 @@ if (_event == "Huron") then {
 		
 		//if(({(_x in _heli)} count (units _grp)) > 0) then {{moveOut _x;} forEach units _grp;}; //if some units didn't get out, huron does glitch some time 
 		
-		[format["BIS_fnc_EfM_specialEvents : %1 : Unloaded",_event]] call BIS_fnc_NNS_debugOutput; //debug
+		[format["BIS_fnc_EfM_specialEvents : %1 : Unloaded",_event]] call NNS_fnc_debugOutput; //debug
 		//waitUntil{sleep 1; ({!(_x in _heli)} count (units _grp) == {alive _x} count (units _grp)) || !(alive _heli)}; //no more units in heli or heli destroyed
 		_heli animateDoor ["Door_rear_source", 0, false]; //close cargo door
 		_heli flyInHeight 30; //unpin from ground
@@ -596,7 +596,7 @@ if (_event == "Huron") then {
 		
 		deleteVehicle _lz; //clean up LZ
 	} else { //LZ selection failed, go for paradrop
-		[format["BIS_fnc_EfM_specialEvents : %1 : Failed to select proper LZ, forced Paradrop",_event]] call BIS_fnc_NNS_debugOutput; //debug
+		[format["BIS_fnc_EfM_specialEvents : %1 : Failed to select proper LZ, forced Paradrop",_event]] call NNS_fnc_debugOutput; //debug
 		_heli forceSpeed 45; _heli flyInHeight 70;
 		_heliGroup setBehaviour "Careless";
 		_heliGroup setCombatMode "YELLOW";
@@ -611,7 +611,7 @@ if (_event == "Huron") then {
 		_wpHeli03 setWaypointSpeed "FULL";
 		_wpHeli03 setWaypointBehaviour "CARELESS";
 		_heli forceSpeed 50; _heli flyInHeight 40;
-		[format["BIS_fnc_EfM_specialEvents : %1 : Escape waypoint added",_event]] call BIS_fnc_NNS_debugOutput; //debug
+		[format["BIS_fnc_EfM_specialEvents : %1 : Escape waypoint added",_event]] call NNS_fnc_debugOutput; //debug
 	};
 
 	// Delete heli when far away
@@ -622,7 +622,7 @@ if (_event == "Huron") then {
 	
 	{deleteVehicle _x} forEach (_heliCrew + [_heli]);
 	deleteGroup _heliGroup;
-	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call BIS_fnc_NNS_debugOutput; //debug
+	[format["BIS_fnc_EfM_specialEvents : %1 : Cleaned",_event]] call NNS_fnc_debugOutput; //debug
 };
 
 

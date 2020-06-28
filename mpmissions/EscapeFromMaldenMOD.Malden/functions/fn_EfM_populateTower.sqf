@@ -20,9 +20,9 @@ params
 ];
 
 // Check for validity
-if (isNull _tower) exitWith {[format["BIS_fnc_EfM_populateTower : Non-existing unit tower %1 used!",_tower]] call BIS_fnc_NNS_debugOutput;};
+if (isNull _tower) exitWith {[format["BIS_fnc_EfM_populateTower : Non-existing unit tower %1 used!",_tower]] call NNS_fnc_debugOutput;};
 
-[format["BIS_fnc_EfM_populateTower : %1",player distance2d _tower]] call BIS_fnc_NNS_debugOutput; //debug
+[format["BIS_fnc_EfM_populateTower : %1",player distance2d _tower]] call NNS_fnc_debugOutput; //debug
 
 // Tower direction
 _dir = getDir _tower;
@@ -40,7 +40,7 @@ _unit01b = _grp01 createUnit [selectRandom ["B_HeavyGunner_F","B_Soldier_AR_F"],
 _unit01b setPosASL _pos01b;
 
 {_x setUnitPos "Up"; _x disableAI "Path"; _x setDir _dir} forEach [_unit01a,_unit01b];
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp01);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp01);
 //{_x setSkill ["AimingAccuracy",0.1]} forEach (units _grp01);
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp01)};
 
@@ -59,7 +59,7 @@ _unit02b = _grp02 createUnit ["B_Soldier_LAT_F", [0,0,0], [], 0, "CAN_COLLIDE"];
 _unit02b setPosASL _pos02b;
 
 {_x setUnitPos "Up"; _x disableAI "Path"; _x setDir (_dir + 90)} forEach [_unit02a,_unit02b];
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp02);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp02);
 //{_x setSkill ["AimingAccuracy",0.1]} forEach (units _grp02);
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp02)};
 
@@ -78,7 +78,7 @@ _unit03b = _grp03 createUnit [selectRandom ["B_Soldier_M_F","B_Sharpshooter_F"],
 _unit03b setPosASL _pos03b;
 
 {_x setUnitPos "Up"; _x disableAI "Path"; _x setDir (_dir + 180)} forEach [_unit03a,_unit03b];
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp03);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp03);
 //{_x setSkill ["AimingAccuracy",0.1]} forEach (units _grp03);
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp03)};
 
@@ -97,12 +97,12 @@ _unit04b = _grp04 createUnit ["B_Soldier_AA_F", [0,0,0], [], 0, "CAN_COLLIDE"];
 _unit04b setPosASL _pos04b;
 
 {_x setUnitPos "Up"; _x disableAI "Path"; _x setDir (_dir - 90)} forEach [_unit04a,_unit04b];
-{[_x,"limited"] call BIS_fnc_NNS_AIskill;} forEach (units _grp04);
+{[_x,"limited"] call NNS_fnc_AIskill;} forEach (units _grp04);
 //{_x setSkill ["AimingAccuracy",0.1]} forEach (units _grp04);
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp04)};
 
 _grp04 enableDynamicSimulation true;
 
-[[_grp01,_grp02,_grp03,_grp04]] call BIS_fnc_NNS_AInoPower; //NNS: powergrid off
+[[_grp01,_grp02,_grp03,_grp04]] call NNS_fnc_AInoPower; //NNS: powergrid off
 
-[_tower,[_grp01,_grp02,_grp03,_grp04]] call BIS_fnc_NNS_CleanBuilding; //NNS: kill all units in group if buiding destroyed
+[_tower,[_grp01,_grp02,_grp03,_grp04]] call NNS_fnc_CleanBuilding; //NNS: kill all units in group if buiding destroyed

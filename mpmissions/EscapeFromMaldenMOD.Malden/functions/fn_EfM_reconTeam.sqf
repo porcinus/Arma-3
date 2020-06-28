@@ -96,7 +96,7 @@ _unit04 setPosASL [_axisX + 1,_axisY,0];
 //_unit04 setSkill ["AimingAccuracy",0.5];
 _unit04 setUnitLoadout _scout;
 
-{[_x,"specops"] call BIS_fnc_NNS_AIskill;} forEach (units _newGrp);
+{[_x,"specops"] call NNS_fnc_AIskill;} forEach (units _newGrp);
 
 
 

@@ -7,7 +7,7 @@ params
 ];
 
 // Check for validity
-if (isNull _box) exitWith {[format["BIS_fnc_EfM_ammoboxCSATBase : Non-existing unit box %1 used!",_box]] call BIS_fnc_NNS_debugOutput;};
+if (isNull _box) exitWith {[format["BIS_fnc_EfM_ammoboxCSATBase : Non-existing unit box %1 used!",_box]] call NNS_fnc_debugOutput;};
 
 {clearMagazineCargoGlobal _x, clearWeaponCargoGlobal _x, clearItemCargoGlobal _x, clearBackpackCargoGlobal _x} forEach [_box];
 

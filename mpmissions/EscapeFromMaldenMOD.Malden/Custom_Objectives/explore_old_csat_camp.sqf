@@ -9,7 +9,7 @@ if !(["objective6"] call BIS_fnc_taskExists) then {
 		{ // set random damage and fuel to tanks/truck
 			_x enableDynamicSimulation true;
 			_x setFuel (0.2 + (random 0.2));
-			[_x,["hitfuel"],0.3,0.9] call BIS_fnc_NNS_randomVehicleDamage;
+			[_x,["hitfuel"],0.3,0.9] call NNS_fnc_randomVehicleDamage;
 		} forEach [destroyed_camp_01_veh_0,destroyed_camp_01_veh_1,destroyed_camp_01_veh_2];
 		
 		while {!task_completed_6} do {
