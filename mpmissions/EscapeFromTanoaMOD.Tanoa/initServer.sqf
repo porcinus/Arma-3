@@ -173,8 +173,7 @@ BIS_CSATPatrols = ["EfT_O_Team01","EfT_O_Team02"];
 				case "MBT": {"O_T_MBT_02_cannon_ghex_F"};               // Not used at all
 				case "LSV": {"O_T_LSV_02_armed_ghex_F"};
 				case "LSVU": {"O_T_LSV_02_unarmed_ghex_F"};
-				case "UGV": {"O_T_UGV_01_rcws_ghex_F"};
-
+				/*case "UGV": {"O_T_UGV_01_rcws_ghex_F"};*/
 				default {"O_T_LSV_02_armed_ghex_F"};
 			};
 			
@@ -201,7 +200,7 @@ BIS_CSATPatrols = ["EfT_O_Team01","EfT_O_Team02"];
 			
 			if (missionNamespace getVariable "BIS_crewInImmobile" == 1) then {_veh allowCrewInImmobile true;}; // Handle immobilization
 			
-			if ((_vehType in ["UGV","LSV"]) and {random 100 < 35}) then { // Chance to create a second vehicle of the same type - only for armed LSV and UGV
+			if ((_vehType in [/*"UGV",*/"LSV"]) and {random 100 < 35}) then { // Chance to create a second vehicle of the same type - only for armed LSV and UGV
 				_veh02 = createVehicle [_vehClass, [(_basePos select 0) - 7, (_basePos select 1) - 7, 0], [], 0, "NONE"];
 				_veh02 setDir _dir;
 				createVehicleCrew _veh02;
@@ -325,6 +324,38 @@ addMissionEventHandler ["EntityKilled", {
 		};
 	};
 }];
+
+//NNS : stats : backup players stats, used to restore stat if player lose connection or crash and join back
+[] spawn {
+	_playersStatsIndex = []; //contain players ID
+	_playersStatsLastUpdate = []; //last update time
+	_playersStats = []; //contain players stats
+	while {sleep 5; true} do {
+		_tmpTime = time; //time
+		{ //players loop
+			_tmpUID = getPlayerUID _x; //get player UID
+			if ((getPlayerUID _x) != "") then { //player has UID
+				_tmpStats = +(_x getVariable ["stats",[[0,0,0,0,0],[0,0]]]); //recover player stats, array copy, not pointer
+				if (count _tmpStats == 2) then { //at least one valid stats array
+					if !(_tmpUID in _playersStatsIndex) then { //current player stat not backup a single time
+						_playersStatsIndex pushBack _tmpUID; //add player uid to index
+						_playersStats append [_tmpStats]; //add player stats
+						_playersStatsLastUpdate pushBack _tmpTime; //add player update time
+					};
+					
+					_tmpIndex = _playersStatsIndex find _tmpUID; //found proper player index
+					if ((_tmpTime - (_playersStatsLastUpdate select _tmpIndex)) > 12) then { //player stat outdated (over 1min), may have reconnect
+						_tmpOldLastUpdate = _playersStatsLastUpdate select _tmpIndex; //recover old update time
+						_tmpOldStats = _playersStats select _tmpIndex; //recover old stats
+						_x setVariable ["stats",_tmpOldStats, true]; //restore old player stats
+						_x setVariable ["statsSrv",true, true]; //told player its stats are from server backup
+					} else {_playersStats set [_tmpIndex, _tmpStats];}; //backup player stats
+					_playersStatsLastUpdate set [_tmpIndex, _tmpTime]; //last time update
+				};
+			};
+		} forEach allPlayers;
+	};
+};
 
 //NNS : Move spawn point
 [_initSpawn] spawn {
