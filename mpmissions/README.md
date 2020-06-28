@@ -2,7 +2,7 @@
 - I modify some of theses mission on a daily basis, this repo can be a bit outdated.  
 - All of missions on this repo have: 
   - Debug features enabled.  
-  - AI enabled, AI units are removed once the server start. I use this trick to bypass JIP glitch that disallow player from joining when mission started.  
+  - AI enabled, AI units are removed once the server start. I use this trick to bypass JIP glitch that disallow player from joining when mission started (some time not work, depend on clients).  
 - Not tested on dedicated server.  
 - Some missions share functions or scripts, this doesn't mean all are sync (uptodate).  
   
@@ -158,7 +158,7 @@ My main idea is to allow me and a group of friends to really enjoy this mission.
   
 WIP, some things still need to be done but look stable for now.  
 Win condition glitch fix in Testing state (see "Regarding the original stuff" > "Win condition").  
-During test, game crashed on multiple client when UGV spawned (now disable).
+During test, game crashed on multiple client when UGV spawned (now disable, can be because of Memory Allocation setting in launcher).
   
 What's done so far (may miss some for sure):
 ```
