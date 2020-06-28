@@ -65,3 +65,7 @@ _box addItemCargoGlobal ["ItemGPS",(round random 1)];
 
 // NVGs
 _box addItemCargoGlobal ["O_NVGoggles_ghex_F",2 + (round random 2)];
+
+//Titan AT
+_box addMagazineCargoGlobal ["Titan_AT",2];
+_box addWeaponCargoGlobal ["launch_B_Titan_short_F",1];

@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=129;
+	toggles=1;
 	class ItemIDProvider
 	{
 		nextID=3075;
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1320;
+		nextID=1395;
 	};
 	class Camera
 	{
-		pos[]={10079.785,434.87057,11758.298};
-		dir[]={0.010525112,-0.71715105,0.69684356};
-		up[]={0.010830629,0.69691646,0.71707124};
-		aside[]={0.99988866,4.8118636e-008,-0.015101929};
+		pos[]={10079.93,468.50601,11722.794};
+		dir[]={0.23813021,-0.61346573,0.75297791};
+		up[]={0.18498057,0.78971863,0.58491617};
+		aside[]={0.95346689,-3.7485734e-008,-0.30153435};
 	};
 };
 binarizationWanted=0;
@@ -2081,7 +2081,7 @@ class Mission
 						angles[]={0,6.1434016,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 						skill=0.2;
@@ -2090,7 +2090,7 @@ class Mission
 					};
 					id=1461;
 					type="O_T_Crew_F";
-					atlOffset=0.00025558472;
+					atlOffset=31.055;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2161,7 +2161,7 @@ class Mission
 				};
 			};
 			id=1457;
-			atlOffset=0.00025558472;
+			atlOffset=31.055;
 		};
 		class Item39
 		{
@@ -2172,7 +2172,7 @@ class Mission
 				angles[]={0,6.1434016,0};
 			};
 			side="East";
-			flags=6;
+			flags=2;
 			class Attributes
 			{
 				ammo=0.5;
@@ -2182,7 +2182,7 @@ class Mission
 			};
 			id=1458;
 			type="O_T_APC_Wheeled_02_rcws_v2_ghex_F";
-			atlOffset=0.00025558472;
+			atlOffset=31.055;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6852,12 +6852,13 @@ class Mission
 						angles[]={0,3.0171156,0};
 					};
 					side="Empty";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
 					};
 					id=2869;
 					type="Land_CncBarrierMedium_F";
+					atlOffset=30.808285;
 				};
 				class Item120
 				{
@@ -6868,12 +6869,13 @@ class Mission
 						angles[]={0,3.0171156,0};
 					};
 					side="Empty";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
 					};
 					id=2870;
 					type="Land_CncBarrierMedium_F";
+					atlOffset=30.779877;
 				};
 				class Item121
 				{
@@ -7080,13 +7082,13 @@ class Mission
 						angles[]={0,4.5922489,0};
 					};
 					side="Empty";
-					flags=4;
 					class Attributes
 					{
 						aiRadarUsage=2140110735;
 					};
 					id=3011;
 					type="Land_Wreck_Offroad2_F";
+					atlOffset=30.907082;
 				};
 			};
 			id=2181;

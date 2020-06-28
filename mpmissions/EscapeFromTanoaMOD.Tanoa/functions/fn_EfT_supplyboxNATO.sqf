@@ -49,3 +49,7 @@ _box addWeaponCargoGlobal ["launch_NLAW_F",1];
 _box addMagazineCargoGlobal ["Titan_AA",2];
 _box addWeaponCargoGlobal ["launch_B_Titan_tna_F",1];
 _box addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
+
+//Titan AT
+_box addMagazineCargoGlobal ["Titan_AT",2];
+_box addWeaponCargoGlobal ["launch_B_Titan_short_F",1];

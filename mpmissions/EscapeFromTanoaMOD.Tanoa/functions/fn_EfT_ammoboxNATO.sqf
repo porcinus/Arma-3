@@ -56,3 +56,7 @@ _box addMagazineCargoGlobal ["MiniGrenade",4 + (round random 4)];
 
 // Explosive charges
 _box addMagazineCargoGlobal ["DemoCharge_Remote_Mag",2 + (round random 2.5)];
+
+//Titan AT
+_box addMagazineCargoGlobal ["Titan_AT",2];
+_box addWeaponCargoGlobal ["launch_B_Titan_short_F",1];

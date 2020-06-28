@@ -119,11 +119,8 @@ if (BIS_loadoutLevel == 0 || {typeOf player == "B_T_soldier_AR_F"}) then {[playe
 if (BIS_loadoutLevel == 0 || {typeOf player == "B_T_soldier_GL_F"}) then {[player,"B_Grenadier"] call BIS_fnc_addRespawninventory};
 if (BIS_loadoutLevel == 0 || {typeOf player == "B_T_soldier_F"}) then {[player,"B_Rifleman"] call BIS_fnc_addRespawninventory};
 if (BIS_loadoutLevel == 0 || {typeOf player == "B_T_soldier_LAT_F"}) then {[player,"B_AT"] call BIS_fnc_addRespawninventory};
-//if (BIS_loadoutLevel == 0 || {typeOf player == "O_soldier_AA_F"}) then {[player,"O_AA"] call BIS_fnc_addRespawninventory};
 if (BIS_loadoutLevel == 0 || {typeOf player == "B_T_engineer_F"}) then {[player,"B_Engineer"] call BIS_fnc_addRespawninventory};
 if (BIS_loadoutLevel == 0 || {typeOf player == "B_T_medic_F"}) then {[player,"B_CombatLifesaver"] call BIS_fnc_addRespawninventory};
-//if (BIS_loadoutLevel == 0 || {typeOf player == "O_HeavyGunner_F"}) then {[player,"O_HeavyGunner"] call BIS_fnc_addRespawninventory};
-//if (BIS_loadoutLevel == 0 || {typeOf player == "O_soldier_AT_F"}) then {[player,"O_AT"] call BIS_fnc_addRespawninventory};
 if (BIS_loadoutLevel == 0) then {[player,"B_Saved_Loadout"] call BIS_fnc_addRespawninventory};
 
 //NNS : Player loadout from server selection
@@ -133,11 +130,8 @@ if (typeOf player == "B_T_soldier_AR_F") then {player setUnitLoadout (missionCon
 if (typeOf player == "B_T_soldier_GL_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "B_Grenadier");};
 if (typeOf player == "B_T_soldier_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "B_Rifleman");};
 if (typeOf player == "B_T_soldier_LAT_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "B_AT");};
-//if (typeOf player == "O_soldier_AA_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "O_AA");};
 if (typeOf player == "B_T_engineer_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "B_Engineer");};
 if (typeOf player == "B_T_medic_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "B_CombatLifesaver");};
-//if (typeOf player == "O_HeavyGunner_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "O_HeavyGunner");};
-//if (typeOf player == "O_soldier_AT_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "O_AT");};
 
 _null = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
 

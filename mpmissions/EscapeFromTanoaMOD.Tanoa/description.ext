@@ -34,8 +34,8 @@ class Params
 	class Loadouts
 	{
 		title = $STR_A3_Escape_param_respawnLoadouts;
-		values[] = {0, 1, 2};
-		texts[] = {$STR_A3_Escape_param_respawnLoadouts01, $STR_A3_Escape_param_respawnLoadouts02, $STR_A3_Escape_param_respawnLoadouts03};
+		values[] = {0, 1, 2, 3};
+		texts[] = {$STR_NNS_param_respawnLoadouts_overequip, $STR_A3_Escape_param_respawnLoadouts01, $STR_A3_Escape_param_respawnLoadouts02, $STR_A3_Escape_param_respawnLoadouts03};
 		default = 0; //NNS
 		file = "params\respawnLoadouts.sqf";
 	};

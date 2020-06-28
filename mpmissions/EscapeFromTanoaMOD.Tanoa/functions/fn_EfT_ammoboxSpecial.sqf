@@ -35,3 +35,7 @@ _box addMagazineCargoGlobal ["Titan_AT",1];
 _box addMagazineCargoGlobal ["SmokeShell",8 + (round random 4)];
 _box addMagazineCargoGlobal ["HandGrenade",8 + (round random 4)];
 _box addMagazineCargoGlobal ["MiniGrenade",8 + (round random 4)];
+
+//Titan AT
+_box addMagazineCargoGlobal ["Titan_AT",2];
+_box addWeaponCargoGlobal ["launch_B_Titan_short_F",1];

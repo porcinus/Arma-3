@@ -50,3 +50,7 @@ _box addItemCargoGlobal ["Binocular",1];
 // Backpacks
 _box addBackpackCargoGlobal ["B_FieldPack_blk",1];
 _box addBackpackCargoGlobal ["B_Kitbag_rgr",(round random 0.75)];
+
+//Titan AT
+_box addMagazineCargoGlobal ["Titan_AT",2];
+_box addWeaponCargoGlobal ["launch_B_Titan_short_F",1];

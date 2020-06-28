@@ -24,25 +24,15 @@ _start_pos_rnd = _start_pos_list call BIS_fnc_selectRandom; //select random mark
 _deleteEmptyGrups = [] execVM "Scripts\DeleteEmptyGroups.sqf";
 
 // Handle respawn of players - add respawn position for the team and delete older corpse (so only one for each player can be present)
-addMissionEventHandler ["EntityRespawned",
-{
+addMissionEventHandler ["EntityRespawned", {
 	private _new = _this select 0;
 	private _old = _this select 1;
 
-	if (isPlayer _new)  then
-	{
+	if (isPlayer _new) then {
 		private _oldBody = _old getVariable ["BIS_oldBody", objNull];
-		if (!isNull _oldBody) then
-		{
-			deleteVehicle _oldBody;
-		};
-
-                _new setVariable ["BIS_oldBody", _old];
-
+		if (!isNull _oldBody) then {deleteVehicle _oldBody;};
+    _new setVariable ["BIS_oldBody", _old];
 		[west,_new] call BIS_fnc_addRespawnPosition;
-
-		// Remove (now unnecessary) backpack if player is AT rifleman
-		// if (typeOf _new == "B_T_Soldier_LAT_F") then {_null = _new spawn {waitUntil {count (backpackMagazines _this) == 0}; removeBackpackGlobal _this}};
 	};
 }];
 
@@ -61,17 +51,12 @@ if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Remove respawn after 5
 // Start special events if enabled
 [] spawn {
 	sleep 5;
-
-	if (missionNamespace getVariable "BIS_specialEvents" == 1) then
-	{
-                      _events = [10,15] spawn BIS_fnc_EfT_specialEvents;
-	};
+	if (missionNamespace getVariable "BIS_specialEvents" == 1) then {_events = [10,15] spawn BIS_fnc_EfT_specialEvents;};
 };
 
 // Limit equipment of already existing enemy units
 [] spawn {
-	if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then
-	{
+	if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {
 		{if ((side group _x == East) or (side group _x == Resistance)) then {_null = _x execVM "Scripts\LimitEquipment.sqf"}} forEach allUnits;
 	};
 };
@@ -86,53 +71,16 @@ if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Remove respawn after 5
 };
 
 // Definitions of vehicles and groups to be spawned
-BIS_civilCars =
-[
-	"C_Offroad_01_F",
-	"C_Quadbike_01_F",
-	"C_SUV_01_F",
-	"C_Van_01_transport_F",
-	"C_Offroad_02_unarmed_F",
-	"C_Truck_02_transport_F"
-];
-
-BIS_supportVehicles =
-[
-	"C_Van_01_fuel_F",
-	"C_Truck_02_fuel_F",
-	"C_Offroad_01_repair_F"
-];
-
-BIS_SyndikatPatrols =
-[
-	/*"BanditCombatGroup",
-	"BanditFireTeam",
-	"ParaCombatGroup",
-	"ParaFireTeam"*/
-	"EfT_I_Team01",
-	"EfT_I_Team02",
-	"EfT_I_Team03",
-	"EfT_I_Team04",
-	"EfT_I_Team05",
-	"EfT_I_Squad01",
-	"EfT_I_Squad02"
-];
-
-BIS_CSATPatrols =
-[
-	/*"O_T_InfTeam",
-	"O_T_InfSquad"*/
-	"EfT_O_Team01",
-	"EfT_O_Team02"
-];
+BIS_civilCars = ["C_Offroad_01_F","C_Quadbike_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Offroad_02_unarmed_F","C_Truck_02_transport_F"];
+BIS_supportVehicles = ["C_Van_01_fuel_F","C_Truck_02_fuel_F","C_Offroad_01_repair_F"];
+BIS_SyndikatPatrols = ["EfT_I_Team01","EfT_I_Team02","EfT_I_Team03","EfT_I_Team04","EfT_I_Team05","EfT_I_Squad01","EfT_I_Squad02"];
+BIS_CSATPatrols = ["EfT_O_Team01","EfT_O_Team02"];
 
 // Spawning enemy units & vehicles, empty transport and support vehicles
 {
 	// Syndikat patrols
-	if (triggerText _x == "GEN_infantry") then
-	{
-		_x spawn
-		{
+	if (triggerText _x == "GEN_infantry") then {
+		_x spawn {
 			_basePos = position _this;
 			_rad = (triggerArea _this) select 0;
 			deleteVehicle _this;
@@ -143,24 +91,18 @@ BIS_CSATPatrols =
 
 			_newGrp = grpNull;
 			_newGrp = [_basePos, Resistance, missionConfigFile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> (selectRandom BIS_SyndikatPatrols), [], [], [0.2, 0.3]] call BIS_fnc_spawnGroup;
+			
+			_newGrp enableDynamicSimulation true; // Enable Dynamic simulation
+			
+			if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach units _newGrp}; // Limit unit equipment if set by server
+			
+			{_x setSkill ["AimingAccuracy",0.15]} forEach (units _newGrp); // Limit aiming accuracy
 
-			// Enable Dynamic simulation
-			_newGrp enableDynamicSimulation true;
-
-			// Limit unit equipment if set by server
-			if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach units _newGrp};
-
-			// Limit aiming accuracy
-			{_x setSkill ["AimingAccuracy",0.15]} forEach (units _newGrp);
-
-			if ((random 1) > 0.65)
-			then
-			{
+			if ((random 1) > 0.65) then {
 				/*_wp = _newGrp addWaypoint [position leader _newGrp, 0];
 				_wp setWaypointType "GUARD";*/
 				_stalk = [_newGrp,group (allPlayers select 0)] spawn BIS_fnc_stalk;
-			} else
-			{
+			} else {
 				{
 					_wp = _newGrp addWaypoint [_basePos, _rad];
 					_wp setWaypointType "MOVE";
@@ -174,10 +116,8 @@ BIS_CSATPatrols =
 	};
 
 	// CSAT patrols
-	if (triggerText _x == "CSAT_infantry") then
-	{
-		_x spawn
-		{
+	if (triggerText _x == "CSAT_infantry") then {
+		_x spawn {
 			_basePos = position _this;
 			_rad = (triggerArea _this) select 0;
 			deleteVehicle _this;
@@ -188,24 +128,17 @@ BIS_CSATPatrols =
 
 			_newGrp = grpNull;
 			_newGrp = [_basePos, EAST, missionConfigFile >> "CfgGroups" >> "East" >> "OPF_T_F" >> "Infantry" >> (selectRandom BIS_CSATPatrols), [], [], [0.3, 0.4]] call BIS_fnc_spawnGroup;
+			
+			_newGrp enableDynamicSimulation true; // Enable Dynamic simulation
+			
+			if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach units _newGrp}; // Limit unit equipment if set by server
+			{_x setSkill ["AimingAccuracy",0.20]} forEach (units _newGrp); // Limit aiming accuracy
 
-			// Enable Dynamic simulation
-			_newGrp enableDynamicSimulation true;
-
-			// Limit unit equipment if set by server
-			if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach units _newGrp};
-
-			// Limit aiming accuracy
-			{_x setSkill ["AimingAccuracy",0.20]} forEach (units _newGrp);
-
-			if ((random 1) > 0.65)
-			then
-			{
+			if ((random 1) > 0.65) then {
 				/*_wp = _newGrp addWaypoint [position leader _newGrp, 0];
 				_wp setWaypointType "GUARD";*/
 				_stalk = [_newGrp,group (allPlayers select 0)] spawn BIS_fnc_stalk;
-			} else
-			{
+			} else {
 				{
 					_wp = _newGrp addWaypoint [_basePos, _rad];
 					_wp setWaypointType "MOVE";
@@ -231,8 +164,7 @@ BIS_CSATPatrols =
 
 			waitUntil {sleep 2.5; ({(_x distance _basePos) < 1250} count allPlayers > 0)};
 
-			_vehClass = switch (_vehType) do
-			{
+			_vehClass = switch (_vehType) do {
 				case "MRAP": {selectRandom ["O_T_MRAP_02_hmg_ghex_F","O_T_MRAP_02_gmg_ghex_F"]};
 				case "APC": {"O_T_APC_Wheeled_02_rcws_v2_ghex_F"};
 				case "IFV": {"O_T_APC_Tracked_02_cannon_ghex_F"};       // Not used, only one in each escape location
@@ -245,6 +177,7 @@ BIS_CSATPatrols =
 
 				default {"O_T_LSV_02_armed_ghex_F"};
 			};
+			
 			_veh = createVehicle [_vehClass, _basePos, [], 0, "NONE"];
 			_veh setDir _dir;
 			createVehicleCrew _veh;
@@ -257,35 +190,18 @@ BIS_CSATPatrols =
 			_veh addItemCargoGlobal ["FirstAidKit",2];
 			_veh setFuel (0.35 + random 0.25);
 			_veh setVehicleAmmo (0.4 + random 0.4);
-
-			// If the vehicle is unarmed LSV, create crew for FFV positions and disable getting out in combat
-			if (_vehType == "LSVU") then {
+			
+			if (_vehType == "LSVU") then { // If the vehicle is unarmed LSV, create crew for FFV positions and disable getting out in combat
 				_veh setUnloadInCombat [false,false];
-
-				_unit01 = _vehGroup createUnit ["O_T_Soldier_AR_F", [0,0,0], [], 0, "CAN_COLLIDE"];
-				_unit01 moveInCargo _veh;
-				[_unit01] orderGetIn true;
-
-				_unit02 = _vehGroup createUnit [selectRandom ["O_T_Soldier_GL_F","O_T_Soldier_F"], [0,0,0], [], 0, "CAN_COLLIDE"];
-				_unit02 moveInCargo _veh;
-				[_unit02] orderGetIn true;
-
-				_unit03 = _vehGroup createUnit ["O_T_Soldier_F", [0,0,0], [], 0, "CAN_COLLIDE"];
-				_unit03 moveInCargo _veh;
-				[_unit03] orderGetIn true;
-
-                                _vehCrew = crew _veh;
+				_unit01 = _vehGroup createUnit ["O_T_Soldier_AR_F", [0,0,0], [], 0, "CAN_COLLIDE"]; _unit01 moveInCargo _veh; [_unit01] orderGetIn true;
+				_unit02 = _vehGroup createUnit [selectRandom ["O_T_Soldier_GL_F","O_T_Soldier_F"], [0,0,0], [], 0, "CAN_COLLIDE"]; _unit02 moveInCargo _veh; [_unit02] orderGetIn true;
+				_unit03 = _vehGroup createUnit ["O_T_Soldier_F", [0,0,0], [], 0, "CAN_COLLIDE"]; _unit03 moveInCargo _veh; [_unit03] orderGetIn true;
+        _vehCrew = crew _veh;
 			};
-
-			// Handle immobilization
-			if (missionNamespace getVariable "BIS_crewInImmobile" == 1) then
-			{
-				_veh allowCrewInImmobile true;
-			};
-
-			// Chance to create a second vehicle of the same type - only for armed LSV and UGV
-			if ((_vehType in ["UGV","LSV"]) and {random 100 < 35}) then {
-
+			
+			if (missionNamespace getVariable "BIS_crewInImmobile" == 1) then {_veh allowCrewInImmobile true;}; // Handle immobilization
+			
+			if ((_vehType in ["UGV","LSV"]) and {random 100 < 35}) then { // Chance to create a second vehicle of the same type - only for armed LSV and UGV
 				_veh02 = createVehicle [_vehClass, [(_basePos select 0) - 7, (_basePos select 1) - 7, 0], [], 0, "NONE"];
 				_veh02 setDir _dir;
 				createVehicleCrew _veh02;
@@ -296,47 +212,30 @@ BIS_CSATPatrols =
 				_veh02 addItemCargoGlobal ["FirstAidKit",2];
 				_veh02 setFuel (0.35 + random 0.25);
 				_veh02 setVehicleAmmo (0.4 + random 0.4);
-
-				// Handle immobilization
-				if (missionNamespace getVariable "BIS_crewInImmobile" == 1) then
-				{
-					_veh02 allowCrewInImmobile true;
-				};
-
+				
+				if (missionNamespace getVariable "BIS_crewInImmobile" == 1) then {_veh02 allowCrewInImmobile true;}; // Handle immobilization
 			};
-
-			// Limit unit equipment if set by server
-			if ((missionNamespace getVariable "BIS_enemyEquipment" == 1) and {_vehType != "UGV"}) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _vehGroup)};
-
-			// Limit aiming accuracy
-			{_x setSkill ["AimingAccuracy",0.1]} forEach (units _vehGroup);
-
-			// Enable Dynamic simulation
-			_vehGroup enableDynamicSimulation true;
-
+			
+			if ((missionNamespace getVariable "BIS_enemyEquipment" == 1) and {_vehType != "UGV"}) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _vehGroup)}; // Limit unit equipment if set by server
+			{_x setSkill ["AimingAccuracy",0.1]} forEach (units _vehGroup); // Limit aiming accuracy
+			_vehGroup enableDynamicSimulation true; // Enable Dynamic simulation
 		};
 	};
 
 	// Civilian vehicles
-	if (triggerText _x == "GEN_civilCar") then
-	{
-		_x spawn
-		{
+	if (triggerText _x == "GEN_civilCar") then {
+		_x spawn {
 			_basePos = position _this;
 			_dir = (triggerArea _this) select 2;
 			if (_dir < 0) then {_dir = 360 + _dir};
-
 			deleteVehicle _this;
-
 			waitUntil {sleep 5; ({(_x distance _basePos) < 1000} count allPlayers > 0)};
-
 			_veh = (selectRandom BIS_civilCars) createVehicle _basePos;
 			_veh setFuel (0.35 + (random 0.25));
 			_veh setDir _dir;
 			{clearMagazineCargoGlobal _x; clearWeaponCargoGlobal _x; clearBackpackCargoGlobal _x; clearItemCargoGlobal _x} forEach [_veh];
 			_veh addItemCargo ["FirstAidKit",1];
 			_veh enableDynamicSimulation true;
-
 		};
 	};
 } forEach (allMissionObjects "EmptyDetector");
@@ -345,44 +244,57 @@ BIS_CSATPatrols =
 BIS_Escaped = false;
 publicVariable "BIS_Escaped";
 
-[] spawn
-{
-	while {!(BIS_Escaped)} do
-	{
+[] spawn {
+	while {!(BIS_Escaped)} do {
 		sleep 5;
-		_awayList = [];
-		{_awayList = _awayList + list _x} forEach [BIS_trgTanoa_01,BIS_trgTanoa_02];
-
-		_livePlayers = [];
-		{if (alive _x) then {_livePlayers pushBackUnique _x}} forEach allPlayers;
-		{if (((!((vehicle _x) in _awayList)) and ((vehicle _x isKindOf "Ship") or (vehicle _x isKindOf "Air"))) and (count _livePlayers > 0) || (missionNamespace getVariable ["Debug_Win",false]))} forEach (_livePlayers) then
-
-		// if (({!((vehicle _x) in _awayList) and ((vehicle _x isKindOf "Ship") or (vehicle _x isKindOf "Air"))} count units BIS_grpMain == _livePlayers) and (_livePlayers > 0)) then
-		{
+		
+		{if ((((vehicle _x in list BIS_getaway_area_1) || (vehicle _x in list BIS_getaway_area_2) || (vehicle _x in list BIS_getaway_area_3) || (vehicle _x in list BIS_getaway_area_4) || (vehicle _x in list BIS_getaway_area_5) || (vehicle _x in list BIS_getaway_area_6)) && ((vehicle _x isKindOf "Ship") || (vehicle _x isKindOf "Air"))) || (missionNamespace getVariable ["Debug_Win",false]))} forEach (allPlayers) then { //NNS : rework winning condition, original one allow you to win in some case if soldier was in a destroyed heli
 			_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
-			["objEscape", "Succeeded"] remoteExec ["BIS_fnc_taskSetState",west,true];
-			["end1"] remoteExec ["BIS_fnc_endMission",west,true];
-			BIS_Escaped = true;
-			publicVariable "BIS_Escaped";
+			["objEscape", "Succeeded"] remoteExec ["BIS_fnc_taskSetState",west,true]; //success
+			["success"] remoteExec ["BIS_fnc_endMission",west,true]; //call end mission
+			BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
 		};
 	};
 };
 
 if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Mission fail if everyone is dead
-	[] spawn
-	{
-		sleep 300;
-		waitUntil {sleep 5; {alive _x} count (units BIS_grpMain) > 0};
-		waitUntil {sleep 5; {alive _x} count (units BIS_grpMain) == 0};
+	[] spawn {
+		sleep 5; //wait 5min
+		waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} != -1}; //check if at least one player alive
+		waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} == -1}; //check if all players dead
+		//waitUntil {sleep 5; {alive _x} count (units BIS_grpMain) > 0}; //check if at least one player alive
+		//waitUntil {sleep 5; {alive _x} count (units BIS_grpMain) == 0}; //check if all players dead
 		_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
-		["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",west,true];
-		["endLoser", false] remoteExec ["BIS_fnc_endMission",west,true];
+		["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",west,true]; //failed
+		["endLoser", false] remoteExec ["BIS_fnc_endMission",west,true]; //call end mission
+	};
+};
+
+[] spawn { //NNS: Mission fail if all player tickets = 0
+	sleep 5; //wait 5min
+	waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} != -1}; //check if at least one player alive
+	
+	while {!(BIS_Escaped)} do {
+		sleep 5;
+		_remainingTickets = 0;
+		{
+			_tmpTickets = [_x] call BIS_fnc_respawnTickets; //recover player remaining ticket
+			_remainingTickets = _remainingTickets + _tmpTickets; //add to group tickets
+		} forEach (units BIS_grpMain);
+		
+		if (_remainingTickets < 0) then {_remainingTickets = [west] call BIS_fnc_respawnTickets;}; //ticket but group
+		
+		if (_remainingTickets == 0) then { //no more ticket remaining
+			_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
+			["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",west,true]; //failed
+			["endLoser", false] remoteExec ["BIS_fnc_endMission",west,true]; //call end mission
+			BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
+		};
 	};
 };
 
 // Music when somebody gets into one of the escape vehicles
-[] spawn
-{
+[] spawn {
 	sleep 5;
 	waitUntil {sleep 5; {(vehicle _x isKindOf "Ship") or (vehicle _x isKindOf "Air")} count units BIS_grpMain > 0};
 	5 fadeMusic 0.75;
