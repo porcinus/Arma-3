@@ -8,7 +8,7 @@
   
 ## EscapeFromMaldenMOD.Malden  
 This mission is based on the original "Escape from Malden" mission.  
-English and French localized.  
+English and French localized for added elements.  
   
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/main.jpg)](EscapeFromMaldenMOD.Malden%20preview/main.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/checkpoint0.jpg)](EscapeFromMaldenMOD.Malden%20preview/checkpoint0.jpg)
@@ -21,7 +21,7 @@ English and French localized.
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/south-west-base.jpg)](EscapeFromMaldenMOD.Malden%20preview/south-west-base.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/whiteboard.jpg)](EscapeFromMaldenMOD.Malden%20preview/whiteboard.jpg)
 
-WIP, work but many things need to be redone the right way. I stated this modification while lacking a lot of knowledge about ArmA scripting. Don't look at scripts, you will tear blood...
+WIP, work but many things need to be redone the right way. I started this modification while lacking a lot of knowledge about ArmA scripting. Don't look at scripts, you will tear blood...
   
 My main idea is to allow me and a group of friends to really enjoy this mission.  
 To be honest, I didn't keep track of codes coming from internet and I am pretty sure some stuff may need some credits.  
@@ -145,13 +145,17 @@ What's done so far (missing some for sure):
   
 ## EscapeFromTanoaMOD.Tanoa  
 This mission is based on the original "Escape from Malden" mission.  
-English and French localized.  
+I haven't decided so far if major modification like sub-missions will be added for this mission.  
+English and French localized for added elements.  
   
-##### Important note: Win condition glitch present in original mission is currently in Testing.
+##### Important note: 
   
 [![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/main.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/main.jpg)
   
 My main idea is to allow me and a group of friends to really enjoy this mission.  
+  
+WIP, some things still need to be done but look stable for now.  
+Win condition glitch fix in Testing state (see "Regarding the original stuff" > "Win condition").  
   
 What's done so far (may miss some for sure):
 ```
