@@ -97,10 +97,17 @@ player addeventhandler ["FiredMan", { //ammo not in grenades,smokes,missile are 
 
 //NNS : stats : set public stats accessible from map
 [] spawn {
-	while {sleep 5; true} do {
-		_distance_traveled = player getVariable ["distance_traveled",[0,0]]; //foot, vehicle
-		_shot_fired = player getVariable ["shot_fired",[0,0,0,0,0]]; //bullet, grenade, smoke, rocket, from vehicle
-		player setVariable ["stats", [_shot_fired,_distance_traveled], true]; //public
+	while {sleep 10; true} do {
+		if !(player getVariable ["statsSrv",false]) then { //stats not sync from server
+			_shot_fired = player getVariable ["shot_fired",[0,0,0,0,0]]; //bullet, grenade, smoke, rocket, from vehicle
+			_distance_traveled = player getVariable ["distance_traveled",[0,0]]; //foot, vehicle
+			player setVariable ["stats", [_shot_fired,_distance_traveled], true]; //public
+		} else { //stats sync from server
+			_serverStats = player getVariable ["stats", [[0,0,0,0,0],[0,0]]]; //recover stats by server
+			player setVariable ["shot_fired",_serverStats select 0]; //bullet, grenade, smoke, rocket, from vehicle
+			player setVariable ["distance_traveled",_serverStats select 1]; //foot, vehicle
+			player setVariable ["statsSrv", false]; //reset sync from server bool
+		};
 	};
 };
 
@@ -122,7 +129,7 @@ addMissionEventHandler ["Map", {
 			_shot_fired_group = [0,0,0,0,0]; //store used ammo for whole group
 			
 			{ //players loop
-				_tmpStats = _x getVariable ["stats",[]]; //recover player stats
+				_tmpStats = _x getVariable ["stats",[[0,0,0,0,0],[0,0]]]; //recover player stats
 				if (count _tmpStats == 2) then {
 					_players_stats pushBack format["<font color='#99ffffff'>%1:</font><br/>",name _x]; //player name
 					

@@ -1,7 +1,7 @@
 LANGUAGE, "English", "French"
 
 STR_NNS_mission_name, "Escape From Zombies (NNS)", "Escape From Zombies (NNS)"
-STR_NNS_mission_version, "v06-27-20-1", "v06-27-20-1"
+STR_NNS_mission_version, "v06-28-20-1", "v06-28-20-1"
 STR_NNS_briefing_overview, "Good luck...", "Bonne chance..."
 
 STR_NNS_briefing_0, "Following massive outbreak on the little island of Malden, all military forces on zone received orders to evacuate.", "A la suite d'une épidémie massive sur la petite île de Malden, toutes les forces militaires de la zone ont reçu l'ordre d'évacuer."
