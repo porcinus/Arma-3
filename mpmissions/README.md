@@ -148,14 +148,13 @@ This mission is based on the original "Escape from Malden" mission.
 I haven't decided so far if major modification like sub-missions will be added for this mission.  
 English and French localized for added elements.  
   
-##### Important note: 
-  
 [![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/main.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/main.jpg)
   
 My main idea is to allow me and a group of friends to really enjoy this mission.  
   
 WIP, some things still need to be done but look stable for now.  
 Win condition glitch fix in Testing state (see "Regarding the original stuff" > "Win condition").  
+During test, game crashed on multiple client when UGV spawned (now disable).
   
 What's done so far (may miss some for sure):
 ```
