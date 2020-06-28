@@ -29,7 +29,7 @@ To be honest, I didn't keep track of codes coming from internet and I am pretty 
 What's done so far (missing some for sure):
 ```
 - Additional options on mission selection:
-	- Better equipment (ENVG-II, Nightstalker, GPS for everyone).
+	- Better equipment (ENVG-II, Nightstalker, GPS for everyone), allow change of class during gameplay.
 	- Increased enemy count (Add a tower to each city, allow vehicle spawn 2 units).
 	- Custom Escape rules: Original or Permissive (don't loss if everyone is dead, initial respawn trigger remain).
 	- Additional objectives.
@@ -160,7 +160,7 @@ Win condition glitch fix in Testing state (see "Regarding the original stuff" > 
 What's done so far (may miss some for sure):
 ```
 - Additional options on mission selection:
-	- Better equipment (ENVG-II, Nightstalker, GPS for everyone).
+	- Better equipment (ENVG-II, Nightstalker, GPS for everyone), allow change of class during gameplay.
 	- Custom Escape rules: Original or Permissive (don't loss if everyone is dead, initial respawn trigger remain).
 	- Possibility to disable stamina.
 
