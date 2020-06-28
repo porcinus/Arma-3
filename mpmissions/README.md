@@ -60,6 +60,7 @@ What's done so far (missing some for sure):
 	- End mission statistics tab (Partial data in Map): 
 		- For each player: Fire shots (bullet, HE, smoke, rocket, vehicle), distance travelled (foot, vehicle), longest kill (incl weapon name), friendly kills.
 		- For group: cumulative fire shots (bullet, HE, smoke, rocket ,vehicle), longest kill (incl player name), friendly kills (incl player name).
+		- Server will try to backup/restore player stats if player disconnected/crashed and reconnect.
 
 - Specific stuff:
 	- If optional objectives enabled: All checkpoint markers are hidden.
@@ -140,6 +141,9 @@ What's done so far (missing some for sure):
 	- Restore previous loadout when respawn, add 25 rounds in primary weapon if empty.
 	- Jerrycan contain visible from inventory screen when have a jerrycan.
 
+- Other:
+	- Server will try to backup/restore player stats if player disconnected/crashed and reconnect.
+
 - What still need to be done: You tell me :P
 ```
   
@@ -174,6 +178,7 @@ What's done so far (may miss some for sure):
 	- End mission statistics tab (Partial data in Map): 
 		- For each player: Fire shots (bullet, HE, smoke, rocket, vehicle), distance travelled (foot, vehicle), longest kill (incl weapon name), friendly kills.
 		- For group: cumulative fire shots (bullet, HE, smoke, rocket ,vehicle), longest kill (incl player name), friendly kills (incl player name).
+		- Server will try to backup/restore player stats if player disconnected/crashed and reconnect.
 
 - Specific stuff:
 	- When respawn, player is teleported in a radius of 50m to limit risk of successive die if stuck in a ambush.
