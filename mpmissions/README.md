@@ -153,6 +153,8 @@ I haven't decided so far if major modification like sub-missions will be added f
 English and French localized for added elements.  
   
 [![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/main.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/main.jpg)
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-map.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-map.jpg)
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-debrief.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-debrief.jpg)
   
 My main idea is to allow me and a group of friends to really enjoy this mission.  
   
