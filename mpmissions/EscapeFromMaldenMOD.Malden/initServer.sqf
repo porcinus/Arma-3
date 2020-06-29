@@ -541,6 +541,7 @@ addMissionEventHandler ["EntityKilled", {
 	_playersStatsLastUpdate = []; //last update time
 	_playersStats = []; //contain players stats
 	while {sleep 5; true} do {
+		{if (alive _x) then {deletevehicle _x;};} forEach (units BIS_grpMain); //delete AI units, in case someone disconnected
 		_tmpTime = time; //time
 		{ //players loop
 			_tmpUID = getPlayerUID _x; //get player UID
