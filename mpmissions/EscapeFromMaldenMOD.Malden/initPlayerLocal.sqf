@@ -173,6 +173,18 @@ addMissionEventHandler ["Map", {
 	params ["_mapIsOpened", "_mapIsForced"];
 	
 	if (_mapIsOpened) then {
+		if !(player getVariable ["DiaryResized",false]) then { //increase diary width, can cause problem with low resolution
+			_diaryWidthFactor = 1.4;
+			_mapDisplay = findDisplay 12;
+			{
+				_diaryCtrl = _mapDisplay displayCtrl _x;
+				_diaryPos = ctrlPosition _diaryCtrl;
+				_diaryCtrl ctrlSetPosition [_diaryPos select 0, _diaryPos select 1, (_diaryPos select 2) * _diaryWidthFactor, _diaryPos select 3];
+				_diaryCtrl ctrlCommit 0;
+			} forEach [1003,1013,1023]; //CA_Diary, CA_DiaryGroup, CA_ContentBackgroundd
+			player setVariable ["DiaryResized",true];
+		};
+		
 		private _nullRecord = objNull createDiaryRecord []; //"declare" _nullRecord
 		_record = player getVariable ["TeamStatsRecord",_nullRecord]; //recover record
 		if (!(player diarySubjectExists "TeamStats")) then {player createDiarySubject ["TeamStats", localize "STR_NNS_Debrif_Stats_title"];}; //subject not exist, create it
