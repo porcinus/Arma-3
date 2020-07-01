@@ -35,7 +35,7 @@ What's done so far (missing some for sure):
 	- Additional objectives.
 
 - Regarding the original stuff (little modifications/full rework).
-	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and its destroyed.
+	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and vehicle is destroyed.
 	- Enemy patrol spawn: any spawned group (not including vehicle patrol) are killed if all players distance > 1.8km, recreate trigger when this happen.
 	- Empty group cleanup script: now work, original can't.
 	- Populate city/triggers: condition now work fine (regarding distances), every spawning stuff moved to associate script, player warned when approaching city/checkpoint.
@@ -159,8 +159,7 @@ English and French localized for added elements.
 My main idea is to allow me and a group of friends to really enjoy this mission.  
   
 WIP, some things still need to be done but look stable for now.  
-Win condition glitch fix in Testing state (see "Regarding the original stuff" > "Win condition").  
-During test, game sometime crashed on multiple client when enemy vehicule spawned (can be because of Memory Allocation setting in launcher).
+During test, game sometime crashed on multiple client when enemy vehicule spawned (can be because of Memory Allocation setting in launcher).  
   
 What's done so far (may miss some for sure):
 ```
@@ -171,7 +170,7 @@ What's done so far (may miss some for sure):
 	- Possibility to disable stamina.
 
 - Regarding the original stuff (little modifications/full rework).
-	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and its destroyed.
+	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and vehicle is destroyed.
 	- Empty group cleanup script: full rework.
 	- Enemy patrol spawn: any spawned group (not including vehicle patrol) are killed if all players distance > 1.3km, recreate trigger when this happen.
 	- Special events: mortar disabled.
