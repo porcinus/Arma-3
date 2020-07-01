@@ -21,6 +21,18 @@ _pos01b = [10813.2,8716.83,0];
 
 _grp01 = grpNull;
 _grp01 = [_pos01a, Resistance, configFile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> "ParaFireTeam", [], [], [0.2, 0.3]] call BIS_fnc_spawnGroup;
+
+//NNS: higher enemy amount
+if (BIS_EnemyAmount > 0) then {
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+};
+
+if (BIS_EnemyAmount > 1) then {
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+};
+
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp01];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp01)};
 {_x setSkill ["AimingAccuracy",0.1]} forEach (units _grp01);
@@ -39,6 +51,18 @@ _pos02b = [10871.1,8664.1,0];
 
 _grp02 = grpNull;
 _grp02 = [_pos02a, Resistance, configFile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> "ParaShockTeam", [], [], [0.2, 0.3]] call BIS_fnc_spawnGroup;
+
+//NNS: higher enemy amount
+if (BIS_EnemyAmount > 0) then {
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp02, _grp02, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp02, _grp02, "", 0.5, "PRIVATE"];
+};
+
+if (BIS_EnemyAmount > 1) then {
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp02, _grp02, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp02, _grp02, "", 0.5, "PRIVATE"];
+};
+
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp02];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp02)};
 {_x setSkill ["AimingAccuracy",0.1]} forEach (units _grp02);

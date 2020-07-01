@@ -35,6 +35,18 @@ _pos01b = [7372.677,8452.096,0];
 
 _grp01 = grpNull;
 _grp01 = [_pos01a, EAST, configFile >> "CfgGroups" >> "East" >> "OPF_T_F" >> "Infantry" >> "O_T_InfSquad", [], [], [0.2, 0.5]] call BIS_fnc_spawnGroup;
+
+//NNS: higher enemy amount
+if (BIS_EnemyAmount > 0) then {
+	"O_engineer_F" createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+	selectRandom ["O_soldier_M_F","O_T_Soldier_F"] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+};
+
+if (BIS_EnemyAmount > 1) then {
+	"O_soldier_AA_F" createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+	"O_HeavyGunner_F" createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+};
+
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp01];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp01)};
 {_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp01);

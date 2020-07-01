@@ -110,7 +110,17 @@ class Params
 		file = "params\setStamina.sqf";
 	};
 	
-	#define DAYTIMEHOUR_DEFAULT		17
+	class EnemyAmountMenu { //NNS
+		title = $STR_NNS_param_EnemyAmountMenu_title;
+		values[] = {0,1,2};
+		texts[] = {$STR_NNS_param_normal,$STR_NNS_param_EnemyAmountMenu_high,$STR_NNS_param_EnemyAmountMenu_veryhigh};
+		default = 1;
+		file = "params\setEnemyAmount.sqf";
+	};
+	
+	
+	
+	#define DAYTIMEHOUR_DEFAULT		16 //NNS
 	#define WEATHER_DEFAULT			0 //NNS
 	#define DEBUGCONSOLE_DEFAULT		1 //NNS
 	#define TIMEACCELERATION_DEFAULT	1

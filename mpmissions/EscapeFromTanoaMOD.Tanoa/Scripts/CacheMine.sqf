@@ -44,6 +44,18 @@ _pos01d = [11844.1,10707.7,0];
 
 _grp01 = grpNull;
 _grp01 = [_pos01a, Resistance, configFile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> "BanditFireTeam", [], [], [0.2, 0.5]] call BIS_fnc_spawnGroup;
+
+//NNS: higher enemy amount
+if (BIS_EnemyAmount > 0) then {
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+};
+
+if (BIS_EnemyAmount > 1) then {
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_grp01, _grp01, "", 0.5, "PRIVATE"];
+};
+
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp01];
 {_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp01);
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp01)};
@@ -66,6 +78,18 @@ _pos02b = [12138.7,10529.3,0];
 
 _grp02 = grpNull;
 _grp02 = [_pos02a, Resistance, configFile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> "ParaFireTeam", [], [], [0.2, 0.5]] call BIS_fnc_spawnGroup;
+
+//NNS: higher enemy amount
+if (BIS_EnemyAmount > 0) then {
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp02, _grp02, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp02, _grp02, "", 0.5, "PRIVATE"];
+};
+
+if (BIS_EnemyAmount > 1) then {
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp02, _grp02, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Para_%1_F", 1 + ceil(random 7)] createUnit [_grp02, _grp02, "", 0.5, "PRIVATE"];
+};
+
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp02];
 {_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp02);
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp02)};
@@ -84,6 +108,18 @@ _pos03b = [12135.9,10626.3,0];
 
 _grp03 = grpNull;
 _grp03 = [_pos03a, Resistance, configFile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> "BanditFireTeam", [], [], [0.2, 0.5]] call BIS_fnc_spawnGroup;
+
+//NNS: higher enemy amount
+if (BIS_EnemyAmount > 0) then {
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+};
+
+if (BIS_EnemyAmount > 1) then {
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+};
+
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp03];
 {_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp03);
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp03)};

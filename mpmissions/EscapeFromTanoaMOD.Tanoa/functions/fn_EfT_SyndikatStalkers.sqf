@@ -12,6 +12,17 @@ params
 _newGrp = grpNull;
 _newGrp = [[_axisX,_axisY,0], Resistance, configFile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> (selectRandom ["BanditCombatGroup","BanditFireTeam","BanditShockTeam"]), [], [], [0.2, 0.2]] call BIS_fnc_spawnGroup;
 
+//NNS: higher enemy amount
+if (BIS_EnemyAmount > 0) then {
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
+};
+
+if (BIS_EnemyAmount > 1) then {
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
+	format ["I_C_Soldier_Bandit_%1_F", 1 + ceil(random 7)] createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
+};
+
 // Enable Dynamic simulation
 _newGrp enableDynamicSimulation true;
 

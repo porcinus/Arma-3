@@ -74,6 +74,17 @@ _unit06 = _grp03 createUnit [selectRandom ["O_T_Soldier_GL_F","O_T_Soldier_AR_F"
 _unit07 = _grp03 createUnit [selectRandom ["O_T_Medic_F","O_T_Soldier_F"], getMarkerPos _marker01, [], 0, "CAN_COLLIDE"];
 _unit08 = _grp03 createUnit ["O_T_Soldier_LAT_F", getMarkerPos _marker01, [], 0, "CAN_COLLIDE"];
 
+//NNS: higher enemy amount
+if (BIS_EnemyAmount > 0) then {
+	"O_engineer_F" createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+	selectRandom ["O_soldier_M_F","O_T_Soldier_F"] createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+};
+
+if (BIS_EnemyAmount > 1) then {
+	"O_soldier_AA_F" createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+	"O_HeavyGunner_F" createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+};
+
 {_x setBehaviour "Safe"; _x setSpeedMode "Limited"; _x setFormation "Column"} forEach [_grp03];
 if (missionNamespace getVariable "BIS_enemyEquipment" == 1) then {{_null = _x execVM "Scripts\LimitEquipment.sqf"} forEach (units _grp03)};
 {_x setSkill ["AimingAccuracy",0.15]} forEach (units _grp03);
