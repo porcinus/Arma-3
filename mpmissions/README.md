@@ -160,18 +160,20 @@ My main idea is to allow me and a group of friends to really enjoy this mission.
   
 WIP, some things still need to be done but look stable for now.  
 Win condition glitch fix in Testing state (see "Regarding the original stuff" > "Win condition").  
-During test, game crashed on multiple client when UGV spawned (now disable, can be because of Memory Allocation setting in launcher).
+During test, game sometime crashed on multiple client when enemy vehicule spawned (can be because of Memory Allocation setting in launcher).
   
 What's done so far (may miss some for sure):
 ```
 - Additional options on mission selection:
 	- Better equipment (ENVG-II, Nightstalker, GPS for everyone), allow change of class during gameplay.
 	- Custom Escape rules: Original or Permissive (don't loss if everyone is dead, initial respawn trigger remain).
+	- Increase enemy amount: Normal, +2 or +4 units per squad (not apply to Viper).
 	- Possibility to disable stamina.
 
 - Regarding the original stuff (little modifications/full rework).
 	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and its destroyed.
 	- Empty group cleanup script: full rework.
+	- Enemy patrol spawn: any spawned group (not including vehicle patrol) are killed if all players distance > 1.3km, recreate trigger when this happen.
 	- Special events: mortar disabled.
 	- Rework loadout: one per class, limited with a script afterward.
 
