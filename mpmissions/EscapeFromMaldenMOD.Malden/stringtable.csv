@@ -7,6 +7,8 @@ STR_NNS_briefing_overview, "You're gonna sweat blood...", "Une bonne galere a to
 STR_NNS_param_disable, "Disable", "Désactivé"
 STR_NNS_param_all, "All", "Tous"
 STR_NNS_param_normal, "Normal", "Normal"
+STR_NNS_param_enable, "Enable", "Activé"
+STR_NNS_param_unlimited, "Unlimited", "Illimité"
 
 STR_NNS_param_respawnLoadouts_overequip, "Over-equipped (100% ammo, full equipment plus ENVG-II, Nightstalker, GPS for everyone)", "Suréquipé (100 % de munitions, équipement complet plus ENVG-II, Nightstalker, GPS pour tous)"
 

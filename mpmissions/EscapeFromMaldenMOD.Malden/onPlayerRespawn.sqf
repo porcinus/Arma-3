@@ -93,4 +93,3 @@ if !(isNil {player getVariable 'addDebugActionMenu'}) then {
 	_debugactionmenuid = player addAction ["Debug command", "showCommandingMenu '#USER:MENU_COMMS_DEBUG'",cursorTarget, 0, true, true, "", ""];
 	player setVariable ['DebugActionMenu_id',_debugactionmenuid];
 };
-
