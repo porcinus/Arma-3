@@ -33,9 +33,11 @@ What's done so far (missing some for sure):
 	- Increased enemy count (Add a tower to each city, allow vehicle spawn 2 units).
 	- Custom Escape rules: Original or Permissive (don't loss if everyone is dead, initial respawn trigger remain).
 	- Additional objectives.
+	- Punish teamkillers: kill teamkillers when become renegade, should not affect team tickets.
 
-- Regarding the original stuff (little modifications/full rework).
+- Regarding the original stuff (little modifications/full rework):
 	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and vehicle is destroyed.
+	- Allow server to disable tickets in parameters.
 	- Enemy patrol spawn: any spawned group (not including vehicle patrol) are killed if all players distance > 1.8km, recreate trigger when this happen.
 	- Empty group cleanup script: now work, original can't.
 	- Populate city/triggers: condition now work fine (regarding distances), every spawning stuff moved to associate script, player warned when approaching city/checkpoint.
@@ -117,6 +119,7 @@ What's done so far (missing some for sure):
 	- Zombies amount : 50%, 100%, 150%.
 	- Ammobox contain : 25%, 50%, 75%, 100%.
 	- Stamina : enable or disable.
+	- Punish teamkillers: kill teamkillers when become renegade, should not affect team tickets.
 
 - Cities:
 	- Some buildings are destroyed, if so, there is a chance of big fire.
@@ -168,9 +171,11 @@ What's done so far (may miss some for sure):
 	- Custom Escape rules: Original or Permissive (don't loss if everyone is dead, initial respawn trigger remain).
 	- Increase enemy amount: Normal, +2 or +4 units per squad (not apply to Viper).
 	- Possibility to disable stamina.
+	- Punish teamkillers: kill teamkillers when become renegade, should not affect team tickets.
 
-- Regarding the original stuff (little modifications/full rework).
+- Regarding the original stuff (little modifications/full rework):
 	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and vehicle is destroyed.
+	- Allow server to disable tickets in parameters.
 	- Empty group cleanup script: full rework.
 	- Enemy patrol spawn: any spawned group (not including vehicle patrol) are killed if all players distance > 1.3km, recreate trigger when this happen.
 	- Special events: mortar disabled.
