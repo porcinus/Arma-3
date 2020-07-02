@@ -22,6 +22,7 @@ _box addWeaponCargoGlobal ["arifle_CTARS_blk_F",1 + (round random 1)];
 // AA
 _box addMagazineCargoGlobal ["Titan_AA",2];
 _box addWeaponCargoGlobal ["launch_O_Titan_ghex_F",1];
+	_box addBackpackCargoGlobal ["B_Fieldpack_ghex_F",1];
 
 // AMMO
 

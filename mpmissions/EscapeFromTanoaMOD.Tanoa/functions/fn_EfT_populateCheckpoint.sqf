@@ -76,12 +76,12 @@ _unit08 = _grp03 createUnit ["O_T_Soldier_LAT_F", getMarkerPos _marker01, [], 0,
 
 //NNS: higher enemy amount
 if (BIS_EnemyAmount > 0) then {
-	"O_engineer_F" createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+	"O_soldier_AA_F" createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
 	selectRandom ["O_soldier_M_F","O_T_Soldier_F"] createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
 };
 
 if (BIS_EnemyAmount > 1) then {
-	"O_soldier_AA_F" createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
+	"O_engineer_F" createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
 	"O_HeavyGunner_F" createUnit [_grp03, _grp03, "", 0.5, "PRIVATE"];
 };
 

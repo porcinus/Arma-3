@@ -251,3 +251,17 @@ addMissionEventHandler ["Map", {
 		};
 	};
 }];
+
+//NNS: punish teamkiller
+if (missionNamespace getVariable ["BIS_TKpunish",false]) then {
+	[] spawn {
+		while {sleep 10; true} do {
+			if !(rating player < 0) then {player addRating -(rating player)}; //reset player rating
+			if ((rating player < -2000) && {vehicle player == player}) then { //renegade and not in vehicle
+				if (([west] call BIS_fnc_respawnTickets) != -1) then {[west,1] call BIS_fnc_respawnTickets;}; //team based tickets, increse tickets by one to not punish whole team
+				[player, nil, true] spawn BIS_fnc_moduleLightning; //zeus punishment
+				player setDamage 1; //kill player
+			};
+		};
+	};
+};

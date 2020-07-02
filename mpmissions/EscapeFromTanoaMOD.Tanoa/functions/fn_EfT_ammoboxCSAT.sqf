@@ -60,7 +60,11 @@ _box addMagazineCargoGlobal ["RPG32_HE_F",2];
 _box addWeaponCargoGlobal ["launch_RPG32_ghex_F",1];
 
 // Titan AA
-if (random 100 < 50) then {_box addMagazineCargoGlobal ["Titan_AA",2]; _box addWeaponCargoGlobal ["launch_O_Titan_ghex_F",1]; _box addBackpackCargoGlobal ["B_Fieldpack_ghex_F",1]};
+//if (random 100 < 50) then {
+	_box addMagazineCargoGlobal ["Titan_AA",2];
+	_box addWeaponCargoGlobal ["launch_O_Titan_ghex_F",1];
+	_box addBackpackCargoGlobal ["B_Fieldpack_ghex_F",1];
+//};
 
 // FAKs
 _box addItemCargoGlobal ["FirstAidKit",4 + (round random 2)];

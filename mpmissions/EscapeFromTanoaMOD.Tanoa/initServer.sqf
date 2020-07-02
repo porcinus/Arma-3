@@ -150,12 +150,12 @@ BIS_CSATPatrols = ["EfT_O_Team01","EfT_O_Team02"];
 					_newGrp = [_basePos, EAST, missionConfigFile >> "CfgGroups" >> "East" >> "OPF_T_F" >> "Infantry" >> (selectRandom BIS_CSATPatrols), [], [], [0.3, 0.4]] call BIS_fnc_spawnGroup;
 					
 					if (BIS_EnemyAmount > 0) then {
-						"O_engineer_F" createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
+						"O_soldier_AA_F" createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
 						"O_soldier_F" createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
 					};
 					
 					if (BIS_EnemyAmount > 1) then {
-						"O_soldier_AA_F" createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
+						"O_engineer_F" createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
 						"O_HeavyGunner_F" createUnit [_newGrp, _newGrp, "", 0.5, "PRIVATE"];
 					};
 					
@@ -302,7 +302,8 @@ publicVariable "BIS_Escaped";
 	};
 };
 
-if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Mission fail if everyone is dead
+//NNS: Original rules -> Mission fail if everyone is dead
+if (BIS_EscapeRules == 0) then {
 	[] spawn {
 		sleep 5; //wait 5min
 		waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} != -1}; //check if at least one player alive
@@ -315,6 +316,30 @@ if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Mission fail if everyo
 	};
 };
 
+//NNS: Mission fail if all player tickets = 0 && tickets not unlimited
+if (!([west] call BIS_fnc_respawnTickets == -1) || !(missionNamespace getVariable ["BIS_respawnTickets",-1] == -1)) then {
+	[] spawn {
+		if !(missionNamespace getVariable ["BIS_respawnTickets",-1] == 0) then {sleep 120;}; //wait 2min
+		waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} != -1}; //check if at least one player alive
+		while {sleep 5; !(BIS_Escaped)} do {
+			_remainingTickets = 0;
+			{
+				_tmpTickets = [_x] call BIS_fnc_respawnTickets; //recover player remaining ticket
+				_remainingTickets = _remainingTickets + _tmpTickets; //add to group tickets
+			} forEach (units BIS_grpMain);
+			
+			if (_remainingTickets < 0) then {_remainingTickets = [west] call BIS_fnc_respawnTickets;}; //ticket but group
+			if (_remainingTickets == 0) then { //no more ticket remaining
+				_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
+				["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",west,true]; //failed
+				["end1", false] remoteExec ["BIS_fnc_endMission",west,true]; //call end mission
+				BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
+			};
+		};
+	};
+};
+
+/*
 [] spawn { //NNS: Mission fail if all player tickets = 0
 	sleep 5; //wait 5min
 	waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} != -1}; //check if at least one player alive
@@ -337,6 +362,7 @@ if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Mission fail if everyo
 		};
 	};
 };
+*/
 
 // Music when somebody gets into one of the escape vehicles
 [] spawn {
