@@ -1,7 +1,7 @@
 LANGUAGE, "English", "French"
 
 STR_NNS_mission_name, "Escape From Tanoa (mod NNS)", "Escape From Tanoa (mod NNS)"
-STR_NNS_mission_version, "v06-28-20-1", "v06-28-20-1"
+STR_NNS_mission_version, "v07-02-20-1", "v07-02-20-1"
 STR_NNS_briefing_overview, "You're gonna sweat blood...", "Une bonne galere a tous..."
 
 STR_NNS_param_EscapeRulesMenu_title, "NNS: Escape rules", "NNS: Règles de l'escape"
