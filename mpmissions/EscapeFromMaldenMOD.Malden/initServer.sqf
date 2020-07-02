@@ -85,11 +85,27 @@ _vehicle_near_respawn = (getMarkerPos "marker_respawn") nearObjects ['EmptyDetec
 
 // NNS : Checkpoints mover to "random" position
 [] spawn {
-	_null = [BIS_checkpoint_01,[[3979.0,4530.0,142.00],[3225.8,5359.3,326.22],[5101.4,3745.6,303.67]],80,true] execVM 'Scripts\ObjectGroupMover.sqf';
-	_null = [BIS_checkpoint_02,[[7462.0,3811.0,223.00],[7061.2,3532.1,251.71]],75,true] execVM 'Scripts\ObjectGroupMover.sqf';
-	_null = [BIS_checkpoint_03,[[4709.0,6658.0,192.00],[4855.6,6599.4,258.58],[3810.5,6425.0,295.16]],62,true] execVM 'Scripts\ObjectGroupMover.sqf';
-	_null = [BIS_checkpoint_04,[[5248.0,9223.0,245.00],[4855.3,8178.5,8.26],[4961.1,8626.3,303.66]],60,true] execVM 'Scripts\ObjectGroupMover.sqf';
-	_null = [BIS_checkpoint_06,[[2160.0,2739.0,355.00],[2011.9,2292.2,170.56],[2367.7,3509.9,349.56]],75,true] execVM 'Scripts\ObjectGroupMover.sqf';
+	_checkpoint_01_pos = [[3979.0,4530.0,142.00],[3225.8,5359.3,326.22],[5101.4,3745.6,303.67]];
+	_checkpoint_02_pos = [[7462.0,3811.0,223.00],[7061.2,3532.1,251.71]];
+	_checkpoint_03_pos = [[4709.0,6658.0,192.00],[4855.6,6599.4,258.58],[3810.5,6425.0,295.16]];
+	_checkpoint_04_pos = [[5248.0,9223.0,245.00],[4855.3,8178.5,8.26],[4961.1,8626.3,303.66]];
+	_checkpoint_06_pos = [[2160.0,2739.0,355.00],[2011.9,2292.2,170.56],[2367.7,3509.9,349.56]];
+	
+	_checkpoint_01_pos_selected = _checkpoint_01_pos select (round random ((count _checkpoint_01_pos) - 1));
+	_checkpoint_02_pos_selected = _checkpoint_02_pos select (round random ((count _checkpoint_02_pos) - 1));
+	_checkpoint_03_pos_selected = _checkpoint_03_pos select (round random ((count _checkpoint_03_pos) - 1));
+	_checkpoint_04_pos_selected = _checkpoint_04_pos select (round random ((count _checkpoint_04_pos) - 1));
+	_checkpoint_06_pos_selected = _checkpoint_06_pos select (round random ((count _checkpoint_06_pos) - 1));
+	
+	_null = [BIS_checkpoint_01,[_checkpoint_01_pos_selected],80,true] execVM 'Scripts\ObjectGroupMover.sqf';
+	_null = [BIS_checkpoint_02,[_checkpoint_02_pos_selected],75,true] execVM 'Scripts\ObjectGroupMover.sqf';
+	_null = [BIS_checkpoint_03,[_checkpoint_03_pos_selected],62,true] execVM 'Scripts\ObjectGroupMover.sqf';
+	_null = [BIS_checkpoint_04,[_checkpoint_04_pos_selected],60,true] execVM 'Scripts\ObjectGroupMover.sqf';
+	_null = [BIS_checkpoint_06,[_checkpoint_06_pos_selected],75,true] execVM 'Scripts\ObjectGroupMover.sqf';
+	
+	{ //hide power lines, 200m radius
+		{_x hideObjectGlobal true;} forEach nearestObjects [[_x select 0, _x select 1], ["PowerLines_Wires_base_F"], 200];
+	} forEach [_checkpoint_01_pos_selected, _checkpoint_02_pos_selected, _checkpoint_03_pos_selected, _checkpoint_04_pos_selected, _checkpoint_06_pos_selected];
 	
 	missionNamespace setVariable ["markerListHide",["BIS_checkpoint_marker_01","BIS_checkpoint_marker_02","BIS_checkpoint_marker_03","BIS_checkpoint_marker_04","BIS_checkpoint_marker_05","BIS_checkpoint_marker_06","NNS_checkpoint_marker_01","NNS_checkpoint_marker_02","NNS_checkpoint_marker_03"],true]; //used to reveal some checkpoint when intel collected
 	
