@@ -27,6 +27,7 @@ STR_NNS_param_EnemyAmountMenu_title, "Amount of enemies", "Nombre d'ennemis"
 STR_NNS_param_EnemyAmountMenu_high, "High (+2 units per squad)", "Élevé (+2 unités par escouade)"
 STR_NNS_param_EnemyAmountMenu_veryhigh, "Very high (+4 units per squad)", "Très élevé (+4 unités par escouade)"
 
+STR_NNS_param_PunishTK_title, "Punish teamkillers", "Punir les teamkillers"
 
 
 
