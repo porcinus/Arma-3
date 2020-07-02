@@ -443,13 +443,15 @@ player setVariable ["canisterFuel", 10];
 };
 
 //NNS: punish teamkiller
-[] spawn {
-	while {sleep 10; true} do {
-		if !(rating player < 0) then {player addRating -(rating player)};
-		if ((rating player < -2000) && {vehicle player == player}) then { //renegade and not in vehicle
-			[player, nil, true] spawn BIS_fnc_moduleLightning; //zeus punishment
-			player setDamage 1; //kill player
+if (missionNamespace getVariable ["BIS_TKpunish",false]) then {
+	[] spawn {
+		while {sleep 10; true} do {
+			if !(rating player < 0) then {player addRating -(rating player)}; //reset player rating
+			if ((rating player < -2000) && {vehicle player == player}) then { //renegade and not in vehicle
+				if (([east] call BIS_fnc_respawnTickets) != -1) then {[east,1] call BIS_fnc_respawnTickets;}; //team based tickets, increse tickets by one to not punish whole team
+				[player, nil, true] spawn BIS_fnc_moduleLightning; //zeus punishment
+				player setDamage 1; //kill player
+			};
 		};
 	};
 };
-

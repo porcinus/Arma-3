@@ -41,7 +41,7 @@ class Params {
 	class noOfRespawns {
 		title = $STR_A3_rscdisplaydebriefing_loadstext_mp;
 		values[] = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-		texts[] = {$STR_NNS_param_unlimited,"0", $STR_A3_Escape_param_respawnGroup10, $STR_A3_Escape_param_respawnGroup20, $STR_A3_Escape_param_respawnGroup30, $STR_A3_Escape_param_respawnGroup40, $STR_A3_Escape_param_respawnGroup50, $STR_A3_Escape_param_respawnGroup100, $STR_A3_Escape_param_respawnIndividual01, $STR_A3_Escape_param_respawnIndividual02, $STR_A3_Escape_param_respawnIndividual03, $STR_A3_Escape_param_respawnIndividual04, $STR_A3_Escape_param_respawnIndividual05, $STR_A3_Escape_param_respawnIndividual10};
+		texts[] = {$STR_NNS_param_unlimited, "0", $STR_A3_Escape_param_respawnGroup10, $STR_A3_Escape_param_respawnGroup20, $STR_A3_Escape_param_respawnGroup30, $STR_A3_Escape_param_respawnGroup40, $STR_A3_Escape_param_respawnGroup50, $STR_A3_Escape_param_respawnGroup100, $STR_A3_Escape_param_respawnIndividual01, $STR_A3_Escape_param_respawnIndividual02, $STR_A3_Escape_param_respawnIndividual03, $STR_A3_Escape_param_respawnIndividual04, $STR_A3_Escape_param_respawnIndividual05, $STR_A3_Escape_param_respawnIndividual10};
 		default = -1; //NNS6
 		file = "params\setRespawn.sqf";
 	};
@@ -100,6 +100,14 @@ class Params {
 		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_enable};
 		default = 0;
 		file = "params\setStamina.sqf";
+	};
+	
+	class TKpunishMenu { //NNS
+		title = $STR_NNS_param_PunishTK_title;
+		values[] = {0,1};
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_enable};
+		default = 1;
+		file = "params\setTKpunish.sqf";
 	};
 	
 	#define DAYTIMEHOUR_DEFAULT				22
