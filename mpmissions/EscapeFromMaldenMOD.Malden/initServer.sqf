@@ -54,6 +54,7 @@ for "_i" from 0 to 100 do { //detect from marker_objective_0 to marker_objective
 _start_pos_rnd = _start_pos_list call BIS_fnc_selectRandom; //select random marker
 "marker_0" setMarkerPos getMarkerPos _start_pos_rnd; //set marker position
 "marker_respawn" setMarkerPos getMarkerPos _start_pos_rnd; //set initial respawn marker position
+{_x setpos ((getMarkerPos "marker_0") getPos [5, random 360])} forEach (units BIS_grpMain); //move all base units to respawn location
 _initSpawn = [east,"marker_respawn","Respawn"] call BIS_fnc_addRespawnPosition; //set respawn
 //respawnball setPos [(getMarkerPos _start_pos_rnd) select 0,(getMarkerPos _start_pos_rnd) select 1,0]; //object used for respawn position
 //_initSpawn = [east,respawnball,"Respawn"] call BIS_fnc_addRespawnPosition; //set respawn
