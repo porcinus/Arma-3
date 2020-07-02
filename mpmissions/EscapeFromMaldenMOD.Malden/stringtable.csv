@@ -33,6 +33,7 @@ STR_NNS_param_EscapeAIskillMenu_novice, "Novice (0.25)", "Novice (0.25)"
 STR_NNS_param_EscapeAIskillMenu_normal, "Normal (0.50)", "Normal (0.50)"
 STR_NNS_param_EscapeAIskillMenu_expert, "Expert (0.75)", "Expert (0.75)"
 
+STR_NNS_param_PunishTK_title, "Punish teamkillers", "Punir les teamkillers"
 
 
 STR_NNS_CollectIntel_name, "Collect Intel", "Collecter les données"
