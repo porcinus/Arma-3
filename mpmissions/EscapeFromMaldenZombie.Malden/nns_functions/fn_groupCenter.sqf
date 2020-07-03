@@ -16,24 +16,24 @@ params [
 
 if (_group isEqualTo grpNull) exitWith {["NNS_fnc_groupCenter : Group needed"] call NNS_fnc_debugOutput; _defaultArray};
 
-_Xmed = 0; //inital X val
-_Ymed = 0; //inital Y val
+_Xadd = 0; _Yadd = 0; //inital cumulative val
 _aliveCount = 0; //alive in group count
 _returnArray = _defaultArray; //default return
 
 {
-	if (alive _x && {!(_x in _ignore)}) then {
+	if (alive _x && {!(_x in _ignore)}) then { //unit alive and not blacklisted
 		_tmp = [0,0,0]; //tmp
-		if (vehicle _x != _x) then {_tmp = getPos (objectParent _x); //unit in vehicle
-		} else {_tmp = getPos _x;}; //unit on foot
-		_Xmed = _Xmed + (_tmp select 0); //cumulative X values
-		_Ymed = _Ymed + (_tmp select 1); //cumulative Y values
-		_aliveCount = _aliveCount + 1; //increment
+		if (vehicle _x != _x) then {_tmp = getPos (objectParent _x)} else {_tmp = getPos _x}; //unit position, in vehicle, on foot
+		if !([0,0,0] isEqualTo _tmp) then { //in case something goes wrong
+			_tmpX =_tmp select 0; _tmpY = _tmp select 1; //X-Y position
+			_Xadd =_Xadd + _tmpX; _Yadd = _Yadd + _tmpY; //cumulative X-Y values
+			_aliveCount = _aliveCount + 1; //increment
+		};
 	};
 } forEach units _group; //alive in group loop
 
-if (_aliveCount > 0) then { //NNS: not Original rules -> keep respawn if some player alive or keep respawn
-	_returnArray = [round(_Xmed/_aliveCount), round(_Ymed/_aliveCount), 0]; //new respawn position
+if (_aliveCount > 0) then { //at least one valid unit
+	_returnArray = [_Xadd/_aliveCount, _Yadd/_aliveCount, 0]; //median position
 	//[format["NNS_fnc_groupCenter : group:%1 center: %2",_group,_returnArray]] call NNS_fnc_debugOutput;
 } else {
 	//[format["NNS_fnc_groupCenter : Warning, all units dead (%1)",_group]] call NNS_fnc_debugOutput;
