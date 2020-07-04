@@ -20,7 +20,7 @@ English and French localized for added elements.
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/rescue.jpg)](EscapeFromMaldenMOD.Malden%20preview/rescue.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/south-west-base.jpg)](EscapeFromMaldenMOD.Malden%20preview/south-west-base.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/whiteboard.jpg)](EscapeFromMaldenMOD.Malden%20preview/whiteboard.jpg)
-
+  
 WIP, work but many things need to be redone the right way. I started this modification while lacking a lot of knowledge about ArmA scripting. Don't look at scripts, you will tear blood...
   
 My main idea is to allow me and a group of friends to really enjoy this mission.  
@@ -197,6 +197,16 @@ What's done so far (may miss some for sure):
 ## NNS-Sandbox.Malden  
 Well, as its name suggest, it is a "sandbox", I mainly use it to test new functions/scripts.  
 Can be useful to understand how specific functions like 'spawnVehicleOnRoad_Adv' work.  
+  
+[![prev](NNS-Sandbox.Malden%20preview/preview/map01.jpg)](NNS-Sandbox.Malden%20preview/map01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/eden-main01.jpg)](NNS-Sandbox.Malden%20preview/eden-main01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/eden-main02.jpg)](NNS-Sandbox.Malden%20preview/eden-main02.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/main02.jpg)](NNS-Sandbox.Malden%20preview/main02.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/destroyzone01.jpg)](NNS-Sandbox.Malden%20preview/destroyzone01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/eden-patrolVeh.jpg)](NNS-Sandbox.Malden%20preview/eden-patrolVeh.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/eden-spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/eden-spawnvehionroad01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/map-spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/map-spawnvehionroad01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/spawnvehionroad01.jpg)
   
 ```
 What's done so far (missing some for sure):
