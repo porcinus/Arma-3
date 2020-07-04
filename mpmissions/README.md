@@ -198,7 +198,42 @@ What's done so far (may miss some for sure):
 ## NNS-Sandbox.Malden  
 Well, as its name suggest, it is a "sandbox", I mainly use it to test new functions/scripts.  
 Can be useful to understand how specific functions like 'spawnVehicleOnRoad_Adv' work.  
-TODO: full description and log.  
+  
+```
+What's done so far (missing some for sure):
 
+- Additional options on mission selection:
+	- Better equipment: allow change of class during gameplay.
+	- Limit enemy amount.
+	- Custom Escape rules: Original or Permissive (don't loss if everyone is dead, initial respawn trigger remain).
+	- Possibility to disable stamina.
+	- Punish teamkillers: kill teamkillers when become renegade, should not affect team tickets.
+	- Respawn: allow server to set to infinite.
+	- Ammobox contain : 25%, 50%, 75%, 100%.
+	- Limit AI skill: Novice (0.25), Normal (0.50), Expert (0.75)
+	- Debug options.
 
+- General:
+	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and vehicle is destroyed.
+	- Spawned units:
+		- Any spawned group (not including vehicle patrol) are killed if all players distance > 1.5km, recreate trigger when this happen. This part is designed to allow additions of side/faction/class.
+		- Enemy patrol can stalk you and friendly patrol can stalk enemy units.
+	- Empty group cleanup script: look stable so far.
+	- End mission statistics tab (Partial data in Map): 
+		- For each player: Fire shots (bullet, HE, smoke, rocket, vehicle), distance travelled (foot, vehicle), longest kill (incl weapon name), friendly kills.
+		- For group: cumulative fire shots (bullet, HE, smoke, rocket ,vehicle), longest kill (incl player name), friendly kills (incl player name).
+		- Server will try to backup/restore player stats if player disconnected/crashed and reconnect.
+	- When respawn, player is teleported in a radius of 50m to limit risk of successive die if stuck in a ambush.
+	- All fuel stations are empty but you can found jerrycan. this will allow you to drain fuel from vehicles tank.
+	- Renegades punishment by Zeus hand.
+	- Friendly AI is dumb : a script is used to limit damage (no inclure one shot) from friendly AI.
+	- Server will try to backup/restore player stats if player disconnected/crashed and reconnect.
+	- Lamps can sometime flicker with noise.
+
+- Inventory:
+	- When respawn with previous loadout, add 25 rounds in primary weapon if empty.
+	- Jerrycan contain visible from inventory screen when have a jerrycan.
+
+- What still need to be done: You tell me :P
+```
 
