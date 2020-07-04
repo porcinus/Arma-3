@@ -403,7 +403,7 @@ publicVariable "BIS_Escaped";
 		{if ((((vehicle _x in list BIS_getaway_area_1) || (vehicle _x in list BIS_getaway_area_2) || (vehicle _x in list BIS_getaway_area_3) || (vehicle _x in list BIS_getaway_area_4)) && ((vehicle _x isKindOf "Ship") || (vehicle _x isKindOf "Air"))) || (missionNamespace getVariable ["Debug_Win",false]))} forEach (allPlayers) then { //NNS : rework winning condition, original one allow you to win in some case if soldier was in a destroyed heli
 			_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 			["objEscape", "Succeeded"] remoteExec ["BIS_fnc_taskSetState",east,true]; //success
-			["success"] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
+			["success", true, 5] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 			BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
 		};
 	};
@@ -418,7 +418,7 @@ if (BIS_EscapeRules == 0) then { //NNS: Original rules -> Mission fail if everyo
 		//waitUntil {sleep 5; {alive _x} count (units BIS_grpMain) == 0}; //check if all players dead
 		_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 		["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
-		["end1", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
+		["end1", false, 5] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 	};
 };
 
@@ -438,7 +438,7 @@ if (!([east] call BIS_fnc_respawnTickets == -1) || !(missionNamespace getVariabl
 			if (_remainingTickets == 0) then { //no more ticket remaining
 				_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 				["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
-				["end1", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
+				["end1", false, 5] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 				BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
 			};
 		};
