@@ -69,7 +69,7 @@ _x enableGunLights "forceOn"; _x action ["GunLightOn", _x]; //try to force light
 	[_heliCrater, 500, false, true] remoteExec ["NNS_fnc_spawnBigFire",0,true]; //remoteexec fire
 };
 
- //NNS: Original rules -> Remove respawn after 5min
+//NNS: Original rules -> Remove respawn after 5min
 if (BIS_EscapeRules == 0) then {
 	[] spawn {
 		sleep 300; //wait 5min
@@ -86,8 +86,7 @@ _vehicle_near_respawn = (getMarkerPos "marker_respawn") nearObjects ['EmptyDetec
 _deleteEmptyGrups = [800] execVM "Scripts\DeleteEmptyGroups.sqf";
 
 // Handle respawn of players - add respawn position for the team and delete older corpse (so only one for each player can be present)
-addMissionEventHandler ["EntityRespawned",
-{
+addMissionEventHandler ["EntityRespawned", {
 	private _new = _this select 0; private _old = _this select 1;
 	if (isPlayer _new) then {
 		private _oldBody = _old getVariable ["BIS_oldBody", objNull];
@@ -209,7 +208,7 @@ BIS_Escaped = false; publicVariable "BIS_Escaped";
 		{if ((((vehicle _x in list BIS_getaway_area_1) || (vehicle _x in list BIS_getaway_area_2) || (vehicle _x in list BIS_getaway_area_3) || (vehicle _x in list BIS_getaway_area_4) || (vehicle _x in list BIS_getaway_area_5) || (vehicle _x in list BIS_getaway_area_6)) && ((vehicle _x isKindOf "Ship") || (vehicle _x isKindOf "Air"))) || (missionNamespace getVariable ["Debug_Win",false]))} forEach (allPlayers) then { //NNS : rework winning condition, original one allow you to win in some case if soldier was in a destroyed heli
 			_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 			["objEscape", "Succeeded"] remoteExec ["BIS_fnc_taskSetState",east,true]; //success
-			["success"] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
+			["success", true, 5] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 			BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
 		};
 	};
@@ -223,7 +222,7 @@ if (BIS_EscapeRules == 0) then {
 		waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} == -1}; //check if all players dead
 		_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 		["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
-		["end1", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
+		["end1", false, 5] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 	};
 };
 
@@ -243,7 +242,7 @@ if (!([east] call BIS_fnc_respawnTickets == -1) || !(missionNamespace getVariabl
 			if (_remainingTickets == 0) then { //no more ticket remaining
 				_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 				["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
-				["end1", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
+				["end1", false, 5] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 				BIS_Escaped = true; publicVariable "BIS_Escaped"; //trigger to kill loop
 			};
 		};
@@ -256,7 +255,7 @@ if (!([east] call BIS_fnc_respawnTickets == -1) || !(missionNamespace getVariabl
 	waitUntil {sleep 5; [BIS_EW01,BIS_EW02,BIS_EW03,BIS_EW04,BIS_EW05,BIS_EW06,BIS_EW07,BIS_EW08,BIS_EW09,BIS_EW10] findIf {canMove _x} == -1}; //check if all vehicles destroyed
 	_null = [false] call NNS_fnc_CompileDebriefingStats; //NNS : stats : Compile data from players
 	["objEscape", "Failed"] remoteExec ["BIS_fnc_taskSetState",east,true]; //failed
-	["end2", false] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
+	["end2", false, 5] remoteExec ["BIS_fnc_endMission",east,true]; //call end mission
 };
 
 // Music when somebody gets into one of the escape vehicles
