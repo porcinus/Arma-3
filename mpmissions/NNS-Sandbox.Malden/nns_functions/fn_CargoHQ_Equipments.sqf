@@ -33,6 +33,7 @@ _selectedPos = selectRandom _allowedPos;
 _selectedEquipment = selectRandom _equipmentsList;
 
 _equipment = _selectedEquipment createVehicle [0,0,0];
+_equipment allowDamage false;
 _equipment setPosASL (AGLToASL (_building buildingPos (_selectedPos select 0)));
 _equipment setDir ((getDir _building) + (_selectedPos select 1));
 
@@ -44,6 +45,7 @@ if (BIS_playerSide == west) then {
 };
 
 [_equipment,0,0,true] call NNS_fnc_AmmoboxLimiter;
+_equipment allowDamage true;
 
 if (random 1 > 0.5) then {
 	_allowedPos deleteAt (_allowedPos find _selectedPos);
@@ -53,6 +55,7 @@ if (random 1 > 0.5) then {
 	_selectedEquipment = selectRandom _equipmentsList;
 
 	_equipment01 = _selectedEquipment createVehicle [0,0,0];
+	_equipment01 allowDamage false;
 	_equipment01 setPosASL (AGLToASL (_building buildingPos (_selectedPos select 0)));
 	_equipment01 setDir ((getDir _building) + (_selectedPos select 1));
 		
@@ -64,4 +67,5 @@ if (random 1 > 0.5) then {
 	};
 
 	[_equipment01,0,0,true] call NNS_fnc_AmmoboxLimiter;
+	_equipment01 allowDamage true;
 }

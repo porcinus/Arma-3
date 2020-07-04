@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=146;
+		nextID=153;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=30;
+		nextID=34;
 	};
 	class Camera
 	{
-		pos[]={1232.4823,49.5718,12287.758};
-		dir[]={0.84154195,-0.54021233,0.0089042494};
-		up[]={0.54019606,0.84151751,0.00571645};
-		aside[]={0.010581467,-5.5336568e-007,-0.99999589};
+		pos[]={7998.0884,91.401482,10181.061};
+		dir[]={0.48085698,-0.47521722,-0.73685372};
+		up[]={0.25971138,0.87986553,-0.39797583};
+		aside[]={-0.8374576,1.7482671e-007,-0.54650968};
 	};
 };
 binarizationWanted=0;
@@ -37,13 +37,14 @@ addons[]=
 	"A3_Soft_F_Gamma_SUV_01",
 	"A3_Structures_F_Mil_Cargo",
 	"A3_Structures_F_Mil_BagBunker",
-	"A3_Air_F_Heli_Light_01"
+	"A3_Air_F_Heli_Light_01",
+	"A3_Supplies_F_Heli_CargoNets"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=7;
+		items=8;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -93,6 +94,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item7
+		{
+			className="A3_Supplies_F_Heli";
+			name="Arma 3 Helicopters - Ammoboxes and Supplies";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=12358265;
@@ -122,7 +130,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=78;
+		items=79;
 		class Item0
 		{
 			dataType="Group";
@@ -332,7 +340,7 @@ class Mission
 				class Item1
 				{
 					dataType="Trigger";
-					position[]={8082.8892,29.581066,10101.979};
+					position[]={8082.9531,29.580914,10105.798};
 					angle=4.7081285;
 					class Attributes
 					{
@@ -348,7 +356,7 @@ class Mission
 				class Item2
 				{
 					dataType="Trigger";
-					position[]={8082.7549,29.581387,10108.196};
+					position[]={8082.6895,29.578985,10115.706};
 					angle=4.7081285;
 					class Attributes
 					{
@@ -360,12 +368,12 @@ class Mission
 					};
 					id=19;
 					type="EmptyDetector";
-					atlOffset=-1.9073486e-006;
+					atlOffset=3.8146973e-006;
 				};
 				class Item3
 				{
 					dataType="Trigger";
-					position[]={8082.7129,29.579958,10114.415};
+					position[]={8082.5249,29.577965,10124.33};
 					angle=4.7081285;
 					class Attributes
 					{
@@ -377,11 +385,12 @@ class Mission
 					};
 					id=20;
 					type="EmptyDetector";
+					atlOffset=3.8146973e-006;
 				};
 				class Item4
 				{
 					dataType="Trigger";
-					position[]={8082.6689,29.57773,10120.354};
+					position[]={8082.3511,29.576593,10132.211};
 					angle=4.7081285;
 					class Attributes
 					{
@@ -393,6 +402,7 @@ class Mission
 					};
 					id=21;
 					type="EmptyDetector";
+					atlOffset=3.8146973e-006;
 				};
 				class Item5
 				{
@@ -429,7 +439,7 @@ class Mission
 				};
 			};
 			id=11;
-			atlOffset=1.6292877;
+			atlOffset=1.8407593;
 		};
 		class Item10
 		{
@@ -441,41 +451,42 @@ class Mission
 		class Item11
 		{
 			dataType="Marker";
-			position[]={8087.8477,29.569445,10120.401};
+			position[]={8087.5298,29.564148,10132.259};
 			name="marker_2";
 			text="GEN_shouldFail";
 			type="mil_unknown";
 			id=22;
+			atlOffset=3.8146973e-006;
 		};
 		class Item12
 		{
 			dataType="Marker";
-			position[]={8087.75,29.57,10114.241};
+			position[]={8087.562,29.570303,10124.156};
 			name="marker_3";
 			text="GEN_csatVeh";
 			type="mil_unknown";
 			id=27;
-			atlOffset=0.00039863586;
+			atlOffset=0.00040245056;
 		};
 		class Item13
 		{
 			dataType="Marker";
-			position[]={8087.6841,29.57,10108.35};
+			position[]={8087.6187,29.570108,10115.859};
 			name="marker_4";
 			text="GEN_natoVeh";
 			type="mil_unknown";
 			id=28;
-			atlOffset=0.00029373169;
+			atlOffset=0.00029754639;
 		};
 		class Item14
 		{
 			dataType="Marker";
-			position[]={8087.6851,29.57,10102.005};
+			position[]={8087.749,29.569899,10105.824};
 			name="marker_5";
 			text="GEN_supportVeh";
 			type="mil_unknown";
 			id=29;
-			atlOffset=0.00029563904;
+			atlOffset=0.00029754639;
 		};
 		class Item15
 		{
@@ -1792,6 +1803,22 @@ class Mission
 			angle=90;
 			id=145;
 			atlOffset=4.870491;
+		};
+		class Item78
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8051.6914,30.463007,10099.491};
+				angles[]={0.00077204045,0,6.2816033};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=152;
+			type="O_CargoNet_01_ammo_F";
 		};
 	};
 	class Connections

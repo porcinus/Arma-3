@@ -141,6 +141,7 @@ _vehicle_near_respawn = (getMarkerPos "marker_respawn") nearObjects ['EmptyDetec
 					if (_textPost == "csatveh") then {_vehClass = BIS_csatVehicles; _clearCargo = false};
 					
 					_veh = [_pos,_dir,_vehClass,[],0.1 + (random 0.1),false,false,0,0,[],0,_clearCargo] call NNS_fnc_spawnCivVehi; //spawn vehicle
+					
 					[format["'%1': '%2' spawned, cargo clear:%3 (%4m)", _text, typeOf _veh, _clearCargo, (leader BIS_grpMain) distance2d _pos]] call NNS_fnc_debugOutput; //debug
 					waitUntil {sleep BIS_spawnInterval; (isNull _veh) || {(allPlayers findIf {(_x distance2d (getPos _veh)) > BIS_deletionDistance} != -1)}}; //NNS : wait until all players are far away
 					if (!isNull _veh) then {deleteVehicle _veh}; //delete vehicle if still exist

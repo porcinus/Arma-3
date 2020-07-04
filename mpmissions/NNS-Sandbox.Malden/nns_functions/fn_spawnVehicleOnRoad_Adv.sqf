@@ -316,6 +316,7 @@ for "_i" from 1 to 2000 do { //roads loop
 			_tmpVehi = objNull;
 			if (_simpleObject) then {_tmpVehi = createSimpleObject [_tmpVehiClass, [0,0,0]]; //create simple object
 			} else {_tmpVehi = _tmpVehiClass createVehicle [0,0,0];}; //create vehicle
+			_tmpVehi allowDamage false; //disable in case server is having hard time
 			
 			_tmpVehibox = boundingBoxReal _tmpVehi; _tmpVehiLength = abs (((_tmpVehibox select 1) select 1) - ((_tmpVehibox select 0) select 1)) * 1.3; //vehicle length
 			_tmpDirCorr = 0; if (_isWreck) then {_tmpVehiLength = _tmpVehiLength * 1.6; _tmpDirCorr = 180;}; //wreck vehicles size is a bit off and direction reversed
@@ -397,6 +398,7 @@ for "_i" from 1 to 2000 do { //roads loop
 						};
 					};
 				} else {_tmpVehi setPos _tmpNewPos;}; //set vehicle position
+				_tmpVehi allowDamage true; //re-enable damage
 				
 				if !(_isWreck) then { //not wreck
 					_tmpVehi setFuel _vehiFuel; //set fuel
