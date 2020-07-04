@@ -76,7 +76,6 @@ What's done so far (missing some for sure):
 	
 - What still need to be done:
 	- Increase overall performance.
-	- Disable if possible the noise effect when end of mission occurs (not sure it is possible).
 	- You tell me :P
 ```
   
@@ -141,7 +140,7 @@ What's done so far (missing some for sure):
 	- Friendly AI is dumb : a script is used to limit damage (no inclure one shot) from friendly AI.
 
 - Inventory:
-	- Restore previous loadout when respawn, add 25 rounds in primary weapon if empty.
+	- Restore previous loadout when respawn, refill primary weapon magazine to 25 rounds.
 	- Jerrycan contain visible from inventory screen when have a jerrycan.
 
 - Other:
@@ -231,8 +230,8 @@ What's done so far (missing some for sure):
 	- Lamps can sometime flicker with noise.
 
 - Inventory:
-	- When respawn with previous loadout, add 25 rounds in primary weapon if empty.
-	- Jerrycan contain visible from inventory screen when have a jerrycan.
+	- When respawn with previous loadout, refill primary weapon magazine to 25 rounds.
+	- Jerrycan contain is visible in inventory screen when player have a jerrycan.
 
 - What still need to be done: You tell me :P
 ```
