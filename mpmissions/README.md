@@ -195,5 +195,10 @@ What's done so far (may miss some for sure):
 	- You tell me :P
 ```
   
+## NNS-Sandbox.Malden  
+Well, as its name suggest, it is a "sandbox", I mainly use it to test new functions/scripts.  
+Can be useful to understand how specific functions like 'spawnVehicleOnRoad_Adv' work.  
+TODO: full description and log.  
+
 
 
