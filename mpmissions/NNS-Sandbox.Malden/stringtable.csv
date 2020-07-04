@@ -1,0 +1,108 @@
+LANGUAGE, "English", "French"
+
+//mission
+STR_NNS_mission_name, "NNS Sandbox", "NNS Sandbox"
+STR_NNS_mission_briefing_overview, "Check map for info", "Vérifier la map pour info"
+
+//task
+STR_NNS_task_main_title, "STR_NNS_task_main_title_ENG", "STR_NNS_task_main_title_FRA"
+STR_NNS_task_main_desc, "STR_NNS_task_main_desc_ENG", "STR_NNS_task_main_desc_FRA"
+
+//diary
+STR_NNS_briefing_title, "STR_NNS_briefing_title_ENG", "STR_NNS_briefing_title_FRA"
+STR_NNS_briefing_0, "STR_NNS_briefing_0_ENG", "STR_NNS_briefing_0_FRA"
+STR_NNS_briefing_1, "STR_NNS_briefing_1_ENG", "STR_NNS_briefing_1_FRA"
+STR_NNS_briefing_2, "STR_NNS_briefing_2_ENG", "STR_NNS_briefing_2_FRA"
+STR_NNS_briefing_3, "STR_NNS_briefing_3_ENG", "STR_NNS_briefing_3_FRA"
+STR_NNS_briefing_4, "STR_NNS_briefing_4_ENG", "STR_NNS_briefing_4_FRA"
+STR_NNS_briefing_5, "STR_NNS_briefing_5_ENG", "STR_NNS_briefing_5_FRA"
+
+//briefing/debriefing
+STR_NNS_End_Win_desc, "STR_NNS_End_Win_desc_ENG", "STR_NNS_End_Win_desc_FRA"
+STR_NNS_End_Win_sub, "STR_NNS_End_Win_sub_ENG", "STR_NNS_End_Win_sub_FRA"
+STR_NNS_End_End1_desc, "STR_NNS_End_End1_desc_ENG", "STR_NNS_End_End1_desc_FRA"
+STR_NNS_End_End1_sub, "STR_NNS_End_End1_sub_ENG", "STR_NNS_End_End1_sub_FRA"
+STR_NNS_End_End2_desc, "STR_NNS_End_End2_desc_ENG", "STR_NNS_End_End2_desc_FRA"
+STR_NNS_End_End2_sub, "STR_NNS_End_End2_sub_ENG", "STR_NNS_End_End2_sub_FRA"
+
+//params: generic
+STR_NNS_param_all, "All", "Tous"
+STR_NNS_param_normal, "Normal", "Normal"
+STR_NNS_param_enable, "Enable", "Activé"
+STR_NNS_param_disable, "Disable", "Désactivé"
+STR_NNS_param_unlimited, "Unlimited", "Illimité"
+STR_NNS_param_high, "High", "Élevé"
+STR_NNS_param_veryhigh, "Very high", "Très élevé"
+
+//params: unit loadout
+STR_NNS_param_respawnLoadouts_overequip, "Over-equipped", "Suréquipé"
+
+//params: debug outputs
+STR_NNS_param_DebugOutputs_title, "Debug outputs (will spam Chatbox (Global) and/or Server logs)", "Infos de débuggage (va spammer la chatbox (Globale) et/ou les logs Serveur)"
+STR_NNS_param_DebugOutputs_chatbox, "Enable (Chatbox)", "Activé (Chatbox)"
+STR_NNS_param_DebugOutputs_logs, "Enable (Logs)", "Activé (Logs)"
+STR_NNS_param_DebugOutputs_both, "Enable (Chatbox/Logs)", "Activé (Chatbox/Logs)"
+
+//params: debug menu
+STR_NNS_param_DebugMenu_title, "Debug menu (access via Quick command menu > Communication)", "Menu débuggage (accessible via Menu de commande rapide > Communication)"
+STR_NNS_param_DebugMenu_admin, "Enable for Admin", "Activé pour Admin"
+STR_NNS_param_DebugMenu_all, "Enable for All", "Activé pour Tous"
+
+//params: enemy count
+STR_NNS_param_EnemyCountsMenu_title, "Limit amount of enemies", "Limiter le nombre d'ennemis"
+STR_NNS_param_EnemyCountsMenu_limited, "Limited (Some buildings may be removed)", "Limiter (Certain batiments pourrait être supprimer)"
+
+//params: escape rules
+STR_NNS_param_EscapeRulesMenu_title, "Escape rules", "Règles de l'escape"
+STR_NNS_param_EscapeRulesMenu_original, "Original", "Original"
+STR_NNS_param_EscapeRulesMenu_permissive, "Permissive : All players can die without failing the mission", "Permissif : Tous les joueurs peuvent mourir sans échoué la mission"
+
+//params: ai skills
+STR_NNS_param_EscapeAIskillMenu_title, "Enemy AI skill", "Niveau de l'IA ennemie"
+STR_NNS_param_EscapeAIskillMenu_novice, "Novice (0.25)", "Novice (0.25)"
+STR_NNS_param_EscapeAIskillMenu_normal, "Normal (0.50)", "Normal (0.50)"
+STR_NNS_param_EscapeAIskillMenu_expert, "Expert (0.75)", "Expert (0.75)"
+
+//params: ammobox limit
+STR_NNS_param_AmmoboxAmount_title, "Ammo box content", "Contenu caisse de munitions"
+STR_NNS_param_AmmoboxAmount_verylow, "Limited (0-25%)", "Limitée (0-25%)"
+STR_NNS_param_AmmoboxAmount_low, "Limited (25-50%)", "Limitée (25-50%)"
+STR_NNS_param_AmmoboxAmount_normal, "Normal (50-75%)", "Normal (50-75%)"
+STR_NNS_param_AmmoboxAmount_high, "High (75-100%)", "Elevé (75-100%)"
+
+//params: stamina
+STR_NNS_param_Stamina_title, "Stamina", "Endurance"
+
+//params: tk punish
+STR_NNS_param_PunishTK_title, "Punish teamkillers", "Punir les teamkillers"
+
+//fuel canister
+STR_NNS_FuelCanister, "Jerrycan", "Jerrican"
+STR_NNS_TakeFuelCanister, "Take jerrycan", "Prendre le jerrican"
+STR_NNS_FuelTank_drain, "Drain the fuel tank", "Siphonner le réservoir de carburant"
+STR_NNS_FuelTank_draincargo, "Drain the tank", "Siphonner la citerne"
+STR_NNS_FuelTank_fill, "Fill the fuel tank", "Remplir le réservoir de carburant"
+
+//debriefing and in-map statistics
+STR_NNS_Debrif_Stats_title, "Team statistics", "Statistiques d'équipe"
+STR_NNS_Debrif_Stats_team, "Team", "Équipe"
+STR_NNS_Debrif_Stats_nodata, "No data received yet.", "Aucune donnée n'a encore été reçue."
+STR_NNS_Debriefing_AmmoUsed_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Ammo&#160;used:</t> %1 Bullet%2%3%4%5%6", "&#160;&#160;&#160;&#160;<t underline='1'>Munitions&#160;utilisé:</t> %1 Balle%2%3%4%5%6"
+STR_NNS_Debriefing_AmmoUsed_HEgrenades, ", %1 HE grenade%2", ", %1 Grenade%2"
+STR_NNS_Debriefing_AmmoUsed_SmokeGrenade, ", %1 Smoke grenade%2", ", %1 Fumigène%2"
+STR_NNS_Debriefing_AmmoUsed_Rockets, ", %1 Rocket%2", ", %1 Missile%2"
+STR_NNS_Debriefing_AmmoUsed_Vehicle, ", %1 shot%2 from Vehicle", ", %1 tir%2 depuis véhicule"
+STR_NNS_Debriefing_DistanceTravel_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Distance&#160;traveled:</t> %1m on foot%2", "&#160;&#160;&#160;&#160;<t underline='1'>Distance&#160;parcourue:</t> %1m à pied%2"
+STR_NNS_Debriefing_DistanceTravel_vehicle, ", %1m in vehicle, %2m total", ", %1m en véhicule, %2m au total"
+STR_NNS_Debriefing_LongestKill_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Longest&#160;kill:</t> %1m%2", "&#160;&#160;&#160;&#160;<t underline='1'>Frag&#160;distant:</t> %1m%2"
+STR_NNS_Debriefing_FriendlyKill_title, "&#160;&#160;&#160;&#160;&#160;<t underline='1'>Friendly&#160;killed:</t> %1%2", "&#160;&#160;&#160;&#160;<t underline='1'>Frag&#160;alliée:</t> %1%2"
+STR_NNS_Debriefing_GroupStats_title, "Group statistics", "Statistiques du groupe"
+
+//respawn
+STR_NNS_loadout_previous, "Previous Loadout", "Équipement précédent"
+STR_NNS_loadout_restore, "Restore Loadout", "Restorer l'équipement"
+
+
+
+
+
