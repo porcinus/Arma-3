@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=244;
+		nextID=251;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=46;
+		nextID=50;
 	};
 	class Camera
 	{
-		pos[]={7966.4941,43.372646,9866.6963};
-		dir[]={-0.66525918,-0.74651718,-0.014809034};
-		up[]={-0.74634844,0.66534525,-0.016614746};
-		aside[]={-0.02225546,-1.771823e-007,0.99979019};
+		pos[]={7950.5029,75.028755,9853.5654};
+		dir[]={0.25192922,-0.93898934,0.23420769};
+		up[]={0.6877135,0.34393999,0.63933772};
+		aside[]={0.68088514,4.5797788e-007,-0.7324056};
 	};
 };
 binarizationWanted=0;
@@ -131,7 +131,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=93;
+		items=94;
 		class Item0
 		{
 			dataType="Group";
@@ -438,10 +438,11 @@ class Mission
 					};
 					id=50;
 					type="EmptyDetector";
+					atlOffset=-7.6293945e-006;
 				};
 			};
 			id=11;
-			atlOffset=-59.172935;
+			atlOffset=-59.172943;
 		};
 		class Item10
 		{
@@ -639,7 +640,7 @@ class Mission
 			text="CSAT_infantry";
 			type="mil_unknown";
 			id=45;
-			atlOffset=-0.80516815;
+			atlOffset=-0.80517578;
 		};
 		class Item27
 		{
@@ -989,6 +990,7 @@ class Mission
 					showWP="NEVER";
 					id=64;
 					type="Move";
+					atlOffset=-7.6293945e-006;
 				};
 				class Item3
 				{
@@ -1227,7 +1229,6 @@ class Mission
 			text="NNS_fnc_destroyZone (allow a bit of time)";
 			type="mil_unknown";
 			id=94;
-			atlOffset=5.7220459e-006;
 		};
 		class Item48
 		{
@@ -2036,6 +2037,23 @@ class Mission
 				name="requestHummingbirdCsatSupportObj";
 			};
 			id=243;
+			type="Land_SignWarning_01_CheckpointAhead_F";
+		};
+		class Item93
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7960.4468,31.282135,9860.0986};
+				angles[]={0.0031939524,2.2467449,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="requestM900WestSupportObj";
+			};
+			id=244;
 			type="Land_SignWarning_01_CheckpointAhead_F";
 		};
 	};
