@@ -207,6 +207,7 @@ Can be useful to understand how specific functions like 'spawnVehicleOnRoad_Adv'
 [![prev](NNS-Sandbox.Malden%20preview/preview/eden-spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/eden-spawnvehionroad01.jpg)
 [![prev](NNS-Sandbox.Malden%20preview/preview/map-spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/map-spawnvehionroad01.jpg)
 [![prev](NNS-Sandbox.Malden%20preview/preview/spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/spawnvehionroad01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/helisupportlanding01.jpg)](NNS-Sandbox.Malden%20preview/helisupportlanding01.jpg)
   
 ```
 What's done so far (missing some for sure):
@@ -242,6 +243,13 @@ What's done so far (missing some for sure):
 	- Server will try to backup/restore player stats if player disconnected/crashed and reconnect.
 	- Lamps can sometime flicker with noise.
 	- Drawable whiteboard, work only locally, mouse left button to draw.
+	- Helicopter airborne units support:
+		- Allow deployment of AI units on field.
+		- High scalability:
+			- Allow usage of most helicopter (need cargo field in config) / group class / side.
+			- Can work in any way: side specific vehicle with enemy side units.
+			- Can join wanted group is same side, otherwise with stalk player group (enemy or ally).
+		- Land if valid position found, paradrop if not.
 
 - Inventory:
 	- When respawn with previous loadout, refill primary weapon magazine to 25 rounds.
