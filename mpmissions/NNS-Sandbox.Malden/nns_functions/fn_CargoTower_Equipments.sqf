@@ -18,6 +18,8 @@ if (isNull _tower) exitWith {[format["NNS_fnc_CargoTower_Equipments : Non-existi
 
 if ((damage _tower) > 0.99) exitWith {[format["NNS_fnc_CargoTower_Equipments : Tower too damaged to add equipment (%1)",damage _tower]] call NNS_fnc_debugOutput;};
 
+_cargoLimiter = missionNamespace getVariable ["BIS_ammoboxAmount",[0.75,1]]; //recover ammobox limiter values
+
 _allowedPos = [ //where equipment can be placed, [pos,dir]
 [3,90],
 [6,90],
@@ -45,7 +47,7 @@ if (BIS_playerSide == west) then {
 	_equipment addMagazineCargoGlobal ["6Rnd_45ACP_Cylinder", 6]; //Zubr
 };
 
-[_equipment,0,0,true] call NNS_fnc_AmmoboxLimiter;
+[_equipment, _cargoLimiter select 0, _cargoLimiter select 1, true] call NNS_fnc_AmmoboxLimiter;
 _equipment allowDamage true;
 
 if (random 1 > 0.5) then {
@@ -67,7 +69,7 @@ if (random 1 > 0.5) then {
 		_equipment01 addMagazineCargoGlobal ["6Rnd_45ACP_Cylinder", 6]; //Zubr
 	};
 
-	[_equipment01,0,0,true] call NNS_fnc_AmmoboxLimiter;
+	[_equipment01, _cargoLimiter select 0, _cargoLimiter select 1, true] call NNS_fnc_AmmoboxLimiter;
 	_equipment01 allowDamage true;
 };
 

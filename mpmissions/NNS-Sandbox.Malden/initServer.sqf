@@ -260,7 +260,7 @@ _vehicle_near_respawn = (getMarkerPos "marker_respawn") nearObjects ['EmptyDetec
 								[_newGrp,group _toStalk] spawn BIS_fnc_stalk; //stalk
 								[format["'%1' stalk '%2'", _text, group _toStalk]] call NNS_fnc_debugOutput; //debug
 							} else { //simple patrol
-								{_wp = _newGrp addWaypoint [_pos, _rad]; _wp setWaypointType "MOVE"; _wp setWaypointSpeed "LIMITED"; _wp setWaypointBehaviour "SAFE";} forEach [1, 2, 3, 4, 5]; //add waypoints
+								{_wp = _newGrp addWaypoint [[_pos select 0, _pos select 1, 0], _rad]; _wp setWaypointType "MOVE"; _wp setWaypointSpeed "LIMITED"; _wp setWaypointBehaviour "SAFE"} forEach [1, 2, 3, 4, 5]; //add waypoints
 								_wp = _newGrp addWaypoint [waypointPosition [_newGrp, 1], 0]; _wp setWaypointType "CYCLE"; //cycle waypoint
 							};
 							
@@ -352,12 +352,17 @@ if (!([BIS_playerSide] call BIS_fnc_respawnTickets == -1) || !(missionNamespace 
 	};
 } forEach nearestObjects [[5250,5780,0], ["Land_i_Garage_V1_F", "Land_i_Garage_V2_F"], 8000];
 
-//NNS : add pick action to all fuel canister on map
+//NNS: add pick action to all fuel canister on map
 {
 	[_x, [localize "STR_NNS_TakeFuelCanister", {(_this select 1) setVariable ["haveCanister", true]; deleteVehicle (_this select 0);}, nil, 1.5, true, true, "", "[true, false] select (player getVariable ['haveCanister', false])", 2]] remoteExec ["addAction", 0, true];
 } forEach nearestObjects [[5250,5780,0], ["Land_CanisterFuel_F"], 8000];
 
-//NNS : stats : longest kill / weapon used per player
+//NNS: Handle player disconnect
+addMissionEventHandler ["HandleDisconnect", {
+	deleteVehicle (_this select 0); //delete AI
+}];
+
+//NNS: stats : longest kill / weapon used per player
 addMissionEventHandler ["EntityKilled", {
 	params ["_killed", "_killer", "_instigator"];
 	
@@ -378,28 +383,15 @@ addMissionEventHandler ["EntityKilled", {
 			};
 		};
 	};
-	
-	if (["fuel", toLower (typeOf _killed), true] call BIS_fnc_inString) then { //fuel kind class, refuel vehicle, ...
-		[_killed] spawn { //spawn big explosion
-			_vehi = (_this select 0); //recover object
-			if !(isNull _vehi) then { //object isn't null
-				_pos = getPos _vehi;
-				_explosion = createMine ["SatchelCharge_F", [_pos select 0, _pos select 1, 0], [], 0];
-				_explosion setDamage 1;
-				sleep 1;
-				deleteVehicle _explosion;
-			};
-		};
-	};
 }];
 
-//NNS : stats : backup players stats, used to restore stat if player lose connection or crash and join back
+//NNS: stats : backup players stats, used to restore stat if player lose connection or crash and join back
 [] spawn {
 	_playersStatsIndex = []; //contain players ID
 	_playersStatsLastUpdate = []; //last update time
 	_playersStats = []; //contain players stats
 	while {sleep 5; true} do {
-		{if (alive _x) then {deletevehicle _x;};} forEach (units BIS_grpMain); //delete AI units, in case someone disconnected
+		//{if (alive _x) then {deletevehicle _x;};} forEach (units BIS_grpMain); //delete AI units, in case someone disconnected
 		_tmpTime = time; //time
 		{ //players loop
 			_tmpUID = getPlayerUID _x; //get player UID
@@ -426,7 +418,7 @@ addMissionEventHandler ["EntityKilled", {
 	};
 };
 
-//NNS : Move spawn point
+//NNS: Move spawn point
 [] spawn {
 	sleep 5;
 	waitUntil {sleep 5; (units BIS_grpMain) findIf {alive _x} != -1}; //check if at least one player alive
@@ -500,16 +492,24 @@ addMissionEventHandler ["EntityKilled", {
 };
 
 //damage vehicle
-[testvehi01,["hitfuel"],0.3,0.7] call NNS_fnc_randomVehicleDamage;
+[] spawn {
+	[testvehi01,["hitfuel"],0.3,0.7] call NNS_fnc_randomVehicleDamage;
+};
 
-//damage map buildings in La trinite
-[getMarkerPos "marker_destroyZone",650] call NNS_fnc_destroyZone;
+//damage map buildings around marker_destroyZone marker
+[] spawn {
+	[getMarkerPos "marker_destroyZone",650] call NNS_fnc_destroyZone;
+};
 
 //spawn vehicle on road (simple)
-[getMarkerPos "MarkerSpawnVehiRoadSimple",25,false,[],25,10,0.5,0.7,0,1,true,[],true] call NNS_fnc_spawnVehicleOnRoad;
+[] spawn {
+	[getMarkerPos "MarkerSpawnVehiRoadSimple",25,false,[],25,10,0.5,0.7,0,1,true,[],true] call NNS_fnc_spawnVehicleOnRoad;
+};
 
 //spawn vehicle on road (advanced)
-[getPos spawnVehicleOnRoadUnit,25,false,[],400,100,0.5,0.7,0,1,true,[],true,spawnVehicleOnRoadUnit,true] call NNS_fnc_spawnVehicleOnRoad_Adv;
+[] spawn {
+	[getPos spawnVehicleOnRoadUnit,25,false,[],400,100,0.5,0.7,0,1,true,[],true,spawnVehicleOnRoadUnit,true] call NNS_fnc_spawnVehicleOnRoad_Adv;
+};
 
 //spawn flare
 [] spawn {
@@ -521,8 +521,22 @@ addMissionEventHandler ["EntityKilled", {
 	};
 };
 
-
-
-
+//helicopter support landing
+[] spawn {
+	//player setPos [7957,9862];
+	//player setDir 270;
+	
+	[requestGhosthawkSupportObj, ["request Ghosthawk (NATO)", {[[[7957,9862],"ghosthawk",nil,configNull,true], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestHummingbirdSupportObj, ["request Hummingbird (NATO)", {[[[7957,9862],"hummingbird",nil,configNull,true,BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestHuronSupportObj, ["request Huron (NATO)", {[[[7957,9862],"huron",nil,configNull,true], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	
+	[requestOrcaSupportObj, ["request Orca (CSAT)", {[[[7957,9862],"orca",nil,configNull,true], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestTaruSupportObj, ["request Taru (CSAT)", {[[[7957,9862],"taru",nil,configNull,true], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestMi48SupportObj, ["request Mi48 (CSAT)", {[[[7957,9862],"mi48",nil,configNull,true], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	
+	[requestCustomSupportObj, ["request I_Heli_light_03_dynamicLoadout_F (Ind)", {[[[7957,9862],"I_Heli_light_03_dynamicLoadout_F",nil,configNull,true], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	
+	[requestHummingbirdCsatSupportObj, ["request Hummingbird with CSAT units", {[[[7957,9862],"hummingbird",east,configNull,true, BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+};
 
 

@@ -12,7 +12,7 @@ params [
 
 // Check for validity
 if (isNull _building) exitWith {[format["NNS_fnc_populateCargoHQ_Csat : Non-existing unit cargohq %1 used!",_building]] call NNS_fnc_debugOutput; []};
-if !(alive _building) exitWith {["NNS_fnc_populateCargoHQ_Csat : HQ is destroyed!"] call NNS_fnc_debugOutput; []};
+if (damage _building > 0.99) exitWith {["NNS_fnc_populateCargoHQ_Csat : HQ is almost destroyed!"] call NNS_fnc_debugOutput; []};
 
 [format["NNS_fnc_populateCargoHQ_Csat : %1",player distance2d _building]] call NNS_fnc_debugOutput; //debug
 

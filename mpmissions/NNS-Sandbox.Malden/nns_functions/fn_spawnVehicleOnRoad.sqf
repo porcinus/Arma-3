@@ -6,6 +6,7 @@ Spawn damaged/wreck/untouched vehicles on a road near given position.
 Note: 
 - This function try to follow road "curves" as best as possible, use n-1 road angle in case of crossroad, does not work with broken road connection, can fail with specific crossroad.
 - It is not bulletproof as boundingBoxReal function detect wrong vehicle size for wreck objects.
+- As using simple objects highly increase performance, it also spam server logs very badly, around 1mb for 500 vehicles.
 - Limited to 999 road objects (over 20km depending on map).
 
 Dependencies:
@@ -54,15 +55,18 @@ params [
 	["_vehiWreckClasses", []], //default wreck vehicles class
 	["_simpleObject", false]
 ];
-
+/*
 getAngle = { //compute angle between 2 object function
 	_pos_start = getPos (_this select 0);
 	_pos_end = getPos (_this select 1);
 	((_pos_start select 0)-(_pos_end select 0)) atan2 ((_pos_start select 1)-(_pos_end select 1));
 };
-
-private _vehiClasses;
-private _vehiWreckClasses;
+*/
+getAngle = { //compute angle between 2 object function
+	private _pos_start = _this select 0; if !(_pos_start isEqualType []) then {_pos_start = getPos _pos_start};
+	private _pos_end = _this select 1; if !(_pos_end isEqualType []) then {_pos_end = getPos _pos_end};
+	((_pos_start select 0)-(_pos_end select 0)) atan2 ((_pos_start select 1)-(_pos_end select 1)); //return angle
+};
 
 if (count _pos < 3) then {_pos = getPos player;}; //use player position if no position set
 

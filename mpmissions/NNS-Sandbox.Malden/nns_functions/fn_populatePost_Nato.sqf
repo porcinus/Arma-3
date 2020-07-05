@@ -12,7 +12,7 @@ params [
 
 // Check for validity
 if (isNull _post) exitWith {[format["NNS_fnc_populatePost_Nato : Non-existing post %1 used!",_post]] call NNS_fnc_debugOutput; []};
-if !(alive _post) exitWith {["NNS_fnc_populatePost_Nato : Guard post is destroyed!"] call NNS_fnc_debugOutput; []};
+if (damage _post > 0.99) exitWith {["NNS_fnc_populatePost_Nato : Guard post is almost destroyed!"] call NNS_fnc_debugOutput; []};
 
 [format["NNS_fnc_populatePost_Nato : %1",player distance2d _post]] call NNS_fnc_debugOutput; //debug
 

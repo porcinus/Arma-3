@@ -6,6 +6,7 @@ Advanced version, Allow more control but more CPU/memory intensive.
 Note: 
 - This function try to follow road "curves" as best as possible, use n-1 road angle in case of crossroad, does not work with broken road connection, can fail with specific crossroad.
 - It is not bulletproof as boundingBoxReal function detect wrong vehicle size for wreck objects.
+- As using simple objects highly increase performance, it also spam server logs very badly, around 1mb for 500 vehicles.
 - Limited to 1999 road objects (over 40km depending on map).
 - When _syncUnit is provided, each checkpoints should be placed as close as possible to crossroads to help the function select the right road, use DISMISS type to ignore a specific waypoint.
 

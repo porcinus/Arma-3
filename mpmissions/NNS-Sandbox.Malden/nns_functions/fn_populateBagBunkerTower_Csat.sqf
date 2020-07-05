@@ -12,7 +12,8 @@ params [
 ];
 
 // Check for validity
-if (isNull _bunker) exitWith {[format["NNS_fnc_populateBagBunkerTower_Csat : Non-existing unit tower %1 used!",_tower]] call NNS_fnc_debugOutput;};
+if (isNull _bunker) exitWith {[format["NNS_fnc_populateBagBunkerTower_Csat : Non-existing unit bunker %1 used!",_tower]] call NNS_fnc_debugOutput;};
+if (damage _bunker > 0.99) exitWith {["NNS_fnc_populateTower_Nato : Bunker is almost destroyed!"] call NNS_fnc_debugOutput; []};
 
 [format["NNS_fnc_populateBagBunkerTower_Csat : %1",player distance2d _bunker]] call NNS_fnc_debugOutput; //debug
 

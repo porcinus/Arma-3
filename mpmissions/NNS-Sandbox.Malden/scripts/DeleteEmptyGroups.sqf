@@ -25,8 +25,8 @@ while {true} do {
 				_tmpunit = _x; //backup
 				if ((!alive _tmpunit) && {allPlayers findIf {(_x distance2d _tmpunit) > _maxDist} != -1}) then { //unit far away from players and dead
 				//if (({(_x distance2d _tmpunit) > 1800} count allPlayers > 0) && !(alive _tmpunit)) then { //unit far away from players and dead
-					if !(vehicle _tmpunit == _tmpunit) then {
-						if (_tmpunit in crew (vehicle _tmpunit)) then { //unit is crew
+					if !(vehicle _tmpunit == _tmpunit) then { //unit in vehicle
+						if (_tmpunit in crew (vehicle _tmpunit) && !((vehicle _tmpunit) isKindOf "Air")) then { //unit is crew and vehicle not "Air" kind
 							if !((vehicle _tmpunit) in _vehicletodelete) then {_vehicletodelete pushBack (vehicle _tmpunit);}; //mark vehicle for deletion
 							[format["Remove dead crew:%1 (%2) from vehicle:%2, side:%3",_tmpunit, typeOf _tmpunit, vehicle _tmpunit,side _tmpunit]] call NNS_fnc_debugOutput; //debug
 							(vehicle _tmpunit) deleteVehicleCrew _tmpunit; //delete current crew

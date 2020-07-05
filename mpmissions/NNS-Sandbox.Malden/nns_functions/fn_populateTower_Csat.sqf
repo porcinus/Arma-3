@@ -19,7 +19,7 @@ params [
 
 // Check for validity
 if (isNull _tower) exitWith {[format["NNS_fnc_populateTower_Csat : Non-existing unit tower %1 used!",_tower]] call NNS_fnc_debugOutput; []};
-if !(alive _tower) exitWith {["NNS_fnc_populateTower_Csat : Tower is destroyed!"] call NNS_fnc_debugOutput; []};
+if (damage _tower > 0.99) exitWith {["NNS_fnc_populateTower_Csat : Tower is almost destroyed!"] call NNS_fnc_debugOutput; []};
 
 [format["NNS_fnc_populateTower_Csat : %1",player distance2d _tower]] call NNS_fnc_debugOutput; //debug
 

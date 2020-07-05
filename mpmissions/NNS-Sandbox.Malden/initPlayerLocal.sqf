@@ -427,11 +427,11 @@ if (missionNamespace getVariable ["BIS_TKpunish",false]) then {
 
 //NNS: Beginning of test part
 
-
+/*
 //change time
 player addAction ["Clock : 16:00", "skipTime(16-daytime+24)%24;",cursorTarget, 0, true, true, "", ""];
 player addAction ["Clock : 22:00", "skipTime(22-daytime+24)%24;",cursorTarget, 0, true, true, "", ""];
-
+*/
 //NNS : drawable Whitebaord
 [] spawn {
 	_whiteboardObjects = missionNamespace getVariable ["NNS_WhiteboardDraw",[whiteboard01, whiteboard02]];
