@@ -246,9 +246,9 @@ What's done so far (missing some for sure):
 	- Helicopter airborne units support:
 		- Allow deployment of AI units on field.
 		- High scalability:
-			- Allow usage of most helicopter (need cargo field in config) / group class / side.
+			- Allow usage of most helicopters (cargo capacity detected via config) / group class / side.
 			- Can work in any way: side specific vehicle with enemy side units.
-			- Can join wanted group is same side, otherwise with stalk player group (enemy or ally).
+			- Can join specified group if same side, otherwise with stalk player group (enemy or ally).
 		- Land if valid position found, paradrop if not.
 
 - Inventory:
