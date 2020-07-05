@@ -164,7 +164,7 @@ for "_i" from 0 to 999 do { //roads loop
 			if (_tmpVehiClass in _vehiWreckClasses) then {_isWreck = true;};
 			_tmpVehi = objNull;
 			if (_simpleObject) then {_tmpVehi = createSimpleObject [_tmpVehiClass, [0,0,0]]; //create simple object
-			} else {_tmpVehi = _tmpVehiClass createVehicle [0,0,0];}; //create vehicle
+			} else {_tmpVehi = createVehicle [_tmpVehiClass, [0,0,0], [], 0, "CAN_COLLIDE"]; /*_tmpVehiClass createVehicle [0,0,0];*/}; //create vehicle
 			_tmpVehi allowDamage false; //disable in case server is having hard time
 			
 			_tmpVehibox = boundingBoxReal _tmpVehi; _tmpVehiLength = abs (((_tmpVehibox select 1) select 1) - ((_tmpVehibox select 0) select 1)) * 1.3; //vehicle length

@@ -34,7 +34,7 @@ params [
 				};
 			} else {
 				if (_carInGarage && {(typeOf _tmp) in _garageClasses} && {_rnd < 1} && {(random 1) < _carInGarageChance}) then { //car in garage enable and type in garage array and damage < 1
-					_veh = (selectRandom _civCarClasses) createVehicle [0,0,0];
+					_veh = createVehicle [(selectRandom _civCarClasses), [0,0,0], [], 0, "CAN_COLLIDE"]; //(selectRandom _civCarClasses) createVehicle [0,0,0];
 					_veh setDir ((getDir _tmp) + 270);
 					_veh setPos (getPos _tmp);
 					_veh setFuel (random 0.05);

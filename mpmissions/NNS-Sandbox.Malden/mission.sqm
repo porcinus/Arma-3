@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=153;
+		nextID=155;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=34;
+		nextID=38;
 	};
 	class Camera
 	{
-		pos[]={7998.0884,91.401482,10181.061};
-		dir[]={0.48085698,-0.47521722,-0.73685372};
-		up[]={0.25971138,0.87986553,-0.39797583};
-		aside[]={-0.8374576,1.7482671e-007,-0.54650968};
+		pos[]={8055.6577,92.257507,10065.815};
+		dir[]={-0.1446833,-0.50000811,-0.85386461};
+		up[]={-0.083539769,0.86600214,-0.49301937};
+		aside[]={-0.98596025,4.3492764e-007,0.16706632};
 	};
 };
 binarizationWanted=0;
@@ -38,13 +38,13 @@ addons[]=
 	"A3_Structures_F_Mil_Cargo",
 	"A3_Structures_F_Mil_BagBunker",
 	"A3_Air_F_Heli_Light_01",
-	"A3_Supplies_F_Heli_CargoNets"
+	"A3_Structures_F_Civ_InfoBoards"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=8;
+		items=7;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -94,13 +94,6 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
-		{
-			className="A3_Supplies_F_Heli";
-			name="Arma 3 Helicopters - Ammoboxes and Supplies";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
 	};
 };
 randomSeed=12358265;
@@ -130,7 +123,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=79;
+		items=80;
 		class Item0
 		{
 			dataType="Group";
@@ -144,6 +137,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={7920.4111,31.041439,9478.2314};
+						angles[]={-0,2.0620866,0};
 					};
 					side="West";
 					flags=6;
@@ -1809,16 +1803,34 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8051.6914,30.463007,10099.491};
-				angles[]={0.00077204045,0,6.2816033};
+				position[]={8044.1211,30.604332,10111.567};
+				angles[]={0.00076794485,3.1967101,6.2824173};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="whiteboard01";
 			};
-			id=152;
-			type="O_CargoNet_01_ammo_F";
+			id=153;
+			type="Land_MapBoard_F";
+		};
+		class Item79
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8046.1777,30.602573,10111.71};
+				angles[]={0.00076794485,2.8460035,6.2824173};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="whiteboard02";
+			};
+			id=154;
+			type="Land_MapBoard_F";
 		};
 	};
 	class Connections

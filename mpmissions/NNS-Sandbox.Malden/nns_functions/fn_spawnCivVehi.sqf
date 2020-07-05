@@ -63,12 +63,12 @@ if (random 1 < _alarmChance) then {_alarm = true;};
 
 _veh = objNull;
 if (_wreck) then {
-	_veh = (selectRandom _civWreckClasses) createVehicle [0,0,0];
+	_veh = createVehicle [(selectRandom _civWreckClasses), [0,0,0], [], 0, "CAN_COLLIDE"];
 	_veh setDir (_dir + 180);
 	_veh setPos _pos;
 } else {
-	_veh = (selectRandom _civClasses) createVehicle [0,0,0];
-	_veh allowDamage false;
+	_veh = createVehicle [(selectRandom _civClasses), [0,0,0], [], 0, "CAN_COLLIDE"];
+	_veh allowDamage false; //try to limit problems when server hang
 	_veh setDir _dir;
 	_veh setPos [_pos select 0, _pos select 1, 1];
 	
@@ -85,8 +85,7 @@ if (_wreck) then {
 	
 	_veh allowDamage true;
 	_veh enableDynamicSimulation true;
-	
-	if (_allowDamage) then {[_veh,["hitfuel"],0.2,0.8] call NNS_fnc_randomVehicleDamage;};
+	if (_allowDamage) then {[_veh,["hitfuel"],0.2,0.8] call NNS_fnc_randomVehicleDamage};
 };
 
 if (_alarm && {!(_wreck)}) then {

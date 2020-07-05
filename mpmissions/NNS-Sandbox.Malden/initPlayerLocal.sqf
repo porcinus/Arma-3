@@ -432,6 +432,11 @@ if (missionNamespace getVariable ["BIS_TKpunish",false]) then {
 player addAction ["Clock : 16:00", "skipTime(16-daytime+24)%24;",cursorTarget, 0, true, true, "", ""];
 player addAction ["Clock : 22:00", "skipTime(22-daytime+24)%24;",cursorTarget, 0, true, true, "", ""];
 
+//NNS : drawable Whitebaord
+[] spawn {
+	_whiteboardObjects = missionNamespace getVariable ["NNS_WhiteboardDraw",[whiteboard01, whiteboard02]];
+	if (count _whiteboardObjects > 0) then {_null = [_whiteboardObjects,0.5,3,500,'b'] execVM "scripts\DrawOnSurface.sqf";};
+};
 
 
 
