@@ -183,8 +183,12 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 		_grp enableDynamicSimulation true;  // enable Dynamic simulation
 	};
 	
-	waitUntil{sleep 1; ((alive _heli) && (isTouchingGround _heli)) || !(alive _heli)}; //wait until heli is touching ground or heli destroyed
+	waitUntil{sleep 1; ((alive _heli) && ((getPos _heli) select 2) < 1.5/*(isTouchingGround _heli)*/) || !(alive _heli)}; //wait until heli is near ground or heli destroyed
+	
 	if (alive _heli) then {
+		_heli land "GET OUT"; //reissue order to land, needed for some helicopters
+		_heli setVelocity [0,0,-0.5]; //pushdown
+		
 		sleep 2;
 		[format["HeliSupportLanding.sqf: Touching ground : %1m", (leader BIS_grpMain) distance2d _heli]] call NNS_fnc_debugOutput; //debug
 		_heli flyInHeight 0; //pin to ground
