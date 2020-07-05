@@ -224,10 +224,13 @@ What's done so far (missing some for sure):
 
 - General:
 	- Win condition: original had a glitch where you can in some case win if a unit is in a helicopter and vehicle is destroyed.
-	- Spawned units:
-		- Any spawned group (not including vehicle patrol) are killed if all players distance > 1.5km, recreate trigger when this happen. This part is designed to allow additions of side/faction/class.
-		- Enemy patrol can stalk you and friendly patrol can stalk enemy units.
-	- Empty group cleanup script: look stable so far.
+	- Trigger based spawning units (like Escape from Malden/Tanoa):
+		- Partially based on Vasek work on its missions:
+			- Allow big scalability: edit one line and adding 7 lines of code in initServer.sqf allow to add support for a full faction.
+			- Downside of this scalability: big memory use for this feature (so far).
+		- Any spawned group (not including vehicle patrol) are killed if all players distance > 1.5km and recreate trigger when this happen. This allow server to free useless groups.
+		- Enemy patrol can stalk you and friendly patrol can stalk enemy units (35% chance).
+	- Empty group cleanup script: Clean units, groups, vehicles > 1.5km from players (not include Air kind).
 	- End mission statistics tab (Partial data in Map): 
 		- For each player: Fire shots (bullet, HE, smoke, rocket, vehicle), distance travelled (foot, vehicle), longest kill (incl weapon name), friendly kills.
 		- For group: cumulative fire shots (bullet, HE, smoke, rocket ,vehicle), longest kill (incl player name), friendly kills (incl player name).
