@@ -526,19 +526,21 @@ addMissionEventHandler ["EntityKilled", {
 	player setPos [7957,9862];
 	player setDir 270;
 	
-	[requestGhosthawkSupportObj, ["request Ghosthawk (NATO)", {[[[7957,9862],"ghosthawk",nil,configNull,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
-	[requestHummingbirdSupportObj, ["request Hummingbird (NATO)", {[[[7957,9862],"hummingbird",nil,configNull,false,BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
-	[requestHuronSupportObj, ["request Huron (NATO)", {[[[7957,9862],"huron",nil,configNull,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestGhosthawkSupportObj, ["request Ghosthawk (NATO)", {[[[7957,9862],"ghosthawk",nil,configNull,false,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestHummingbirdSupportObj, ["request Hummingbird (NATO)", {[[[7957,9862],"hummingbird",nil,configNull,false,false,BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestHuronSupportObj, ["request Huron (NATO)", {[[[7957,9862],"huron",nil,configNull,false,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
-	[requestOrcaSupportObj, ["request Orca (CSAT)", {[[[7957,9862],"orca",nil,configNull,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
-	[requestTaruSupportObj, ["request Taru (CSAT)", {[[[7957,9862],"taru",nil,configNull,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
-	[requestMi48SupportObj, ["request Mi48 (CSAT)", {[[[7957,9862],"mi48",nil,configNull,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestOrcaSupportObj, ["request Orca (CSAT)", {[[[7957,9862],"orca",nil,configNull,false,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestTaruSupportObj, ["request Taru (CSAT)", {[[[7957,9862],"taru",nil,configNull,false,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestMi48SupportObj, ["request Mi48 (CSAT)", {[[[7957,9862],"mi48",nil,configNull,false,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
-	[requestCustomSupportObj, ["request I_Heli_light_03_dynamicLoadout_F (Ind)", {[[[7957,9862],"I_Heli_light_03_dynamicLoadout_F",nil,configNull,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestCustomSupportObj, ["request I_Heli_light_03_dynamicLoadout_F (Ind)", {[[[7957,9862],"I_Heli_light_03_dynamicLoadout_F",nil,configNull,false,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
-	[requestHummingbirdCsatSupportObj, ["request Hummingbird with CSAT units", {[[[7957,9862],"hummingbird",east,configNull,false, BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestHummingbirdCsatSupportObj, ["request Hummingbird with CSAT units", {[[[7957,9862],"hummingbird",east,configNull,false,false, BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
-	[requestM900WestSupportObj, ["request M-900 (civ) with BLUFOR recon on Resistance side", {[[[7957,9862],"C_Heli_Light_01_civil_F", resistance, configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam", false, BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestM900WestSupportObj, ["request M-900 (civ) with BLUFOR recon on Resistance side", {[[[7957,9862],"C_Heli_Light_01_civil_F", resistance, configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam",false , false, BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	
+	[requestMi48ParaSupportObj, ["request Mi48 (CSAT) Paradrop", {[[[7957,9862],"mi48",nil,configNull,true,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
 };
 
