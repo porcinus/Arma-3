@@ -106,6 +106,9 @@ if !(side (currentPilot _heli) == _side) then { //wrong side
 	{[_x] joinSilent _tmpgrp;} forEach _heliCrew; //convert crew to right side
 };
 _heliGroup = group (_heliCrew select 0); //helicopter crew group
+
+if !(_allowDamage) then {{_x allowDamage false} forEach (units _heliGroup)}; //disable damage for crew units
+
 _heli setVehicleLock "LOCKEDPLAYER"; //avoid possibility for players to get in
 [format["HeliSupportLanding.sqf: %1 created (%2m)",typeOf _heli, (leader BIS_grpMain) distance2d _heli]] call NNS_fnc_debugOutput; //debug
 
@@ -131,6 +134,7 @@ if !(_pos distance2d _lz_pos < 400) then { //if failed to select LZ 400m near ta
 };
 
 _grp = grpNull;		// Create empty group
+_heliGroup = grpNull;		// Create empty group
 if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target selected
 	_lz = 'Land_HelipadEmpty_F' createVehicle _lz_pos; //create invisible helipad for LZ
 	[format["HeliSupportLanding.sqf: LZ created (%1m)", (leader BIS_grpMain) distance2d _lz_pos]] call NNS_fnc_debugOutput; //debug
@@ -187,7 +191,8 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 	
 	if (alive _heli) then {
 		_heli land "GET OUT"; //reissue order to land, needed for some helicopters
-		_heli setVelocity [0,0,-0.5]; //pushdown
+		
+		if (((getPos _heli) select 2) > 0.5) then {_heli setVelocity [0,0,-0.25]}; //pushdown if altitude over 0.5m
 		
 		sleep 2;
 		[format["HeliSupportLanding.sqf: Touching ground : %1m", (leader BIS_grpMain) distance2d _heli]] call NNS_fnc_debugOutput; //debug
@@ -275,6 +280,7 @@ if (!isNull _grp && !isNull _joinGroup) then { //unloaded group exist and group 
 };
 
 if !(canMove _heli) then { //helicopter can't move
+	{_x allowDamage true; _x setDamage 1} forEach (units _heliGroup); //kill crew
 	_heli allowDamage true; //allow damage
 	_heli setDamage 1; //destroy it
 	["HeliSupportLanding.sqf: Helicopter destroyed"] call NNS_fnc_debugOutput; //debug
@@ -303,6 +309,7 @@ _tmpTime = time; //backup time for timeout
 waitUntil {sleep 5; allPlayers findIf {(_x distance _heli) < 3000} == -1 || !(alive _heli) || (time - _tmpTime) > 120}; //helicopter far enough or heli destroyed or 2m timeout
 
 if ((time - _tmpTime) > 90) then { //befause of timeout
+	{_x allowDamage true; _x setDamage 1} forEach (units _heliGroup); //kill crew
 	_heli allowDamage true; //allow damage
 	_heli setDamage 1; //destroy it
 	["HeliSupportLanding.sqf: Helicopter destroyed"] call NNS_fnc_debugOutput; //debug
