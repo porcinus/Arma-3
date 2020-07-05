@@ -32,6 +32,7 @@ params [
 ["_type", "huron"], //helicopter "type"
 ["_side", nil], //support side, nil to leave script choise, https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#side
 ["_class", configNull], //support class, configNullto leave script choise, configfile >> "CfgGroups"
+["_forceParadrop", false], //force a paradrop
 ["_allowDamage", true], //allow helicopter to take damage
 ["_joinGroup", grpNull] //unloaded units join specified group
 ];
@@ -121,20 +122,21 @@ _null = [_heli,_heliCrew] spawn {
 	{_x setDamage 1} forEach (_this select 1);
 };
 
-//_lz_pos = [0,0,0]; //debug
+_lz_pos = [-10000,-10000,0]; //LZ default position
 
-_lz_ran_pos = [[[_pos, 150]],[]] call BIS_fnc_randomPos; //get initial random pos for LZ
-_lz_pos = [_lz_ran_pos, 0, 150, 20, 0, 0.5, 0] call BIS_fnc_findSafePos; //safe place based on inital LZ pos
-
-if !(_pos distance2d _lz_pos < 400) then { //if failed to select LZ 400m near target, retry once after 10 sec
-	["HeliSupportLanding.sqf: Failed to select proper LZ, retry in 10sec"] call NNS_fnc_debugOutput; //debug
-	sleep 10;
+if !(_forceParadrop) then {
 	_lz_ran_pos = [[[_pos, 150]],[]] call BIS_fnc_randomPos; //get initial random pos for LZ
 	_lz_pos = [_lz_ran_pos, 0, 150, 20, 0, 0.5, 0] call BIS_fnc_findSafePos; //safe place based on inital LZ pos
+
+	if !(_pos distance2d _lz_pos < 400) then { //if failed to select LZ 400m near target, retry once after 10 sec
+		["HeliSupportLanding.sqf: Failed to select proper LZ, retry in 10sec"] call NNS_fnc_debugOutput; //debug
+		sleep 10;
+		_lz_ran_pos = [[[_pos, 150]],[]] call BIS_fnc_randomPos; //get initial random pos for LZ
+		_lz_pos = [_lz_ran_pos, 0, 150, 20, 0, 0.5, 0] call BIS_fnc_findSafePos; //safe place based on inital LZ pos
+	};
 };
 
 _grp = grpNull;		// Create empty group
-_heliGroup = grpNull;		// Create empty group
 if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target selected
 	_lz = 'Land_HelipadEmpty_F' createVehicle _lz_pos; //create invisible helipad for LZ
 	[format["HeliSupportLanding.sqf: LZ created (%1m)", (leader BIS_grpMain) distance2d _lz_pos]] call NNS_fnc_debugOutput; //debug
@@ -228,6 +230,7 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 	//waypoints
 	_rndAlt = 130 + (random 50); //try to limit possible colision since AI is super dumb
 	_wpPos set [2, _rndAlt]; //waypoint 1 altitude
+	
 	_tmpDir = _pos getDir _wpPos; //first waypoint direction relative to wanted position
 	_wpPos2 = _pos getPos [300, _tmpDir + 90]; _wpPos2 set [2, _rndAlt]; //waypoint 2 position and altitude
 	_wpPos3 = _pos getPos [300, _tmpDir + 180]; _wpPos3 set [2, _rndAlt]; //waypoint 3 position and altitude
