@@ -238,6 +238,7 @@ What's done so far (missing some for sure):
 	- Friendly AI is dumb : a script is used to limit damage (no inclure one shot) from friendly AI.
 	- Server will try to backup/restore player stats if player disconnected/crashed and reconnect.
 	- Lamps can sometime flicker with noise.
+	- Drawable whiteboard, work only locally, mouse left button to draw.
 
 - Inventory:
 	- When respawn with previous loadout, refill primary weapon magazine to 25 rounds.
