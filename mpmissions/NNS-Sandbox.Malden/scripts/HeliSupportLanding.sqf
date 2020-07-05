@@ -6,8 +6,9 @@ Script will try to autodetect right side if not provided (set to nil).
 You can supply specific class for troop if you want. if not, set to configNull.
 
 Notes:
-Because of the way Arma AI work, this script is far from bulletproof (but it is stable).
-Some helicopter classes do have troubles to take off.
+- Because of the way Arma AI work, this script is far from bulletproof (but it is stable).
+- Some helicopter classes do have troubles to take off.
+- When stalking, unit will always search for BIS_grpMain.
 
 Shortcut types:
 - "ghosthawk" (nato)
@@ -16,6 +17,14 @@ Shortcut types:
 - "orca" (csat)
 - "taru" (csat)
 - "mi48" (csat)
+
+example : 
+	Hummingbird with CSAT units near player position:
+		_null = [getPos player, "hummingbird", east, configNull] execVM "scripts\HeliSupportLanding.sqf";
+
+	Civil M-900 with BLUFOR Recon team on Resistance side near player position:
+		_null = [getPos player, "C_Heli_Light_01_civil_F", resistance, configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam"] execVM "scripts\HeliSupportLanding.sqf";
+
 */
 
 params [
