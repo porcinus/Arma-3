@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=251;
+		nextID=252;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=50;
+		nextID=54;
 	};
 	class Camera
 	{
-		pos[]={7950.5029,75.028755,9853.5654};
-		dir[]={0.25192922,-0.93898934,0.23420769};
-		up[]={0.6877135,0.34393999,0.63933772};
-		aside[]={0.68088514,4.5797788e-007,-0.7324056};
+		pos[]={7959.0557,47.038536,9846.3613};
+		dir[]={-0.010543005,-0.54211402,0.84028244};
+		up[]={-0.0068018422,0.84027702,0.54210639};
+		aside[]={0.99995589,3.1456329e-007,0.012545828};
 	};
 };
 binarizationWanted=0;
@@ -131,7 +131,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=94;
+		items=95;
 		class Item0
 		{
 			dataType="Group";
@@ -2055,6 +2055,24 @@ class Mission
 			};
 			id=244;
 			type="Land_SignWarning_01_CheckpointAhead_F";
+		};
+		class Item94
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7960.9951,31.266518,9864.9785};
+				angles[]={0.0031939524,0.68169069,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="requestMi48ParaSupportObj";
+			};
+			id=251;
+			type="Land_SignWarning_01_CheckpointAhead_F";
+			atlOffset=-1.9073486e-006;
 		};
 	};
 	class Connections
