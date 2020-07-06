@@ -490,7 +490,7 @@ addMissionEventHandler ["EntityKilled", {
 	};
 	
 };
-
+*/
 //damage vehicle
 [] spawn {
 	[testvehi01,["hitfuel"],0.3,0.7] call NNS_fnc_randomVehicleDamage;
@@ -520,7 +520,7 @@ addMissionEventHandler ["EntityKilled", {
 		} else {sleep 60}; //long wait
 	};
 };
-*/
+
 //helicopter support landing
 [] spawn {
 	player setPos [7957,9862];
