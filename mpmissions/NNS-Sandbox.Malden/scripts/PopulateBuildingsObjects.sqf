@@ -18,6 +18,7 @@ openmap true;
 _detectInterval = 1; //sec
 _chunkSize = 500; //m2
 _classesToIgnore = []; //objects class to ignore
+_minObjectWH = 10; //minimum X-Y object size
 _debug = true; //enable debug
 
 fn_rectMarker = { //create a rectangular marker: [pos,width,height,color,alpha,text] call fn_rectMarker;
@@ -61,7 +62,7 @@ _worldChunksCount = _worldChunks ^ 2; //total amount of chunks for the whole map
 _chunksPopulated = []; //store what chunks are already populated
 _chunksObjects = []; //array pointing to each chunk objects
 
-[format["PopulateBuildingsObjects.sqf: _worldSize:%1, _worldChunks:%2, _worldChunksCount:%3", _worldSize, _worldChunks, _worldChunksCount]] call NNS_fnc_debugOutput; //debug
+[format["PopulateBuildingsObjects.sqf: _worldSize:%1, _worldChunks:%2, _worldChunksCount:%3", _worldSize, _worldChunks, _worldChunksCount],false,true] call NNS_fnc_debugOutput; //debug
 
 //objects detection
 _tmpX = 0; //debug, X position for chunk
@@ -87,7 +88,15 @@ _positionsInBuildingsMarkers = 0; //debug
 		if (damage _x < 1) then { //object not destroyed
 			if !(_tmpType in _buildingsClasses) then { //object class not in valid classes array
 				if (count (_x buildingPos -1) == 0) then {_classesToIgnore pushBack _tmpType; //building has no "position in building", add to ignore array
-				} else {_buildingsClasses pushBack _tmpType;_toAdd = true}; //building has "position in building", add to array and set to valid
+				} else { //building has "position in building"
+					_tmpSize = (boundingBox _x); //get object size
+					_tmpXsize = abs (((_tmpSize select 1) select 0) - ((_tmpSize select 0) select 0)); //x size
+					_tmpYsize = abs (((_tmpSize select 1) select 1) - ((_tmpSize select 0) select 1)); //y size
+					if (_tmpXsize > _minObjectWH && _tmpYsize > _minObjectWH) then { //object big enough
+						_buildingsClasses pushBack _tmpType; //add to array
+						_toAdd = true; //set to valid
+					};
+				};
 			} else {_toAdd = true}; //class in valid list
 		};
 		
@@ -115,15 +124,14 @@ for "_i" from 0 to (_worldChunksCount - 1) do {
 		if (_tmpCount > 0) then {_tmpText = format ["%1: %2", _i, _tmpCount]};
 		[_tmpPos, _chunkSize/2, _chunkSize/2, "ColorGreen", 0.7, _tmpName, _tmpText] call fn_rectMarker; //create marker
 	};
-	
 	if (_tmpCount == 0) then { //no object, mark chunk as populated
 		_chunksPopulated pushBack _i;
 		if (_debug) then {_tmpName setMarkerColor "ColorRed"}; //change marker color
 	} else {_objectsCount = _objectsCount + _tmpCount}; //increment objects count
 };
 
-[format["PopulateBuildingsObjects.sqf: %1 objects detected via chunk", _objectsCount]] call NNS_fnc_debugOutput; //debug
-[format["PopulateBuildingsObjects.sqf: %1 classes with 'position in building'", count _buildingsClasses]] call NNS_fnc_debugOutput; //debug
+[format["PopulateBuildingsObjects.sqf: %1 objects detected via chunk", _objectsCount],false,true] call NNS_fnc_debugOutput; //debug
+[format["PopulateBuildingsObjects.sqf: %1 classes with 'position in building'", count _buildingsClasses],false,true] call NNS_fnc_debugOutput; //debug
 
 //objects in buidings array generation
 
@@ -163,12 +171,16 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 			_playerChunksX = floor ((_playerPos select 0) / _chunkSize); //X chunk position
 			_playerChunksY = floor ((_playerPos select 1) / _chunkSize); //Y chunk position
 			_playerChunk = (_playerChunksY * _worldChunks) + _playerChunksX; //cumulative chunk position
-			if !(_playerChunk in _playersChunks) then { //current chunk not in players chunks array
+			if !(_playerChunk in _playersChunks) then { //current chunk not in players chunks array, avoid re-run in current loop
 				_playersChunks pushBack _playerChunk; //add chunk to players chunks array
 				for [{_tmpY = _playerChunksY - 1}, {_tmpY < _playerChunksY + 2}, {_tmpY = _tmpY + 1}] do { //Y loop
-					for [{_tmpX = _playerChunksX - 1}, {_tmpX < _playerChunksX + 2}, {_tmpX = _tmpX + 1}] do { //X loop
-						_tmpChunk = (_tmpY * _worldChunks) + _tmpX; //current chunk
-						if (!(_tmpChunk in _chunksToPopulate) && !(_tmpChunk in _chunksPopulated)) then {_chunksToPopulate pushBack _tmpChunk}; //add chunk to chunks to populate array if not populated
+					if (_tmpY > -1 && _tmpY < _worldChunks) then { //Y not out of bound
+						for [{_tmpX = _playerChunksX - 1}, {_tmpX < _playerChunksX + 2}, {_tmpX = _tmpX + 1}] do { //X loop
+							if (_tmpX > -1 && _tmpX < _worldChunks) then { //X not out of bound
+								_tmpChunk = (_tmpY * _worldChunks) + _tmpX; //current chunk
+								if (!(_tmpChunk in _chunksToPopulate) && !(_tmpChunk in _chunksPopulated)) then {_chunksToPopulate pushBack _tmpChunk}; //add chunk to chunks to populate array if not populated
+							};
+						};
 					};
 				};
 			};
@@ -190,7 +202,7 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 			
 			
 			
-			
+			/*
 			_buildingPosList = _x buildingPos -1; //positions in building, done here to avoid massive memory usage
 			if (count _buildingPosList > 0) then { //building has position, extra security
 				{ //position in building loop
@@ -203,7 +215,7 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 					};
 				} forEach _buildingPosList;
 			};
-			
+			*/
 			
 			
 			
@@ -224,4 +236,4 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 	} forEach _chunksToPopulate;
 };
 
-[format["PopulateBuildingsObjects.sqf: %1 'position in building' markers/arrows created", _positionsInBuildingsMarkers]] call NNS_fnc_debugOutput; //debug
+[format["PopulateBuildingsObjects.sqf: %1 'position in building' markers/arrows created", _positionsInBuildingsMarkers],false,true] call NNS_fnc_debugOutput; //debug
