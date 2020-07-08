@@ -491,6 +491,7 @@ addMissionEventHandler ["EntityKilled", {
 	
 };
 */
+
 //damage vehicle
 [] spawn {
 	[testvehi01,["hitfuel"],0.3,0.7] call NNS_fnc_randomVehicleDamage;
@@ -540,8 +541,7 @@ addMissionEventHandler ["EntityKilled", {
 	
 	[requestM900WestSupportObj, ["request M-900 (civ) with BLUFOR recon on Resistance side", {[[[7957,9862],"C_Heli_Light_01_civil_F", resistance, configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam",false , false, BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
-	[requestMi48ParaSupportObj, ["request Mi48 (CSAT) Paradrop", {[[[7957,9862],"mi48",nil,configNull,true,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[requestMi48ParaSupportObj, ["request Mi48 (CSAT) Paradrop with waypoints", {[[[7957,9862],"mi48",nil,configNull,true,false,grpNull,paradropWaypointStorage], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
 };
-
 

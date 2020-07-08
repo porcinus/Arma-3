@@ -8,22 +8,22 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=252;
+		nextID=264;
 	};
 	class MarkerIDProvider
 	{
-		nextID=31;
+		nextID=38;
 	};
 	class LayerIndexProvider
 	{
-		nextID=54;
+		nextID=62;
 	};
 	class Camera
 	{
-		pos[]={7959.0557,47.038536,9846.3613};
-		dir[]={-0.010543005,-0.54211402,0.84028244};
-		up[]={-0.0068018422,0.84027702,0.54210639};
-		aside[]={0.99995589,3.1456329e-007,0.012545828};
+		pos[]={7972.5166,153.22069,9700.0234};
+		dir[]={0.18057798,-0.49782455,0.84831935};
+		up[]={0.10365573,0.86724889,0.48695421};
+		aside[]={0.97812551,8.1636244e-008,-0.20820896};
 	};
 };
 binarizationWanted=0;
@@ -131,7 +131,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=95;
+		items=96;
 		class Item0
 		{
 			dataType="Group";
@@ -2073,6 +2073,183 @@ class Mission
 			id=251;
 			type="Land_SignWarning_01_CheckpointAhead_F";
 			atlOffset=-1.9073486e-006;
+		};
+		class Item95
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7598.4561,53.218639,10079.771};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						name="paradropWaypointStorage";
+						disableSimulation=1;
+						ignoreByDynSimulGrid=1;
+						aiRadarUsage=2140110735;
+					};
+					id=255;
+					type="C_man_p_beggar_F";
+					atlOffset=-3.8146973e-006;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="allowDamage";
+							expression="_this allowdamage _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03GRE";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="hideObject";
+							expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						class Attribute4
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=5;
+					};
+				};
+				class Item1
+				{
+					dataType="Waypoint";
+					position[]={7877.8115,36.163605,9330.9678};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=260;
+					type="Move";
+				};
+				class Item2
+				{
+					dataType="Waypoint";
+					position[]={7952.0898,32.200001,9150.1055};
+					type="SeekAndDestroy";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=261;
+				};
+				class Item3
+				{
+					dataType="Waypoint";
+					position[]={7965.3569,30.921686,8933.4424};
+					type="SeekAndDestroy";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=262;
+				};
+				class Item4
+				{
+					dataType="Waypoint";
+					position[]={8343.3008,21.98204,9322.4307};
+					type="SeekAndDestroy";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=263;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=254;
+			atlOffset=-3.8146973e-006;
 		};
 	};
 	class Connections
