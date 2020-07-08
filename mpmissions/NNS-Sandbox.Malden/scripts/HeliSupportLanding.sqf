@@ -4,11 +4,12 @@ Spawn a support helicopter that will unload or paradrop (if no suitable location
 _type can be set to a shortcut class or a fullname class.
 Script will try to autodetect right side if not provided (set to nil).
 You can supply specific class for troop if you want. if not, set to configNull.
+Yan can also add waypoints to unloaded units by using a unit as waypoint storage (priority over group to join).
 
 Notes:
 - Because of the way Arma AI work, this script is far from bulletproof (but it is stable).
 - Some helicopter classes do have troubles to take off.
-- When stalking, unit will always search for BIS_grpMain.
+- When stalking, unit will always search for nearest enemy.
 
 Shortcut types:
 - "ghosthawk" (nato)
@@ -22,8 +23,34 @@ example :
 	Hummingbird with CSAT units near player position:
 		_null = [getPos player, "hummingbird", east, configNull] execVM "scripts\HeliSupportLanding.sqf";
 
+	Huron that paradrop a BLUFOR squad near player position and follow waypoints set to unit named 'paradropWaypointStorage':
+		_null = [getPos player, "huron", nil, configNull,true,true,grpNull,paradropWaypointStorage] execVM "scripts\HeliSupportLanding.sqf";
+
+
 	Civil M-900 with BLUFOR Recon team on Resistance side near player position:
 		_null = [getPos player, "C_Heli_Light_01_civil_F", resistance, configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam"] execVM "scripts\HeliSupportLanding.sqf";
+
+Dependencies:
+	in description.ext:
+		class CfgFunctions {
+			class NNS {
+				class missionfunc {
+					file = "nns_functions";
+					class debugOutput {};
+					class AIskill {};
+					class FoundNearestEnemy {};
+				};
+			};
+		};
+
+	nns_functions folder:
+		fn_debugOutput.sqf
+		fn_AIskill.sqf
+		fn_FoundNearestEnemy.sqf
+		
+	script folder:
+		LimitEquipment.sqf
+		HeliSupportLanding.sqf
 
 */
 
@@ -34,7 +61,8 @@ params [
 ["_class", configNull], //support class, configNullto leave script choise, configfile >> "CfgGroups"
 ["_forceParadrop", false], //force a paradrop
 ["_allowDamage", true], //allow helicopter to take damage
-["_joinGroup", grpNull] //unloaded units join specified group
+["_joinGroup", grpNull], //unloaded units join specified group
+["_syncUnit", objNull] //unit used as waypoints storage
 ];
 
 _allowType = ["ghosthawk","hummingbird","huron","orca","taru","mi48"]; //text type
@@ -87,7 +115,18 @@ if (isNull _class) then { //support class not set
 
 if (isNull _class) exitWith {["HeliSupportLanding.sqf: invalid support unit class"] call NNS_fnc_debugOutput};
 
-if !(isNull _joinGroup) then { //join group set
+_useWaypoints = false; //droped units waypoints
+if !(isNull _syncUnit) then { //sync unit exist
+	if (count (waypoints (group _syncUnit)) > 1) then { //at least one real waypoint
+		["HeliSupportLanding.sqf: valid sync unit provided for waypoints"] call NNS_fnc_debugOutput; //debug
+		_useWaypoints = true;
+	} else {
+		["HeliSupportLanding.sqf: sync unit doesn't provide any waypoint"] call NNS_fnc_debugOutput; //debug
+		deleteVehicle _syncUnit; //delete unit
+	};
+};
+
+if (!(isNull _joinGroup) && !(_useWaypoints)) then { //join group set and no waypoints
 	if !(side _joinGroup == _side) then { //side mismatch
 		[format["HeliSupportLanding.sqf: joinGroup side (%1) missmatch selected side (%2), ignored",side _joinGroup, _side]] call NNS_fnc_debugOutput; //debug
 		_joinGroup = grpNull; //unset group
@@ -111,7 +150,7 @@ _heliGroup = group (_heliCrew select 0); //helicopter crew group
 if !(_allowDamage) then {{_x allowDamage false} forEach (units _heliGroup)}; //disable damage for crew units
 
 _heli setVehicleLock "LOCKEDPLAYER"; //avoid possibility for players to get in
-[format["HeliSupportLanding.sqf: %1 created (%2m)",typeOf _heli, (leader BIS_grpMain) distance2d _heli]] call NNS_fnc_debugOutput; //debug
+[format["HeliSupportLanding.sqf: %1 created (%2m)",typeOf _heli, _pos distance2d _heli]] call NNS_fnc_debugOutput; //debug
 
 _heliGroup setBehaviour "Careless";
 _heliGroup setCombatMode "YELLOW";
@@ -139,7 +178,7 @@ if !(_forceParadrop) then {
 _grp = grpNull;		// Create empty group
 if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target selected
 	_lz = 'Land_HelipadEmpty_F' createVehicle _lz_pos; //create invisible helipad for LZ
-	[format["HeliSupportLanding.sqf: LZ created (%1m)", (leader BIS_grpMain) distance2d _lz_pos]] call NNS_fnc_debugOutput; //debug
+	[format["HeliSupportLanding.sqf: LZ created (%1m)", _pos distance2d _lz_pos]] call NNS_fnc_debugOutput; //debug
 	
 	_heli doMove [_lz_pos select 0,_lz_pos select 1,20]; //start move to lz, note: move looks better than a real waypoint for landing
 	
@@ -169,7 +208,7 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 	if (alive _heli) then {
 		doStop _heli; //stop heli move
 		_heli land "GET OUT"; //order pilot to land
-		[format["HeliSupportLanding.sqf: Start landing : %1m", (leader BIS_grpMain) distance2d _heli]] call NNS_fnc_debugOutput; //debug
+		[format["HeliSupportLanding.sqf: Start landing : %1m", _pos distance2d _heli]] call NNS_fnc_debugOutput; //debug
 		
 		_grp = [[0,0,0], _side, _class, [], [], [0.3, 0.3]] call BIS_fnc_spawnGroup; // Create team onboard, need to be done at the last time or enableDynamicSimulation will fail
 		_cargoCurrent = 0;
@@ -197,7 +236,7 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 		if (((getPos _heli) select 2) > 0.5) then {_heli setVelocity [0,0,-0.25]}; //pushdown if altitude over 0.5m
 		
 		sleep 2;
-		[format["HeliSupportLanding.sqf: Touching ground : %1m", (leader BIS_grpMain) distance2d _heli]] call NNS_fnc_debugOutput; //debug
+		[format["HeliSupportLanding.sqf: Touching ground : %1m", _pos distance2d _heli]] call NNS_fnc_debugOutput; //debug
 		_heli flyInHeight 0; //pin to ground
 		_heli animateDoor ["Door_rear_source", 1, false]; //open cargo door
 		sleep 1;
@@ -218,7 +257,21 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 	_heli animateDoor ["Door_rear_source", 0, false]; //close cargo door
 	_heli flyInHeight 30; //unpin from ground
 	
-	if ({alive _x} count (units _grp) > 0 && {isNull _joinGroup}) then {_stalk = [_grp, BIS_grpMain] spawn BIS_fnc_stalk}; //stalk if alive
+	if ({alive _x} count (units _grp) > 0) then { //at least one unit alive
+		if (isNull _joinGroup && {!(_useWaypoints)}) then { //no group to join and no waypoints
+			_tmpEnemy = [leader _grp, 1500] call NNS_fnc_FoundNearestEnemy; //search for nearest enemy in 1500m radius
+			if !(isNull _tmpEnemy) then {[_grp, group _tmpEnemy] spawn BIS_fnc_stalk; //stalk enemy
+			} else { //failed, stalk a random player
+				_stalkUnit = selectRandom (allPlayers - (entities "HeadlessClient_F")); //random player
+				[_grp, group (selectRandom (allPlayers - (entities "HeadlessClient_F")))] spawn BIS_fnc_stalk; //stalk
+			};
+		};
+		
+		if (_useWaypoints) then { //set units waypoints
+			_grp copyWaypoints (group _syncUnit); //copy waypoints
+			deleteVehicle _syncUnit; //delete unit
+		};
+	};
 	
 	deleteVehicle _lz; //clean up LZ
 } else { //LZ selection failed, go for paradrop
@@ -269,8 +322,22 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 				sleep 0.5; //wait a bit
 			} else {deleteVehicle _x}; //delete unit if heli getting off for some reason, usually happen when under fire
 		} forEach (units _grp);
-		
-		if ({alive _x} count (units _grp) > 0 && {isNull _joinGroup}) then {_stalk = [_grp, BIS_grpMain] spawn BIS_fnc_stalk}; //stalk if alive
+			
+		if ({alive _x} count (units _grp) > 0) then { //at least one unit alive
+			if (isNull _joinGroup && {!(_useWaypoints)}) then { //no group to join and no waypoints
+				_tmpEnemy = [leader _grp, 1500] call NNS_fnc_FoundNearestEnemy; //search for nearest enemy in 1500m radius
+				if !(isNull _tmpEnemy) then {[_grp, group _tmpEnemy] spawn BIS_fnc_stalk; //stalk enemy
+				} else { //failed, stalk a random player
+					_stalkUnit = selectRandom (allPlayers - (entities "HeadlessClient_F")); //random player
+					[_grp, group (selectRandom (allPlayers - (entities "HeadlessClient_F")))] spawn BIS_fnc_stalk; //stalk
+				};
+			};
+			
+			if (_useWaypoints) then { //set units waypoints
+				_grp copyWaypoints (group _syncUnit); //copy waypoints
+				deleteVehicle _syncUnit; //delete unit
+			};
+		};
 	};
 };
 
