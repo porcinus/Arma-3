@@ -312,14 +312,18 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 		_grp enableDynamicSimulation true; //enable Dynamic simulation
 		sleep 2;
 		
+		_heliSize = boundingBox _heli; //get helicopter size
+		_heliLength = abs (((_heliSize select 1) select 1) - ((_heliSize select 0) select 1)); //get helicopter length
+		
 		{ //paradrop units if heli still alive
-			_tmpPos = getPos (vehicle _x); //helicopter position
-			[format["HeliSupportLanding.sqf: Paradrop unit, altitude:%1m", _tmpPos select 2]] call NNS_fnc_debugOutput; //debug
 			if (canMove _heli) then { //extra secutity
+				["HeliSupportLanding.sqf: Paradrop unit"] call NNS_fnc_debugOutput; //debug
+				_tmpPos = _heli getPos [-((_heliLength / 2) + 2), getDir _heli]; //position 2m behind helicopter
+				_tmpPos set [2, ((getPos _heli) select 2) - 1.5]; //position 1.5m under helicopter
 				unassignVehicle _x; //unassign from cargo
-				_x setPos [(_tmpPos select 0), (_tmpPos select 1), (_tmpPos select 2) - 3]; //teleport unit under helicopter
+				_x setPos _tmpPos; //teleport unit
 				_x action ["OpenParachute", _x]; //open parachute
-				sleep 0.5; //wait a bit
+				sleep 0.7; //wait a bit
 			} else {deleteVehicle _x}; //delete unit if heli getting off for some reason, usually happen when under fire
 		} forEach (units _grp);
 			
