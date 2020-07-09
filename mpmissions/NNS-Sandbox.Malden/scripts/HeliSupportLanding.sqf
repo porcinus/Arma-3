@@ -324,18 +324,25 @@ if (alive _heli && (_pos distance2d _lz_pos < 400)) then { //LZ 400m near target
 		} forEach (units _grp);
 			
 		if ({alive _x} count (units _grp) > 0) then { //at least one unit alive
-			if (isNull _joinGroup && {!(_useWaypoints)}) then { //no group to join and no waypoints
-				_tmpEnemy = [leader _grp, 1500] call NNS_fnc_FoundNearestEnemy; //search for nearest enemy in 1500m radius
-				if !(isNull _tmpEnemy) then {[_grp, group _tmpEnemy] spawn BIS_fnc_stalk; //stalk enemy
-				} else { //failed, stalk a random player
-					_stalkUnit = selectRandom (allPlayers - (entities "HeadlessClient_F")); //random player
-					[_grp, group (selectRandom (allPlayers - (entities "HeadlessClient_F")))] spawn BIS_fnc_stalk; //stalk
+			[_grp, _joinGroup, _useWaypoints, _syncUnit] spawn {
+				params [["_grp", grpNull], ["_joinGroup", grpNull], ["_useWaypoints", false], ["_syncUnit", objNull]];
+				_startTime = time; //start time, used for timeout
+				waitUntil {sleep 5; ({(getPos _x) select 2 > 1} count (units _grp) == 0) || ((time - _startTime) > 120)}; //all stalker units altitude not over 1m or 2min timeout
+				
+				if (isNull _joinGroup && {!(_useWaypoints)}) then { //no group to join and no waypoints
+					_tmpEnemy = [leader _grp, 1500] call NNS_fnc_FoundNearestEnemy; //search for nearest enemy in 1500m radius
+					if (isNull _tmpEnemy) then {_tmpEnemy = selectRandom (allPlayers - (entities "HeadlessClient_F"))}; //failed to found enemy, select random player
+					if !(isNull _tmpEnemy) then { //a unit found
+						[format["HeliSupportLanding.sqf: Paradrop units (%1) start to stalk '%2'", _grp, group _tmpEnemy]] call NNS_fnc_debugOutput; //debug
+						[_grp, group _tmpEnemy] spawn BIS_fnc_stalk; //stalk*/
+					};
 				};
-			};
-			
-			if (_useWaypoints) then { //set units waypoints
-				_grp copyWaypoints (group _syncUnit); //copy waypoints
-				deleteVehicle _syncUnit; //delete unit
+				
+				if (_useWaypoints) then { //set units waypoints
+					[format["HeliSupportLanding.sqf: Paradrop units (%1) waypoints copied from '%2'", _grp, _syncUnit]] call NNS_fnc_debugOutput; //debug
+					_grp copyWaypoints (group _syncUnit); //copy waypoints
+					deleteVehicle _syncUnit; //delete unit
+				};
 			};
 		};
 	};
