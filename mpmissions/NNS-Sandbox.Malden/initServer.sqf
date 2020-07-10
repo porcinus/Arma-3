@@ -545,3 +545,20 @@ addMissionEventHandler ["EntityKilled", {
 	
 };
 
+//populate map buildings
+[] spawn {
+	[
+	1, //_detectInterval: populate interval
+	west, //_side: spawned units side
+	[configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad"], //_class: spawned group class
+	250, //_chunkSize: chunk size in m2
+	[], //_classesToIgnore: objects class to ignore
+	10, //_minObjectWH: minimum X-Y object size
+	2, //_populatePadding: chunk padding to populate, >0 needed
+	0.6, //_populateChance: amount of change to spawn units in a building
+	0.3, //_buildingPosMin: minimum used position in building (can be round to 0)
+	0.7, //_buildingPosMax: maximum used position in building
+	220, //_groupsLimit: max 288 since v1.67
+	false //_debug: enable debug
+	] execVM "scripts\PopulateMapBuildings.sqf";
+};
