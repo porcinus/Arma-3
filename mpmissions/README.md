@@ -195,7 +195,8 @@ What's done so far (may miss some for sure):
 ```
   
 ## NNS-Sandbox.Malden  
-Well, as its name suggest, it is a "sandbox", I mainly use it to test new functions/scripts.  
+Well, as its name suggest, it is a "sandbox".  
+Integrate most personal functions/scripts.  
 Can be useful to understand how specific functions like 'spawnVehicleOnRoad_Adv' work.  
   
 [![prev](NNS-Sandbox.Malden%20preview/preview/map01.jpg)](NNS-Sandbox.Malden%20preview/map01.jpg)
