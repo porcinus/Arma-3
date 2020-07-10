@@ -8,6 +8,7 @@ Note:
 - It is not bulletproof as boundingBoxReal function detect wrong vehicle size for wreck objects.
 - As using simple objects highly increase performance, it also spam server logs very badly, around 1mb for 500 vehicles.
 - Limited to 999 road objects (over 20km depending on map).
+- Vehicles in _vehiWreckClasses are simple objects, whether simple objects is enabled or not.
 
 Dependencies:
 	in initServer.sqf:
@@ -53,7 +54,7 @@ params [
 	["_vehiSpacing", 1], //vehicle length overscale (ratio, not meter)
 	["_addWreckVehi", true], //allow wreck vehicles
 	["_vehiWreckClasses", []], //default wreck vehicles class
-	["_simpleObject", false]
+	["_simpleObject", false] //create only simple objects
 ];
 /*
 getAngle = { //compute angle between 2 object function
@@ -167,7 +168,7 @@ for "_i" from 0 to 999 do { //roads loop
 			if (count _tmpVehiClasses == 0) then {_tmpVehiClasses = _vehiClasses;}; //only one vehicle in main vehicle classes array
 			if (_tmpVehiClass in _vehiWreckClasses) then {_isWreck = true;};
 			_tmpVehi = objNull;
-			if (_simpleObject) then {_tmpVehi = createSimpleObject [_tmpVehiClass, [0,0,0]]; //create simple object
+			if (_simpleObject || _isWreck) then {_tmpVehi = createSimpleObject [_tmpVehiClass, [0,0,0]]; //create simple object
 			} else {_tmpVehi = createVehicle [_tmpVehiClass, [0,0,0], [], 0, "CAN_COLLIDE"]; /*_tmpVehiClass createVehicle [0,0,0];*/}; //create vehicle
 			_tmpVehi allowDamage false; //disable in case server is having hard time
 			
@@ -198,7 +199,7 @@ for "_i" from 0 to 999 do { //roads loop
 			
 			if ((_tmpNewPos distance2D _lastPos) > (_tmpVehiLength / 2)) then { //enough space to spawn vehicle
 				_tmpVehi setDir (180 + (_roadDir - 45) + (random 45) + (random 45) + _tmpDirCorr); //vehicle direction, more randomness
-				if (_simpleObject) then { //simple object
+				if (_simpleObject || _isWreck) then { //simple object
 					_tmpNewPos set [2, getTerrainHeightASL _tmpNewPos]; //proper height
 					_tmpVehi setPosASL _tmpNewPos; //set position
 					_tmpVehi setVectorUp surfaceNormal position _tmpVehi; //proper vector up
