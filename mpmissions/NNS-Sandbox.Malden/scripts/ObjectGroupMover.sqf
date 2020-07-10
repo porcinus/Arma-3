@@ -6,8 +6,7 @@ example : [BIS_Checkpoint_04,[[7919,10098,90],[7810,4210,65]],100] execVM 'Objec
 
 */
 
-params
-[
+params [
 	["_trigger",objNull],
 	["_newPosArray",[]], //[[rnd_x1,rnd_y1,rnd_dir1],[rnd_x2,rnd_y2,rnd_dir2],.....]
 	["_radius",50], //used for objects detection and waypoint position
