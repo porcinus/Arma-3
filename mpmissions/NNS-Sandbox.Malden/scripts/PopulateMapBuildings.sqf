@@ -1,21 +1,51 @@
 /*
+NNS
+Populate most buildings on the map.
+Work using a chunk system to reduce load as most as possible. But still use a massive amount of memory because script need to store every single buildings pointer.
+Choise to use chunks avoid risk of populate or clean same chunk multiple time during the same loop.
+Many optimizations need to be done but script look stable for now.
 
-WIP script, could end up as automated objects (or units) placement in building on whole map.
-Cut map into "chunk" to limit performance impact on server and client.
-Chunk detection work with all players on the map, grouped or not, disable if player(s) in vehicle.
+How it work (hope I will not miss to many things):
+- The map "split" into chunks of given size (250m² by default).
+- When script start, it will look at all objects of kind "House" and apply "filters" :
+	- Not in ignore class array.
+	- Need to have "positions in building" (buildingPos function).
+	- Need to be bigger than specified X-Y size (10m each by default).
+- Valid buildings are placed into a array for each chunks.
+- Empty chunks are placed into a "ignore array".
+- When populate loop start:
+	- Position and direction of every players on the map is backup and compare later to compute a displacement vector.
+	- A virtual line is drawn and each chunks at given chunk distance (2 by default) are marked as "to populate".
+	- Work on unit base, if you have players all over the map, chunks will be populated all over the map. work with ground vehicle, disable for other kinds.
+	- Every chunks over populate chunk distance (2 by default) will be marked for reset to avoid useless ressource (and groups) usage.
+	- When loop start to populate "to populate" chunks, it will loop at linked objects array and start to do its thing (destroy buildings will be remove at each loop).
+	- When a building start to be populated, damage is disable until it is populated.
 
+Notes:
+- _class can be parent config path (e.g. configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry"), in this case, groups will be selected randomly.
+- If _class = "", script will use "default" class, only work with west,east,resistance,independent sides.
+- Avoid using _chunkSize under 200m², keep in mind the that dividing chunk size by 2 increase ressources usage (CPU,Memory,Network) by a factor of 4.
+- Note all selected buildings will be populated, look at _populateChance,_buildingPosMin,_buildingPosMax params for this.
+- If groups count on the server goes over _groupsLimit, this script will continue to work but do nothing until everything goes back to normal.
+- if _oneGroupPerChunk set to true, weird behave could happen but highly decrease groups count.
 
+Example :
+	Populate using default settings:
+		_null = execVM "scripts\PopulateMapBuildings.sqf"
+	
+	Populate using random CSAT units:
+		_null = [10, east, configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry"]
 
+	Populate using CSAT units with West side:
+		_null = [10, west, [configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad"]]
 
-buildings must have "position in building" (reported using buildingPos).
-
-execVM "scripts\PopulateMapBuildings.sqf"
 */
 
 params [
 	["_detectInterval",10], //populate interval
 	["_side",west], //spawned units side
-	["_class",[configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad"]], //spawned group class
+	["_class",""], //spawned group class
+	["_oneGroupPerChunk",false], //create a single group for a whole chunk
 	["_chunkSize",250], //chunk size in m2
 	["_classesToIgnore",[]], //objects class to ignore
 	["_minObjectWH",10], //minimum X-Y object size
@@ -28,7 +58,60 @@ params [
 ];
 
 if (_detectInterval < 1) then {_detectInterval = 10};
-if ((count _class) == 0) exitWith {["PopulateMapBuildings.sqf: group class needed"] call NNS_fnc_debugOutput};
+
+if (!(_class isEqualType []) || ((count _class) == 0)) then { //_class is not a array or empty array
+	if ((count _class) == 0) then { //empty class
+		_defaultSide = [west,east,resistance,independent]; //default sides
+		_defaultClass = [ //default units classes
+		configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry",
+		configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry",
+		configfile >> "CfgGroups" >> "Indep" >> "IND_G_F" >> "Infantry",
+		configfile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry"];
+		_sideIndex = _defaultSide find _side;
+		if !(_sideIndex == -1) then {
+			_class = _defaultClass select _sideIndex; //side found, use a default class
+			[format["PopulateMapBuildings.sqf: _class set by script : %1", _class]] call NNS_fnc_debugOutput; //debug
+		};
+	};
+};
+
+if (!(_class isEqualType []) && {isClass _class}) then { //_class is a config class, try to get groups entries
+	_baseClass = _class; //backup config path
+	_baseClassCount = count _class; //entry count
+	_foundClasses = []; //"valid" class found
+	
+	if (_baseClassCount > 0) then { //current config path has entries
+		_valid = true; //current entry is valid
+		for "_i" from 0 to (_baseClassCount - 1) do { //seek thru entries
+			if (_valid) then { //still valid
+				_currEntry = _baseClass select _i; //backup current "entry"
+				if (isClass _currEntry) then { //not a "field"
+					_entryName = configName _currEntry; //get entry name
+					_entryCount = count _currEntry; //sub entries count
+					for "_j" from 0 to (_entryCount - 1) do { //seek thru entries
+						if (_valid) then { //still valid
+							_subEntryName = configName (_currEntry select _j); //get sub entry name
+							if (toLower (_subEntryName) == "vehicle") then {_valid = false}; //contain vehicle entry, no more valid
+						};
+					};
+					if (_valid) then {_foundClasses pushBack _currEntry}; //not failed so far, add to found classes
+				};
+			};
+		};
+	};
+	
+	if (count _foundClasses > 0) then { //some "valid" classes found
+		_class = _foundClasses; //set main class array to found entries
+		[format["PopulateMapBuildings.sqf: _class generated via config : %1", _class]] call NNS_fnc_debugOutput; //debug
+	};
+};
+
+if (!(_class isEqualType []) && {count _class > 0}) then {_class = [_class]}; //class still not a array, convert string to array
+if (!(_class isEqualType []) || {(count _class) == 0}) exitWith {["PopulateMapBuildings.sqf: fail to found proper group class"] call NNS_fnc_debugOutput}; //totally failed
+[format["PopulateMapBuildings.sqf: _class : %1", _class]] call NNS_fnc_debugOutput; //debug
+
+[format["PopulateMapBuildings.sqf: set to one group per %1", ["building","chunk"] select (_oneGroupPerChunk)]] call NNS_fnc_debugOutput; //debug
+
 if (_populatePadding < 1) then {_populatePadding = 2};
 if (_populateChance < 0.1) then {_populateChance = 0.1};
 if (_buildingPosMin < 0) then {_buildingPosMin = 0};
@@ -174,6 +257,7 @@ for "_i" from 0 to (_worldChunksCount - 1) do {
 
 //populate loop
 _startTime = time;
+[format["PopulateMapBuildings.sqf: starting populate loop : %1sec", _startTime]] call NNS_fnc_debugOutput; //debug
 while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} do { //loop until all chunks populated
 	_chunksToPopulate = []; //chunks to populate array
 	_chunksBlacklist = []; //chunks blacklisted (contain players)
@@ -181,8 +265,8 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 	
 	{ //players loop
 		_playerUID = getPlayerUID _x; //recover player UID
-		if (!(_playerUID == "") && {alive _x} && {vehicle player == player}) then { //ignore dead players or players in vehicle
-			_playerPos = getPos _x; //player position
+		if (!(_playerUID == "") && {alive _x} && {!((vehicle _x) isKindOf "Ship")} && {!((vehicle _x) isKindOf "Air")}) then { //ignore dead players or players in air or ship kind vehicle
+			_playerPos = getPos (vehicle _x); //player position
 			if !(_playerUID in _playersUID) then {
 				_playersUID pushBack _playerUID; //store player UID
 				_playersPos pushBack _playerPos; //store player position
@@ -193,7 +277,7 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 			_playerLastPos = _playersPos select _playerIndex; //recover last position
 			_playerDir = _playersDir select _playerIndex; //recover last direction
 			
-			if ((_playerLastPos distance2D _playerPos) > 100) then { //update player direction only if moved over 100m
+			if ((_playerLastPos distance2D _playerPos) > 50) then { //update player direction only if moved over 50m
 				_playerDir = _playerLastPos getDir _playerPos; //compute new direction
 				_playersPos set [_playerIndex, _playerPos]; //update old player position
 				_playersDir set [_playerIndex, _playerDir]; //update old player direction
@@ -239,6 +323,9 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 		
 		if ((count allGroups) < (_groupsLimit + 1)) then { //under groups limit
 			_currentChunkObjects = _chunksObjects select _tmpChunkIndex; //pointer to chunk objects
+			_newGrp = grpNull; //reset group variable
+			if (_oneGroupPerChunk) then {_newGrp = createGroup [_side, true]}; //create group for whole chunk
+			
 			{ //objects loop
 				if (damage _x < 1) then { //object not destroyed
 					if (random 1 > _populateChance) then { //lucky enough to spawn units in building
@@ -255,6 +342,7 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 								_buildingPosList deleteAt _tmpIndex; //delete from old array
 							};
 							
+							if !(_oneGroupPerChunk) then {_newGrp = createGroup [_side, true]}; //per building group
 							_tmpGrp = [_tmpChunkCenter, _side, selectRandom (_class), [], [], [0.3, 0.3]] call BIS_fnc_spawnGroup; //temporary group
 							
 							while {(_buildingPosLimit / (count (units _tmpGrp))) > 2.5} do { //building have enough positions for multiple groups
@@ -262,8 +350,6 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 								(units _tmpGrp01) joinSilent _tmpGrp; //move units to main group
 								deleteGroup _tmpGrp01; //delete old group
 							};
-							
-							_newGrp = createGroup [_side, true]; //group in building
 							
 							_limit = _buildingPosLimit; //set limit to building position count
 							if (_limit > count (units _tmpGrp)) then {_limit = count (units _tmpGrp)}; //more position that units in group, set limit to group units count
@@ -287,14 +373,16 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 							
 							{deleteVehicle _x} forEach (units _tmpGrp); deleteGroup _tmpGrp; //delete old group
 							
-							if (count units _newGrp > 0) then { //new group have units
-								_newGrp enableDynamicSimulation true; //Enable Dynamic simulation
-								_newGrp setCombatMode "YELLOW";
-								_tmpGroups = _chunksGroups select _tmpChunkIndex; //recover current chunk groups
-								_tmpGroups pushBack _newGrp; //add group to array
-							} else { //delete new group because empty
-								deleteGroup _newGrp;
-								[format["PopulateMapBuildings.sqf: GLITCH : chunk:%1 : empty new group", _tmpChunkIndex]] call NNS_fnc_debugOutput
+							if !(_oneGroupPerChunk) then { //per building group
+								if (count units _newGrp > 0) then { //new group have units
+									_newGrp enableDynamicSimulation true; //Enable Dynamic simulation
+									_newGrp setCombatMode "YELLOW";
+									_tmpGroups = _chunksGroups select _tmpChunkIndex; //recover current chunk groups
+									_tmpGroups pushBack _newGrp; //add group to array
+								} else { //delete new group because empty
+									deleteGroup _newGrp;
+									[format["PopulateMapBuildings.sqf: GLITCH : chunk:%1 : empty new group", _tmpChunkIndex]] call NNS_fnc_debugOutput;
+								};
 							};
 						};
 						
@@ -307,6 +395,18 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 					_chunksObjectsToDelete pushBack _x; //add to delete array
 				};
 			} forEach _currentChunkObjects;
+			
+			if (_oneGroupPerChunk && {!isNull _newGrp}) then { //whole chunk group
+				if (count units _newGrp > 0) then { //new group have units
+					_newGrp enableDynamicSimulation true; //Enable Dynamic simulation
+					_newGrp setCombatMode "YELLOW";
+					_tmpGroups = _chunksGroups select _tmpChunkIndex; //recover current chunk groups
+					_tmpGroups pushBack _newGrp; //add group to array
+				} else { //delete new group because empty
+					deleteGroup _newGrp;
+					[format["PopulateMapBuildings.sqf: GLITCH : chunk:%1 : empty new group", _tmpChunkIndex]] call NNS_fnc_debugOutput;
+				};
+			};
 			
 			{ //delete destroyed objects loop
 				_tmpIndex = _currentChunkObjects find _x;
