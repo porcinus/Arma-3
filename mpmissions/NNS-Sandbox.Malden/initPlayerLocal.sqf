@@ -12,6 +12,9 @@
 };
 */
 
+//NNS : DEV, disable damage
+player allowDamage false;
+
 //NNS : varible to ignore unit for compute group center
 player setVariable ["recovery",true,true];
 [] spawn {sleep 10; player setVariable ["recovery",false,true]};
@@ -377,54 +380,6 @@ if (missionNamespace getVariable ["BIS_TKpunish",false]) then {
 	};
 };
 
-//NNS: DEBUG Zeus for everyone from SPCM addon
-[] spawn {
-	_zeusName = format["ZeusCheat%1",getPlayerUID player];
-	//Zeus Module
-	CuratorLogicGroup = creategroup sideLogic;  
-	CheatCurator = CuratorLogicGroup createunit ["ModuleCurator_F", [0, 90, 90],[],0.5,"NONE"];    
-	CheatCurator setvariable ["text",_zeusName];     
-	CheatCurator setvariable ["Addons",3,true];//3: allow all addons with proper use of CfgPatches
-	CheatCurator setvariable ["owner",player];  
-	CheatCurator setvariable ["vehicleinit","_this setvariable ['Addons',3,true]; _this setvariable ['owner',player];"]; 
-	unassignCurator CheatCurator;
-	player assignCurator CheatCurator;
-	player setVariable ["CheatCuratorObj", CheatCurator];
-
-
-	//Player attributes module
-	CheatCuratorPlayerAttributes = CuratorLogicGroup createunit ["ModuleCuratorSetAttributesPlayer_F", [2, 91, 91],[],0.5,"NONE"];
-	CheatCuratorPlayerAttributes setvariable ["curator",_zeusName];
-	CheatCuratorPlayerAttributes setvariable ["unitpos",true];
-	CheatCuratorPlayerAttributes setvariable ['fuel',true];
-	CheatCuratorPlayerAttributes setvariable ['respawnposition',true];
-	CheatCuratorPlayerAttributes setvariable ['respawnvehicle',true];
-	CheatCuratorPlayerAttributes setvariable ['skill',true];
-	CheatCuratorPlayerAttributes setvariable ['rank',true];
-	CheatCuratorPlayerAttributes setvariable ['damage',true];
-	CheatCuratorPlayerAttributes setvariable ['exec',true];
-	CheatCuratorPlayerAttributes setvariable ['lock',true];
-
-	CheatCuratorPlayerAttributes setvariable [
-		"vehicleinit",format ["
-		_this setvariable ['curator','%1']; 
-		_this setvariable ['unitpos',true];
-		_this setvariable ['fuel',true];
-		_this setvariable ['respawnposition',true];
-		_this setvariable ['respawnvehicle',true];
-		_this setvariable ['skill',true];
-		_this setvariable ['rank',true];
-		_this setvariable ['damage',true];
-		_this setvariable ['exec',true];
-		_this setvariable ['lock',true];
-	",_zeusName]];
-	
-	while {sleep 5; true} do {
-		//CheatCurator removeCuratorEditableObjects [allMissionObjects "all",true];
-		CheatCurator addCuratorEditableObjects [allMissionObjects "all",true];
-	};
-};
-
 //NNS: Beginning of test part
 
 /*
@@ -432,13 +387,9 @@ if (missionNamespace getVariable ["BIS_TKpunish",false]) then {
 player addAction ["Clock : 16:00", "skipTime(16-daytime+24)%24;",cursorTarget, 0, true, true, "", ""];
 player addAction ["Clock : 22:00", "skipTime(22-daytime+24)%24;",cursorTarget, 0, true, true, "", ""];
 */
+
 //NNS : drawable Whitebaord
 [] spawn {
 	_whiteboardObjects = missionNamespace getVariable ["NNS_WhiteboardDraw",[whiteboard01, whiteboard02]];
 	if (count _whiteboardObjects > 0) then {_null = [_whiteboardObjects,0.5,3,500,'b'] execVM "scripts\DrawOnSurface.sqf";};
 };
-
-
-
-
-

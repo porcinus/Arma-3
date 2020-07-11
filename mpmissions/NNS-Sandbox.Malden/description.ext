@@ -79,7 +79,7 @@ class Params {
 		title = $STR_NNS_param_DebugOutputs_title;
 		values[] = {0,1,2,3};
 		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_DebugOutputs_chatbox,$STR_NNS_param_DebugOutputs_logs,$STR_NNS_param_DebugOutputs_both};
-		default = 0;
+		default = 2;
 		file = "params\setDebugOutputs.sqf";
 	};
 	

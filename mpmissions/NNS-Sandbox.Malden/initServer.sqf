@@ -524,8 +524,10 @@ addMissionEventHandler ["EntityKilled", {
 
 //helicopter support landing
 [] spawn {
-	player setPos [7957,9862];
-	player setDir 270;
+	{
+		player setPos [7957,9862];
+		player setDir 270;
+	} forEach allPlayers;
 	
 	[requestGhosthawkSupportObj, ["request Ghosthawk (NATO)", {[[[7957,9862],"ghosthawk",nil,configNull,false,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	[requestHummingbirdSupportObj, ["request Hummingbird (NATO)", {[[[7957,9862],"hummingbird",nil,configNull,false,false,BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
@@ -569,4 +571,9 @@ addMissionEventHandler ["EntityKilled", {
 	220, //_groupsLimit: max 288 since v1.67
 	false //_debug: enable debug
 	] execVM "scripts\PopulateMapBuildings.sqf";*/
+};
+
+//allow all players to zeus, kinda
+[] spawn {
+	execVM "scripts\AddZeusAllPlayers.sqf";
 };

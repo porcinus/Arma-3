@@ -1,3 +1,6 @@
+//NNS : DEV, disable damage
+player allowDamage false;
+
 //NNS : varible to ignore unit for compute group center
 player setVariable ["recovery",true,true];
 [] spawn {sleep 5; player setVariable ["recovery",false,true];};

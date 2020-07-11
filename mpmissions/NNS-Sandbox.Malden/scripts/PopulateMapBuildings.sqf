@@ -34,11 +34,30 @@ Example :
 		_null = execVM "scripts\PopulateMapBuildings.sqf"
 	
 	Populate using random CSAT units:
-		_null = [10, east, configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry"]
+		_null = [10, east, configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry"] execVM "scripts\PopulateMapBuildings.sqf"
 
 	Populate using CSAT units with West side:
-		_null = [10, west, [configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad"]]
+		_null = [10, west, [configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad"]] execVM "scripts\PopulateMapBuildings.sqf"
 
+Dependencies:
+	in description.ext:
+		class CfgFunctions {
+			class NNS {
+				class missionfunc {
+					file = "nns_functions";
+					class debugOutput {};
+					class AIskill {};
+				};
+			};
+		};
+
+	nns_functions folder:
+		fn_debugOutput.sqf
+		fn_AIskill.sqf
+		
+	script folder:
+		LimitEquipment.sqf
+		PopulateMapBuildings.sqf
 */
 
 params [
