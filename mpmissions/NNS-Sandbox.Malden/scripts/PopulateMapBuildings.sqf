@@ -242,6 +242,8 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 			{ //objects loop
 				if (damage _x < 1) then { //object not destroyed
 					if (random 1 > _populateChance) then { //lucky enough to spawn units in building
+						_damageAllowed = local _x && isDamageAllowed _x; //is damage allowed on building
+						if (_damageAllowed) then {_x allowDamage false}; //disable damage during spawn progress
 						_buildingPosList = _x buildingPos -1; //positions in building, done here to avoid massive memory usage
 						_buildingPosNewList = []; //new positions array
 						_buildingPosLimit = round ((count _buildingPosList) * (_buildingPosMin + (random (_buildingPosMax - _buildingPosMin)))); //limited position count
@@ -297,6 +299,8 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 						};
 						
 						if (_debug) then {[_x,0,"ColorBlue","mil_dot"] call fn_marker}; //debug: object marker
+						
+						if (_damageAllowed) then {_x allowDamage true}; //enable damage again
 					};
 				} else { //building is destroyed
 					if (_debug) then {[_x,0,"ColorRed","mil_dot"] call fn_marker}; //debug: object marker
