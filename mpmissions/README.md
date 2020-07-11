@@ -254,7 +254,9 @@ What's done so far (missing some for sure):
 			- Can join specified group if same side, otherwise with stalk enemy group (relative to spawned units).
 			- Can set waypoints using a "sync" unit (unit with waypoints that is used as storage, deleted when waypoints copied).
 		- Land if valid position found, paradrop if not.
-
+	- Allow all players to Zeus (partially), Since script is exectuted after server start, some features can't be used (even with proper modules added, trust me, I wasted a whole afternoon on this).
+	- Populate most buildings on the map script (more on this later, scripts\PopulateMapBuildings.sqf).
+	
 - Inventory:
 	- When respawn with previous loadout, refill primary weapon magazine to 25 rounds.
 	- Jerrycan contain is visible in inventory screen when player have a jerrycan.
