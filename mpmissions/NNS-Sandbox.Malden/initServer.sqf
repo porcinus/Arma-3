@@ -509,7 +509,7 @@ addMissionEventHandler ["EntityKilled", {
 
 //spawn vehicle on road (advanced)
 [] spawn {
-	[getPos spawnVehicleOnRoadUnit,25,false,[],400,100,0.5,0.7,0,1,true,[],true,spawnVehicleOnRoadUnit,true] call NNS_fnc_spawnVehicleOnRoad_Adv;
+	[getPos spawnVehicleOnRoadUnit,25,false,[],200,100,0.5,0.7,0,1,true,[],true,spawnVehicleOnRoadUnit,true] call NNS_fnc_spawnVehicleOnRoad_Adv;
 };
 
 //spawn flare
@@ -547,10 +547,18 @@ addMissionEventHandler ["EntityKilled", {
 
 //populate map buildings
 [] spawn {
+	//[1, west, ""] execVM "scripts\PopulateMapBuildings.sqf";
+	//[1, west, configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad"] execVM "scripts\PopulateMapBuildings.sqf";
+	//[1, west, [configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad"]] execVM "scripts\PopulateMapBuildings.sqf";
+	//[1, west, configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry", true] execVM "scripts\PopulateMapBuildings.sqf";
+	[1, east, "", true] execVM "scripts\PopulateMapBuildings.sqf";
+	
+	/*
 	[
 	1, //_detectInterval: populate interval
 	west, //_side: spawned units side
-	[configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad"], //_class: spawned group class
+	configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry", //_class: spawned group class
+	true, //_oneGroupPerChunk: create a single group for a whole chunk
 	250, //_chunkSize: chunk size in m2
 	[], //_classesToIgnore: objects class to ignore
 	10, //_minObjectWH: minimum X-Y object size
@@ -560,5 +568,5 @@ addMissionEventHandler ["EntityKilled", {
 	0.7, //_buildingPosMax: maximum used position in building
 	220, //_groupsLimit: max 288 since v1.67
 	false //_debug: enable debug
-	] execVM "scripts\PopulateMapBuildings.sqf";
+	] execVM "scripts\PopulateMapBuildings.sqf";*/
 };
