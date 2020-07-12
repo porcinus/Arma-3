@@ -25,6 +25,8 @@ Dependencies:
 		
 	script folder:
 		AddZeusAllPlayers.sqf
+		
+		TODO, if player die, need to reset its curator
 */
 
 _players = []; //store players pointer
@@ -80,11 +82,23 @@ while {true} do {
 			_playersCurator pushBack objNull; //empty curator for now
 			_playersCuratorAttributes pushBack []; //empty curator attributes for now
 			[format["AddZeusAllPlayers.sqf: player:%1, UID:%2, index:%3 added to players list", _x, _playerUID, _playersUID find _playerUID]] call NNS_fnc_debugOutput; //debug
+		} else {
+			if (!(_playerUID == "") && {_playerUID in _playersUID}) then { //current player in array
+				_index = _playersUID find _playerUID; //recover player index
+				if (!(_index == -1) && {!((_players select _index) isEqualTo _x)}) then {//player in array and player object missmatch (died?)
+					_players set [_index, _x]; //update player pointer in array
+					_tmpCurator = _playersCurator select _index; //recover old player curator
+					unassignCurator _tmpCurator; //unassign old curator
+					_x assignCurator _tmpCurator; //assign current player to old curator
+					[format["AddZeusAllPlayers.sqf: player:%1, UID:%2, index:%3 missmatch, curator updated", _x, _playerUID, _index]] call NNS_fnc_debugOutput; //debug
+				};
+			};
 		};
 	} forEach allPlayers - (entities "HeadlessClient_F"); //all players - headless server
 	
 	_playersZeusCount = count _playersZeus; //zeus amount
 	_allObjects = allMissionObjects "all"; //all mission objects
+	
 	for [{_index = 0}, {_index < _playersZeusCount}, {_index = _index + 1}] do { //zeus creation/update loop
 		if !(_playersZeus select _index) then { //zeus modules not already created for current player
 			_player = _players select _index; //recover current player pointer
