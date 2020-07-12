@@ -48,16 +48,15 @@ missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["Preloa
 	
 	removeMissionEventHandler ["PreloadFinished", missionNamespace getVariable ["_initialRespawn", -1]];
 	missionNamespace setVariable ["_initialRespawn", nil];
-/*
-	if (didJIP and (time > 30)) then
-	{
+	
+	if (didJIP and (time > 30)) then {
 		player enableSimulationGlobal false;
 		player enableSimulation false;
 		player hideObjectGlobal true;
 		player hideObject true;
 		forceRespawn player;
 		deleteVehicle player;
-	};*/
+	};
 }]];
 
 // Set available loadout
