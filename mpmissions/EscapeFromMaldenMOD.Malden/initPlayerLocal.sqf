@@ -32,7 +32,7 @@ missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["Preloa
 	} else {player setPos getPos (leader group player);}; //initial respawn don't exist, spawn on group leader
 	removeMissionEventHandler ["PreloadFinished", missionNamespace getVariable ["_initialRespawn", -1]];
 	missionNamespace setVariable ["_initialRespawn", nil];
-/*
+	
 	if (didJIP and (time > 30)) then {
 		player enableSimulationGlobal false;
 		player enableSimulation false;
@@ -40,7 +40,7 @@ missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["Preloa
 		player hideObject true;
 		forceRespawn player;
 		deleteVehicle player;
-	};*/
+	};
 }]];
 
 //NNS : Add respawn inventories
