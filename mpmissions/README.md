@@ -209,6 +209,8 @@ Can be useful to understand how specific functions like 'spawnVehicleOnRoad_Adv'
 [![prev](NNS-Sandbox.Malden%20preview/preview/map-spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/map-spawnvehionroad01.jpg)
 [![prev](NNS-Sandbox.Malden%20preview/preview/spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/spawnvehionroad01.jpg)
 [![prev](NNS-Sandbox.Malden%20preview/preview/helisupportlanding01.jpg)](NNS-Sandbox.Malden%20preview/helisupportlanding01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/helisupportlanding02.jpg)](NNS-Sandbox.Malden%20preview/helisupportlanding02.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/populatebuildings01.jpg)](NNS-Sandbox.Malden%20preview/populatebuildings01.jpg)
   
 Helicopter airborne units support demo : [https://www.youtube.com/watch?v=D\_s5CR9jc58](https://www.youtube.com/watch?v=D_s5CR9jc58)  
   
