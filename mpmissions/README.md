@@ -245,8 +245,8 @@ What's done so far (missing some for sure):
 	- Friendly AI is dumb : a script is used to limit damage (no inclure one shot) from friendly AI.
 	- Server will try to backup/restore player stats if player disconnected/crashed and reconnect.
 	- Lamps can sometime flicker with noise.
-	- Drawable whiteboard, work only locally, mouse left button to draw.
-	- Helicopter airborne units support:
+	- Drawable whiteboard (scripts\DrawOnSurface.sqf), work only locally, mouse left button to draw.
+	- Helicopter airborne units support (scripts\HeliSupportLanding.sqf):
 		- Allow deployment of AI units on field.
 		- High scalability:
 			- Allow usage of most helicopters (cargo capacity detected via config) / group class / side.
@@ -254,8 +254,12 @@ What's done so far (missing some for sure):
 			- Can join specified group if same side, otherwise with stalk enemy group (relative to spawned units).
 			- Can set waypoints using a "sync" unit (unit with waypoints that is used as storage, deleted when waypoints copied).
 		- Land if valid position found, paradrop if not.
-	- Allow all players to Zeus (partially), Since script is exectuted after server start, some features can't be used (even with proper modules added, trust me, I wasted a whole afternoon on this).
-	- Populate most buildings on the map script (more on this later, scripts\PopulateMapBuildings.sqf).
+	- Allow all players to Zeus (scripts\AddZeusAllPlayers.sqf), script is exectuted during perInit to avoid lossing ability to edit objects.
+	- Populate most buildings on the map script (scripts\PopulateMapBuildings.sqf):
+		- Work using a chunk system to reduce load as most as possible. But still use a massive amount of memory because script need to store every single buildings pointer.
+		- Choise to use chunks avoid risk of populate or clean same chunk multiple time during the same loop.
+		- Many optimizations need to be done but script look stable for now.
+		- Look at script header for more info.
 	
 - Inventory:
 	- When respawn with previous loadout, refill primary weapon magazine to 25 rounds.
