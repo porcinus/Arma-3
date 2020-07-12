@@ -346,6 +346,15 @@ player addEventHandler ["Dammaged", { //The typo is "intentional": it is Dammage
 missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["PreloadFinished", {
 	removeMissionEventHandler ["PreloadFinished", missionNamespace getVariable ["_initialRespawn", -1]];
 	missionNamespace setVariable ["_initialRespawn", nil];
+	
+	if (didJIP and (time > 30)) then {
+		player enableSimulationGlobal false;
+		player enableSimulation false;
+		player hideObjectGlobal true;
+		player hideObject true;
+		forceRespawn player;
+		deleteVehicle player;
+	};
 }]];
 
 //NNS: try to handle refuel glitch for escape vehicles when hit by zombies

@@ -33,6 +33,8 @@ if (_command != "ON" && _command != "OFF") exitWith {['NNS_fnc_vehicleLightOnOff
 _damage = [1,0] select (_command == "ON"); //damage to apply
 
 _vehiHit = getAllHitPointsDamage _vehicle; //get vehicle hitpoints array
+if (count _vehiHit < 2) exitWith {["NNS_fnc_vehicleLightOnOff : Failed to get hitpoints array"] call NNS_fnc_debugOutput};
+
 _vehiHitName = _vehiHit select 0; //extract hitpoints name array
 _vehiHitNew = _vehiHit select 2; //array to send to client
 _vehiHitCount = (count _vehiHitName) - 1; //number of hitpoints
