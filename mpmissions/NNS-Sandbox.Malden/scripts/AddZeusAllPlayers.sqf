@@ -1,14 +1,15 @@
 /*
 NNS
-Allow all players to zeus (partially).
+Allow all players to zeus.
 
 Notes:
-- Since script is exectuted after server start, some features can't be used (even with proper modules added, trust me, I wasted a whole afternoon on this).
-- Objects editing won't work.
-- Recreate everything needed if wrong Logic group deleted.
+- Should be run during preInit.
+- If script is exectuted after server start, some features can't be used (even with proper modules added, trust me, I wasted a whole afternoon on this).
+- To kill the script, set global NNSkillZeusLoop to true.
+- Amount of Curator slots are can be found by looking at NNSZeusSlot global var.
 
 Usage : _null = execVM "scripts\AddZeusAllPlayers.sqf";
-fn_addZeusAllPlayers
+
 Dependencies:
 	in description.ext:
 		class CfgFunctions {
@@ -28,6 +29,107 @@ Dependencies:
 		
 */
 
+params [
+["_maxPlayers", 0] //if set to 0, script will try to detect number of playable slots
+];
+
+if !(isServer) exitWith {}; //server only script
+if (_maxPlayers == 0) then {_maxPlayers = (playableSlotsNumber west) + (playableSlotsNumber east) + (playableSlotsNumber resistance) + (playableSlotsNumber civilian)}; //try to detect slot amount
+if (_maxPlayers == 0) exitWith {["AddZeusAllPlayers.sqf: failed to detect playable slots numbers"] call NNS_fnc_debugOutput};
+[format["AddZeusAllPlayers.sqf: detected playable slots amount:%1", _maxPlayers]] call NNS_fnc_debugOutput; //debug
+missionNamespace setVariable ["NNSZeusSlot",_maxPlayers,true]; //public var
+
+_curators = []; //curators objects array
+_curatorAttributes = []; //curator attributes objects array
+_players = []; //store players pointer
+_playersUID = []; //store players UID, used to allow new comer to zeus
+_playersUIDpresent = []; //store if player UID still present in server, allow freed curator
+_playersCurator = []; //players curators link array
+
+_curatorLogicGroup = creategroup sideLogic; //create a logic group for all curator and curator attributes objects
+_curatorLogicGroup setGroupIdGlobal ["AddZeusAllPlayers.sqf"]; //set group name
+[format["AddZeusAllPlayers.sqf: logic group created:%1",groupId _curatorLogicGroup]] call NNS_fnc_debugOutput; //debug
+
+for [{_i = 0}, {_i < _maxPlayers}, {_i = _i + 1}] do { //curator modules creation
+	_tmpCurator = _curatorLogicGroup createunit ["ModuleCurator_F", [0,0,0], [], 0, "CAN_COLLIDE"]; //create new curator module
+	_tmpCurator setvariable ["text", format["ZeusCurator%1", _i] ,true]; //module name
+	_tmpCurator setvariable ["Addons", 3, true]; //allow all addons, may not work if time > 0
+	_tmpCurator setvariable ["owner", "objNull" ,true]; //no owner
+	unassignCurator _tmpCurator; objNull assignCurator _tmpCurator;//unassign curator
+	_curators pushBack _tmpCurator; //backup curator object
+	_playersCurator pushBack objNull; //null player curator link
+};
+
+if (time > 0) then {["AddZeusAllPlayers.sqf: warning, time>0, some Zeus feature may not work"] call NNS_fnc_debugOutput}; //debug
+
+while {!(missionNamespace getVariable ["NNSkillZeusLoop", false])} do { //main loop
+	_playersUIDpresent = []; {_playersUIDpresent pushBack false} forEach _playersUID; //reset player UID still present in server array
+	
+	{ //all players - headless server loop
+		_playerUID = getPlayerUID _x; //recover player UID
+		if (_playerUID in _playersUID) then {_playersUIDpresent set [(_playersUID find _playerUID), true]}; //player UID still present
+		
+		if (!(_playerUID == "") && {!(_playerUID in _playersUID)}) then { //player has UID and no in array
+			_curatorSlot = _playersCurator find objNull; //search free curator slot
+			if !(_curatorSlot == -1) then { //curator slot available
+				_players pushBack _x; //add player object pointer to array
+				_playersUID pushBack _playerUID; //add UID to array
+				_playersCurator set [_curatorSlot, _x]; //add player object pointer in players curators link
+				_x assignCurator (_curators select _curatorSlot); //assign current player to right curator
+				[format["AddZeusAllPlayers.sqf: player:%1, UID:%2, index:%3 added to curators list", _x, _playerUID, _playersUID find _playerUID]] call NNS_fnc_debugOutput; //debug
+			} else {[format["AddZeusAllPlayers.sqf: player:%1, UID:%2, no curator slot available for now", _x, _playerUID]] call NNS_fnc_debugOutput}; //debug
+		} else {
+			if (!(_playerUID == "") && {_playerUID in _playersUID}) then { //current player in array
+				_index = _playersUID find _playerUID; //recover player index
+				if (!((_players select _index) isEqualTo _x)) then { //player object missmatch (died?)
+					_oldPlayer = _players select _index; //recover old player object
+					_curatorSlot = _playersCurator find _oldPlayer; //search player curator index
+					if !(_curatorSlot == -1) then { //player curator index found
+						unassignCurator (_curators select _curatorSlot); //unassign curator
+						_players set [_index, _x]; //update player object
+						_playersCurator set [_curatorSlot, _x]; //update player curator object
+						_x assignCurator (_curators select _curatorSlot); //assign current player to right curator
+						[format["AddZeusAllPlayers.sqf: player:%1, UID:%2, curator link updated", _x, _playerUID]] call NNS_fnc_debugOutput; //debug
+					} else { //player curator index not found
+						_curatorSlot = _playersCurator find objNull; //search free curator slot
+						if !(_curatorSlot == -1) then { //curator slot available
+							_playersCurator set [_curatorSlot, _x]; //add player object pointer in players curators link
+							_x assignCurator (_curators select _curatorSlot); //assign current player to right curator
+						[format["AddZeusAllPlayers.sqf: player:%1, UID:%2, index:%3 added to curators list", _x, _playerUID, _playersUID find _playerUID]] call NNS_fnc_debugOutput; //debug
+						} else {[format["AddZeusAllPlayers.sqf: player:%1, UID:%2, no curator slot available for now", _x, _playerUID]] call NNS_fnc_debugOutput}; //debug
+					};
+				};
+			};
+		};
+	} forEach allPlayers - (entities "HeadlessClient_F"); //all players - headless server
+	
+	playerUIDcount = count _playersUID;
+	for [{_i = 0}, {_i < playerUIDcount}, {_i = _i + 1}] do { //player UID no more present loop
+		if !(_playersUIDpresent select _i) then { //player no more in server
+			_oldPlayer = _players select _i; //recover old player object
+			_curatorSlot = _playersCurator find _oldPlayer; //search player curator index
+			if !(_curatorSlot == -1) then { //player curator index found
+				[format["AddZeusAllPlayers.sqf: UID:%1 not more on server, curator:%2 freed", _playersUID select _i, _curators select _curatorSlot]] call NNS_fnc_debugOutput; //debug
+				unassignCurator (_curators select _curatorSlot); //unassign curator
+				_playersCurator set [_curatorSlot, objNull]; //null player curator link
+			};
+		};
+	};
+	
+	sleep 5; //wait a bit
+	
+	_curatorsCount = count _curators; //curator amount
+	_allObjects = allMissionObjects "all"; //all mission objects
+	for [{_i = 0}, {_i < _curatorsCount}, {_i = _i + 1}] do { //curators editable objects loop
+		if !(isNull (_playersCurator select _i)) then { //player curator link not null
+			(_curators select _i) addCuratorEditableObjects [_allObjects, true]; //allow edit of all mission objects, incl crew
+			(_curators select _i) removeCuratorEditableObjects [_curators]; //disable edit of curator objects
+		};
+	};
+};
+
+/*
+//keep this part, could be useful for other scripts
 _players = []; //store players pointer
 _playersUID = []; //store players UID, used to allow new comer to zeus
 _playersZeus = []; //zeus instance already created
@@ -141,3 +243,4 @@ while {true} do {
 		sleep 5; //wait a bit
 	};
 };
+*/

@@ -194,9 +194,10 @@ wreckRemovalMaxTime = 360;	// Maximal time in seconds after which a wreck is rem
 minPlayerDistance = 100;		// Bodies and wrecks in this vicinity of players will not be deleted even if the timer/limit condition is met.
 
 class CfgFunctions {
-	
 	class NNS {
 		class Sandbox {
+			class preInit {file = "preInit.sqf"; preInit = 1;};
+			
 			file = "nns_functions";
 			//debug
 			class debugOutput {};

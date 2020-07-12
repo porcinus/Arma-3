@@ -466,6 +466,9 @@ addMissionEventHandler ["EntityKilled", {
 
 
 //NNS: Beginning of test part
+
+
+
 /*
 //populate buildings
 [] spawn {
@@ -571,9 +574,4 @@ addMissionEventHandler ["EntityKilled", {
 	220, //_groupsLimit: max 288 since v1.67
 	false //_debug: enable debug
 	] execVM "scripts\PopulateMapBuildings.sqf";*/
-};
-
-//allow all players to zeus, kinda
-[] spawn {
-	execVM "scripts\AddZeusAllPlayers.sqf";
 };

@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=303;
+		nextID=309;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=104;
+		nextID=114;
 	};
 	class Camera
 	{
-		pos[]={8040.3047,54.612938,10118.525};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={7949.2295,54.709206,9846.3086};
+		dir[]={0.45125079,-0.74575943,0.49018291};
+		up[]={0.50509775,0.66620529,0.54867631};
+		aside[]={0.73574275,-3.7194695e-007,-0.6773082};
 	};
 };
 binarizationWanted=0;
@@ -31,6 +31,7 @@ addons[]=
 {
 	"A3_Characters_F",
 	"A3_Characters_F_Mark",
+	"ravage",
 	"A3_Structures_F_Items_Vessels",
 	"A3_Structures_F_Civ_Lamps",
 	"A3_Soft_F_Gamma_SUV_01",
@@ -45,7 +46,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=8;
+		items=9;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -62,40 +63,46 @@ class AddonsMetaData
 		};
 		class Item2
 		{
+			className="ravage";
+			name="ravage";
+			author="Haleks";
+		};
+		class Item3
+		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item4
 		{
 			className="A3_Soft_F_Gamma";
 			name="Arma 3 - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item5
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item6
 		{
 			className="A3_Air_F";
 			name="Arma 3 Alpha - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item7
 		{
 			className="A3_Structures_F_Oldman";
 			name="Arma 3 Oldman - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item8
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
