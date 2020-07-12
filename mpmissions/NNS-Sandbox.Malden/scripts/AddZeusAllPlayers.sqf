@@ -26,7 +26,6 @@ Dependencies:
 	script folder:
 		AddZeusAllPlayers.sqf
 		
-		TODO, if player die, need to reset its curator
 */
 
 _players = []; //store players pointer
