@@ -213,6 +213,7 @@ Can be useful to understand how specific functions like 'spawnVehicleOnRoad_Adv'
 [![prev](NNS-Sandbox.Malden%20preview/preview/populatebuildings01.jpg)](NNS-Sandbox.Malden%20preview/populatebuildings01.jpg)
   
 Helicopter airborne units support demo : [https://www.youtube.com/watch?v=D\_s5CR9jc58](https://www.youtube.com/watch?v=D_s5CR9jc58)  
+Populate map buildings demo : [https://www.youtube.com/watch?v=cdWG1WQz2b4](https://www.youtube.com/watch?v=cdWG1WQz2b4)  
   
 ```
 What's done so far (missing some for sure):
@@ -261,6 +262,7 @@ What's done so far (missing some for sure):
 		- Work using a chunk system to reduce load as most as possible. But still use a massive amount of memory because script need to store every single buildings pointer.
 		- Choise to use chunks avoid risk of populate or clean same chunk multiple time during the same loop.
 		- Many optimizations need to be done but script look stable for now.
+		- Allow to spawn patrols if specific chunk contain objects.
 		- Look at script header for more info.
 	
 - Inventory:
