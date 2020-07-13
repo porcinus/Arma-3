@@ -28,6 +28,8 @@ Notes:
 - Note all selected buildings will be populated, look at _populateChance,_buildingPosMin,_buildingPosMax params for this.
 - If groups count on the server goes over _groupsLimit, this script will continue to work but do nothing until everything goes back to normal.
 - if _oneGroupPerChunk set to true, weird behave could happen but highly decrease groups count.
+- If _populateChance set to -1, script will decide on its own the "right" chance value based on objects in chunk. 60% if objects count = median, 10% for highest objects count.
+- To kill the script, set global NNSkillPopulatedMapLoop to true.
 
 Example :
 	Populate using default settings:
@@ -64,16 +66,18 @@ params [
 	["_detectInterval",10], //populate interval
 	["_side",west], //spawned units side
 	["_class",""], //spawned group class
-	["_oneGroupPerChunk",false], //create a single group for a whole chunk
+	["_oneGroupPerChunk",true], //create a single group for a whole chunk
+	["_spawnPatrol",true], //allow to sometime spawn one or more patrols
 	["_chunkSize",250], //chunk size in m2
 	["_classesToIgnore",[]], //objects class to ignore
 	["_minObjectWH",10], //minimum X-Y object size
 	["_populatePadding",2], //chunk padding to populate, >0 needed
-	["_populateChance",0.6], //amount of change to spawn units in a building
+	["_populateChance",-1], //amount of change to spawn units in a building
 	["_buildingPosMin",0.3], //minimum used position in building (can be round to 0)
 	["_buildingPosMax",0.7], //maximum used position in building
 	["_groupsLimit",220], //max 288 since v1.67
-	["_debug",false] //enable debug
+	["_debug",false], //enable debug
+	["_debugSpawnEveryone",false] //spawn every units possible, use at your own risk
 ];
 
 if (_detectInterval < 1) then {_detectInterval = 10};
@@ -130,6 +134,12 @@ if (!(_class isEqualType []) || {(count _class) == 0}) exitWith {["PopulateMapBu
 [format["PopulateMapBuildings.sqf: _class : %1", _class]] call NNS_fnc_debugOutput; //debug
 
 [format["PopulateMapBuildings.sqf: set to one group per %1", ["building","chunk"] select (_oneGroupPerChunk)]] call NNS_fnc_debugOutput; //debug
+
+_autoPopulateChance = false;
+if (_populateChance == -1) then {
+	_autoPopulateChance = true;
+	["PopulateMapBuildings.sqf: building population based on amount objects in chuck"] call NNS_fnc_debugOutput;
+};
 
 if (_populatePadding < 1) then {_populatePadding = 2};
 if (_populateChance < 0.1) then {_populateChance = 0.1};
@@ -244,9 +254,11 @@ _buildingsClasses = []; //building classes with "position in building"
 	};
 } forEach _objectList;
 
-_objectList = nil; /*_buildingsClasses = nil;*/ _classesToIgnore = nil; //no more used, free memory
+_objectList = nil; _buildingsClasses = nil; _classesToIgnore = nil; //no more used, free memory
 
 //mark empty chunk
+_chunksWithObjectsCount = 0; //amount of chunks with objects detected
+_biggestChunkCount = 0; //biggest amount of objects in a chunk
 _objectsCount = 0; //amount of objects detected
 for "_i" from 0 to (_worldChunksCount - 1) do {
 	_tmpCount = count (_chunksObjects select _i); //amount of objects in current chunk
@@ -265,66 +277,84 @@ for "_i" from 0 to (_worldChunksCount - 1) do {
 	} else { //has objects
 		_chunksToResetBase pushback true; //allow current chunk to be reset
 		_objectsCount = _objectsCount + _tmpCount; //increment objects count
+		_chunksWithObjectsCount = _chunksWithObjectsCount + 1; //increment chunks with objects count
+		if (_tmpCount > _biggestChunkCount) then {_biggestChunkCount = _tmpCount}; //update biggest amount of objects in a chunk
 	};
 };
 
+_medianObjectsPerChunk = round (_objectsCount / _chunksWithObjectsCount); //median amount of objects per chunk
+
 [format["PopulateMapBuildings.sqf: _worldSize:%1, _worldChunks:%2, _worldChunksCount:%3", _worldSize, _worldChunks, _worldChunksCount]] call NNS_fnc_debugOutput; //debug
+[format["PopulateMapBuildings.sqf: %1 chunks with objects", _chunksWithObjectsCount]] call NNS_fnc_debugOutput; //debug
 [format["PopulateMapBuildings.sqf: %1 objects detected via chunk", _objectsCount]] call NNS_fnc_debugOutput; //debug
-[format["PopulateMapBuildings.sqf: %1 classes with 'position in building'", count _buildingsClasses]] call NNS_fnc_debugOutput; //debug
+[format["PopulateMapBuildings.sqf: biggest object count in a chunk:%1", _biggestChunkCount]] call NNS_fnc_debugOutput; //debug
+[format["PopulateMapBuildings.sqf: median objects count per chunk:%1", _medianObjectsPerChunk]] call NNS_fnc_debugOutput; //debug
+//[format["PopulateMapBuildings.sqf: %1 classes with 'position in building'", count _buildingsClasses]] call NNS_fnc_debugOutput; //debug
 [format["PopulateMapBuildings.sqf: %1 markers created", missionNamespace getVariable ["NNSPMBmkrCnt", 0]]] call NNS_fnc_debugOutput; //debug
 
+//debug: count units/groups on the map each 60sec
+if (_debug) then {
+	[] spawn {
+		while {sleep 60; true} do {
+			[format["PopulateMapBuildings.sqf: group counts on server:%1", count allGroups]] call NNS_fnc_debugOutput;
+			[format["PopulateMapBuildings.sqf: units counts on server:%1", count allUnits]] call NNS_fnc_debugOutput;
+			[format["PopulateMapBuildings.sqf: %1 markers created", missionNamespace getVariable ["NNSPMBmkrCnt", 0]]] call NNS_fnc_debugOutput;
+		};
+	};
+};
 
 //populate loop
-_startTime = time;
-[format["PopulateMapBuildings.sqf: starting populate loop : %1sec", _startTime]] call NNS_fnc_debugOutput; //debug
-while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} do { //loop until all chunks populated
+["PopulateMapBuildings.sqf: starting populate loop"] call NNS_fnc_debugOutput; //debug
+while {sleep _detectInterval; !(missionNamespace getVariable ["NNSkillPopulatedMapLoop", false])} do { //loop until kill var set to true
 	_chunksToPopulate = []; //chunks to populate array
 	_chunksBlacklist = []; //chunks blacklisted (contain players)
 	_chunksToReset = +(_chunksToResetBase); //copy chunk to reset initial array
 	
-	{ //players loop
-		_playerUID = getPlayerUID _x; //recover player UID
-		if (!(_playerUID == "") && {alive _x} && {!((vehicle _x) isKindOf "Ship")} && {!((vehicle _x) isKindOf "Air")}) then { //ignore dead players or players in air or ship kind vehicle
-			_playerPos = getPos (vehicle _x); //player position
-			if !(_playerUID in _playersUID) then {
-				_playersUID pushBack _playerUID; //store player UID
-				_playersPos pushBack _playerPos; //store player position
-				_playersDir pushBack 1000; //store fake direction
-			};
-			
-			_playerIndex = _playersUID find _playerUID; //recover player index
-			_playerLastPos = _playersPos select _playerIndex; //recover last position
-			_playerDir = _playersDir select _playerIndex; //recover last direction
-			
-			if ((_playerLastPos distance2D _playerPos) > 50) then { //update player direction only if moved over 50m
-				_playerDir = _playerLastPos getDir _playerPos; //compute new direction
-				_playersPos set [_playerIndex, _playerPos]; //update old player position
-				_playersDir set [_playerIndex, _playerDir]; //update old player direction
-				//[format["PopulateMapBuildings.sqf: %1 position/direction updated (%2m)", _playerUID, _playerLastPos distance2D _playerPos]] call NNS_fnc_debugOutput; //debug
-			};
-			
-			if (_debug) then {[format ["mrkPlayerDir%1",_playerIndex],_playerPos,_playerPos getPos [1000, _playerDir],"ColorYellow",1,1] call NNS_fnc_MapDrawLine}; //debug: draw direction line
-			
-			if !(_playerDir == 1000) then { //valid direction
-				_playerChunksX = floor ((_playerPos select 0) / _chunkSize); //X chunk position
-				_playerChunksY = floor ((_playerPos select 1) / _chunkSize); //Y chunk position
-				_playerChunk = (_playerChunksY * _worldChunks) + _playerChunksX; //cumulative chunk position
-				_playerChunksXmin = _playerChunksX - _populatePadding; _playerChunksXmax = _playerChunksX + _populatePadding;
-				_playerChunksYmin = _playerChunksY - _populatePadding; _playerChunksYmax = _playerChunksY + _populatePadding;
+	if !(_debugSpawnEveryone) then {
+		{ //players loop
+			_playerUID = getPlayerUID _x; //recover player UID
+			if (!(_playerUID == "") && {alive _x} && {!((vehicle _x) isKindOf "Ship")} && {!((vehicle _x) isKindOf "Air")}) then { //ignore dead players or players in air or ship kind vehicle
+				_playerPos = getPos (vehicle _x); //player position
+				if !(_playerUID in _playersUID) then {
+					_playersUID pushBack _playerUID; //store player UID
+					_playersPos pushBack _playerPos; //store player position
+					_playersDir pushBack 1000; //store fake direction
+				};
 				
-				for [{_tmpY = _playerChunksYmin}, {_tmpY < _playerChunksYmax + 1}, {_tmpY = _tmpY + 1}] do { //Y loop
-					if (_tmpY > -1 && _tmpY < _worldChunks) then { //Y not out of bound
-						for [{_tmpX = _playerChunksXmin}, {_tmpX < _playerChunksXmax + 1}, {_tmpX = _tmpX + 1}] do { //X loop
-							if (_tmpX > -1 && _tmpX < _worldChunks) then { //X not out of bound
-								_tmpChunk = (_tmpY * _worldChunks) + _tmpX; //current chunk
-								_chunksToReset set [_tmpChunk, false]; //disable reset for current chunk
-								if ((_tmpX == _playerChunksX) && (_tmpY == _playerChunksY)) then {_chunksBlacklist pushBack _tmpChunk}; //blacklist player chuck
-								if (abs (_playerChunksX - _tmpX) == _populatePadding || abs (_playerChunksY - _tmpY) == _populatePadding) then { //one chunk padding
-									if (!(_tmpChunk in _chunksEmpty) && {!(_tmpChunk in _chunksBlacklist)} && {!(_tmpChunk in _chunksToPopulate)} && {!(_tmpChunk in _chunksPopulated)}) then { //chunk not empty, blacklisted, to populate, populated
-										_tmpChunkPos = [((_tmpX * _chunkSize) + (_chunkSize / 2)), ((_tmpY * _chunkSize) + (_chunkSize / 2)), 0]; //center position of current chunk
-										_tmpChunkDist = _playerPos distance2D _tmpChunkPos; //player distance from current chunk
-										if ((_playerPos getPos [_tmpChunkDist, _playerDir]) inArea [_tmpChunkPos, _chunkSize / 2, _chunkSize / 2, 0, true]) then { //player direction cross current chunk
-											_chunksToPopulate pushBack _tmpChunk;
+				_playerIndex = _playersUID find _playerUID; //recover player index
+				_playerLastPos = _playersPos select _playerIndex; //recover last position
+				_playerDir = _playersDir select _playerIndex; //recover last direction
+				
+				if ((_playerLastPos distance2D _playerPos) > 50) then { //update player direction only if moved over 50m
+					_playerDir = _playerLastPos getDir _playerPos; //compute new direction
+					_playersPos set [_playerIndex, _playerPos]; //update old player position
+					_playersDir set [_playerIndex, _playerDir]; //update old player direction
+					//[format["PopulateMapBuildings.sqf: %1 position/direction updated (%2m)", _playerUID, _playerLastPos distance2D _playerPos]] call NNS_fnc_debugOutput; //debug
+				};
+				
+				if (_debug) then {[format ["mrkPlayerDir%1",_playerIndex],_playerPos,_playerPos getPos [1000, _playerDir],"ColorYellow",1,1] call NNS_fnc_MapDrawLine}; //debug: draw direction line
+				
+				if !(_playerDir == 1000) then { //valid direction
+					_playerChunksX = floor ((_playerPos select 0) / _chunkSize); //X chunk position
+					_playerChunksY = floor ((_playerPos select 1) / _chunkSize); //Y chunk position
+					_playerChunk = (_playerChunksY * _worldChunks) + _playerChunksX; //cumulative chunk position
+					_playerChunksXmin = _playerChunksX - _populatePadding; _playerChunksXmax = _playerChunksX + _populatePadding;
+					_playerChunksYmin = _playerChunksY - _populatePadding; _playerChunksYmax = _playerChunksY + _populatePadding;
+					
+					for [{_tmpY = _playerChunksYmin}, {_tmpY < _playerChunksYmax + 1}, {_tmpY = _tmpY + 1}] do { //Y loop
+						if (_tmpY > -1 && _tmpY < _worldChunks) then { //Y not out of bound
+							for [{_tmpX = _playerChunksXmin}, {_tmpX < _playerChunksXmax + 1}, {_tmpX = _tmpX + 1}] do { //X loop
+								if (_tmpX > -1 && _tmpX < _worldChunks) then { //X not out of bound
+									_tmpChunk = (_tmpY * _worldChunks) + _tmpX; //current chunk
+									_chunksToReset set [_tmpChunk, false]; //disable reset for current chunk
+									if ((_tmpX == _playerChunksX) && (_tmpY == _playerChunksY)) then {_chunksBlacklist pushBack _tmpChunk}; //blacklist player chuck
+									if (abs (_playerChunksX - _tmpX) == _populatePadding || abs (_playerChunksY - _tmpY) == _populatePadding) then { //one chunk padding
+										if (!(_tmpChunk in _chunksEmpty) && {!(_tmpChunk in _chunksBlacklist)} && {!(_tmpChunk in _chunksToPopulate)} && {!(_tmpChunk in _chunksPopulated)}) then { //chunk not empty, blacklisted, to populate, populated
+											_tmpChunkPos = [((_tmpX * _chunkSize) + (_chunkSize / 2)), ((_tmpY * _chunkSize) + (_chunkSize / 2)), 0]; //center position of current chunk
+											_tmpChunkDist = _playerPos distance2D _tmpChunkPos; //player distance from current chunk
+											if ((_playerPos getPos [_tmpChunkDist, _playerDir]) inArea [_tmpChunkPos, _chunkSize / 2, _chunkSize / 2, 0, true]) then { //player direction cross current chunk
+												_chunksToPopulate pushBack _tmpChunk;
+											};
 										};
 									};
 								};
@@ -333,8 +363,13 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 					};
 				};
 			};
-		};
-	} forEach allPlayers;
+		} forEach allPlayers;
+	} else { //spawn everyone on the map, mark all chunks as "to populate"
+		for "_i" from 0 to (_worldChunksCount - 1) do {if (!(_i in _chunksEmpty) && {!(_i in _chunksBlacklist)} && {!(_i in _chunksPopulated)}) then {_chunksToPopulate pushBack _i}};
+	};
+	
+	_newGrp = grpNull; //define group variable
+	if (_debugSpawnEveryone) then {_oneGroupPerChunk = true; _newGrp = createGroup [_side, true]}; //create a single massive group
 	
 	{ //chunks to populate loop
 		_tmpChunkIndex = _x; //backup current chunk
@@ -342,12 +377,42 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 		
 		if ((count allGroups) < (_groupsLimit + 1)) then { //under groups limit
 			_currentChunkObjects = _chunksObjects select _tmpChunkIndex; //pointer to chunk objects
-			_newGrp = grpNull; //reset group variable
-			if (_oneGroupPerChunk) then {_newGrp = createGroup [_side, true]}; //create group for whole chunk
+			_currentChunkObjectsCount = count _currentChunkObjects; //current chunk object count
+			
+			if !(_debugSpawnEveryone) then { //not spawn everyone on the map
+				_newGrp = grpNull; //reset group variable
+				if (_oneGroupPerChunk) then {_newGrp = createGroup [_side, true]}; //create group for whole chunk
+				
+				if (_spawnPatrol && ((count allGroups) < (_groupsLimit * 0.8))) then { //can spawn patrols and groups count on server under 80% of limit set on script param
+					_patrolLoops = round (linearConversion [_medianObjectsPerChunk, _biggestChunkCount, _currentChunkObjectsCount, 1, 4]); //bigger chunk mean more patrols loop
+					if (_patrolLoops > 0) then { //some patrols loop
+						_nearestRoad = objNull; //road object
+						_nearestRoadPos = [0,0,0]; //tmp position
+						_rad = (_chunkSize / 2) * 0.9; //radius limit
+						for "_i" from 0 to _patrolLoops do { //spawn patrol loop
+							if (random 1 > 0.5) then { //50% chance to spawn a patrol
+								_nearestRoad = [_tmpChunkCenter, _rad, [_nearestRoad]] call BIS_fnc_nearestRoad; //search nearest road
+								if !(isNull _nearestRoad) then {_nearestRoadPos = getPos _nearestRoad; //road found, use its position
+								} else {_nearestRoadPos = _tmpChunkCenter getPos [random 100, random 360]}; //failed to found a road, use generic position
+								_nearestRoadPos set [2,0]; //reset Z position
+								_patrolGrp = [_nearestRoadPos, _side, selectRandom (_class), [], [], [0.3, 0.3]] call BIS_fnc_spawnGroup; //patrol group
+								{_wp = _patrolGrp addWaypoint [_nearestRoadPos, _rad]; _wp setWaypointType "MOVE"; _wp setWaypointSpeed "LIMITED"; _wp setWaypointBehaviour "SAFE"} forEach [1, 2, 3, 4, 5]; //add waypoints
+								_wp = _patrolGrp addWaypoint [waypointPosition [_patrolGrp, 1], 0]; _wp setWaypointType "CYCLE"; //cycle waypoint
+								_patrolGrp enableDynamicSimulation true; //Enable Dynamic simulation
+								(_chunksGroups select _tmpChunkIndex) pushBack _patrolGrp; //add group to current chunk groups array
+							};
+						};
+					};
+				};
+			};
+			
+			if (_autoPopulateChance) then { //compute proper amount of chance for building populate
+				_populateChance = linearConversion [_medianObjectsPerChunk, _biggestChunkCount, _currentChunkObjectsCount, 0.6, 0.1]; //linear conversion
+			};
 			
 			{ //objects loop
 				if (damage _x < 1) then { //object not destroyed
-					if (random 1 > _populateChance) then { //lucky enough to spawn units in building
+					if (_populateChance > random 1) then { //lucky enough to spawn units in building
 						_damageAllowed = local _x && isDamageAllowed _x; //is damage allowed on building
 						if (_damageAllowed) then {_x allowDamage false}; //disable damage during spawn progress
 						_buildingPosList = _x buildingPos -1; //positions in building, done here to avoid massive memory usage
@@ -396,8 +461,7 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 								if (count units _newGrp > 0) then { //new group have units
 									_newGrp enableDynamicSimulation true; //Enable Dynamic simulation
 									_newGrp setCombatMode "YELLOW";
-									_tmpGroups = _chunksGroups select _tmpChunkIndex; //recover current chunk groups
-									_tmpGroups pushBack _newGrp; //add group to array
+									(_chunksGroups select _tmpChunkIndex) pushBack _newGrp; //add group to current chunk groups array
 								} else { //delete new group because empty
 									deleteGroup _newGrp;
 									[format["PopulateMapBuildings.sqf: GLITCH : chunk:%1 : empty new group", _tmpChunkIndex]] call NNS_fnc_debugOutput;
@@ -419,8 +483,7 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 				if (count units _newGrp > 0) then { //new group have units
 					_newGrp enableDynamicSimulation true; //Enable Dynamic simulation
 					_newGrp setCombatMode "YELLOW";
-					_tmpGroups = _chunksGroups select _tmpChunkIndex; //recover current chunk groups
-					_tmpGroups pushBack _newGrp; //add group to array
+					(_chunksGroups select _tmpChunkIndex) pushBack _newGrp; //add group to current chunk groups array
 				} else { //delete new group because empty
 					deleteGroup _newGrp;
 					[format["PopulateMapBuildings.sqf: GLITCH : chunk:%1 : empty new group", _tmpChunkIndex]] call NNS_fnc_debugOutput;
@@ -439,25 +502,22 @@ while {sleep _detectInterval; (count _chunksPopulated < _worldChunksCount + 1)} 
 		//_chunksObjects set [_tmpChunkIndex, nil]; //chunk no more used, free memory
 	} forEach _chunksToPopulate;
 	
-	for "_i" from 0 to (_worldChunksCount - 1) do { //chunks to reset loop
-		_tmpGroups = _chunksGroups select _i; //recover current chunk groups
-		if ((_chunksToReset select _i) && {count _tmpGroups > 0}) then { //chunk marked for reset and contain groups
-			{
-				{deleteVehicle _x} forEach units _x; //delete units from group
-				deleteGroup _x; //delete group
-			} forEach _tmpGroups; //groups loop
-			
-			missionNamespace setVariable [format ["chunkGrp%1", _i], []]; //reset array
-			
-			_tmpIndex = _chunksPopulated find _i; //search if current chunk in populated chunk array
-			if !(_tmpIndex == -1) then {_chunksPopulated deleteAt _tmpIndex}; //delete chunk from populated array
-			
-			if (_debug) then {format ["mrkChunk%1", _i] setMarkerColor "ColorBlue"}; //debug: change chunk marker color
+	if !(_debugSpawnEveryone) then { //don't reset chunks if spawn every units possible
+		for "_i" from 0 to (_worldChunksCount - 1) do { //chunks to reset loop
+			_tmpGroups = _chunksGroups select _i; //recover current chunk groups
+			if ((_chunksToReset select _i) && {count _tmpGroups > 0}) then { //chunk marked for reset and contain groups
+				{
+					{deleteVehicle _x} forEach units _x; //delete units from group
+					deleteGroup _x; //delete group
+				} forEach _tmpGroups; //groups loop
+				
+				missionNamespace setVariable [format ["chunkGrp%1", _i], []]; //reset array
+				
+				_tmpIndex = _chunksPopulated find _i; //search if current chunk in populated chunk array
+				if !(_tmpIndex == -1) then {_chunksPopulated deleteAt _tmpIndex}; //delete chunk from populated array
+				
+				if (_debug) then {format ["mrkChunk%1", _i] setMarkerColor "ColorBlue"}; //debug: change chunk marker color
+			};
 		};
-	};
-	
-	if (_debug && {(time - _startTime) > 60}) then { //debug
-		[format["PopulateMapBuildings.sqf: group counts on server:%1", count allGroups]] call NNS_fnc_debugOutput;
-		_startTime = time;
 	};
 };
