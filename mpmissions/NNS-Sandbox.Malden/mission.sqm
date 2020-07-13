@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=124;
+		nextID=129;
 	};
 	class Camera
 	{
 		pos[]={7897.3813,99.758965,9629.8281};
-		dir[]={0.059986923,-0.26317465,-0.96300828};
-		up[]={0.016364481,0.96471715,-0.26273084};
-		aside[]={-0.99817669,8.9490641e-007,-0.06217375};
+		dir[]={0.36433381,-0.28089997,0.88803208};
+		up[]={0.10664534,0.95970529,0.25993514};
+		aside[]={0.92526644,1.1554148e-006,-0.3796131};
 	};
 };
 binarizationWanted=0;
@@ -31,7 +31,6 @@ addons[]=
 {
 	"A3_Characters_F",
 	"A3_Characters_F_Mark",
-	"ravage",
 	"A3_Structures_F_Items_Vessels",
 	"A3_Structures_F_Civ_Lamps",
 	"A3_Soft_F_Gamma_SUV_01",
@@ -46,7 +45,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=9;
+		items=8;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -63,46 +62,40 @@ class AddonsMetaData
 		};
 		class Item2
 		{
-			className="ravage";
-			name="ravage";
-			author="Haleks";
-		};
-		class Item3
-		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Soft_F_Gamma";
 			name="Arma 3 - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item5
 		{
 			className="A3_Air_F";
 			name="Arma 3 Alpha - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item6
 		{
 			className="A3_Structures_F_Oldman";
 			name="Arma 3 Oldman - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item7
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";

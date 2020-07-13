@@ -20,6 +20,7 @@ How it work (hope I will not miss to many things):
 	- Every chunks over populate chunk distance (2 by default) will be marked for reset to avoid useless ressource (and groups) usage.
 	- When loop start to populate "to populate" chunks, it will loop at linked objects array and start to do its thing (destroy buildings will be remove at each loop).
 	- When a building start to be populated, damage is disable until it is populated.
+	- If not disable, patrols can also also spawn (groups count need to be under 80% of limit set on the script).
 
 Notes:
 - _class can be parent config path (e.g. configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry"), in this case, groups will be selected randomly.
