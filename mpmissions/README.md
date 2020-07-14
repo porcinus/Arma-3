@@ -264,6 +264,7 @@ What's done so far (missing some for sure):
 		- Many optimizations need to be done but script look stable for now.
 		- Allow to spawn patrols if specific chunk contain objects.
 		- Look at script header for more info.
+	- Custom credits with various params (scripts\Credits.sqf), based on BIS credit.sqf.
 	
 - Inventory:
 	- When respawn with previous loadout, refill primary weapon magazine to 25 rounds.
