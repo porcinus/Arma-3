@@ -525,12 +525,9 @@ addMissionEventHandler ["EntityKilled", {
 	};
 };
 
-//helicopter support landing
+//helicopter support landing demo
 [] spawn {
-	{
-		player setPos [7957,9862];
-		player setDir 270;
-	} forEach allPlayers;
+	//{player setPos [7957,9862]; player setDir 270} forEach allPlayers;
 	
 	[requestGhosthawkSupportObj, ["request Ghosthawk (NATO)", {[[[7957,9862],"ghosthawk",nil,configNull,false,false], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	[requestHummingbirdSupportObj, ["request Hummingbird (NATO)", {[[[7957,9862],"hummingbird",nil,configNull,false,false,BIS_grpMain], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
@@ -549,6 +546,20 @@ addMissionEventHandler ["EntityKilled", {
 	[requestMi48ParaSupportObj, ["request Mi48 (CSAT) Paradrop with waypoints", {[[[7957,9862],"mi48",nil,configNull,true,false,grpNull,paradropWaypointStorage], "scripts\HeliSupportLanding.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
 };
+
+//display credits demo
+[] spawn {
+	[startCreditsObj, ["display credits", {[
+		[[
+		["bottom right","placeholder text",0],
+		["bottom left","placeholder text",1],
+		["top right","placeholder text",2],
+		["top left","placeholder text<br/>with<br/>multiple<br/>lines",3],
+		["<t font='PuristaBold' size='3'>Center</t>","preformatted title",4]
+		]]
+	, "scripts\Credits.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+};
+
 
 //populate map buildings
 [] spawn {
