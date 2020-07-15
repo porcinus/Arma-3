@@ -50,7 +50,10 @@ if (typeOf player == "O_medic_F") then {_playerClass = "O_CombatLifesaver"};
 if (typeOf player == "O_HeavyGunner_F") then {_playerClass = "O_HeavyGunner"};
 [player, _playerClass] call BIS_fnc_addRespawninventory; //set player respawn equipement
 player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> _playerClass); //set player equipement
-_null = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
+
+_equipLimit = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
+waitUntil {sleep 0.5; isNull _equipLimit}; //wait for limit equipment script to finish
+player setVariable["tmp_saved_loadout", getUnitLoadout player]; //save equipement once, avoid troubles when player did JIP
 
 //NNS : add debug communications menu for player
 if (DebugMenu_level == "anyone" || {(isServer && DebugMenu_level == "admin")}) then {[player, "Debug_Menu"] call BIS_fnc_addCommMenuItem};
