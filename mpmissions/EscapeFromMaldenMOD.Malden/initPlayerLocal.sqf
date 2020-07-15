@@ -25,24 +25,6 @@ if (missionNamespace getVariable "BIS_respawnTickets" == 4) then {[player,5] cal
 if (missionNamespace getVariable "BIS_respawnTickets" == 5) then {[player,6] call BIS_fnc_respawnTickets};
 if (missionNamespace getVariable "BIS_respawnTickets" == 10) then {[player,11] call BIS_fnc_respawnTickets};
 
-// Handle JIP respawn
-missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["PreloadFinished",
-{
-	if !(getMarkerColor "marker_respawn" == "") then {player setPos (getMarkerPos "marker_respawn"); //initial respawn still exist
-	} else {player setPos getPos (leader group player);}; //initial respawn don't exist, spawn on group leader
-	removeMissionEventHandler ["PreloadFinished", missionNamespace getVariable ["_initialRespawn", -1]];
-	missionNamespace setVariable ["_initialRespawn", nil];
-	
-	if (didJIP and (time > 30)) then {
-		player enableSimulationGlobal false;
-		player enableSimulation false;
-		player hideObjectGlobal true;
-		player hideObject true;
-		forceRespawn player;
-		deleteVehicle player;
-	};
-}]];
-
 //NNS : Add respawn inventories
 if (BIS_loadoutLevel == 0 || {typeOf player == "O_Soldier_SL_F"}) then {[player,"O_SquadLeader"] call BIS_fnc_addRespawninventory};
 if (BIS_loadoutLevel == 0 || {typeOf player == "O_soldier_M_F"}) then {[player,"O_Marksman"] call BIS_fnc_addRespawninventory};
@@ -70,7 +52,9 @@ if (typeOf player == "O_medic_F") then {player setUnitLoadout (missionConfigFile
 if (typeOf player == "O_HeavyGunner_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "O_HeavyGunner");};
 if (typeOf player == "O_soldier_AT_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "O_AT");};
 
-_null = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
+_equipLimit = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
+waitUntil {sleep 0.5; isNull _equipLimit}; //wait for limit equipment script to finish
+player setVariable["tmp_saved_loadout", getUnitLoadout player]; //save equipement once, avoid troubles when player did JIP
 
 //NNS : create and attach IR beam to right shoulder
 //irbeam = "NVG_TargetC" createVehicle [0,0,0];
@@ -111,6 +95,24 @@ if (BIS_loadoutLevel == 0) then {
 		};
 	};
 };
+
+// Handle JIP respawn
+missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["PreloadFinished",
+{
+	if !(getMarkerColor "marker_respawn" == "") then {player setPos (getMarkerPos "marker_respawn"); //initial respawn still exist
+	} else {player setPos getPos (leader group player);}; //initial respawn don't exist, spawn on group leader
+	removeMissionEventHandler ["PreloadFinished", missionNamespace getVariable ["_initialRespawn", -1]];
+	missionNamespace setVariable ["_initialRespawn", nil];
+	
+	if (didJIP and (time > 30)) then {
+		player enableSimulationGlobal false;
+		player enableSimulation false;
+		player hideObjectGlobal true;
+		player hideObject true;
+		forceRespawn player;
+		deleteVehicle player;
+	};
+}]];
 
 //NNS : stats : track distance traveled
 [] spawn {
