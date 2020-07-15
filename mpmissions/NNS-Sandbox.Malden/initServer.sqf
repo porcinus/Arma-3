@@ -549,7 +549,7 @@ addMissionEventHandler ["EntityKilled", {
 
 //display credits demo
 [] spawn {
-	[startCreditsObj, ["display credits", {[
+	[startCreditsObj, ["display credits (run once or glitch)", {[
 		[[
 		["bottom right","placeholder text",0],
 		["bottom left","placeholder text",1],
@@ -558,8 +558,17 @@ addMissionEventHandler ["EntityKilled", {
 		["<t font='PuristaBold' size='3'>Center</t>","preformatted title",4]
 		]]
 	, "scripts\Credits.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	
+	[EndCreditsObj, ["display end credits (run once or glitch)", {[
+		[[
+		["bottom right","placeholder text",0],
+		["bottom left","placeholder text",1],
+		["top right","placeholder text",2],
+		["top left","placeholder text<br/>with<br/>multiple<br/>lines",3],
+		["<t font='PuristaBold' size='3'>Center</t>","preformatted title",4]
+		], "\A3\data_f\SteamPublisher\All\Arma3_workshop_scenario.jpg",-1,-1,-1,true]
+	, "scripts\EndCredits.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 };
-
 
 //populate map buildings
 [] spawn {

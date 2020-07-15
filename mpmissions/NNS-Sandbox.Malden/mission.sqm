@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=513;
+	toggles=641;
 	class ItemIDProvider
 	{
-		nextID=311;
+		nextID=313;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=134;
+		nextID=139;
 	};
 	class Camera
 	{
-		pos[]={8048.2954,57.715763,10066.896};
-		dir[]={-0.4718402,-0.23953179,-0.84853333};
-		up[]={-0.116413,0.97088659,-0.20935114};
-		aside[]={-0.87397486,-1.1589509e-007,0.48598784};
+		pos[]={8044.7847,41.030289,10096.808};
+		dir[]={-0.56636351,-0.82405031,0.015502062};
+		up[]={-0.82375735,0.56649661,0.022547578};
+		aside[]={0.027365096,1.1191421e-006,0.99966168};
 	};
 };
 binarizationWanted=0;
@@ -131,7 +131,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=39;
+		items=40;
 		class Item0
 		{
 			dataType="Group";
@@ -1688,7 +1688,7 @@ class Mission
 			};
 			id=243;
 			type="Land_SignWarning_01_CheckpointAhead_F";
-			atlOffset=1.9073486e-006;
+			atlOffset=3.8146973e-006;
 		};
 		class Item34
 		{
@@ -2405,7 +2405,7 @@ class Mission
 					name="Funcs/Scripts";
 					class Entities
 					{
-						items=21;
+						items=22;
 						class Item0
 						{
 							dataType="Marker";
@@ -2601,9 +2601,19 @@ class Mission
 							type="mil_unknown";
 							id=310;
 						};
+						class Item21
+						{
+							dataType="Marker";
+							position[]={8038.687,29.690001,10093.452};
+							name="marker_37";
+							text="EndCredits.sqf";
+							type="mil_unknown";
+							id=311;
+							atlOffset=-0.00049591064;
+						};
 					};
 					id=299;
-					atlOffset=1.1165714;
+					atlOffset=0.54973221;
 				};
 				class Item3
 				{
@@ -2682,7 +2692,7 @@ class Mission
 				};
 			};
 			id=298;
-			atlOffset=-36.136368;
+			atlOffset=-35.755104;
 		};
 		class Item38
 		{
@@ -2699,6 +2709,23 @@ class Mission
 				name="startCreditsObj";
 			};
 			id=309;
+			type="Land_SignWarning_01_CheckpointAhead_F";
+		};
+		class Item39
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8038.0391,30.82843,10093.358};
+				angles[]={0.0039968039,4.6515293,6.2783856};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="EndCreditsObj";
+			};
+			id=312;
 			type="Land_SignWarning_01_CheckpointAhead_F";
 		};
 	};
