@@ -44,7 +44,9 @@ if (BIS_loadoutLevel == 0) then { //over-equiped
 	[player,"O_Saved_Loadout"] call BIS_fnc_addRespawninventory; //allow to restore previous loadout
 } else {[player,typeOf player] call BIS_fnc_addRespawninventory}; //only add player class
 
-_null = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
+_equipLimit = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
+waitUntil {sleep 0.5; isNull _equipLimit}; //wait for limit equipment script to finish
+player setVariable["tmp_saved_loadout", getUnitLoadout player]; //save equipement once, avoid troubles when player did JIP
 
 //NNS : add debug communications menu for player
 if (DebugMenu_level == "anyone" || {(isServer && DebugMenu_level == "admin")}) then {[player, "Debug_Menu"] call BIS_fnc_addCommMenuItem};

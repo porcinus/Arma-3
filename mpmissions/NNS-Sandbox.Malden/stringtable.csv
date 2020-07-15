@@ -2,6 +2,7 @@ LANGUAGE, "English", "French"
 
 //mission
 STR_NNS_mission_name, "NNS Sandbox", "NNS Sandbox"
+STR_NNS_mission_version, "v07-15-20-1", "v07-15-20-1"
 STR_NNS_mission_briefing_overview, "Check map for info", "Vérifier la map pour info"
 
 //task
