@@ -34,31 +34,6 @@ if (missionNamespace getVariable "BIS_respawnTickets" == 4) then {[player,5] cal
 if (missionNamespace getVariable "BIS_respawnTickets" == 5) then {[player,6] call BIS_fnc_respawnTickets};
 if (missionNamespace getVariable "BIS_respawnTickets" == 10) then {[player,11] call BIS_fnc_respawnTickets};
 
-// Handle JIP respawn
-missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["PreloadFinished",
-{
-	if !(getMarkerColor "marker_respawn" == "") then {
-		[player, "marker_respawn"] call BIS_fnc_moveToRespawnPosition;
-		//player setPos ((getMarkerPos "marker_respawn") getPos [5, random 360]); //initial respawn still exist
-	} else {
-		[player, leader group player] call BIS_fnc_moveToRespawnPosition;
-		//player setPos ((leader group player) getPos [5, random 360]);
-	}; //initial respawn don't exist, spawn on group leader
-
-	
-	removeMissionEventHandler ["PreloadFinished", missionNamespace getVariable ["_initialRespawn", -1]];
-	missionNamespace setVariable ["_initialRespawn", nil];
-	
-	if (didJIP and (time > 30)) then {
-		player enableSimulationGlobal false;
-		player enableSimulation false;
-		player hideObjectGlobal true;
-		player hideObject true;
-		forceRespawn player;
-		deleteVehicle player;
-	};
-}]];
-
 // Set available loadout
 /*
 if (typeOf player == "B_T_Soldier_SL_F") then {
@@ -132,10 +107,37 @@ if (typeOf player == "B_T_soldier_LAT_F") then {player setUnitLoadout (missionCo
 if (typeOf player == "B_T_engineer_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "B_Engineer");};
 if (typeOf player == "B_T_medic_F") then {player setUnitLoadout (missionConfigFile >> "CfgRespawnInventory" >> "B_CombatLifesaver");};
 
-_null = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
+_equipLimit = execVM 'scripts\PlayerLimitEquipment.sqf'; //NNS : Limit equipment
+waitUntil {sleep 0.5; isNull _equipLimit}; //wait for limit equipment script to finish
+player setVariable["tmp_saved_loadout", getUnitLoadout player]; //save equipement once, avoid troubles when player did JIP
 
 //NNS : backup loadout
 [] spawn {while {sleep 5; true} do {if (alive player && {(getDammage player) < 0.9}) then {player setVariable["tmp_saved_loadout",getUnitLoadout player]}}}; //NNS : save previous loadout
+
+// Handle JIP respawn
+missionNamespace setVariable ["_initialRespawn", addMissionEventHandler ["PreloadFinished",
+{
+	if !(getMarkerColor "marker_respawn" == "") then {
+		[player, "marker_respawn"] call BIS_fnc_moveToRespawnPosition;
+		//player setPos ((getMarkerPos "marker_respawn") getPos [5, random 360]); //initial respawn still exist
+	} else {
+		[player, leader group player] call BIS_fnc_moveToRespawnPosition;
+		//player setPos ((leader group player) getPos [5, random 360]);
+	}; //initial respawn don't exist, spawn on group leader
+
+	
+	removeMissionEventHandler ["PreloadFinished", missionNamespace getVariable ["_initialRespawn", -1]];
+	missionNamespace setVariable ["_initialRespawn", nil];
+	
+	if (didJIP and (time > 30)) then {
+		player enableSimulationGlobal false;
+		player enableSimulation false;
+		player hideObjectGlobal true;
+		player hideObject true;
+		forceRespawn player;
+		deleteVehicle player;
+	};
+}]];
 
 //NNS : stats : track distance traveled
 [] spawn {
