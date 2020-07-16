@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8"?><Project name="Arma3">
+  <Package name="Language_Sams">
+    <Container name="Weapon_Names">
+      <Key ID="STR_A3_Missile_HARM_weapon_name">
+        <Original>AGM-88C HARM</Original>
+        <Chinese>AGM-88C HARM</Chinese>
+        <French>AGM-88C HARM</French>
+        <Spanish>AGM-88C HARM</Spanish>
+        <Italian>AGM-88C HARM</Italian>
+        <Polish>AGM-88C HARM</Polish>
+        <Russian>AGM-88C HARM</Russian>
+        <German>AGM-88C HARM</German>
+        <Czech>AGM-88C HARM</Czech>
+        <English>AGM-88C HARM</English>
+        <Portuguese>AGM-88C HARM</Portuguese>
+        <Korean>AGM-88C HARM</Korean>
+        <Chinesesimp>AGM-88C HARM</Chinesesimp>
+        <Japanese>AGM-88C HARM</Japanese>
+        <Turkish>AGM-88C HARM</Turkish>
+      </Key>
+      <Key ID="STR_A3_Bomb_SDB_weapon_name">
+        <Original>Small Diameter Bomb</Original>
+        <Chinese>小直徑炸彈</Chinese>
+        <French>Bombe à petit diamètre</French>
+        <Spanish>Bomba de diámetro pequeño</Spanish>
+        <Italian>Bomba dal diametro piccolo</Italian>
+        <Polish>Bomba o małej średnicy</Polish>
+        <Russian>Малоразмерная авиабомба</Russian>
+        <German>Bombe mit kleinem Durchmesser</German>
+        <Czech>Bomba s malým průměrem</Czech>
+        <English>Small Diameter Bomb</English>
+        <Portuguese>Bomba de pequeno diâmetro</Portuguese>
+        <Korean>소구경탄</Korean>
+        <Chinesesimp>小直径炸弹</Chinesesimp>
+        <Japanese>小口径爆弾</Japanese>
+        <Turkish>Küçük Çaplı Bomba</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_KH58_weapon_name">
+        <Original>KH58 ARM</Original>
+        <Chinese>KH58 ARM</Chinese>
+        <French>KH58 ARM</French>
+        <Spanish>KH58 ARM</Spanish>
+        <Italian>KH58 ARM</Italian>
+        <Polish>KH58 ARM</Polish>
+        <Russian>KH58 ARM</Russian>
+        <German>KH58 ARM</German>
+        <Czech>KH58 ARM</Czech>
+        <English>KH58 ARM</English>
+        <Portuguese>KH58 ARM</Portuguese>
+        <Korean>KH58 ARM</Korean>
+        <Chinesesimp>KH58 ARM</Chinesesimp>
+        <Japanese>KH58 ARM</Japanese>
+        <Turkish>KH58 ARM</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_mim145_weapon_name">
+        <Original>MIM-145 Defender</Original>
+        <Chinese>MIM-145 Defender</Chinese>
+        <French>MIM-145 Defender</French>
+        <Spanish>MIM-145 Defender</Spanish>
+        <Italian>MIM-145 Defender</Italian>
+        <Polish>MIM-145 Defender</Polish>
+        <Russian>MIM-145 Defender</Russian>
+        <German>MIM-145 Defender</German>
+        <Czech>MIM-145 Defender</Czech>
+        <English>MIM-145 Defender</English>
+        <Portuguese>MIM-145 Defender</Portuguese>
+        <Korean>MIM-145 Defender</Korean>
+        <Chinesesimp>MIM-145 Defender</Chinesesimp>
+        <Japanese>MIM-145 Defender</Japanese>
+        <Turkish>MIM-145 Defender</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_S750_weapon_name">
+        <Original>S-750 Rhea</Original>
+        <Chinese>S-750 Rhea</Chinese>
+        <French>S-750 Rhea</French>
+        <Spanish>S-750 Rhea</Spanish>
+        <Italian>S-750 Rhea</Italian>
+        <Polish>S-750 Rhea</Polish>
+        <Russian>S-750 Rhea</Russian>
+        <German>S-750 Rhea</German>
+        <Czech>S-750 Rhea</Czech>
+        <English>S-750 Rhea</English>
+        <Portuguese>S-750 Rhea</Portuguese>
+        <Korean>S-750 Rhea</Korean>
+        <Chinesesimp>S-750 Rhea</Chinesesimp>
+        <Japanese>S-750 Rhea</Japanese>
+        <Turkish>S-750 Rhea</Turkish>
+      </Key>
+    </Container>
+    <Container name="Magazine_Names">
+      <Key ID="STR_A3_Missile_HARM_x1_magazine_name">
+        <Original>AGM-88C HARM x1</Original>
+        <Chinese>AGM-88C HARM x1</Chinese>
+        <French>AGM-88C HARM x1</French>
+        <Spanish>AGM-88C HARM x1</Spanish>
+        <Italian>AGM-88C HARM x1</Italian>
+        <Polish>AGM-88C HARM x1</Polish>
+        <Russian>AGM-88C HARM x1</Russian>
+        <German>AGM-88C HARM x1</German>
+        <Czech>AGM-88C HARM x1</Czech>
+        <English>AGM-88C HARM x1</English>
+        <Portuguese>AGM-88C HARM x1</Portuguese>
+        <Korean>AGM-88C HARM x1</Korean>
+        <Chinesesimp>AGM-88C HARM x1</Chinesesimp>
+        <Japanese>AGM-88C HARM×1</Japanese>
+        <Turkish>AGM-88C HARM x1</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_HARM_x1_magazine_shortName">
+        <Original>ARM</Original>
+        <Chinese>ARM</Chinese>
+        <French>ARM</French>
+        <Spanish>ARM</Spanish>
+        <Italian>ARM</Italian>
+        <Polish>ARM</Polish>
+        <Russian>ARM</Russian>
+        <German>ARM</German>
+        <Czech>ARM</Czech>
+        <English>ARM</English>
+        <Portuguese>ARM</Portuguese>
+        <Korean>ARM</Korean>
+        <Chinesesimp>反辐射导弹 (ARM)</Chinesesimp>
+        <Japanese>ARM</Japanese>
+        <Turkish>ARM</Turkish>
+      </Key>
+      <Key ID="STR_A3_Bomb_SDB_magazine_description">
+        <Original>250lb, high-explosive, infrared/laser-guided bomb</Original>
+        <Chinese>250 磅重的紅外線／雷射導向破甲炸彈</Chinese>
+        <French>Bombe à guidage laser/infrarouge hautement explosive de 250 livres</French>
+        <Spanish>Bomba muy potente, de 113 kilos, guiada por láser o infrarrojos.</Spanish>
+        <Italian>Bomba a guida laser/infrarossi altamente esplosiva da 250 lb</Italian>
+        <Polish>Naprowadzana laserowo / na podczerwień bomba o masie 250 lb</Polish>
+        <Russian>Фугасная бомба с тепловым/лазерным наведением 250 фунтов</Russian>
+        <German>350 lb schwere, infrarot-/lasergelenkte, hochexplosive Bombe</German>
+        <Czech>250lb infračerveně/laserově naváděná výbušná bomba</Czech>
+        <English>250lb, high-explosive, infrared/laser-guided bomb</English>
+        <Portuguese>Bomba altamente explosiva, guiada por infravermelha/laser de 250 lb</Portuguese>
+        <Korean>250lb 고폭 적외선 및 레이저 유도폭탄</Korean>
+        <Chinesesimp>250 镑红外线/激光制导高爆炸弹</Chinesesimp>
+        <Japanese>250 ポンド・高性能爆薬／赤外線・レーザー誘導爆弾</Japanese>
+        <Turkish>250lb, yüksek güçlü patlayıcı özellikte, kızılötesi/lazer güdümlü bomba</Turkish>
+      </Key>
+      <Key ID="STR_A3_Bomb_SDB_magazine_shortName">
+        <Original>Bomb</Original>
+        <Chinese>炸彈</Chinese>
+        <French>Bombe</French>
+        <Spanish>Bomba</Spanish>
+        <Italian>Bomba</Italian>
+        <Polish>Bomba</Polish>
+        <Russian>Бомба</Russian>
+        <German>Bombe</German>
+        <Czech>Bomba</Czech>
+        <English>Bomb</English>
+        <Portuguese>Bomba</Portuguese>
+        <Korean>폭탄</Korean>
+        <Chinesesimp>炸弹</Chinesesimp>
+        <Japanese>爆弾</Japanese>
+        <Turkish>Bomba</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_HARM_x1_magazine_description">
+        <Original>Medium-range, anti-radiation, air-to-surface missile with high-explosive warhead</Original>
+        <Chinese>裝有破甲彈頭的中程、反輻射、空對地飛彈</Chinese>
+        <French>Missile anti-radar air-sol, à portée moyenne et à ogive hautement explosive</French>
+        <Spanish>Misil aire-tierra de medio alcance y antirradar con una cabeza nuclear muy potente.</Spanish>
+        <Italian>Missile aria-terra a medio raggio, antiradar, con testata ad esplosivo ad alto potenziale</Italian>
+        <Polish>Przeciwradarowy pocisk powietrze-ziemia średniego zasięgu z głowicą wybuchową</Polish>
+        <Russian>Противорадиолокационная ракета ракета средней дальности класса "воздух-земля" с фугасной боевой частью</Russian>
+        <German>Anti-Radar-Luft-Boden-Rakete mit hochexplosivem Gefechtskopf für mittlere Distanzen</German>
+        <Czech>Protiradarová střela vzduch-země středního doletu s výbušnou hlavicí</Czech>
+        <English>Medium-range, anti-radiation, air-to-surface missile with high-explosive warhead</English>
+        <Portuguese>Míssil ar-terra de médio alcance, antirradar, com ogiva altamente explosiva</Portuguese>
+        <Korean>고폭 탄두를 지닌 중거리 대전파 공대지 미사일</Korean>
+        <Chinesesimp>配备高爆弹头的反雷达空对地中程导弹</Chinesesimp>
+        <Japanese>中距離用対レーダー空対地ミサイル／炸裂弾頭</Japanese>
+        <Turkish>Yüksek güçlü patlayıcı özellikte savaş başlıklı, orta menzilli, anti-radyasyon, havadan karaya füze</Turkish>
+      </Key>
+      <Key ID="STR_A3_Bomb_SDB_x1_magazine_name">
+        <Original>GBU SDB x1</Original>
+        <Chinese>GBU SDB x1</Chinese>
+        <French>GBU SDB x1</French>
+        <Spanish>GBU SDB x1</Spanish>
+        <Italian>GBU SDB x1</Italian>
+        <Polish>GBU SDB x1</Polish>
+        <Russian>GBU SDB x1</Russian>
+        <German>GBU SDB x1</German>
+        <Czech>GBU SDB x1</Czech>
+        <English>GBU SDB x1</English>
+        <Portuguese>GBU SDB ×1</Portuguese>
+        <Korean>GBU SDB x1</Korean>
+        <Chinesesimp>GBU SDB x1</Chinesesimp>
+        <Japanese>GBU SDB×1</Japanese>
+        <Turkish>GBU SDB x1</Turkish>
+      </Key>
+      <Key ID="STR_A3_Bomb_SDB_x4_magazine_name">
+        <Original>GBU SDB x4</Original>
+        <Chinese>GBU SDB x4</Chinese>
+        <French>GBU SDB x4</French>
+        <Spanish>GBU SDB x4</Spanish>
+        <Italian>GBU SDB x4</Italian>
+        <Polish>GBU SDB x4</Polish>
+        <Russian>GBU SDB x4</Russian>
+        <German>GBU SDB x4</German>
+        <Czech>GBU SDB x4</Czech>
+        <English>GBU SDB x4</English>
+        <Portuguese>GBU SDB ×4</Portuguese>
+        <Korean>GBU SDB x4</Korean>
+        <Chinesesimp>GBU SDB x4</Chinesesimp>
+        <Japanese>GBU SDB×4</Japanese>
+        <Turkish>GBU SDB x4</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_KH58_x1_magazine_name">
+        <Original>KH58 ARM x1</Original>
+        <Chinese>KH58 ARM x1</Chinese>
+        <French>KH58 ARM x1</French>
+        <Spanish>KH58 ARM x1</Spanish>
+        <Italian>KH58 ARM x1</Italian>
+        <Polish>KH58 ARM x1</Polish>
+        <Russian>KH58 ARM x1</Russian>
+        <German>KH58 ARM x1</German>
+        <Czech>KH58 ARM x1</Czech>
+        <English>KH58 ARM x1</English>
+        <Portuguese>KH58 ARM ×1</Portuguese>
+        <Korean>KH58 ARM x1</Korean>
+        <Chinesesimp>KH58 ARM x1</Chinesesimp>
+        <Japanese>KH58 ARM×1</Japanese>
+        <Turkish>KH58 ARM x1</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_KH58_x1_magazine_shortName">
+        <Original>ARM</Original>
+        <Chinese>ARM</Chinese>
+        <French>ARM</French>
+        <Spanish>ARM</Spanish>
+        <Italian>ARM</Italian>
+        <Polish>ARM</Polish>
+        <Russian>ARM</Russian>
+        <German>ARM</German>
+        <Czech>ARM</Czech>
+        <English>ARM</English>
+        <Portuguese>ARM</Portuguese>
+        <Korean>ARM</Korean>
+        <Chinesesimp>反辐射导弹 (ARM)</Chinesesimp>
+        <Japanese>ARM</Japanese>
+        <Turkish>ARM</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_KH58_x1_magazine_description">
+        <Original>Medium-range, anti-radiation, air-to-surface missile with high-explosive warhead</Original>
+        <Chinese>裝有破甲彈頭的中程、反輻射、空對地飛彈</Chinese>
+        <French>Missile anti-radar air-sol, à portée moyenne et à ogive hautement explosive</French>
+        <Spanish>Misil aire-tierra de medio alcance, antirradar y con una cabeza nuclear muy potente.</Spanish>
+        <Italian>Missile aria-terra a medio raggio, antiradar, con testata ad esplosivo ad alto potenziale</Italian>
+        <Polish>Przeciwradarowy pocisk powietrze-ziemia średniego zasięgu z głowicą wybuchową</Polish>
+        <Russian>Противорадиолокационная ракета ракета средней дальности класса "воздух-земля" с фугасной боевой частью</Russian>
+        <German>Anti-Radar-Luft-Boden-Rakete mit hochexplosivem Gefechtskopf für mittlere Distanzen</German>
+        <Czech>Protiradarová střela vzduch-země středního doletu s výbušnou hlavicí</Czech>
+        <English>Medium-range, anti-radiation, air-to-surface missile with high-explosive warhead</English>
+        <Portuguese>Míssil ar-terra de médio alcance, antirradar, com ogiva altamente explosiva</Portuguese>
+        <Korean>고폭 탄두를 지닌 중거리 대전파 공대지 미사일</Korean>
+        <Chinesesimp>配备高爆弹头的反雷达空对地中程导弹</Chinesesimp>
+        <Japanese>中距離用対レーダー空対地ミサイル／炸裂弾頭</Japanese>
+        <Turkish>Yüksek güçlü patlayıcı özellikte savaş başlıklı, orta menzilli, anti-radyasyon, havadan karaya füze</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_mim145_x4_magazine_name">
+        <Original>Defender AA</Original>
+        <Chinese>Defender AA</Chinese>
+        <French>Defender AA</French>
+        <Spanish>Defender AA</Spanish>
+        <Italian>Defender AA</Italian>
+        <Polish>Defender AA</Polish>
+        <Russian>Defender AA</Russian>
+        <German>Defender AA</German>
+        <Czech>Defender AA</Czech>
+        <English>Defender AA</English>
+        <Portuguese>Defender AA</Portuguese>
+        <Korean>Defender AA</Korean>
+        <Chinesesimp>Defender AA</Chinesesimp>
+        <Japanese>Defender AA</Japanese>
+        <Turkish>Defender AA</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_mim145_datalink_x4_magazine_description">
+        <Original>Defender Surface-to-Air Missile (MIM-145 with data-link)</Original>
+        <Chinese>Defender 地對空飛彈（MIM-145 資料傳輸）</Chinese>
+        <French>Missile sol-air Defender (MIM-145 avec flux de données)</French>
+        <Spanish>Misil Defender tierra-aire (MIM-145 con enlace de datos)</Spanish>
+        <Italian>Missile terra-aria Defender (MIM-145 con data-link)</Italian>
+        <Polish>Pocisk ziemia-powietrze Defender (MIM-145 z łączem danych)</Polish>
+        <Russian>Ракета "Defender" класса "земля-воздух" (MIM-145 с каналом передачи данных)</Russian>
+        <German>Defender-Boden-Luft-Rakete (MIM-145 mit Datenlink)</German>
+        <Czech>Střela země-vzduch Defender (MIM-145 s datovým spojením)</Czech>
+        <English>Defender Surface-to-Air Missile (MIM-145 with data-link)</English>
+        <Portuguese>Míssil terra-ar Defender (MIM-145 com datalink)</Portuguese>
+        <Korean>Defender 지대공 미사일 (데이터 링크가 내장된 MIM-145)</Korean>
+        <Chinesesimp>Defender 地对空导弹（带数据传输器的 MIM-145）</Chinesesimp>
+        <Japanese>Defender 地対空ミサイル（MIM-145＋データリンク）</Japanese>
+        <Turkish>Defender Karadan Havaya Füze (veri bağlantılı MIM-145)</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_mim145_x4_magazine_shortName">
+        <Original>SAM LR</Original>
+        <Chinese>SAM LR</Chinese>
+        <French>SAM LR</French>
+        <Spanish>SAM LR</Spanish>
+        <Italian>SAM LR</Italian>
+        <Polish>SAM LR</Polish>
+        <Russian>SAM LR</Russian>
+        <German>SAM LR</German>
+        <Czech>SAM LR</Czech>
+        <English>SAM LR</English>
+        <Portuguese>SAM LR</Portuguese>
+        <Korean>SAM LR</Korean>
+        <Chinesesimp>SAM LR</Chinesesimp>
+        <Japanese>SAM LR</Japanese>
+        <Turkish>SAM LR</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_mim145_datalink_x4_magazine_name">
+        <Original>Defender AA (data-link)</Original>
+        <Chinese>Defender AA（資料傳輸）</Chinese>
+        <French>Defender AA (flux de données)</French>
+        <Spanish>Defender AA (enlace de datos)</Spanish>
+        <Italian>Defender AA (data-link)</Italian>
+        <Polish>Defender AA (łącze danych)</Polish>
+        <Russian>Defender AA (с каналом передачи данных)</Russian>
+        <German>Defender AA (Datenlink)</German>
+        <Czech>Defender AA (datové spojení)</Czech>
+        <English>Defender AA (data-link)</English>
+        <Portuguese>Defender AA (datalink)</Portuguese>
+        <Korean>Defender AA (데이터 링크)</Korean>
+        <Chinesesimp>Defender AA（数据传输器）</Chinesesimp>
+        <Japanese>Defender AA（データリンク）</Japanese>
+        <Turkish>Defender AA (veri bağlantısı)</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_mim145_datalink_x4_magazine_shortName">
+        <Original>SAM LR</Original>
+        <Chinese>SAM LR</Chinese>
+        <French>SAM LR</French>
+        <Spanish>SAM LR</Spanish>
+        <Italian>SAM LR</Italian>
+        <Polish>SAM LR</Polish>
+        <Russian>SAM LR</Russian>
+        <German>SAM LR</German>
+        <Czech>SAM LR</Czech>
+        <English>SAM LR</English>
+        <Portuguese>SAM LR</Portuguese>
+        <Korean>SAM LR</Korean>
+        <Chinesesimp>SAM LR</Chinesesimp>
+        <Japanese>SAM LR</Japanese>
+        <Turkish>SAM LR</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_mim145_x4_magazine_description">
+        <Original>Defender Surface-to-Air Missile (MIM-145)</Original>
+        <Chinese>Defender 地對空飛彈（MIM-145）</Chinese>
+        <French>Missile sol-air Defender (MIM-145)</French>
+        <Spanish>Misil Defender tierra-aire (MIM-145)</Spanish>
+        <Italian>Missile terra-aria Defender (MIM-145)</Italian>
+        <Polish>Pocisk ziemia-powietrze Defender (MIM-145)</Polish>
+        <Russian>Ракета "Defender" класса "земля-воздух" (MIM-145)</Russian>
+        <German>Defender-Boden-Luft-Rakete (MIM-145)</German>
+        <Czech>Střela země-vzduch Defender (MIM-145)</Czech>
+        <English>Defender Surface-to-Air Missile (MIM-145)</English>
+        <Portuguese>Míssil terra-ar defensor (MIM-145)</Portuguese>
+        <Korean>Defender 지대공 미사일 (MIM-145)</Korean>
+        <Chinesesimp>Defender 地对空导弹 (MIM-145)</Chinesesimp>
+        <Japanese>Defender 地対空ミサイル（MIM-145）</Japanese>
+        <Turkish>Defender Karadan Havaya Füze (MIM-145)</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_S750_x4_magazine_name">
+        <Original>Rhea AA</Original>
+        <Chinese>Rhea AA</Chinese>
+        <French>Rhea AA</French>
+        <Spanish>Rhea AA</Spanish>
+        <Italian>Rhea AA</Italian>
+        <Polish>Rhea AA</Polish>
+        <Russian>Rhea AA</Russian>
+        <German>Rhea AA</German>
+        <Czech>Rhea AA</Czech>
+        <English>Rhea AA</English>
+        <Portuguese>Rhea AA</Portuguese>
+        <Korean>Rhea AA</Korean>
+        <Chinesesimp>Rhea AA</Chinesesimp>
+        <Japanese>Rhea AA</Japanese>
+        <Turkish>Rhea AA</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_S750_x4_magazine_shortName">
+        <Original>SAM LR</Original>
+        <Chinese>SAM LR</Chinese>
+        <French>SAM LR</French>
+        <Spanish>SAM LR</Spanish>
+        <Italian>SAM LR</Italian>
+        <Polish>SAM LR</Polish>
+        <Russian>SAM LR</Russian>
+        <German>SAM LR</German>
+        <Czech>SAM LR</Czech>
+        <English>SAM LR</English>
+        <Portuguese>SAM LR</Portuguese>
+        <Korean>SAM LR</Korean>
+        <Chinesesimp>SAM LR</Chinesesimp>
+        <Japanese>SAM LR</Japanese>
+        <Turkish>SAM LR</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_S750_datalink_x4_magazine_description">
+        <Original>Rhea Surface-to-Air Missile (S-750 with data-link)</Original>
+        <Chinese>Rhea 地對空飛彈（S-750 資料傳輸）</Chinese>
+        <French>Missile sol-air Rhea (S-750 avec flux de données)</French>
+        <Spanish>Misil Rhea tierra-aire (S-750 con enlace de datos)</Spanish>
+        <Italian>Missile terra-aria Rhea (S-750 con data-link)</Italian>
+        <Polish>Pocisk ziemia-powietrze Rhea (S-750 z łączem danych)</Polish>
+        <Russian>Ракета "Rhea" класса "земля-воздух" (S-750 с каналом передачи данных)</Russian>
+        <German>Rhea-Boden-Luft-Rakete (S-750 mit Datenlink)</German>
+        <Czech>Střela země-vzduch Rhea (S-750 s datovým spojením)</Czech>
+        <English>Rhea Surface-to-Air Missile (S-750 with data-link)</English>
+        <Portuguese>Míssil terra-ar Rhea (S-750 com datalink)</Portuguese>
+        <Korean>Rhea 지대공 미사일 (데이터 링크가 내장된 S-750 )</Korean>
+        <Chinesesimp>Rhea 地对空导弹（带数据传输器的 S-750）</Chinesesimp>
+        <Japanese>Rhea 地対空ミサイル（S-750＋データリンク）</Japanese>
+        <Turkish>Rhea Karadan Havaya Füze (veri bağlantılı S-750)</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_S750_datalink_x4_magazine_name">
+        <Original>Rhea AA (data-link)</Original>
+        <Chinese>Rhea AA（資料傳輸）</Chinese>
+        <French>Rhea AA (flux de données)</French>
+        <Spanish>Rhea AA (enlace de datos)</Spanish>
+        <Italian>Rhea AA (data-link)</Italian>
+        <Polish>Rhea AA (łącze danych)</Polish>
+        <Russian>Rhea AA (с каналом передачи данных)</Russian>
+        <German>Rhea AA (Datenlink)</German>
+        <Czech>Rhea AA (datové spojení)</Czech>
+        <English>Rhea AA (data-link)</English>
+        <Portuguese>Rhea AA (datalink)</Portuguese>
+        <Korean>Rhea AA (데이터 링크)</Korean>
+        <Chinesesimp>Rhea AA（数据传输器）</Chinesesimp>
+        <Japanese>Rhea AA（データリンク）</Japanese>
+        <Turkish>Rhea AA (veri bağlantısı)</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_S750_x4_magazine_description">
+        <Original>Rhea Surface-to-Air Missile (S-750)</Original>
+        <Chinese>Rhea 地對空飛彈（S-750）</Chinese>
+        <French>Missile sol-air Rhea (S-750)</French>
+        <Spanish>Misil Rhea tierra-aire (S-750)</Spanish>
+        <Italian>Missile terra-aria Rhea (S-750)</Italian>
+        <Polish>Pocisk ziemia-powietrze Rhea (S-750)</Polish>
+        <Russian>Ракета "Rhea" класса "земля-воздух" (S-750)</Russian>
+        <German>Rhea-Boden-Luft-Rakete (S-750)</German>
+        <Czech>Střela země-vzduch Rhea (S-750)</Czech>
+        <English>Rhea Surface-to-Air Missile (S-750)</English>
+        <Portuguese>Míssil terra-ar Rhea (S-750)</Portuguese>
+        <Korean>Rhea 지대공 미사일 (S-750)</Korean>
+        <Chinesesimp>Rhea 地对空导弹 (S-750)</Chinesesimp>
+        <Japanese>Rhea 地対空ミサイル（S-750）</Japanese>
+        <Turkish>Rhea Karadan Havaya Füze (S-750)</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_S750_datalink_x4_magazine_shortName">
+        <Original>SAM LR</Original>
+        <Chinese>SAM LR</Chinese>
+        <French>SAM LR</French>
+        <Spanish>SAM LR</Spanish>
+        <Italian>SAM LR</Italian>
+        <Polish>SAM LR</Polish>
+        <Russian>SAM LR</Russian>
+        <German>SAM LR</German>
+        <Czech>SAM LR</Czech>
+        <English>SAM LR</English>
+        <Portuguese>SAM LR</Portuguese>
+        <Korean>SAM LR</Korean>
+        <Chinesesimp>SAM LR</Chinesesimp>
+        <Japanese>SAM LR</Japanese>
+        <Turkish>SAM LR</Turkish>
+      </Key>
+    </Container>
+    <Container name="Static_Weapon_Systems">
+      <Key ID="STR_A3_Radar_System_01_name">
+        <Original>AN/MPQ-105 Radar</Original>
+        <Chinese>AN／MPQ-105 雷達</Chinese>
+        <French>Radar AN/MPQ-105</French>
+        <Spanish>Radar AN/MPQ-105</Spanish>
+        <Italian>Radar AN/MPQ-105</Italian>
+        <Polish>Radar AN/MPQ-105</Polish>
+        <Russian>РЛС AN/MPQ-105</Russian>
+        <German>AN/MPQ-105 Radar</German>
+        <Czech>Radar AN/MPQ-105</Czech>
+        <English>AN/MPQ-105 Radar</English>
+        <Portuguese>Radar AN/MPQ-105</Portuguese>
+        <Korean>AN/MPQ-105 레이더</Korean>
+        <Chinesesimp>AN/MPQ-105 雷达</Chinesesimp>
+        <Japanese>AN/MPQ-105 レーダー</Japanese>
+        <Turkish>AN/MPQ-105 Radar</Turkish>
+      </Key>
+      <Key ID="STR_A3_Radar_System_02_name">
+        <Original>R-750 Cronus Radar</Original>
+        <Chinese>R-750 Cronus 雷達</Chinese>
+        <French>Radar R-750 Cronus</French>
+        <Spanish>Radar R-750 Cronus</Spanish>
+        <Italian>Radar R-750 Cronus</Italian>
+        <Polish>Radar R-750 Cronus</Polish>
+        <Russian>РЛС R-750 Cronus</Russian>
+        <German>R-750 Cronus Radar</German>
+        <Czech>Radar R-750 Cronus</Czech>
+        <English>R-750 Cronus Radar</English>
+        <Portuguese>Radar R-750 Cronus</Portuguese>
+        <Korean>R-750 Cronus 레이더</Korean>
+        <Chinesesimp>R-750 Cronus 雷达</Chinesesimp>
+        <Japanese>R-750 Cronus レーダー</Japanese>
+        <Turkish>R-750 Cronus Radar</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_03_name">
+        <Original>MIM-145 Defender</Original>
+        <Chinese>MIM-145 Defender</Chinese>
+        <French>MIM-145 Defender</French>
+        <Spanish>Defender MIM-145</Spanish>
+        <Italian>MIM-145 Defender</Italian>
+        <Polish>MIM-145 Defender</Polish>
+        <Russian>MIM-145 Defender</Russian>
+        <German>MIM-145 Defender</German>
+        <Czech>MIM-145 Defender</Czech>
+        <English>MIM-145 Defender</English>
+        <Portuguese>MIM-145 Defender</Portuguese>
+        <Korean>MIM-145 Defender</Korean>
+        <Chinesesimp>MIM-145 Defender</Chinesesimp>
+        <Japanese>MIM-145 Defender</Japanese>
+        <Turkish>MIM-145 Defender</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_04_name">
+        <Original>S-750 Rhea</Original>
+        <Chinese>S-750 Rhea</Chinese>
+        <French>S-750 Rhea</French>
+        <Spanish>Rhea S-750</Spanish>
+        <Italian>S-750 Rhea</Italian>
+        <Polish>S-750 Rhea</Polish>
+        <Russian>S-750 Rhea</Russian>
+        <German>S-750 Rhea</German>
+        <Czech>S-750 Rhea</Czech>
+        <English>S-750 Rhea</English>
+        <Portuguese>S-750 Rhea</Portuguese>
+        <Korean>S-750 Rhea</Korean>
+        <Chinesesimp>S-750 Rhea</Chinesesimp>
+        <Japanese>S-750 Rhea</Japanese>
+        <Turkish>S-750 Rhea</Turkish>
+      </Key>
+    </Container>
+    <Container name="Turret_position_Names">
+      <Key ID="STR_A3_Radar_System_01_operator_displayName">
+        <Original>AN/MPQ-105 Radar Operator</Original>
+        <Chinese>AN／MPQ-105 雷達操操作員</Chinese>
+        <French>Opérateur de radar AN/MPQ-105</French>
+        <Spanish>Operario de radar AN/MPQ-105</Spanish>
+        <Italian>Operatore radar AN/MPQ-105</Italian>
+        <Polish>Operator radaru AN/MPQ-105</Polish>
+        <Russian>Оператор РЛС AN/MPQ-105</Russian>
+        <German>AN/MPQ-105-Radarbesatzung</German>
+        <Czech>Operátor radaru AN/MPQ-105</Czech>
+        <English>AN/MPQ-105 Radar Operator</English>
+        <Portuguese>Operador de radar AN/MPQ-105</Portuguese>
+        <Korean>AN/MPQ-105 레이더 운용병</Korean>
+        <Chinesesimp>AN/MPQ-105 雷达操作员</Chinesesimp>
+        <Japanese>AN/MPQ-105 レーダー操作手</Japanese>
+        <Turkish>AN/MPQ-105 Radar Operatörü</Turkish>
+      </Key>
+      <Key ID="STR_A3_Radar_System_02_operator_displayName">
+        <Original>R-750 Cronus Radar Operator</Original>
+        <Chinese>R-750 Cronus 雷達操作員</Chinese>
+        <French>Opérateur de radar R-750 Cronus</French>
+        <Spanish>Operario de radar R-750 Cronus</Spanish>
+        <Italian>Operatore radar R-750 Cronus</Italian>
+        <Polish>Operator radaru R-750 Cronus</Polish>
+        <Russian>Оператор РЛС R-750 Cronus</Russian>
+        <German>R-750 Cronus-Radarbesatzung</German>
+        <Czech>Operátor radaru R-750 Cronus</Czech>
+        <English>R-750 Cronus Radar Operator</English>
+        <Portuguese>Operador de radar R-750 Cronus</Portuguese>
+        <Korean>R-750 Cronus 레이더 운용병</Korean>
+        <Chinesesimp>R-750 Cronus 雷达操作员</Chinesesimp>
+        <Japanese>R-750 Cronus レーダー操作手</Japanese>
+        <Turkish>R-750 Cronus Radar Operatörü</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_03_operator_displayName">
+        <Original>MIM-145 Defender Operator</Original>
+        <Chinese>MIM-145 Defender 操作員</Chinese>
+        <French>Opérateur de MIM-145 Defender</French>
+        <Spanish>Operario de Defender MIM-145</Spanish>
+        <Italian>Operatore MIM-145 Defender</Italian>
+        <Polish>Operator radaru MIM-145 Defender</Polish>
+        <Russian>Оператор MIM-145 Defender</Russian>
+        <German>MIM-145 Defender-Besatzung</German>
+        <Czech>Operátor systému MIM-145 Defender</Czech>
+        <English>MIM-145 Defender Operator</English>
+        <Portuguese>Operador de Defender MIM-145</Portuguese>
+        <Korean>MIM-145 Defender 운용병</Korean>
+        <Chinesesimp>MIM-145 Defender 操作员</Chinesesimp>
+        <Japanese>MIM-145 Defender 操作手</Japanese>
+        <Turkish>MIM-145 Defender Operatörü</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_04_operator_displayName">
+        <Original>S-750 Rhea Operator</Original>
+        <Chinese>S-750 Rhea 操作員</Chinese>
+        <French>Opérateur de S-750 Rhea</French>
+        <Spanish>Operario de Rhea S-750</Spanish>
+        <Italian>Operatore S-750 Rhea</Italian>
+        <Polish>Operator S-750 Rhea</Polish>
+        <Russian>Оператор S-750 Rhea</Russian>
+        <German>S-750 Rhea-Besatzung</German>
+        <Czech>Operátor systému S-750 Rhea</Czech>
+        <English>S-750 Rhea Operator</English>
+        <Portuguese>Operador de S-750 Rhea</Portuguese>
+        <Korean>S-750 Rhea 운용병</Korean>
+        <Chinesesimp>S-750 Rhea 操作员</Chinesesimp>
+        <Japanese>S-750 Rhea 操作手</Japanese>
+        <Turkish>S-750 Rhea Operatörü</Turkish>
+      </Key>
+    </Container>
+    <Container name="Hints_And_Descriptions">
+      <Key ID="STR_A3_Missile_HARM_weapon_hint_description">
+        <Original>Medium-range, semi-active radar-guided Anti-Radiation missile.</Original>
+        <Chinese>半主動式、雷達導向、反輻射中程飛彈</Chinese>
+        <French>Missile anti-radar à moyenne portée, semi-actif et à guidage radar.</French>
+        <Spanish>Misil de medio alcance, antirradar y con guiado semiactivo por radar.</Spanish>
+        <Italian>Missile anti-radar a medio raggio a guida radar semiattiva.</Italian>
+        <Polish>Naprowadzany radarowo (półaktywnie) pocisk przeciwradarowy średniego zasięgu.</Polish>
+        <Russian>Противорадиолокационная ракета средней дальности с полуактивной РЛ системой самонаведения.</Russian>
+        <German>Semiaktive, radargelenkte Anti-Radar-Rakete für mittlere Distanzen</German>
+        <Czech>Protiradarová semi-aktivní radarem naváděná střela středního doletu.</Czech>
+        <English>Medium-range, semi-active radar-guided Anti-Radiation missile.</English>
+        <Portuguese>Míssil de médio alcance, antirradar, semiativo e guiado por radar.</Portuguese>
+        <Korean>중거리 반능동 레이더유도 대전파 미사일.</Korean>
+        <Chinesesimp>半主动雷达制导反辐射中程导弹</Chinesesimp>
+        <Japanese>中距離用、セミアクティブレーダー誘導式の対レーダーミサイル。</Japanese>
+        <Turkish>Orta menzilli, yarı aktif radar güdümlü Anti-Radyasyon füze.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Bomb_SDB_weapon_hint_description">
+        <Original>Air-to-surface IR precision guided bomb. This weapon is designed to have less collateral damage.</Original>
+        <Chinese>以紅外線精準導向的空對地炸彈。本武器較少引起間接損傷。</Chinese>
+        <French>Bombe de précision à guidage infrarouge. Cet armement limite les dégâts collatéraux.</French>
+        <Spanish>Bomba de precisión aire-tierra guiada por infrarrojos. Esta arma ha sido diseñada para provocar menos daños colaterales.</Spanish>
+        <Italian>Bomba guidata intelligente aria-terra a infrarossi. Quest'arma è stata progettata in modo da provocare meno danni collaterali.</Italian>
+        <Polish>Naprowadzana na podczerwień bomba ziemia-powietrze. Ten precyzyjny system naprowadzania ma na celu ograniczenie strat cywilnych.</Polish>
+        <Russian>Управляемая авиабомба класса "воздух-земля" с высокоточной тепловой системой наведения. Это оружие спроектировано для того, чтобы свести к минимуму сопутствующий ущерб.</Russian>
+        <German>IR-präzisionsgesteuerte Luft-Boden-Bombe. Diese Waffe wurde konstruiert, um Kollateralschäden zu minimieren.</German>
+        <Czech>Přesná infračerveně naváděná bomba vzduch-země. Tato zbraň je navržena tak, aby způsobila méně vedlejších ztrát.</Czech>
+        <English>Air-to-surface IR precision guided bomb. This weapon is designed to have less collateral damage.</English>
+        <Portuguese>Bomba ar-terra de precisão guiada por infravermelho. Esta arma foi projetada para causar menos danos colaterais.</Portuguese>
+        <Korean>공대지 IR 정밀 유도 폭탄. 이 무기는 부수적 피해를 줄이도록 설계되었습니다.</Korean>
+        <Chinesesimp>空对地红外线精确制导炸弹。此武器旨在减小间接伤害。</Chinesesimp>
+        <Japanese>空対地の赤外線誘導式精密誘導爆弾。巻き込み被害を軽減するために開発された。</Japanese>
+        <Turkish>Havadan karaya kızılötesi isabetli güdümlü bomba. Bu silah daha az sivil zayiatına sahip olacak şekilde tasarlanmıştır.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_KH58_weapon_hint_description">
+        <Original>Medium-range, semi-active radar-guided Anti-Radiation missile.</Original>
+        <Chinese>半主動式、雷達導向、反輻射中程飛彈</Chinese>
+        <French>Missile anti-radar à moyenne portée, semi-actif et à guidage radar.</French>
+        <Spanish>Misil de medio alcance, antirradar y con guiado semiactivo por radar.</Spanish>
+        <Italian>Missile anti-radar a medio raggio a guida radar semiattiva.</Italian>
+        <Polish>Naprowadzany radarowo (półaktywnie) pocisk przeciwradarowy średniego zasięgu.</Polish>
+        <Russian>Противорадиолокационная ракета средней дальности с полуактивной РЛ системой самонаведения.</Russian>
+        <German>Semiaktive, radargelenkte Anti-Radar-Rakete für mittlere Distanzen</German>
+        <Czech>Protiradarová semi-aktivní radarem naváděná střela středního doletu.</Czech>
+        <English>Medium-range, semi-active radar-guided Anti-Radiation missile.</English>
+        <Portuguese>Míssil de médio alcance, antirradar, semiativo e guiado por radar.</Portuguese>
+        <Korean>중거리 반능동 레이더 유도 대전파 미사일.</Korean>
+        <Chinesesimp>半主动雷达制导反辐射中程导弹</Chinesesimp>
+        <Japanese>中距離用、セミアクティブレーダー誘導式の対レーダーミサイル。</Japanese>
+        <Turkish>Orta menzilli, yarı aktif radar güdümlü Anti-Radyasyon füze.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_mim145_weapon_hint_description">
+        <Original>Long-range, semi-active radar-guided Surface-to-Air missile. Agile and deadly at beyond-visual range.</Original>
+        <Chinese>半主動式、雷達導向、地對空長程飛彈即使在可視距離外，表現仍然靈活、致命。</Chinese>
+        <French>Missile sol-air longue portée, semi-actif et à guidage radar. Réactif et létal même sans contact visuel.</French>
+        <Spanish>Misil tierra-aire de largo alcance y con guiado semiactivo por radar. Ágil y letal más allá de donde alcanza la vista.</Spanish>
+        <Italian>Missile terra-aria a lungo raggio a guida radar semiattiva. Agile e letale nelle portate oltre l'orizzonte visivo.</Italian>
+        <Polish>Naprowadzany radarowo (półaktywnie) pocisk ziemia-powietrze dalekiego zasięgu. Szybki i zabójczy przy zwalczaniu celów poza zasięgiem widoczności.</Polish>
+        <Russian>Ракета большой дальности класса "земля-воздух" с полуактивной РЛ системой самонаведения. Проворная и смертоносная ракета, идеально подходящая для боев без визуального контакта с целью.</Russian>
+        <German>Semiaktive, radargelenkte Boden-Luft-Rakete für lange Distanzen. Flink und tödlich außerhalb der Sichtreichweite.</German>
+        <Czech>Radarem naváděná semi-aktivní střela země-vzduch dlouhého doletu. Rychlý a smrtící prostředek určený na cíle mimo dohled.</Czech>
+        <English>Long-range, semi-active radar-guided Surface-to-Air missile. Agile and deadly at beyond-visual range.</English>
+        <Portuguese>Míssil terra-ar de longo alcance, semiativo e guiado por radar. Ágil e mortal mesmo além do alcance visual.</Portuguese>
+        <Korean>장거리 반능동 레디어유도 지대공 미사일. 육안 범위를 벗어날 정도로 빠르고 치명적임.</Korean>
+        <Chinesesimp>半主动雷达制导地对空远程导弹。超视距打击，敏捷而致命。</Chinesesimp>
+        <Japanese>長距離用のセミアクティブレーダー誘導式地対空ミサイル。有視界外から飛来する凶悪な高機動兵器。</Japanese>
+        <Turkish>Uzun menzilli, yarı aktif radar güdümlü Karadan Havaya füze. Görsel menzilin dışında ölümcül ve çevik.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Missile_S750_weapon_hint_description">
+        <Original>Long-range, semi-active radar-guided Surface-to-Air missile. Agile and deadly at beyond-visual range.</Original>
+        <Chinese>半主動式、雷達導向、地對空長程飛彈即使在可視距離外，表現仍然靈活、致命。</Chinese>
+        <French>Missile sol-air longue portée, semi-actif et à guidage radar. Réactif et létal même sans contact visuel.</French>
+        <Spanish>Misil tierra-aire de largo alcance y con guiado semiactivo por radar. Ágil y letal más allá de donde alcanza la vista.</Spanish>
+        <Italian>Missile terra-aria a guida radar semiattiva a lungo raggio. Agile e letale nelle portate oltre l'orizzonte visivo.</Italian>
+        <Polish>Naprowadzany radarowo (półaktywnie) pocisk ziemia-powietrze dalekiego zasięgu. Szybki i zabójczy przy zwalczaniu celów poza zasięgiem widoczności.</Polish>
+        <Russian>Ракета большой дальности класса "земля-воздух" с полуактивной РЛ системой самонаведения. Проворная и смертоносная ракета, идеально подходящая для боев без визуального контакта с целью.</Russian>
+        <German>Semiaktive, radargelenkte Boden-Luft-Rakete für lange Distanzen. Flink und tödlich außerhalb der Sichtreichweite.</German>
+        <Czech>Radarem naváděná semi-aktivní střela země-vzduch dlouhého doletu. Rychlý a smrtící prostředek určený na cíle mimo dohled.</Czech>
+        <English>Long-range, semi-active radar-guided Surface-to-Air missile. Agile and deadly at beyond-visual range.</English>
+        <Portuguese>Míssil terra-ar de longo alcance, semiativo e guiado por radar. Ágil e mortal mesmo além do alcance visual.</Portuguese>
+        <Korean>장거리 반능동 레이더 유도 지대공 미사일. 육안 범위를 벗어날 정도로 빠르고 치명적임.</Korean>
+        <Chinesesimp>半主动雷达制导地对空远程导弹。超视距打击，敏捷而致命。</Chinesesimp>
+        <Japanese>長距離用のセミアクティブレーダー誘導式地対空ミサイル。有視界外から飛来する凶悪な高機動兵器。</Japanese>
+        <Turkish>Uzun menzilli, yarı aktif radar güdümlü Karadan Havaya füze. Görsel menzilin dışında ölümcül ve çevik.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Radar_System_01_hint_description">
+        <Original>The AN/MPQ-105 radar system is designed for medium-to-long-range aerial threat detection. Its companion MIM-145 Defender Surface-Air-Missile system was designed to protect NATO airspace against hostile intrusion. Typically found near high-value assets such as airfields and military bases to protect against long-range aerial threats.</Original>
+        <Chinese>AN／MPQ-105 雷達系統，可用於偵測中長程空中威脅。附帶的 MIM-145 Defender 地對空飛彈系統，是設計來保護 NATO 空域，以免敵方入侵。通常部署於高價值資產附近，例如：飛行場、軍事基地，保護該處不受長程空中威脅影響。</Chinese>
+        <French>Le système radar AN/MPQ-105 est conçu pour la détection de menaces aériennes à courte et moyenne portée. Le système de missiles sol-air MIM-145 Defender qui l'accompagne permet à l'OTAN de protéger son espace aérien contre toute intrusion. Il est souvent utilisé à proximité des aérodromes et bases militaires pour la protection contre les menaces aériennes longue portée.</French>
+        <Spanish>El sistema de radar AN/MPQ-105 está diseñado para detectar amenazas aéreas a media y larga distancia. Su compañero, el sistema de misiles tierra-aire Defender MIM-145, se ha diseñado para proteger el espacio aéreo de la OTAN de toda posible intrusión hostil. Suele encontrarse cerca de recursos tan valiosos como aeródromos o bases militares para protegerlos de amenazas aéreas de larga distancia.</Spanish>
+        <Italian>Il sistema radar AN/MPQ-105 è destinato al rilevamento di minacce aeree a raggio medio-lungo; il sistema missilistico terra-aria MIM-145 Defender è stato progettato allo scopo di difendere lo spazio aereo della NATO dalle le intrusioni nemiche. Solitamente si trovano nei pressi di beni di elevato valore come gli aerodromi e le basi militari, per proteggenrli dalle minacce aeree a lungo raggio.</Italian>
+        <Polish>Radar AN/MPQ-105 skonstruowano w celu wykrywania zagrożeń powietrznych średniego i dalekiego zasięgu. Uzupełniający go system pocisków ziemia-powietrze MIM-145 Defender powstał z myślą o ochronie przestrzeni powietrznej bloku NATO. Instalacje tego typu są z reguły rozmieszczane w pobliżu obiektów o kluczowym znaczeniu, takich jak lotniska i bazy wojskowe, w celu zwalczania zagrożeń powietrznych dalekiego zasięgu.</Polish>
+        <Russian>РЛС AN/MPQ-105 предназначена для обнаружения воздушных угроз на средней и дальней дистанции. Дополняющий ее зенитно-ракетный комплекс MIM-145 Defender защищает воздушное пространство НАТО от вражеского вторжения. Как правило, размещается вблизи особо важных целей, таких как аэродромы и военные базы, чтобы защитить их от воздушных атак.</Russian>
+        <German>Das Radarsystem AN/MPQ-105 wurde zur Erkennung von Bedrohungen aus der Luft auf mittlere bis lange Distanzen konstruiert. Sein Boden-Luft-Abwehr-Begleitsystem MIM-145 wurde konstruiert, um den Luftraum der NATO gegen feindliche Eindringlinge zu verteidigen. Diese Anlage wird üblicherweise in der Nähe strategisch wertvoller Standorte eingesetzt (z. B. Flugplätze und Militärbasen). </German>
+        <Czech>Radarový systém AN/MPQ-105 je určen k detekci vzdušných hrozeb na střední a velké vzdálenosti. Přidružený systém střel země-vzduch MIM-145 Defender byl vyvinut za účelem ochrany vzdušného prostoru NATO proti vniknutí nepřítele. Běžně je rozmisťován k ochraně před vzdušnými hrozbami na dlouhé vzdálenosti poblíž objektů vysoké důležitosti, jako jsou například letiště a vojenské základny.</Czech>
+        <English>The AN/MPQ-105 radar system is designed for medium-to-long-range aerial threat detection. Its companion MIM-145 Defender Surface-Air-Missile system was designed to protect NATO airspace against hostile intrusion. Typically found near high-value assets such as airfields and military bases to protect against long-range aerial threats.</English>
+        <Portuguese>O sistema de radar AN/MPQ-105 foi projetado para detectar ameaças aéreas de médio a longo alcance. Seu sistema MIM-145 Defender de mísseis terra-ar foi concebido para proteger o espaço aéreo da OTAN contra invasões hostis. Normalmente, encontra-se perto de ativos de alto valor, como aeródromos e bases militares, atuando na proteção contra ameaças aéreas de longo alcance.</Portuguese>
+        <Korean>AN/MPQ-105 레이더 시스템은 중장거리 상공 위협을 탐지할 목적으로 개발되었습니다. 자매품인 MIM-145 디펜더 지대공 미사일 시스템은 적의 침입으로부터 NATO 영공을 보호하도록 설계된 것입니다. 통상적으로 비행장과 군사기지와 같은 고가의 자산 인근에서 장거리 영공 위협을 보호합니다.</Korean>
+        <Chinesesimp>AN/MPQ-105 雷达系统用于中远程空中威胁探测。其配套产品 MIM-145 Defender 地对空导弹系统用于防止 NATO 领空受到敌军入侵。常见于机场和军事基地等高价值资产附近，旨在应对远程空中威胁。</Chinesesimp>
+        <Japanese>AN/MPQ-105 レーダーシステムは中～長距離での航空脅威検知用に開発された。同システムと併用される MIM-145 Defender 地対空ミサイルシステムは NATO 領空に侵入する敵に対する手段として使われる。主に飛行場や軍事基地など、高価値施設を長距離からの航空脅威から守るために配置される。</Japanese>
+        <Turkish>AN/MPQ-105 radar sistemi, orta ila uzun menzilli hava tehditlerinin tespiti için tasarlanmıştır. Ona eşlik eden MIM-145 Defender Karadan Havaya Füze sistemi, NATO hava sahasını izinsiz düşman girişine karşı korumak için tasarlanmıştır. Genellikle hava sahaları ve askeri üsler gibi yüksek değerli öğelerin yakınında bulunur ve uzun menzilli hava tehditlerine karşı koruma sağlar.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Radar_System_01_DLCbrowser_description">
+        <Original>One of four Surface-to-air defense systems designed to protect high-value targets from hostile airstrikes.</Original>
+        <Chinese>四個地對空防禦系統之一，目的是防止高價值目標受到敵方空中攻擊。</Chinese>
+        <French>L'un des quatre systèmes de défense sol-air pour la protection d'éléments d'importance stratégique contre les frappes aériennes.</French>
+        <Spanish>Uno de los cuatro sistemas defensivos tierra-aire que se diseñaron para proteger los objetivos más valiosos de los ataques aéreos hostiles.</Spanish>
+        <Italian>Uno dei quattro sistemi di difesa terra-aria destinati a proteggere bersagli di elevato valore dalle incursioni aeree nemiche.</Italian>
+        <Polish>Jeden z czterech systemów obrony przeciwlotniczej, zaprojektowany w celu obrony kluczowych celów przed wrogimi atakami z powietrza.</Polish>
+        <Russian>Это один из четырех ЗРК, предназначенных для защиты особо важных целей от вражеских авиаударов.</Russian>
+        <German>Eines von vier Boden-Luft-Verteidigungssystemen, die strategisch wichtige Ziele vor feindlichen Luftangriffen schützen sollen.</German>
+        <Czech>Jeden ze čtyř obranných systémů vzduch-země je určen k ochraně cílů vysoké důležitosti proti nepřátelským vzdušným úderům.</Czech>
+        <English>One of four Surface-to-air defense systems designed to protect high-value targets from hostile airstrikes.</English>
+        <Portuguese>Um dos quatro sistemas de defesa terra-ar projetados para proteger alvos de alto valor contra ataques aéreos hostis.</Portuguese>
+        <Korean>4개의 지대공 방어 시스템 중 하나로 고가의 목표물을 적의 공습으로부터 보호하도록 설계되었습니다.</Korean>
+        <Chinesesimp>四种地对空防御系统之一，旨在保护高价值目标，防止其遭受敌军空袭。</Chinesesimp>
+        <Japanese>高価値目標を敵の空爆から守るために配置される地対空防衛システム全 4 種のひとつ。</Japanese>
+        <Turkish>Yüksek değerli hedefleri düşman hava saldırılarından korumak için tasarlanmış dört Karadan havaya savunma sisteminden biridir.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Radar_System_01_DLCbrowser_title">
+        <Original>AN/MPQ-105 radar</Original>
+        <Chinese>AN／MPQ-105 雷達</Chinese>
+        <French>Radar AN/MPQ-105</French>
+        <Spanish>Radar AN/MPQ-105</Spanish>
+        <Italian>Radar AN/MPQ-105</Italian>
+        <Polish>Radar AN/MPQ-105</Polish>
+        <Russian>РЛС AN/MPQ-105</Russian>
+        <German>AN/MPQ-105-Radar</German>
+        <Czech>Radar AN/MPQ-105</Czech>
+        <English>AN/MPQ-105 radar</English>
+        <Portuguese>AN/MPQ-105 radar</Portuguese>
+        <Korean>AN/MPQ-105 레이더</Korean>
+        <Chinesesimp>AN/MPQ-105 雷达</Chinesesimp>
+        <Japanese>AN/MPQ-105 レーダー</Japanese>
+        <Turkish>AN/MPQ-105 radar</Turkish>
+      </Key>
+      <Key ID="STR_A3_Radar_System_02_hint_description">
+        <Original>The R-750 Cronus radar system is designed for medium-to-long-range aerial threat detection. Its companion S-750 Rhea Surface-Air-Missile system was designed by Russian/CSAT joint syndicate to protect airspace against hostile intrusion. Typically found near high-value assets such as airfields and military bases to protect against long-range aerial threats. </Original>
+        <Chinese>R-750 Cronus 雷達系統，可用於偵測中長程空中威脅。附帶的 S-750 Rhea 地對空飛彈系統，是設計來保護 CSAT／俄羅斯聯合財團的空域，以免敵方入侵。通常部署於高價值資產附近，例如：飛行場、軍事基地，保護該處不受長程空中威脅影響。 </Chinese>
+        <French>Le système radar R-750 Cronus est conçu pour la détection de menaces aériennes à courte et moyenne portée. Le système de missiles sol-air S-750 Rhea qui l'accompagne est le résultat d'une collaboration entre les forces russes et le CSAT pour la protection leur espace aérien contre toute intrusion. Il est souvent utilisé à proximité des aérodromes et bases militaires pour la protection contre les menaces aériennes longue portée. </French>
+        <Spanish>El sistema de radar Cronus R-750 está diseñado para detectar amenazas a media y larga distancia. Su compañero, el sistema de misiles tierra-aire Rhea S-750, fue diseñado por un sindicato conjunto de rusos y el CSAT para proteger el espacio aéreo de toda posible intrusión hostil. Suele encontrarse cerca de recursos tan valiosos como aeródromos o bases militares para protegerlos de amenazas aéreas de larga distancia.</Spanish>
+        <Italian>Il sistema radar R-750 Cronus è destinato al rilevamento di minacce aeree di raggio medio-lungo; il sistema missilistico terra-aria S-750 Rhea è stato progettato da una joint-venture tra la CSAT e la Russia allo scopo di proteggere lo spazio aereo dalle intrusioni nemiche. Solitamente si trovano nei pressi di beni di elevato valore come gli aerodromi e le basi militari, per proteggerli dalle minacce aeree a lungo raggio.</Italian>
+        <Polish>Radar R-750 Cronus skonstruowano w celu wykrywania zagrożeń powietrznych średniego i dalekiego zasięgu. Uzupełniający go system pocisków ziemia-powietrze S-750 Rhea produkcji konsorcjum krajów CSAT i Rosji powstał z myślą o ochronie przestrzeni powietrznej. Instalacje tego typu są z reguły rozmieszczane w pobliżu obiektów o kluczowym znaczeniu, takich jak lotniska i bazy wojskowe, w celu zwalczania zagrożeń powietrznych dalekiego zasięgu. </Polish>
+        <Russian>РЛС R-750 Cronus предназначена для обнаружения воздушных угроз на средней и дальней дистанции. Дополняющий ее зенитно-ракетный комплекс S-750 Rhea был спроектирован российскими инженерами при сотрудничестве с CSAT для защиты воздушного пространства от вражеского вторжения. Как правило, размещается вблизи особо важных целей, таких как аэродромы и военные базы, чтобы защитить их от воздушных атак. </Russian>
+        <German>Das Radarsystem R-750 Cronus wurde zur Erkennung von Bedrohungen aus der Luft auf mittlere bis lange Distanzen konstruiert. Sein Boden-Luft-Abwehr-Begleitsystem S-750 Rhea wurde vom Russland-CSAT-Konsortium konstruiert, um den eigenen Luftraum gegen feindliche Eindringlinge zu verteidigen. Diese Anlage wird üblicherweise in der Nähe strategisch wertvoller Standorte eingesetzt (z. B. Flugplätze und Militärbasen). </German>
+        <Czech>Radarový systém R-750 Cronus je určen k detekci vzdušných hrozeb na střední a velké vzdálenosti. Přidružený systém střel země-vzduch S-750 Rhea byl vyvinut společným syndikátem Ruska a CSAT za účelem ochrany vzdušného prostoru proti vniknutí nepřítele. Běžně je rozmisťován k ochraně před vzdušnými hrozbami na dlouhé vzdálenosti poblíž objektů vysoké důležitosti, jako jsou například letiště a vojenské základny. </Czech>
+        <English>The R-750 Cronus radar system is designed for medium-to-long-range aerial threat detection. Its companion S-750 Rhea Surface-Air-Missile system was designed by Russian/CSAT joint syndicate to protect airspace against hostile intrusion. Typically found near high-value assets such as airfields and military bases to protect against long-range aerial threats. </English>
+        <Portuguese>O sistema de radar R-750 Cronus foi projetado para detectar ameaças aéreas de médio a longo alcance. Seu sistema S-750 Rhea de mísseis terra-ar foi projetado pela união do sindicato russo/CSAT para proteger o espaço aéreo contra invasões hostis. Normalmente, encontra-se perto de ativos de alto valor, como aeródromos e bases militares, atuando na proteção contra ameaças aéreas de longo alcance.</Portuguese>
+        <Korean>R-750 Cronus 레이더 시스템은 중장거리 상공 위협을 탐지할 목적으로 개발되었습니다. 자매품인 S-750 Rhea 지대공 미사일 시스템은 러시아와 CSAT 합동 신디케이트가 적의 칩입으로부터 영공을 보호하기 위해 설계한 것입니다. 통상적으로 비행장과 군사기지와 같은 고가의 자산 인근에서 장거리 영공 위협으로부터 보호합니다.</Korean>
+        <Chinesesimp>R-750 Cronus 雷达系统用于中远程空中威胁探测。其配套产品 S-750 Rhea 地对空导弹系统由俄罗斯/CSAT 联合财团设计，用于防止领空受到敌军入侵。常见于机场和军事基地等高价值资产附近，旨在应对远程空中威胁。</Chinesesimp>
+        <Japanese>R-750 Cronus レーダーシステムは中～長距離での航空脅威検知用に開発された。同システムと併用される S-750 Rhea 地対空ミサイルシステムは領空に侵入する敵に対する手段としてロシア／CSAT によって設計された。主に飛行場や軍事基地など、高価値施設を長距離からの航空脅威から守るために配置される。 </Japanese>
+        <Turkish>R-750 Cronus radar sistemi, orta ila uzun menzilli hava tehditlerinin tespiti için tasarlanmıştır. Ona eşlik eden S-750 Rhea Karadan Havaya Füze sistemi, hava sahasını izinsiz düşman girişine karşı korumak için Rusya/CSAT ortak birliği tarafından tasarlanmıştır. Genellikle hava sahaları ve askeri üsler gibi yüksek değerli öğelerin yakınında bulunur ve uzun menzilli hava tehditlerine karşı koruma sağlar. </Turkish>
+      </Key>
+      <Key ID="STR_A3_Radar_System_02_DLCbrowser_description">
+        <Original>One of four surface-to-air defense systems designed to protect high-value targets from hostile airstrikes.</Original>
+        <Chinese>四個地對空防禦系統之一，目的是防止高價值目標受到敵方空中攻擊。</Chinese>
+        <French>L'un des quatre systèmes de défense sol-air pour la protection d'éléments d'importance stratégique contre les frappes aériennes.</French>
+        <Spanish>Uno de los cuatro sistemas defensivos tierra-aire que se diseñaron para proteger los objetivos más valiosos de los ataques aéreos hostiles.</Spanish>
+        <Italian>Uno dei quattro sistemi di difesa terra-aria destinati a proteggere bersagli di elevato valore dalle incursioni aeree nemiche.</Italian>
+        <Polish>Jeden z czterech systemów obrony przeciwlotniczej, zaprojektowany w celu obrony kluczowych celów przed wrogimi atakami z powietrza.</Polish>
+        <Russian>Это один из четырех ЗРК, предназначенных для защиты особо важных целей от вражеских авиаударов.</Russian>
+        <German>Eines von vier Boden-Luft-Verteidigungssystemen, die strategisch wichtige Ziele vor feindlichen Luftangriffen schützen sollen.</German>
+        <Czech>Jeden ze čtyř obranných systémů vzduch-země je určen k ochraně cílů vysoké důležitosti proti nepřátelským vzdušným úderům.</Czech>
+        <English>One of four surface-to-air defense systems designed to protect high-value targets from hostile airstrikes.</English>
+        <Portuguese>Um dos quatro sistemas de defesa terra-ar projetados para proteger alvos de alto valor contra ataques aéreos hostis.</Portuguese>
+        <Korean>4개의 지대공 방어 시스템 중 하나로 고가의 목표물을 적의 공습으로부터 보호하도록 설계되었습니다.</Korean>
+        <Chinesesimp>四种地对空防御系统之一，旨在保护高价值目标，防止其遭受敌军空袭。</Chinesesimp>
+        <Japanese>高価値目標を敵の空爆から守るために配置される地対空防衛システム全 4 種のひとつ。</Japanese>
+        <Turkish>Yüksek değerli hedefleri düşman hava saldırılarından korumak için tasarlanmış dört karadan havaya savunma sisteminden biridir.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Radar_System_02_DLCbrowser_title">
+        <Original>R-750 Cronus Radar</Original>
+        <Chinese>R-750 Cronus 雷達</Chinese>
+        <French>Radar R-750 Cronus</French>
+        <Spanish>Radar Cronus R-750</Spanish>
+        <Italian>Radar R-750 Cronus</Italian>
+        <Polish>Radar R-750 Cronus</Polish>
+        <Russian>РЛС R-750 Cronus</Russian>
+        <German>R-750 Cronus-Radar</German>
+        <Czech>Radar R-750 Cronus</Czech>
+        <English>R-750 Cronus Radar</English>
+        <Portuguese>Radar R-750 Cronus</Portuguese>
+        <Korean>R-750 Cronus 레이더</Korean>
+        <Chinesesimp>R-750 Cronus 雷达</Chinesesimp>
+        <Japanese>R-750 Cronus レーダー</Japanese>
+        <Turkish>R-750 Cronus Radar</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_03_hint_description">
+        <Original>The MIM-145 Defender Surface-Air-Missile system was designed to protect NATO airspace against hostile intrusion. Typically found near high-value assets such as airfields and military bases to protect against long-range aerial threats. Armed with long-range Defender missiles, and connected to AN/MPQ-105 radar via data-link, this system is a serious threat to any opponent.</Original>
+        <Chinese>MIM-145 Defender 地對空飛彈系統，是設計來保護 NATO 空域，以免敵方入侵。通常部署於高價值資產附近，例如：飛行場、軍事基地，保護該處不受長程空中威脅影響。本系統裝有 Defender 長程飛彈，並透過資料傳輸功能連上 AN／MPQ-105 雷達，對任何敵人都相當具有威嚇力。</Chinese>
+        <French>Le système de missiles sol-air MIM-145 Defender permet à l'OTAN de protéger son espace aérien contre toute intrusion. Ce système est souvent utilisé à proximité des aérodromes et bases militaires pour la protection contre les menaces aériennes longue portée. Grâce à ses missiles Defender à longue portée et aux flux de données du radar AN/MPQ-105, ce système posera bien des problèmes à l'ennemi.</French>
+        <Spanish>El sistema de misiles tierra-aire Defender MIM-145 fue diseñado para proteger el espacio aéreo de la OTAN de toda posible intrusión hostil. Suele encontrarse cerca de recursos tan valiosos como aeródromos o bases militares para protegerlos de amenazas aéreas de larga distancia. Equipado por misiles Defender de largo alcance y conectado al radar AN/MPQ-105 por enlace de datos, este sistema es una amenaza importante para cualquier rival.</Spanish>
+        <Italian>Il sistema missilistico terra-aria MIM-145 Defender è stato progettato allo scopo di difendere lo spazio aereo della NATO dalle intrusioni nemiche. Solitamente si trova nei pressi di beni di elevato valore come gli aerodromi e le basi militari, per proteggerli dalle minacce aeree a lungo raggio. Dotato di missili Defender a lungo raggio e connesso al radar AN/MPQ-105 attraverso il data-link, questo sistema rappresenta una seria minaccia per qualsiasi avversario.</Italian>
+        <Polish>System pocisków ziemia-powietrze MIM-145 Defender powstał z myślą o ochronie przestrzeni powietrznej bloku NATO. Instalacje tego typu są z reguły rozmieszczane w pobliżu obiektów o kluczowym znaczeniu, takich jak lotniska i bazy wojskowe, w celu zwalczania pocisków dalekiego zasięgu. System uzbrojono w pociski rakietowe Defender dalekiego zasięgu i połączono z radarem AN/MPQ-105 za pomocą łącza danych. System stanowi poważne zagrożenie dla każdego przeciwnika.</Polish>
+        <Russian>Зенитно-ракетный комплекс MIM-145 Defender защищает воздушное пространство НАТО от вражеского вторжения. Как правило, он размещается вблизи особо важных целей, таких как аэродромы и военные базы, чтобы защитить их от воздушных атак. Этот комплекс, подключаемый через канал передачи данных к РЛС AN/MPQ-105 и оснащенный ракетами  Defender, представляет собой серьезную угрозу для любого противника.</Russian>
+        <German>Das Boden-Luft-Raketensystem MIM-145 Defender wurde konstruiert, um den Luftraum der NATO vor feindlichen Eindringlingen zu schützen. Es wird üblicherweise in der Nähe strategisch wertvoller Standorte eingesetzt (z. B. Flugplätze und Militärbasen), um diese vor feindlichen Langstrecken-Bedrohungen zu schützen. Dieses System ist mit Defender-Langstrecken-Raketen ausgestattet und über Datenlink mit einem AN/MPQ-105-Radarsystem vernetzt, was es zu einer ernsten Bedrohung für jeden Feind macht.</German>
+        <Czech>Systém střel země-vzduch MIM-145 Defender byl vyvinut za účelem ochrany vzdušného prostoru NATO proti vniknutí nepřítele. Běžně je rozmisťován k ochraně před vzdušnými hrozbami na dlouhé vzdálenosti poblíž objektů vysoké důležitosti, jako jsou například letiště a vojenské základny. Systém je vyzbrojen dalekonosnými střelami Defender a datovým spojením propojen s radarem AN/MPQ-105. Jedná se o závažnou hrozbu pro každého protivníka.</Czech>
+        <English>The MIM-145 Defender Surface-Air-Missile system was designed to protect NATO airspace against hostile intrusion. Typically found near high-value assets such as airfields and military bases to protect against long-range aerial threats. Armed with long-range Defender missiles, and connected to AN/MPQ-105 radar via data-link, this system is a serious threat to any opponent.</English>
+        <Portuguese>O sistema de mísseis terra-ar MIM-145 Defender foi projetado para proteger o espaço aéreo da OTAN contra invasões hostis. Normalmente, encontra-se perto de ativos de alto valor, como aeródromos e bases militares, atuando na proteção contra ameaças aéreas de longo alcance. Armado com mísseis Defender de longo alcance e conectado ao radar AN/MPQ-105 através do datalink, este sistema é uma ameaça séria para qualquer adversário.</Portuguese>
+        <Korean>MIM-145 Defender 지대공 미사일 시스템은 적의 침입으로부터 NATO 영공을 보호하도록 설계된 것입니다. 통상적으로 비행장과 군사기지와 같은 고가의 자산을 장거리 영공 위협으로부터 보호합니다. 장거리 디펜더 미사일로 무장되고 데이터 링크를 통해 AN/MPQ-105 레이더와 연결되는 이 시스템은 적에게 상당한 위협적인 존재입니다.</Korean>
+        <Chinesesimp>MIM-145 Defender 地对空导弹系统用于防止 NATO 领空受到敌军入侵。常见于机场和军事基地等高价值资产附近，旨在应对远程空中威胁。该系统配备远程 Defender 导弹，并通过数据传输器与 AN/MPQ-105 连接，对任何敌人都构成严重威胁。</Chinesesimp>
+        <Japanese>MIM-145 Defender 地対空ミサイルシステムは NATO 領空に侵入する敵に対する手段として開発された。主に飛行場や軍事基地など、高価値施設を長距離からの航空脅威から守るために配置される。長射程 の Defender ミサイルを搭載し、データリンク経由で AN/MPQ-105 レーダーに接続された本システムはあらゆる敵にとって大きな脅威となる。</Japanese>
+        <Turkish>MIM-145 Defender Karadan Havaya Füze sistemi, NATO hava sahasını izinsiz düşman girişine karşı korumak için tasarlanmıştır. Genellikle hava sahaları ve askeri üsler gibi yüksek değerli öğelerin yakınında bulunur ve uzun menzilli hava tehditlerine karşı koruma sağlar. Uzun menzilli Defender füzelerle donatılan ve veri bağlantısı üzerinden AN/MPQ-105 radara bağlanan bu sistem, her türlü rakibe karşı ciddi bir tehdittir.</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_03_DLCbrowser_description">
+        <Original>One of four surface-to-air defense systems designed to protect high-value targets from hostile airstrikes.</Original>
+        <Chinese>四個地對空防禦系統之一，目的是防止高價值目標受到敵方空中攻擊。</Chinese>
+        <French>L'un des quatre systèmes de défense sol-air pour la protection d'éléments d'importance stratégique contre les frappes aériennes.</French>
+        <Spanish>Uno de los cuatro sistemas defensivos tierra-aire que se diseñaron para proteger los objetivos más valiosos de los ataques aéreos hostiles.</Spanish>
+        <Italian>Uno dei quattro sistemi di difesa terra-aria destinati a proteggere bersagli di elevato valore dalle incursioni aeree nemiche.</Italian>
+        <Polish>Jeden z czterech systemów obrony przeciwlotniczej, zaprojektowany w celu obrony kluczowych celów przed wrogimi uderzeniami z powietrza.</Polish>
+        <Russian>Это один из четырех ЗРК, предназначенных для защиты особо важных целей от вражеских авиаударов.</Russian>
+        <German>Eines von vier Boden-Luft-Verteidigungssystemen, die strategisch wichtige Ziele vor feindlichen Luftangriffen schützen sollen.</German>
+        <Czech>Jeden ze čtyř obranných systémů vzduch-země je určen k ochraně cílů vysoké důležitosti proti nepřátelským vzdušným úderům.</Czech>
+        <English>One of four surface-to-air defense systems designed to protect high-value targets from hostile airstrikes.</English>
+        <Portuguese>Um dos quatro sistemas de defesa terra-ar projetados para proteger alvos de alto valor contra ataques aéreos hostis.</Portuguese>
+        <Korean>4개의 지대공 방어 시스템 중 하나로 고가의 목표물을 적의 공습으로부터 보호하도록 설계되었습니다.</Korean>
+        <Chinesesimp>四种地对空防御系统之一，旨在保护高价值目标，防止其遭受敌军空袭。</Chinesesimp>
+        <Japanese>高価値目標を敵の空爆から守るために配置される地対空防衛システム全 4 種のひとつ。</Japanese>
+        <Turkish>Yüksek değerli hedefleri düşman hava saldırılarından korumak için tasarlanmış dört karadan havaya savunma sisteminden biridir.</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_03_DLCbrowser_title">
+        <Original>MIM-145 Defender Surface-Air-Missile system</Original>
+        <Chinese>MIM-145 Defender 地對空飛彈系統</Chinese>
+        <French>Système de missiles sol-air MIM-145 Defender</French>
+        <Spanish>Sistema de misiles tierra-aire Defender MIM-145</Spanish>
+        <Italian>Sistema missilistico terra-aria MIM-145 Defender</Italian>
+        <Polish>System pocisków ziemia-powietrze MIM-145 Defender</Polish>
+        <Russian>Зенитно-ракетный комплекс MIM-145 Defender</Russian>
+        <German>Boden-Luft-Raketensystem „MIM-145 Defender“</German>
+        <Czech>Systém země-vzduch MIM-145 Defender</Czech>
+        <English>MIM-145 Defender Surface-Air-Missile system</English>
+        <Portuguese>Sistema de mísseis terra-ar MIM-145 Defender</Portuguese>
+        <Korean>MM-145 Defender 지대공 미사일 시스템</Korean>
+        <Chinesesimp>MIM-145 Defender 地对空导弹系统</Chinesesimp>
+        <Japanese>MIM-145 Defender 地対空ミサイルシステム</Japanese>
+        <Turkish>MIM-145 Defender Karadan Havaya Füze sistemi</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_04_hint_description">
+        <Original>The S-750 Rhea Surface-Air-Missile system was designed by Russia to defend its airspace against hostile intrusion. The asset was adapted by CSAT based on a joint CSAT/Russian arms syndicate deal. Typically found near high-value assets such as airfields and military bases to protect against long-range aerial threats. Armed with long-range Rhea missiles, and connected to R-750 Cronus radar via data-link, this system is a serious threat to any opponent.</Original>
+        <Chinese>俄羅斯設計的 S-750 Rhea 地對空飛彈系統，用途是保護空域，以免敵方入侵。CSAT 依據與俄羅斯聯合財團的合約，進而採用本系統。通常部署於高價值資產附近，例如：飛行場、軍事基地，保護該處不受長程空中威脅影響。本系統裝有 Rhea 長程飛彈，並透過資料傳輸功能連上 R-750 Cronus 雷達，對任何敵人都相當具有威嚇力。</Chinese>
+        <French>Le système de missiles sol-air S-750 Rhea a été conçu par les forces russes pour protéger leur espace aérien contre toute intrusion. Adapté par le CSAT, il est fruit d'une collaboration avec les forces russes. Ce système est souvent utilisé à proximité des aérodromes et bases militaires pour la protection contre les menaces aériennes longue portée. Grâce à ses missiles Rhea à longue portée et aux flux de données du radar R-750 Cronus, ce système posera bien des problèmes à l'ennemi.</French>
+        <Spanish>El sistema de misiles tierra-aire Rhea S-750 fue diseñado por Rusia para defender su espacio aéreo de las posibles intrusiones hostiles. Este recurso fue adaptado por el CSAT a raíz de un acuerdo del sindicato armamentístico firmado entre Rusia y el CSAT. Suele encontrarse cerca de recursos tan valiosos como aeródromos o bases militares para protegerlos de amenazas aéreas de larga distancia. Equipado con misiles Rhea de larga distancia y conectado al radar Cronus R-750 a través de enlace de datos, este sistema es una amenaza importante para cualquier rival.</Spanish>
+        <Italian>Il sistema missilistico terra-aria S-750 Rhea è stato progettato dalla Russia allo scopo di difendere il suo spazio aereo dalle intrusioni nemiche. È stato adattato dalla CSAT a seguito di un accordo bilaterale sugli armamenti tra Russia e CSAT. Solitamente si trova nei pressi di beni di elevato valore come gli aerodromi e le basi militari, per proteggerli dalle minacce aeree a lungo raggio. Dotato di missili Rhea a lungo raggio e connesso al radar R-750 Cronus attraverso il data-link, questo sistema rappresenta una seria minaccia per qualsiasi avversario.</Italian>
+        <Polish>System pocisków ziemia-powietrze S-750 Rhea produkcji rosyjskiej powstał z myślą o ochronie przestrzeni powietrznej. Konstrukcję przystosowano do potrzeb konsorcjum zbrojeniowego krajów CSAT i Rosji. Instalacje tego typu są z reguły rozmieszczane w pobliżu obiektów o kluczowym znaczeniu, takich jak lotniska i bazy wojskowe, w celu zwalczania pocisków dalekiego zasięgu. System uzbrojono w pociski rakietowe Rhea dalekiego zasięgu i połączono z radarem R-750 Cronus za pomocą łącza danych. System stanowi poważne zagrożenie dla każdego przeciwnika.</Polish>
+        <Russian>Зенитно-ракетный комплекс S-750 Rhea был спроектирован российскими инженерами для защиты воздушного пространства РФ от вражеского вторжения. Он был немного переработан CSAT на основании соглашения о поставках вооружения между Россией и CSAT. Как правило, он размещается вблизи особо важных целей, таких как аэродромы и военные базы, чтобы защитить их от воздушных атак. Этот комплекс, подключаемый через канал передачи данных к РЛС R-750 Cronus и оснащенный ракетами  Rhea большой дальности, представляет собой серьезную угрозу для любого противника.</Russian>
+        <German>Das Boden-Luft-Raketensystem S-750 Rhea wurde von Russland konstruiert, um den eigenen Luftraum vor feindlichen Eindringlingen zu schützen. Das System wurde im Rahmen eines Waffenkonsortium-Deals zwischen Russland und CSAT von letzteren adaptiert. Es wird üblicherweise in der Nähe strategisch wertvoller Standorte eingesetzt (z. B. Flugplätze und Militärbasen), um diese vor feindlichen Langstrecken-Bedrohungen zu schützen. Dieses System ist mit Rhea-Langstrecken-Raketen ausgestattet und über Datenlink mit einem R-750 Cronus-Radarsystem vernetzt, was es zu einer ernsten Bedrohung für jeden Feind macht.</German>
+        <Czech>Systém střel země-vzduch S-750 Rhea vyvinulo Rusko za účelem ochrany svého vzdušného prostoru proti vniknutí nepřítele. Systém si adaptoval pakt CSAT na základě společné zbraňové dohody CSAT a Ruska. Běžně je rozmisťován k ochraně před vzdušnými hrozbami na dlouhé vzdálenosti poblíž objektů vysoké důležitosti, jako jsou například letiště a vojenské základny. Systém je vyzbrojen dalekonosnými střelami Rhea a datovým spojením propojen s radarem R-750 Cronus. Jedná se o závažnou hrozbu pro každého protivníka.</Czech>
+        <English>The S-750 Rhea Surface-Air-Missile system was designed by Russia to defend its airspace against hostile intrusion. The asset was adapted by CSAT based on a joint CSAT/Russian arms syndicate deal. Typically found near high-value assets such as airfields and military bases to protect against long-range aerial threats. Armed with long-range Rhea missiles, and connected to R-750 Cronus radar via data-link, this system is a serious threat to any opponent.</English>
+        <Portuguese>O sistema de mísseis terra-ar Rhea S-750 foi projetado pela Rússia para defender seu espaço aéreo contra invasões hostis. Em seguida, o projeto foi adaptado pela CSAT por um acordo conjunto entre sindicatos de armas da CSAT e da Rússia. Normalmente, encontra-se perto de ativos de alto valor, como aeródromos e bases militares, servindo como proteção contra ameaças aéreas de longo alcance. Armado com mísseis Rhea de longo alcance e conectado ao radar R-750 Cronus através do datalink, este sistema é uma ameaça séria para qualquer adversário.</Portuguese>
+        <Korean>S-750 Rhea 지대공 미사일 시스템은 러시아가 적의 칩입으로부터 영공을 보호할 목적으로 설계한 것입니다. 이 자산은 CSAT와 러시아 합동 무장 신디케이트 거래에 따라 개량되었습니다. 통상적으로 비행장과 군사기지와 같은 고가의 자산들을 장거리 영공 위협으로 부터 보호합니다. 장거리 Rhea 미사일로 무장되고 데이터 링크를 통해 R-750 Cronus 레이더와 연결되는 이 시스템은 적에게 상당히 위협적인 존재입니다.</Korean>
+        <Chinesesimp>S-750 Rhea 地对空导弹系统由俄罗斯设计，用于防止其领空受到敌军入侵。该资产由 CSAT 根据一项 CSAT/俄罗斯武器财团联合协议改装。常见于机场和军事基地等高价值资产附近，旨在应对远程空中威胁。该系统配备远程 Rhea 导弹，并通过数据传输器与 R-750 连接，对任何敌人都构成严重威胁。</Chinesesimp>
+        <Japanese>S-750 Rhea 地対空ミサイルシステムはロシアが領空に侵入する敵に対する手段として開発したものであるが、同機材は CSAT・ロシア間の武器統合契約に基づいて CSAT 側で改修を受けている。主に飛行場や軍事基地など、高価値施設を長距離からの航空脅威から守るために配置される。長射程の Rhea ミサイルを搭載し、データリンク経由で R-750 Cronus レーダーに接続された本システムはあらゆる敵にとって大きな脅威となる。</Japanese>
+        <Turkish>S-750 Rhea Karadan Havaya Füze sistemi, hava sahasını izinsiz düşman girişine karşı korumak için Rusya tarafından tasarlanmıştır. Bu öğe, CSAT/Rusya ortak silah birliği anlaşmasına göre CSAT tarafından uyarlanmıştır. Genellikle hava sahaları ve askeri üsler gibi yüksek değerli öğelerin yakınında bulunur ve uzun menzilli hava tehditlerine karşı koruma sağlar. Uzun menzilli Rhea füzelerle donatılan ve veri bağlantısı üzerinden R-750 Cronus radara bağlanan bu sistem, her türlü rakibe karşı ciddi bir tehdittir.</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_04_DLCbrowser_description">
+        <Original>One of four surface-to-air defense systems designed to protect high-value targets from hostile airstrikes.</Original>
+        <Chinese>四個地對空防禦系統之一，目的是防止高價值目標受到敵方空中攻擊。</Chinese>
+        <French>L'un des quatre systèmes de défense sol-air pour la protection d'éléments d'importance stratégique contre les frappes aériennes.</French>
+        <Spanish>Uno de los cuatro sistemas defensivos tierra-aire que se diseñaron para proteger los objetivos más valiosos de los ataques aéreos hostiles.</Spanish>
+        <Italian>Uno dei quattro sistemi di difesa terra-aria destinati a proteggere bersagli di elevato valore dalle incursioni aeree nemiche.</Italian>
+        <Polish>Jeden z czterech systemów obrony przeciwlotniczej, zaprojektowany w celu obrony kluczowych celów przed wrogimi atakami z powietrza.</Polish>
+        <Russian>Это один из четырех ЗРК, предназначенных для защиты особо важных целей от вражеских авиаударов.</Russian>
+        <German>Eines von vier Boden-Luft-Verteidigungssystemen, die strategisch wichtige Ziele vor feindlichen Luftangriffen schützen sollen.</German>
+        <Czech>Jeden ze čtyř obranných systémů vzduch-země je určen k ochraně cílů vysoké důležitosti proti nepřátelským vzdušným úderům.</Czech>
+        <English>One of four surface-to-air defense systems designed to protect high-value targets from hostile airstrikes.</English>
+        <Portuguese>Um dos quatro sistemas de defesa terra-ar projetados para proteger alvos de alto valor contra ataques aéreos hostis.</Portuguese>
+        <Korean>4개의 지대공 방어 시스템 중 하나로 고가의 목표물을 적의 공습으로부터 보호하도록 설계되었습니다.</Korean>
+        <Chinesesimp>四种地对空防御系统之一，旨在保护高价值目标，防止其遭受敌军空袭。</Chinesesimp>
+        <Japanese>高価値目標を敵の空爆から守るために配置される地対空防衛システム全 4 種のひとつ。</Japanese>
+        <Turkish>Yüksek değerli hedefleri düşman hava saldırılarından korumak için tasarlanmış dört karadan havaya savunma sisteminden biridir.</Turkish>
+      </Key>
+      <Key ID="STR_A3_SAM_System_04_DLCbrowser_title">
+        <Original>S-750 Rhea Surface-Air-Missile system</Original>
+        <Chinese>S-750 Rhea 地對空飛彈系統</Chinese>
+        <French>Système de missiles sol-air S-750 Rhea</French>
+        <Spanish>Sistema de misiles tierra-aire Rhea S-750</Spanish>
+        <Italian>Sistema missilistico terra-aria S-750 Rhea</Italian>
+        <Polish>System pocisków ziemia-powietrze S-750 Rhea</Polish>
+        <Russian>Зенитно-ракетный комплекс S-750 Rhea</Russian>
+        <German>Boden-Luft-Raketensystem „S-750 Rhea“</German>
+        <Czech>Systém země-vzduch S-750 Rhea</Czech>
+        <English>S-750 Rhea Surface-Air-Missile system</English>
+        <Portuguese>Sistema de mísseis terra-ar Rhea S-750</Portuguese>
+        <Korean>S-750 Rhea 지대공 미사일 시스템</Korean>
+        <Chinesesimp>S-750 Rhea 地对空导弹系统</Chinesesimp>
+        <Japanese>S-750 Rhea 地対空ミサイルシステム</Japanese>
+        <Turkish>S-750 Rhea Karadan Havaya Füze sistemi</Turkish>
+      </Key>
+    </Container>
+  </Package>
+</Project>

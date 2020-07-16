@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?><Project name="Arma3">
+  <Package name="Language_Destroyer">
+    <Container name="Destroyer_01_Props">
+      <Key ID="STR_A3_Land_Destroyer_01_loadingBay_01_F">
+        <Original>Boat Rack</Original>
+        <Chinese>船架</Chinese>
+        <French>Ascenseur à bateau</French>
+        <Spanish>Estantería de barcas</Spanish>
+        <Italian>Supporto per barche</Italian>
+        <Polish>Rampa okrętowa</Polish>
+        <Russian>Стойка для лодки</Russian>
+        <German>Bootgestell</German>
+        <Czech>Držák na lodě</Czech>
+        <English>Boat Rack</English>
+        <Portuguese>Prateleira de barcos</Portuguese>
+        <Korean>단정 랙</Korean>
+        <Chinesesimp>船架</Chinesesimp>
+        <Japanese>ボート設置用ラック</Japanese>
+        <Turkish>Bot İskelesi</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_loadingBayL_01_F">
+        <Original>Boat Rack (Port Side)</Original>
+        <Chinese>船架（左舷）</Chinese>
+        <French>Ascenseur à bateau (bâbord)</French>
+        <Spanish>Estantería de barcas (babor)</Spanish>
+        <Italian>Supporto per barche (babordo)</Italian>
+        <Polish>Rampa okrętowa (bakburta)</Polish>
+        <Russian>Стойка для лодки (левый борт)</Russian>
+        <German>Bootgestell (Backbord)</German>
+        <Czech>Držák na lodě (levobok)</Czech>
+        <English>Boat Rack (Port Side)</English>
+        <Portuguese>Prateleira de barcos (bombordo)</Portuguese>
+        <Korean>단정 랙(좌현)</Korean>
+        <Chinesesimp>船架（左舷）</Chinesesimp>
+        <Japanese>ボート設置用ラック（左舷）</Japanese>
+        <Turkish>Bot İskelesi (İskele Tarafı)</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_loadingBayR_01_F">
+        <Original>Boat Rack (Starboard Side)</Original>
+        <Chinese>船架（右舷）</Chinese>
+        <French>Ascenseur à bateau (tribord)</French>
+        <Spanish>Estantería de barcas (estribor)</Spanish>
+        <Italian>Supporto per barche (tribordo)</Italian>
+        <Polish>Rampa okrętowa (sterburta)</Polish>
+        <Russian>Стойка для лодки (правый борт)</Russian>
+        <German>Bootgestell (Steuerbord)</German>
+        <Czech>Držák na lodě (pravobok)</Czech>
+        <English>Boat Rack (Starboard Side)</English>
+        <Portuguese>Prateleira de barcos (estibordo)</Portuguese>
+        <Korean>단정 랙(우현)</Korean>
+        <Chinesesimp>船架（右舷）</Chinesesimp>
+        <Japanese>ボート設置用ラック（右舷）</Japanese>
+        <Turkish>Bot İskelesi (Sancak Tarafı)</Turkish>
+      </Key>
+      <Key ID="STR_A3_ShipFlag_US_Name">
+        <Original>Ship Flagpole</Original>
+        <Chinese>船艦旗桿</Chinese>
+        <French>Mât à pavillon de navire</French>
+        <Spanish>Mástil del barco</Spanish>
+        <Italian>Pennone della nave</Italian>
+        <Polish>Maszt okrętu</Polish>
+        <Russian>Флагшток корабля</Russian>
+        <German>Schiffsfahnenstange</German>
+        <Czech>Lodní vlajkový stožár</Czech>
+        <English>Ship Flagpole</English>
+        <Portuguese>Mastro da embarcação</Portuguese>
+        <Korean>선박 깃대</Korean>
+        <Chinesesimp>舰艇旗杆</Chinesesimp>
+        <Japanese>船体の旗ポール</Japanese>
+        <Turkish>Gemi Gönderi</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_BriefingRoomDesk_01_F">
+        <Original>Briefing Room Desk</Original>
+        <Chinese>簡報室桌子</Chinese>
+        <French>Bureau de salle de briefing</French>
+        <Spanish>Mesa de la sala de informes</Spanish>
+        <Italian>Scrivania della stanza del briefing</Italian>
+        <Polish>Biurko (sala odpraw)</Polish>
+        <Russian>Стол в помещении для инструктажа</Russian>
+        <German>Besprechungszimmer – Schreibtisch</German>
+        <Czech>Stůl briefingové místnosti</Czech>
+        <English>Briefing Room Desk</English>
+        <Portuguese>Mesa da sala de instruções</Portuguese>
+        <Korean>상황실 책상</Korean>
+        <Chinesesimp>简报室会议桌</Chinesesimp>
+        <Japanese>ブリーフィングルームの机</Japanese>
+        <Turkish>Brifing Odası Masası</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_BriefingRoomScreen_01_F">
+        <Original>Briefing Room Screen</Original>
+        <Chinese>簡報室螢幕</Chinese>
+        <French>Écran de salle de briefing</French>
+        <Spanish>Pantalla de la sala de informes</Spanish>
+        <Italian>Schermo della stanza del briefing</Italian>
+        <Polish>Ekran (sala odpraw)</Polish>
+        <Russian>Экран в помещении для инструктажа</Russian>
+        <German>Besprechungszimmer – Bildschirm</German>
+        <Czech>Plátno briefingové místnosti</Czech>
+        <English>Briefing Room Screen</English>
+        <Portuguese>Tela da sala de instruções</Portuguese>
+        <Korean>상황실 화면</Korean>
+        <Chinesesimp>简报室屏幕</Chinesesimp>
+        <Japanese>ブリーフィングルームの画面</Japanese>
+        <Turkish>Brifing Odası Ekranı</Turkish>
+      </Key>
+    </Container>
+    <Container name="EDEN_Paint_Schemes">
+      <Key ID="STR_A3_VirtualGarage_BoatRack_01_Camo_01">
+        <Original>Blue</Original>
+        <Chinese>藍色</Chinese>
+        <French>Bleu</French>
+        <Spanish>Azul</Spanish>
+        <Italian>Blu</Italian>
+        <Polish>Niebieski</Polish>
+        <Russian>Синий</Russian>
+        <German>Blau</German>
+        <Czech>Modrá</Czech>
+        <English>Blue</English>
+        <Portuguese>Azul</Portuguese>
+        <Korean>청</Korean>
+        <Chinesesimp>蓝色</Chinesesimp>
+        <Japanese>青</Japanese>
+        <Turkish>Mavi</Turkish>
+      </Key>
+      <Key ID="STR_A3_VirtualGarage_BoatRack_01_Camo_03">
+        <Original>Grey</Original>
+        <Chinese>灰色</Chinese>
+        <French>Gris</French>
+        <Spanish>Gris</Spanish>
+        <Italian>Grigio</Italian>
+        <Polish>Szary</Polish>
+        <Russian>Серый</Russian>
+        <German>Grau</German>
+        <Czech>Šedá</Czech>
+        <English>Grey</English>
+        <Portuguese>Cinza</Portuguese>
+        <Korean>회색</Korean>
+        <Chinesesimp>灰色</Chinesesimp>
+        <Japanese>灰色</Japanese>
+        <Turkish>Gri</Turkish>
+      </Key>
+      <Key ID="STR_A3_VirtualGarage_BoatRack_01_Camo_02">
+        <Original>Olive Green</Original>
+        <Chinese>橄欖綠</Chinese>
+        <French>Vert olive</French>
+        <Spanish>Verde oliva</Spanish>
+        <Italian>Verde oliva</Italian>
+        <Polish>Oliwkowy</Polish>
+        <Russian>Оливково-зеленый</Russian>
+        <German>Olivgrün</German>
+        <Czech>Olivově zelená</Czech>
+        <English>Olive Green</English>
+        <Portuguese>Verde oliva</Portuguese>
+        <Korean>올리브 그린</Korean>
+        <Chinesesimp>橄榄绿</Chinesesimp>
+        <Japanese>オリーブグリーン</Japanese>
+        <Turkish>Zeytin Yeşili</Turkish>
+      </Key>
+      <Key ID="STR_A3_VirtualGarage_BoatRack_01_Camo_04">
+        <Original>Sports Orange</Original>
+        <Chinese>運動橘</Chinese>
+        <French>Orange fluo</French>
+        <Spanish>Naranja deportivo</Spanish>
+        <Italian>Arancione sportivo</Italian>
+        <Polish>Pomarańczowy</Polish>
+        <Russian>Спортивный оранжевый</Russian>
+        <German>Sport-Orange</German>
+        <Czech>Sportovně oranžová</Czech>
+        <English>Sports Orange</English>
+        <Portuguese>Laranja esportivo</Portuguese>
+        <Korean>스포츠 오렌지</Korean>
+        <Chinesesimp>运动橙</Chinesesimp>
+        <Japanese>スポーツオレンジ</Japanese>
+        <Turkish>Spor Turuncu</Turkish>
+      </Key>
+    </Container>
+    <Container name="Field_Manual_Entries">
+      <Key ID="STR_A3_Ship_Gun_01_hint_description">
+        <Original>The Mk45 Hammer 120mm naval gun provides NATO naval vessels with heavy firepower capability in close and medium ranges. Capable of both direct fire and artillery fire control this powerful gun is essential both in fleet-defence and fire-support roles. This asset is normally deployed on Liberty class destroyers.</Original>
+        <Chinese>Mk45 Hammer 120mm 艦砲是 NATO 海軍的重火力武器，可支援近中程作戰。這款火力強勁的武器可以直接開火，也能進行砲擊，在艦隊防衛與火力支援上都是不可或缺的角色。這項資產通常部署在「Liberty」級驅逐艦上。</Chinese>
+        <French>Le canon naval de 120 mm Mk45 Hammer confère aux navires de l'OTAN une grande puissance de feu à courte et moyenne portée. Efficace en tir direct et en tir d'artillerie, ce canon joue un rôle vital dans la défense des flottes et l'appui-feu, notamment à bord des destroyers de classe Liberty.</French>
+        <Spanish>El arma naval Hammer Mk45 de 120 mm otorga a los navíos de la OTAN una gran potencia de fuego a corta y media distancia. Capaz de disparar directamente y usar fuego de artillería, esta potente arma es fundamental tanto para llas funciones de defensa de flota como para las de fuego de apoyo. Este recurso suele estar disponible en los destructores de la clase Liberty.</Spanish>
+        <Italian>Il cannone navale Mk45 Hammer da 120mm fornisce alle imbarcazioni NATO grande potenza di fuoco a distanza media e ravvicinata. Quest'arma potente esegue sia il puntamento diretto che il controllo del fuoco di artiglieria ed è essenziale nella difesa della flotta così come nel ruolo di fuoco di supporto. Viene solitamente schierato sui cacciatorpedinieri Liberty.</Italian>
+        <Polish>Armata morska Mk45 Hammer kalibru 120 mm zapewnia okrętom wojennym NATO dużą siłę ognia na bliskim i średnim zasięgu. To potężne działo może prowadzić ogień bezpośredni i artyleryjski, dzięki czemu jest niezastąpione w obronie floty i udzielaniu wsparcia ogniowego. Broń stanowi standardowe wyposażenie niszczycieli typu Liberty.</Polish>
+        <Russian>120-мм корабельное орудие Mk45 Hammer обеспечивает военные корабли НАТО отличной огневой мощью на малом и среднем расстоянии.  Способное как стрелять прямой наводкой, так и управляться системами управления артиллерийским огнем, это мощное орудие играет важную роль в защите флота и оказании огневой поддержки. Как правило, устанавливается на эсминцах класса Liberty.</Russian>
+        <German>Das Marinegeschütz Mk45 Hammer verleiht NATO-Schiffen schwere Feuerkraft auf kurze und mittelgroße Distanz. Dank seiner direkten und indirekten Feuerkapazitäten ist dieses Geschütz essentiell für die Flottenverteidigung und Feuerunterstützung. Dieses Geschütz wird üblicherweise auf Zerstörern der Liberty-Klasse eingesetzt.</German>
+        <Czech>Námořní dělo Mk45 Hammer ráže 120 mm poskytuje plavidlům NATO těžkou palebnou sílu na krátkou a střední vzdálenost. Toto výkonné dělo je schopno jak přímé, tak dělostřelecké střelby, má nezastupitelnou roli v obraně flotily a při palebné podpoře a běžně se běžně používá na torpédoborcích třídy Liberty.</Czech>
+        <English>The Mk45 Hammer 120mm naval gun provides NATO naval vessels with heavy firepower capability in close and medium ranges. Capable of both direct fire and artillery fire control this powerful gun is essential both in fleet-defence and fire-support roles. This asset is normally deployed on Liberty class destroyers.</English>
+        <Portuguese>A arma naval Mk45 Hammer de 120 mm proporciona potencial de fogo pesado de curto e médio alcance às embarcações da OTAN. Capaz tanto de executar disparos diretos quanto de controlar disparos de artilharia, essa arma poderosa é essencial nas funções de defesa de frota, assim como no suporte por disparos. Este equipamento é normalmente alocado nos contratorpedeiros do tipo Liberty.</Portuguese>
+        <Korean>Mk45 Hammer 120mm 함포는 NATO 해군 전함에 근접 및 중거리 중화기 기능을 제공합니다. 이 막강한 함포는 직접 사격과 포격이 모두 가능해 함대 방어와 사격 지원 역할에  필수적입니다. 이 자산은 보통 Liberty급 구축함에 배치됩니다.</Korean>
+        <Chinesesimp>Mk45 Hammer 120 毫米舰炮为 NATO 军舰提供短程和中程重型火力。此强大的舰炮既能直接射击，也能炮击，在军舰防御和火力支援方面起着关键性作用。此装备通常部署在自由级驱逐舰上。</Chinesesimp>
+        <Japanese>Mk45 Hammer 120mm 砲は NATO 軍艦船に近・中距離における火力を与える兵器である。この強力な砲は直射・曲射のどちらも射撃可能であり、艦隊防衛と砲撃支援のどちらにも必須の装備となっている。主にリバティー級駆逐艦に搭載される。</Japanese>
+        <Turkish>Mk45 Hammer 120mm donanma silahı, NATO donanma gemilerine yakın ve orta menzilde yüksek ateş gücü kabiliyeti sağlar. Hem doğrudan ateş hem de ağır silah ateşi kontrolüne sahip bu güçlü silah, filo savunma ve ateş destek rollerinde çok önemlidir. Bu öğe, normalde Liberty sınıfı muhriplerde kullanılır.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_DLCbrowser_description">
+        <Original>This ship serves as a naval-support platform for NATO forces and as additional support for the Carrier Strike Group.</Original>
+        <Chinese>這艘船艦不只是 NATO 部隊的海上支援平台，也是航空母艦作戰團的額外支援。</Chinese>
+        <French>Ce navire sert de plateforme d'appui naval aux forces de l'OTAN et de soutien aux opérations du groupe offensif du porte-avions.</French>
+        <Spanish>Este barco es una plataforma de apoyo naval para fuerzas de la OTAN, además de ofrecer apoyo adicional al grupo de transportes de ataque.</Spanish>
+        <Italian>Questa nave funge come piattaforma di supporto navale delle forze NATO e ulteriore supporto a favore del gruppo d'attacco portaerei.</Italian>
+        <Polish>Okręt ten służy jako platforma wsparcia marynarki wojennej dla sił NATO oraz jako dodatkowe wsparcie dla grupy uderzeniowej lotniskowca.</Polish>
+        <Russian>Этот корабль служит в качестве платформы для сил НАТО и поддержки авианосной ударной группы.</Russian>
+        <German>Dieses Schiff dient als marine Unterstützungsplattform für die NATO-Streitkräfte und zusätzliche Unterstützung für die Einsatzträgergruppe.</German>
+        <Czech>Tato loď slouží jako námořní podpůrná platforma sil NATO a dodatečná podpora útočné skupiny letadlové lodě.</Czech>
+        <English>This ship serves as a naval-support platform for NATO forces and as additional support for the Carrier Strike Group.</English>
+        <Portuguese>Este navio serve de plataforma de apoio naval para as forças da OTAN e de suporte adicional para o grupo de ataque do porta-aviões.</Portuguese>
+        <Korean>이 함선은 NATO군을 비롯해 항공모함 타격 그룹을 추가 지원하는 해군 지원 플랫폼 역할을 합니다.</Korean>
+        <Chinesesimp>此船用作 NATO 部队的海军支援平台，也可为航母战斗群提供额外支援。</Chinesesimp>
+        <Japanese>同艦は NATO 軍の洋上支援プラットフォームとして使用され、また空母打撃群の支援担当としても用いられる。</Japanese>
+        <Turkish>Bu gemi, NATO kuvvetleri için donanma destek platformu ve Taşıyıcı Saldırı Grubu için ek destek görevi görür.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Ship_Gun_01_DLCbrowser_title">
+        <Original>The Mk45 Hammer</Original>
+        <Chinese>The Mk45 Hammer</Chinese>
+        <French>Mk45 Hammer</French>
+        <Spanish>Hammer Mk45</Spanish>
+        <Italian>Mk45 Hammer</Italian>
+        <Polish>Mk45 Hammer</Polish>
+        <Russian>Mk45 Hammer</Russian>
+        <German>Das Mk45 Hammer</German>
+        <Czech>Mk45 Hammer</Czech>
+        <English>The Mk45 Hammer</English>
+        <Portuguese>Mk45 Hammer</Portuguese>
+        <Korean>Mk45 Hammer</Korean>
+        <Chinesesimp>Mk45 Hammer</Chinesesimp>
+        <Japanese>Mk45 Hammer</Japanese>
+        <Turkish>Mk45 Hammer</Turkish>
+      </Key>
+      <Key ID="STR_A3_Ship_MRLS_01_hint_description">
+        <Original>The Mk41 Vertical Launch System provides NATO naval vessels with a precision strike capability in medium to long ranges. Armed with 18 MLRS missiles, this asset is normally deployed on Liberty class destroyers.</Original>
+        <Chinese>Mk41 垂直發射系統是 NATO 海軍的精準打擊武器，可支援中遠程作戰。這項資產裝有 18 枚多管火箭，通常部署在「Liberty」級驅逐艦上。</Chinese>
+        <French>Grâce au système de lancement vertical Mk41, les navires de l'OTAN disposent d'une capacité de frappe de précision à courte et moyenne portée. Doté de 18 missiles MLRS, le Mk41 est déployé à bord des destroyers de classe Liberty.</French>
+        <Spanish>El sistema de despegue en vertical (VLS) Mk41 otorga a los navíos de la OTAN una gran precisión en los ataques a media y larga distancia. Equipado con 18 misiles MLRS, esta función suele estar disponible en los destructores de la clase Liberty.</Spanish>
+        <Italian>Il Sistema di lancio verticale Mk41 fornisce alle imbarcazioni NATO attacchi di precisione a distanze medio-lunghe. Dotato di 18 missili di tipo MLRS, viene solitamente schierato sui cacciatorpedinieri Liberty.</Italian>
+        <Polish>Wyrzutnia startu pionowego (VLS) Mk41 zapewnia okrętom morskim NATO możliwość prowadzenia precyzyjnego ognia na średnim i dalekim zasięgu. System składa się z osiemnastu komór, przechowujących pociski typu MLRS. Wyrzutnie tego rodzaju stanowią standardowe wyposażenie niszczycieli typu Liberty.</Polish>
+        <Russian>Установка вертикального пуска Mk41 позволяет военно-морским судам НАТО наносить прицельные удары на средних и дальних дистанциях. Вооружена реактивной системой залпового огня с 18 ракетами. Как правило, устанавливается на эсминцах класса Liberty.</Russian>
+        <German>Das vertikale Abschusssystem Mk41 verleiht NATO-Schiffen ein Präzisionskampfmittel auf mittlere und lange Distanz. Dieses System ist mit 18 MLRS-Raketen ausgestattet und wird üblicherweise auf Zerstörern der Liberty-Klasse eingesetzt.</German>
+        <Czech>Vertikální odpalovací systém Mk41 VLS poskytuje plavidlům NATO schopnost přesného úderu na střední a velkou vzdálenost. Tento zbraňový systém je vybaven osmnácti raketami MLRS a běžně se používá na torpédoborcích třídy Liberty.</Czech>
+        <English>The Mk41 Vertical Launch System provides NATO naval vessels with a precision strike capability in medium to long ranges. Armed with 18 MLRS missiles, this asset is normally deployed on Liberty class destroyers.</English>
+        <Portuguese>O sistema de lançamento vertical Mk41 proporciona capacidade de ataque de precisão de médio e longo alcance às embarcações da OTAN. Armado com 18 mísseis MLRS, esse equipamento é normalmente alocado nos contratorpedeiros do tipo Liberty.</Portuguese>
+        <Korean>Mk41 수직 발사 시스템은 NATO 해군함에 중장거리 정밀 타격 기능을 제공합니다. 18MLRS 미사일이 장착된 이 자산은 보통 Liberty급 구축함에 배치됩니다.</Korean>
+        <Chinesesimp>Mk41 垂直发射系统为 NATO 提供具有中程和远程精确打击能力的海军舰艇。此装备配备 18 MLRS 导弹，通常部署在自由级驱逐舰上。</Chinesesimp>
+        <Japanese>Mk41 垂直発射システムは 18 発の MLRS ミサイルを搭載し、NATO 軍海洋戦力に中・長距離での精密爆撃能力を提供。主にリバティー級駆逐艦に搭載される。</Japanese>
+        <Turkish>Mk41 Dikey Fırlatma Sistemi, NATO donanma gemilerine orta ila uzun menzillerde isabetli saldırı kabiliyeti sağlar. 18 MLRS füzesiyle donatılan bu öğe, normalde Liberty sınıfı muhriplerde kullanılır.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_DLCbrowser_title">
+        <Original>Destroyer [USS Liberty]</Original>
+        <Chinese>驅逐艦「USS Liberty」</Chinese>
+        <French>Destroyer [USS Liberty]</French>
+        <Spanish>Destructor [USS Liberty]</Spanish>
+        <Italian>Cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Niszczyciel [USS Liberty]</Polish>
+        <Russian>Эсминец [USS Liberty]</Russian>
+        <German>Zerstörer [USS Liberty]</German>
+        <Czech>Torpédoborec [USS Liberty]</Czech>
+        <English>Destroyer [USS Liberty]</English>
+        <Portuguese>Contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty]</Japanese>
+        <Turkish>Muhrip [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Ship_Gun_01_DLCbrowser_description">
+        <Original>120mm naval gun provides NATO naval vessels with heavy firepower capability, designed for use with Liberty class destroyers.</Original>
+        <Chinese>120mm 艦砲是 NATO 海軍的重火力武器，用於搭配「Liberty」級驅逐艦作戰。</Chinese>
+        <French>Ce canon naval de 120 mm, conçu pour les destroyers de classe Liberty, confère une grande puissance de feu aux vaisseaux de l'OTAN.</French>
+        <Spanish>Arma naval de 120 mm que otorga a los navíos de la OTAN una gran potencia de fuego. Diseñada para destructores de la clase Liberty.</Spanish>
+        <Italian>Il cannone navale da 120mm fornisce grande potenza di fuoco alle imbarcazioni NATO ed è destinato all'utilizzo sui cacciatorpedinieri Liberty.</Italian>
+        <Polish>Powstała z myślą o niszczycielach typu Liberty armata morska kalibru 120 mm zapewnia okrętom NATO dużą siłę ognia.</Polish>
+        <Russian>120-мм корабельное орудие  обеспечивает военные корабли НАТО отличной огневой мощью и предназначено для использования эсминцами класса Liberty.</Russian>
+        <German>Das 120mm-Marinegeschütz verleiht NATO-Schiffen schwere Feuerkraft und wird auf Zerstörern der Liberty-Klasse eingesetzt.</German>
+        <Czech>120mm námořní dělo poskytuje plavidlům NATO těžkou palebnou sílu určenou pro torpédoborce třídy Liberty.</Czech>
+        <English>120mm naval gun provides NATO naval vessels with heavy firepower capability, designed for use with Liberty class destroyers.</English>
+        <Portuguese>A arma naval de 120 mm proporciona grande poder de fogo às embarcações da OTAN, tendo sido projetada para uso com os contratorpedeiros do tipo Liberty.</Portuguese>
+        <Korean>120mm 함포는 NATO 해군함에 중화기 기능을 제공하며 Liberty급 구축함에 사용할 수 있습니다.</Korean>
+        <Chinesesimp>120 毫米舰炮为 NATO 海军舰艇提供重型火力，设计用于自由级驱逐舰。</Chinesesimp>
+        <Japanese>120mm 砲。NATO 軍海洋戦力に火力を提供し、リバティー級駆逐艦への搭載を念頭に設計されている。</Japanese>
+        <Turkish>120mm donanma silahı, NATO donanma gemilerine yüksek ateş gücü kabiliyeti sağlar ve Liberty sınıfı muhriplerle birlikte kullanılmak üzere tasarlanmıştır.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Ship_MRLS_01_DLCbrowser_title">
+        <Original>Mk41 Vertical Launch System</Original>
+        <Chinese>Mk41 垂直發射系統</Chinese>
+        <French>Système de lancement vertical Mk41</French>
+        <Spanish>Sistema de despegue en vertical Mk41</Spanish>
+        <Italian>Sistema di lancio verticale Mk41 (VLS)</Italian>
+        <Polish>Wyrzutnia startu pionowego (VLS) Mk41</Polish>
+        <Russian>Установка вертикального пуска Mk4</Russian>
+        <German>Vertikales Abschusssystem Mk41</German>
+        <Czech>Vertikální odpalovací systém Mk41 VLS</Czech>
+        <English>Mk41 Vertical Launch System</English>
+        <Portuguese>Sistema de lançamento vertical Mk41</Portuguese>
+        <Korean>Mk41 수직 발사 시스템</Korean>
+        <Chinesesimp>Mk41 垂直发射系统</Chinesesimp>
+        <Japanese>Mk41 垂直発射システム（VLS）</Japanese>
+        <Turkish>Mk41 Dikey Fırlatma Sistemi</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_hint_description">
+        <Original>The USS Liberty is one of several newly-built ships of its class. This powerful destroyer serves as part of "NATO Strike Group 14". It can carry troops, equipment and a helicopter on board allowing the battlegroup to perform its vital support roles. With a length of 155 meters and beam of 45 meters it can operate close to shore for rapid amphibious assaults.</Original>
+        <Chinese>「USS Liberty」是同級艦隊中的新建船艦之一。威力強大的驅逐艦，隸屬於 NATO 第 14 作戰團。本艦能運送部隊、裝備，甲板可停靠一台直升機，使戰鬥群能扮演關鍵支援角色。它全長 155 公尺、寬 45 公尺，能貼近海岸，發動迅速兩棲攻勢。</Chinese>
+        <French>L'USS Liberty est un navire récent de la classe des destroyers. Son rôle est d'appuyer le Groupe offensif 14 de l'OTAN. Il sert au transport de troupes, d'équipement et d'hélicoptères, lui permettant ainsi d'assurer un rôle d'appui vital et polyvalent au sein du groupement tactique. Avec une longueur de 155 mètres et une largeur au maître-bau de 45 mètres, il peut s'approcher du littoral pour des assauts amphibies rapides.</French>
+        <Spanish>El USS Liberty es uno de los nuevos barcos de esta clase. Se trata de un potente destructor que forma parte del "Grupo de asalto 14 de la OTAN". Puede transportar tropas, equipo y un helicóptero, de tal modo que el grupo de asalto pueda cumplir con sus papeles fundamentales de apoyo. Con 155 metros de eslora y una manga de 45 metros, es capaz de operar cerca de la costa con rápidos ataques anfibios.</Spanish>
+        <Italian>La USS Liberty è una delle varie navi di nuova costruzione della sua classe. Questo potente cacciatorpediniere funge parte del gruppo d'attacco "NATO Strike Group 14". Mediante il trasporto  a bordo di truppe, di equipaggiamento e di un elicottero, consente al gruppo tattico di eseguire i propri ruoli di supporto fondamentali. Con una lunghezza di 155 metri e una larghezza massima di 45 metri, può operare nelle vicinanze della costa per attuare rapidi assalti anfibi.</Italian>
+        <Polish>USS Liberty jest jednym z kilku najnowszych statków tego typu. Ten potężny niszczyciel wchodzi w skład 14. grupy uderzeniowej NATO. Może transportować na pokładzie wojska, sprzęt i śmigłowiec, umożliwiając grupie bojowej wykonywanie podstawowych działań wsparcia. Okręt liczy 155 metrów długości i 45 metrów na owrężu, dzięki czemu może realizować działania desantowe, operując blisko brzegu.</Polish>
+        <Russian>USS Liberty является одним из новейших кораблей в своем классе. Этот мощный эсминец включен в состав "Ударной группы НАТО 14". Он может перевозить на борту войска, снаряжение и вертолет, что позволяет тактической группе выполнять важные задачи по оказанию огневой поддержки. Длина судна составляет 155 метров, а ширина – 45 метров. Может проводить операции возле берега для быстрой высадки десанта.</Russian>
+        <German>Die USS Liberty ist eines von mehreren neu gebauten Schiffen seiner Klasse. Dieser mächtige Zerstörer ist Teil der „NATO-Einsatzträgergruppe 14“. Er kann Truppen, Ausrüstung und einen Helikopter befördern, was es den Gefechtsverbänden erlaubt, ihre wichtigen Unterstützungsrollen auszufüllen. Mit einer Länge von 155 Metern und einer Breite von 45 Metern kann er in Küstennähe für schnelle amphibische Landungen eingesetzt werden.</German>
+        <Czech>USS Liberty je jedna z několika nově postavených lodí ve své třídě. Tento výkonný torpédoborec slouží jako součást Úderné skupiny NATO 15 a na palubě dokáže přepravovat vojáky, vybavení a vrtulník a umožňuje bojové skupině vykonávat klíčově důležité podpůrné úkoly. Měří 155 metrů, šíře dosahuje 45 metrů, takže dokáže operovat v blízkosti pobřeží a podporovat rychlé obojživelné útoky.</Czech>
+        <English>The USS Liberty is one of several newly-built ships of its class. This powerful destroyer serves as part of "NATO Strike Group 14". It can carry troops, equipment and a helicopter on board allowing the battlegroup to perform its vital support roles. With a length of 155 meters and beam of 45 meters it can operate close to shore for rapid amphibious assaults.</English>
+        <Portuguese>O USS Liberty é um dos diversos navios recém-construídos da classe. Este poderoso contratorpedeiro atua como parte do “Grupo de ataque 14 da OTAN”. Ele pode transportar tropas, equipamentos e um helicóptero a bordo, permitindo que o grupo de batalha desempenhe papéis de apoio fundamentais. Seus 155 m de comprimento e 45 m de boca permitem que opere perto da costa e realize ataques aquáticos rápidos.</Portuguese>
+        <Korean>USS Liberty는 최근 제작된 동급 선박들 중 하나입니다. 이 강력한 구축함은 "NATO 타격 그룹 14"로 활약하며 부대, 장비 및 헬리콥터까지 수송할 수 있어 전투군이 핵심적인 지원 역할을 할 수 있도록 돕습니다. 155미터 길이에 45미터 높이 크기인 이 구축함은 신속한 수륙양용 공격을 가할 수 있도록 해안 인근에서 운항 가능합니다.</Korean>
+        <Chinesesimp>USS 自由号是几艘新建的同级别舰艇之一。此强大的驱逐舰是“NATO 战斗群 14”的一部分。它能运载部队、设备和直升机，让战斗群执行重要支援任务。该舰长 155 米，宽 45 米，可近岸航行，适合快速两栖作战。</Chinesesimp>
+        <Japanese>USS Liberty は同リバティー級の新造艦の 1 隻である。この強力な駆逐艦は「NATO 第 14 打撃群」に所属し、兵員や装備、ヘリ 1 機を搭載可能。戦闘群における重要な支援をこなすことができる。全長 155 メートル・全幅 45 メートル。沿岸付近での高速水陸強襲作戦での活動も可能である。</Japanese>
+        <Turkish>USS Liberty, kendi sınıfında yeni inşa edilen birkaç gemiden biridir. Bu güçlü muhrip, "NATO Saldırı Grubu 14"ün bir parçası olarak görev yapar. Güvertesinde ekipman, bir helikopter ve birlikleri taşıyarak muharebe grubunun en önemli destek rollerini yerine getirmesini sağlar. 155 metre uzunluğa ve 45 metre kirişe sahiptir ve hızlı amfibi saldırılar için kıyıya yakın görev yapabilir.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Ship_MRLS_01_DLCbrowser_description">
+        <Original>This missile system was designed to provide NATO naval vessels with a precision strike capability, designed for use with Liberty class destroyers.</Original>
+        <Chinese>本飛彈系統是 NATO 海軍的精準打擊武器，用於搭配「Liberty」級驅逐艦作戰。</Chinese>
+        <French>Ce système de missiles, conçu pour les destroyers de classe Liberty, confère une capacité de tir très précise aux vaisseaux de l'OTAN.</French>
+        <Spanish>Este sistema de misiles se creó para dotar a la OTAN de navíos capaces de realizar ataques de precisión. Está diseñado para utilizarse con destructores de la clase Liberty.</Spanish>
+        <Italian>Questo sistema missilistico è stato progettato per fornire attacchi di precisione alle imbarcazioni NATO ed è destinato all'utilizzo sui cacciatorpedinieri Liberty.</Italian>
+        <Polish>System pocisków rakietowych umożliwiający okrętom marynarki NATO prowadzenie ognia precyzyjnego. Stanowi wyposażenie niszczycieli typu Liberty.</Polish>
+        <Russian>Эта ракетная система позволяет военным кораблям НАТО наносить прицельные удары и предназначена для использования эсминцами класса Liberty.</Russian>
+        <German>Das Raketensystem wurde konstruiert, um NATO-Schiffe mit einem Präzisionskampfmittel auszustatten. Es wird auf Zerstörern der Liberty-Klasse eingesetzt.</German>
+        <Czech>Tento raketový systém byl navržen k poskytnutí plavidlům NATO schopnosti přesného úderu, konkrétně pro torpédoborce třídy Liberty.</Czech>
+        <English>This missile system was designed to provide NATO naval vessels with a precision strike capability, designed for use with Liberty class destroyers.</English>
+        <Portuguese>Este sistema de mísseis foi concebido para providenciar uma capacidade de ataque de precisão às embarcações da OTAN, tendo sido projetado para ser utilizado com os contratorpedeiros do tipo Liberty.</Portuguese>
+        <Korean>이 미사일 시스템은 NATO 해군함에 정밀 타격 기능을 제공할 목적으로 설계된 것으로 Liberty급 구축함에 사용할 수 있습니다.</Korean>
+        <Chinesesimp>此导弹系统可为 NATO 海军舰艇提供精确打击能力，设计用于自由级驱逐舰。</Chinesesimp>
+        <Japanese>本ミサイルシステムは NATO 軍海洋戦力に精密爆撃能力を提供し、リバティー級駆逐艦へ搭載することを念頭に設計されたものである。</Japanese>
+        <Turkish>Bu füze sistemi, NATO donanma gemilerine isabetli saldırı kabiliyeti sağlamak ve Liberty sınıfı muhriplerle birlikte kullanılmak üzere tasarlanmıştır.</Turkish>
+      </Key>
+      <Key ID="STR_A3_Ship_Cruise_01_hint_description">
+        <Original>The Mk41 Vertical Launch System provides NATO naval vessels with a precision strike capability in medium to long ranges. Armed with 18 cruise missiles, this asset is normally deployed on Liberty class destroyers.</Original>
+        <Chinese>Mk41 垂直發射系統是 NATO 海軍的精準打擊武器，可支援中遠程作戰。這項資產裝有 18 枚巡弋飛彈，通常部署在「Liberty」級驅逐艦上。</Chinese>
+        <French>Grâce au système de lancement vertical Mk41, les navires de l'OTAN disposent d'une capacité de frappe de précision à courte et moyenne portée. Doté de 18 missiles de croisière, le Mk41 est déployé à bord des destroyers de classe Liberty.</French>
+        <Spanish>El sistema de despegue en vertical (VLS) Mk41 otorga a los navíos de la OTAN una gran precisión en los ataques a media y larga distancia. Equipado con 18 misiles de crucero, esta función suele estar disponible en los destructores de la clase Liberty.</Spanish>
+        <Italian>Il Sistema di lancio verticale Mk41 (VLS) fornisce alle imbarcazioni NATO attacchi di precisione a distanze medio-lunghe. Dotato di 18 missili da crociera, viene solitamente schierato sui cacciatorpedinieri Liberty.</Italian>
+        <Polish>Wyrzutnia startu pionowego (VLS) Mk41 zapewnia okrętom morskim NATO możliwość prowadzenia precyzyjnego ognia na średnim i dalekim zasięgu. System składa się z osiemnastu komór, przechowujących pociski manewrujące. Wyrzutnie tego rodzaju stanowią standardowe wyposażenie niszczycieli typu Liberty.</Polish>
+        <Russian>Установка вертикального пуска Mk41 позволяет военно-морским судам НАТО наносить прицельные удары на средних и дальних дистанциях. Вооружена 18 крылатыми ракетами. Как правило, устанавливается на эсминцах класса Liberty.</Russian>
+        <German>Das vertikale Abschusssystem Mk41 verleiht NATO-Schiffen ein Präzisionskampfmittel auf mittlere und lange Distanz. Dieses System ist mit 18 Marschflugkörpern ausgestattet und wird üblicherweise auf Zerstörern der Liberty-Klasse eingesetzt.</German>
+        <Czech>Vertikální odpalovací systém Mk41 VLS poskytuje plavidlům NATO schopnost přesného úderu na střední a velkou vzdálenost. Tento zbraňový systém je vybaven osmnácti křižujícími střelami s plochou dráhou letu a běžně se používá na torpédoborcích třídy Liberty.</Czech>
+        <English>The Mk41 Vertical Launch System provides NATO naval vessels with a precision strike capability in medium to long ranges. Armed with 18 cruise missiles, this asset is normally deployed on Liberty class destroyers.</English>
+        <Portuguese>O sistema de lançamento vertical Mk41 proporciona capacidade de ataque de precisão de médio e longo alcance às embarcações da OTAN. Armado com 18 mísseis de cruzeiro, esse equipamento é normalmente alocado nos contratorpedeiros do tipo Liberty.</Portuguese>
+        <Korean>Mk41 수직 발사 시스템은 NATO 해군함에 중장거리 정밀 타격 기능을 제공합니다. 18개의 순항 유도탄이 장착되는 이 자산은 보통 Liberty급 구축함 배치됩니다.</Korean>
+        <Chinesesimp>Mk41 垂直发射系统为 NATO 提供具有中程和远程精确打击能力的海军舰艇。此装备配备 18 枚巡航导弹，通常部署在自由级驱逐舰上。</Chinesesimp>
+        <Japanese>Mk41 垂直発射システムは 18 発の巡行ミサイルを搭載し、NATO 軍海洋戦力に中・長距離での精密爆撃能力を提供。主にリバティー級駆逐艦に搭載される。</Japanese>
+        <Turkish>Mk41 Dikey Fırlatma Sistemi, NATO donanma gemilerine orta ila uzun menzillerde isabetli saldırı kabiliyeti sağlar. 18 kruz füzesiyle donatılan bu öğe, normalde Liberty sınıfı muhriplerde kullanılır.</Turkish>
+      </Key>
+    </Container>
+    <Container name="Static_Weapon_Systems">
+      <Key ID="STR_A3_Ship_Gun_01_name">
+        <Original>Mk45 Hammer</Original>
+        <Chinese>Mk45 Hammer</Chinese>
+        <French>Mk45 Hammer</French>
+        <Spanish>Hammer Mk45</Spanish>
+        <Italian>Mk45 Hammer</Italian>
+        <Polish>Mk45 Hammer</Polish>
+        <Russian>Mk45 Hammer</Russian>
+        <German>Mk45 Hammer</German>
+        <Czech>Mk45 Hammer</Czech>
+        <English>Mk45 Hammer</English>
+        <Portuguese>Mk45 Hammer</Portuguese>
+        <Korean>Mk45 Hammer</Korean>
+        <Chinesesimp>Mk45 Hammer</Chinesesimp>
+        <Japanese>Mk45 Hammer</Japanese>
+        <Turkish>Mk45 Hammer</Turkish>
+      </Key>
+      <Key ID="STR_A3_Ship_MRLS_01_name">
+        <Original>Mk41 VLS</Original>
+        <Chinese>Mk41 VLS</Chinese>
+        <French>Mk41 VLS</French>
+        <Spanish>VLS Mk41</Spanish>
+        <Italian>Mk41 VLS</Italian>
+        <Polish>Mk41 VLS</Polish>
+        <Russian>Mk41 VLS</Russian>
+        <German>Mk41 VLS</German>
+        <Czech>Mk41 VLS</Czech>
+        <English>Mk41 VLS</English>
+        <Portuguese>Mk41 VLS</Portuguese>
+        <Korean>Mk41 VLS</Korean>
+        <Chinesesimp>Mk41 VLS</Chinesesimp>
+        <Japanese>Mk41 VLS</Japanese>
+        <Turkish>Mk41 VLS</Turkish>
+      </Key>
+      <Key ID="str_a3_missile_cruise_weapon_name">
+        <Original>Venator Cruise Missile</Original>
+        <Chinese>Venator 巡弋飛彈</Chinese>
+        <French>Missile de croisière Venator</French>
+        <Spanish>Misil de crucero Venator</Spanish>
+        <Italian>Missile da crociera Venator</Italian>
+        <Polish>Pocisk manewrujący Venator</Polish>
+        <Russian>Крылатая ракета Venator</Russian>
+        <German>Venator-Marschflugkörper</German>
+        <Czech>Křižující střela Venator</Czech>
+        <English>Venator Cruise Missile</English>
+        <Portuguese>Míssil de cruzeiro Venator</Portuguese>
+        <Korean>Venator 크루즈 미사일</Korean>
+        <Chinesesimp>Venator 巡航导弹</Chinesesimp>
+        <Japanese>Venator 巡航ミサイル</Japanese>
+        <Turkish>Venator Kruz Füzesi</Turkish>
+      </Key>
+      <Key ID="str_a3_missile_cruise_he_x18_magazine_shortname">
+        <Original>VCM HE</Original>
+        <Chinese>VCM 高爆彈</Chinese>
+        <French>VCM HE</French>
+        <Spanish>VMC AE</Spanish>
+        <Italian>VCM HE</Italian>
+        <Polish>Wybuch. PMV</Polish>
+        <Russian>VCM HE</Russian>
+        <German>HE-VMFK</German>
+        <Czech>VCM HE</Czech>
+        <English>VCM HE</English>
+        <Portuguese>VMC AE</Portuguese>
+        <Korean>VCM 고폭</Korean>
+        <Chinesesimp>VCM 高爆炸弹</Chinesesimp>
+        <Japanese>VCM HE</Japanese>
+        <Turkish>VCM HE</Turkish>
+      </Key>
+      <Key ID="str_a3_missile_cruise_he_x18_magazine_name">
+        <Original>Cruise Missile HE</Original>
+        <Chinese>巡弋飛彈高爆彈</Chinese>
+        <French>Missile de croisière HE</French>
+        <Spanish>Misil de crucero AE</Spanish>
+        <Italian>Missile da crociera HE</Italian>
+        <Polish>Wybuch. pocisk manew.</Polish>
+        <Russian>КР с оскол.-фугас. БЧ</Russian>
+        <German>HE-Marschflugkörper</German>
+        <Czech>Výbušná křižující střela</Czech>
+        <English>Cruise Missile HE</English>
+        <Portuguese>Míssil de cruzeiro AE</Portuguese>
+        <Korean>크루즈 미사일 고폭</Korean>
+        <Chinesesimp>巡航导弹高爆炸弹</Chinesesimp>
+        <Japanese>巡航ミサイル HE</Japanese>
+        <Turkish>Kruz Füzesi HE</Turkish>
+      </Key>
+      <Key ID="str_a3_missile_cruise_he_x18_magazine_description">
+        <Original>Long-range, datalink guided, surface-to-surface missile with high-explosive warhead</Original>
+        <Chinese>配備高爆彈頭的資料傳輸器導向面對面長程飛彈</Chinese>
+        <French>Missile sol-sol longue portée à guidage par flux de données avec ogive hautement explosive</French>
+        <Spanish>Misil tierra-tierra de larga distancia, guiado por enlace de datos y con una ojiva nuclear altamente explosiva.</Spanish>
+        <Italian>Missile superficie-superficie a lungo raggio, con guida via datalink, con testata ad alto potenziale</Italian>
+        <Polish>Naprowadzany łączem danych pocisk ziemia-ziemia dalekiego zasięgu z głowicą wybuchową</Polish>
+        <Russian>Управляемая ракета большой дальности класса "земля-земля" с фугасной боевой частью и линией передачи данных</Russian>
+        <German>Datenlink-gelenkte Boden-Boden-Rakete mit hochexplosivem Sprengkopf für große Distanzen</German>
+        <Czech>Střela země-země dlouhého doletu s výbušnou hlavicí naváděná datovým spojením</Czech>
+        <English>Long-range, datalink guided, surface-to-surface missile with high-explosive warhead</English>
+        <Portuguese>Míssil superfície-superfície de longo alcance guiado por datalink com ogiva altamente explosiva</Portuguese>
+        <Korean>고폭탄두를 갖춘 장거리 데이터링크 유도 지대지 미사일</Korean>
+        <Chinesesimp>配备高爆弹头的数据传输器制导地对地远程导弹</Chinesesimp>
+        <Japanese>長距離用データリンク誘導式地対地ミサイル／炸裂弾頭</Japanese>
+        <Turkish>Yüksek güçlü patlayıcı özellikte savaş başlıklı, uzun menzilli, veri bağlantısı güdümlü, karadan karaya füze</Turkish>
+      </Key>
+      <Key ID="str_a3_missile_cruise_c_x18_magazine_shortname">
+        <Original>VCM Cluster</Original>
+        <Chinese>VCM 集束炸彈</Chinese>
+        <French>VCM s/s mun.</French>
+        <Spanish>VMC Racimo</Spanish>
+        <Italian>VCM mun. grp.</Italian>
+        <Polish>Kasetowy PMV</Polish>
+        <Russian>Кассетная VCM</Russian>
+        <German>VMFK m. Streu</German>
+        <Czech>VCM kazetová</Czech>
+        <English>VCM Cluster</English>
+        <Portuguese>VMC de fragm.</Portuguese>
+        <Korean>VCM 집속탄</Korean>
+        <Chinesesimp>VCM 集束炸弹</Chinesesimp>
+        <Japanese>VCM クラスター</Japanese>
+        <Turkish>VCM Müh. Yığını</Turkish>
+      </Key>
+      <Key ID="str_a3_missile_cruise_c_x18_magazine_name">
+        <Original>Cruise Missile Cluster</Original>
+        <Chinese>巡弋飛彈集束炸彈</Chinese>
+        <French>Missile crois. s/s mu.</French>
+        <Spanish>Misil de crucero racimo</Spanish>
+        <Italian>Miss. croc. mun. grp.</Italian>
+        <Polish>Kaset. pocisk manew.</Polish>
+        <Russian>КР с кассетной БЧ</Russian>
+        <German>Marschflugk. m. Streu</German>
+        <Czech>Kazet. křižující střela</Czech>
+        <English>Cruise Missile Cluster</English>
+        <Portuguese>Míssil de cruz. fragm.</Portuguese>
+        <Korean>크루즈 미사일 집속탄</Korean>
+        <Chinesesimp>巡航导弹集束炸弹</Chinesesimp>
+        <Japanese>巡航ミサイルクラスター</Japanese>
+        <Turkish>Kruz Füzesi Müh. Yığını</Turkish>
+      </Key>
+      <Key ID="str_a3_missile_cruise_c_x18_magazine_description">
+        <Original>Long-range, datalink guided, surface-to-surface missile with cluster munitions</Original>
+        <Chinese>配備集束彈藥的資料傳輸器導向面對面長程飛彈</Chinese>
+        <French>Missile sol-sol longue portée à sous munitions et à guidage par flux de données</French>
+        <Spanish>Misil tierra-tierra de larga distancia, guiado por enlace de datos y con munición de racimo.</Spanish>
+        <Italian>Missile superficie-superficie a lungo raggio, con guida via datalink, con munizioni a grappolo</Italian>
+        <Polish>Naprowadzany łączem danych pocisk ziemia-ziemia dalekiego zasięgu z głowicą kasetową</Polish>
+        <Russian>Управляемая ракета большой дальности класса "земля-земля" с кассетными боеприпасами и линией передачи данных</Russian>
+        <German>Datenlink-gelenkte Boden-Boden-Rakete mit Streumunition für große Distanzen</German>
+        <Czech>Střela země-země dlouhého doletu s kazetovou municí naváděná datovým spojením</Czech>
+        <English>Long-range, datalink guided, surface-to-surface missile with cluster munitions</English>
+        <Portuguese>Míssil superfície-superfície de longo alcance guiado por datalink com munição de fragmentação</Portuguese>
+        <Korean>집속탄을 갖춘 장거리 데이터링크 유도 지대지 미사일</Korean>
+        <Chinesesimp>配备集束弹药的数据传输器制导地对地远程导弹</Chinesesimp>
+        <Japanese>長距離用データリンク誘導式地対地ミサイル／クラスター弾薬</Japanese>
+        <Turkish>Mühimmat yığınları içeren, uzun menzilli, veri bağlantısı güdümlü, karadan karaya füze</Turkish>
+      </Key>
+    </Container>
+    <Container name="Turret_position_Names">
+      <Key ID="STR_A3_Ship_Gun_01_operator_displayName">
+        <Original>MK45 Hammer operator</Original>
+        <Chinese>MK45 Hammer 操作員</Chinese>
+        <French>Opérateur de MK45 Hammer</French>
+        <Spanish>Operario de Hammer MK45</Spanish>
+        <Italian>Operatore MK45 Hammer</Italian>
+        <Polish>Operator MK45 Hammer</Polish>
+        <Russian>Оператор Mk45 Hammer</Russian>
+        <German>MK45 Hammer-Besatzung</German>
+        <Czech>Operátor MK45 Hammer</Czech>
+        <English>MK45 Hammer operator</English>
+        <Portuguese>Operador de MK45 Hammer</Portuguese>
+        <Korean>MK45 Hammer 운용병</Korean>
+        <Chinesesimp>MK45 Hammer 操作员</Chinesesimp>
+        <Japanese>MK45 Hammer 操作手</Japanese>
+        <Turkish>MK45 Hammer operatörü</Turkish>
+      </Key>
+      <Key ID="STR_A3_Ship_MRLS_01_operator_displayName">
+        <Original>Mk41 VLS operator</Original>
+        <Chinese>Mk41 VLS 操作員</Chinese>
+        <French>Opérateur de Mk41 VLS</French>
+        <Spanish>Operario de VLS Mk41</Spanish>
+        <Italian>Operatore Mk41 VLS</Italian>
+        <Polish>Operator Mk41 VLS</Polish>
+        <Russian>Оператор Mk41 VLS</Russian>
+        <German>Mk41 VLS-Besatzung</German>
+        <Czech>Operátor Mk41 VLS</Czech>
+        <English>Mk41 VLS operator</English>
+        <Portuguese>Operador de Mk41 VLS</Portuguese>
+        <Korean>Mk41 VLS 운용병</Korean>
+        <Chinesesimp>Mk41 VLS 操作员</Chinesesimp>
+        <Japanese>Mk41 VLS 操作手</Japanese>
+        <Turkish>Mk41 VLS operatörü</Turkish>
+      </Key>
+    </Container>
+    <Container name="User Actions">
+      <Key ID="STR_A3_action_Recover_Boat">
+        <Original>Recover Boat</Original>
+        <Chinese>搜救船</Chinese>
+        <French>Remonter bateau</French>
+        <Spanish>Recuperar barca</Spanish>
+        <Italian>Carica barca</Italian>
+        <Polish>Załaduj łódź</Polish>
+        <Russian>Погрузить лодку</Russian>
+        <German>Boot einholen</German>
+        <Czech>Naložit loď</Czech>
+        <English>Recover Boat</English>
+        <Portuguese>Recuperar embarcação</Portuguese>
+        <Korean>구명정</Korean>
+        <Chinesesimp>收回小艇</Chinesesimp>
+        <Japanese>回収艇</Japanese>
+        <Turkish>Botu Yükle</Turkish>
+      </Key>
+      <Key ID="STR_A3_action_Recover_Boat_Left">
+        <Original>Recover Boat (Port Side)</Original>
+        <Chinese>搜救船（左舷）</Chinese>
+        <French>Remonter bateau (bâbord)</French>
+        <Spanish>Recuperar barca (babor)</Spanish>
+        <Italian>Carica barca (lato sinistro)</Italian>
+        <Polish>Załaduj łódź (bakburta)</Polish>
+        <Russian>Погрузить лодку (левый борт)</Russian>
+        <German>Boot einholen (Backbord)</German>
+        <Czech>Naložit loď (levobok)</Czech>
+        <English>Recover Boat (Port Side)</English>
+        <Portuguese>Recuperar embarcação (bombordo)</Portuguese>
+        <Korean>구명정(좌현)</Korean>
+        <Chinesesimp>收回小艇（左舷）</Chinesesimp>
+        <Japanese>回収艇（左舷）</Japanese>
+        <Turkish>Botu Yükle (İskele Tarafı)</Turkish>
+      </Key>
+      <Key ID="STR_A3_action_Recover_Boat_Right">
+        <Original>Recover Boat (Starboard Side)</Original>
+        <Chinese>搜救船（右舷）</Chinese>
+        <French>Remonter bateau (tribord)</French>
+        <Spanish>Recuperar barca (estribor)</Spanish>
+        <Italian>Carica barca (lato destro)</Italian>
+        <Polish>Załaduj łódź (sterburta)</Polish>
+        <Russian>Погрузить лодку (правый борт)</Russian>
+        <German>Boot einholen (Steuerbord)</German>
+        <Czech>Naložit loď (pravobok)</Czech>
+        <English>Recover Boat (Starboard Side)</English>
+        <Portuguese>Recuperar embarcação (estibordo)</Portuguese>
+        <Korean>구명정(우현)</Korean>
+        <Chinesesimp>收回小艇（右舷）</Chinesesimp>
+        <Japanese>回収艇（右舷）</Japanese>
+        <Turkish>Botu Yükle (Sancak Tarafı)</Turkish>
+      </Key>
+      <Key ID="STR_A3_action_Launch_Boat">
+        <Original>Launch Boat</Original>
+        <Chinese>摩托艇</Chinese>
+        <French>Lancer bateau</French>
+        <Spanish>Botar barca</Spanish>
+        <Italian>Scarica barca</Italian>
+        <Polish>Woduj łódź</Polish>
+        <Russian>Спустить лодку</Russian>
+        <German>Boot runterlassen</German>
+        <Czech>Vypustit loď</Czech>
+        <English>Launch Boat</English>
+        <Portuguese>Lançar embarcação</Portuguese>
+        <Korean>발사정</Korean>
+        <Chinesesimp>发出小艇</Chinesesimp>
+        <Japanese>ランチ</Japanese>
+        <Turkish>Botu İndir</Turkish>
+      </Key>
+      <Key ID="STR_A3_action_Launch_Boat_Left">
+        <Original>Launch Boat (Port Side)</Original>
+        <Chinese>摩托艇（左舷）</Chinese>
+        <French>Lancer bateau (bâbord)</French>
+        <Spanish>Botar barca (babor)</Spanish>
+        <Italian>Scarica barca (lato sinistro)</Italian>
+        <Polish>Woduj łódź (bakburta)</Polish>
+        <Russian>Спустить лодку (левый борт)</Russian>
+        <German>Boot runterlassen (Backbord)</German>
+        <Czech>Vypustit loď (levobok)</Czech>
+        <English>Launch Boat (Port Side)</English>
+        <Portuguese>Lançar embarcação (bombordo)</Portuguese>
+        <Korean>발사정(좌현)</Korean>
+        <Chinesesimp>发出小艇（左舷）</Chinesesimp>
+        <Japanese>ランチ（左舷）</Japanese>
+        <Turkish>Botu İndir (İskele Tarafı)</Turkish>
+      </Key>
+      <Key ID="STR_A3_action_Launch_Boat_Right">
+        <Original>Launch Boat (Starboard Side)</Original>
+        <Chinese>摩托艇（右舷）</Chinese>
+        <French>Lancer bateau (tribord)</French>
+        <Spanish>Botar barca (estribor)</Spanish>
+        <Italian>Scarica barca (lato destro)</Italian>
+        <Polish>Woduj łódź (sterburta)</Polish>
+        <Russian>Спустить лодку (правый борт)</Russian>
+        <German>Boot runterlassen (Steuerbord)</German>
+        <Czech>Vypustit loď (pravobok)</Czech>
+        <English>Launch Boat (Starboard Side)</English>
+        <Portuguese>Lançar embarcação (estibordo)</Portuguese>
+        <Korean>발사정(우현)</Korean>
+        <Chinesesimp>发出小艇（右舷）</Chinesesimp>
+        <Japanese>ランチ（右舷）</Japanese>
+        <Turkish>Botu İndir (Sancak Tarafı)</Turkish>
+      </Key>
+    </Container>
+    <Container name="Destroyer_01">
+      <Key ID="STR_A3_Land_Destroyer_01_Name">
+        <Original>Destroyer [USS Liberty]</Original>
+        <Chinese>驅逐艦「USS Liberty」</Chinese>
+        <French>Destroyer [USS Liberty]</French>
+        <Spanish>Destructor [USS Liberty]</Spanish>
+        <Italian>Cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Niszczyciel [USS Liberty]</Polish>
+        <Russian>Эсминец [USS Liberty]</Russian>
+        <German>Zerstörer [USS Liberty]</German>
+        <Czech>Torpédoborec [USS Liberty]</Czech>
+        <English>Destroyer [USS Liberty]</English>
+        <Portuguese>Contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty]</Japanese>
+        <Turkish>Muhrip [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_01_hull_00_F">
+        <Original>Destroyer [Liberty Class]</Original>
+        <Chinese>驅逐艦（Liberty 級）</Chinese>
+        <French>Destroyer [Classe Liberty]</French>
+        <Spanish>Destructor [Clase Liberty]</Spanish>
+        <Italian>Cacciatorpediniere [classe Liberty]</Italian>
+        <Polish>Niszczyciel [typu Liberty]</Polish>
+        <Russian>Эсминец [Класс Liberty]</Russian>
+        <German>Zerstörer [Liberty-Klasse]</German>
+        <Czech>Torpédoborec [Třída Liberty]</Czech>
+        <English>Destroyer [Liberty Class]</English>
+        <Portuguese>Contratorpedeiro [tipo Liberty]</Portuguese>
+        <Korean>구축함 [Liberty급]</Korean>
+        <Chinesesimp>驱逐舰 [自由级]</Chinesesimp>
+        <Japanese>[Liberty Class] 駆逐艦</Japanese>
+        <Turkish>Muhrip [Liberty Sınıfı]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_hull_base_F">
+        <Original>Destroyer [USS Liberty]</Original>
+        <Chinese>驅逐艦「USS Liberty」</Chinese>
+        <French>Destroyer [USS Liberty]</French>
+        <Spanish>Destructor [USS Liberty]</Spanish>
+        <Italian>Cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Niszczyciel [USS Liberty]</Polish>
+        <Russian>Эсминец [USS Liberty]</Russian>
+        <German>Zerstörer [USS Liberty]</German>
+        <Czech>Torpédoborec [USS Liberty]</Czech>
+        <English>Destroyer [USS Liberty]</English>
+        <Portuguese>Contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty]</Japanese>
+        <Turkish>Muhrip [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_hull_01_F">
+        <Original>Destroyer Part [USS Liberty]</Original>
+        <Chinese>驅逐艦（部分，USS Liberty）</Chinese>
+        <French>Élément de destroyer [USS Liberty]</French>
+        <Spanish>Parte de destructor [USS Liberty]</Spanish>
+        <Italian>Componente di cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Część niszczyciela [USS Liberty]</Polish>
+        <Russian>Деталь эсминца [USS Liberty]</Russian>
+        <German>Zerstörer-Teil [USS Liberty]</German>
+        <Czech>Část torpédoborce [USS Liberty]</Czech>
+        <English>Destroyer Part [USS Liberty]</English>
+        <Portuguese>Peça do contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 부품 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰局部 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty] 用パーツ</Japanese>
+        <Turkish>Muhrip Parçası [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_hull_02_F">
+        <Original>Destroyer Part [USS Liberty]</Original>
+        <Chinese>驅逐艦（部分，USS Liberty）</Chinese>
+        <French>Élément de destroyer [USS Liberty]</French>
+        <Spanish>Parte de destructor [USS Liberty]</Spanish>
+        <Italian>Componente di cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Część niszczyciela [USS Liberty]</Polish>
+        <Russian>Деталь эсминца [USS Liberty]</Russian>
+        <German>Zerstörer-Teil [USS Liberty]</German>
+        <Czech>Část torpédoborce [USS Liberty]</Czech>
+        <English>Destroyer Part [USS Liberty]</English>
+        <Portuguese>Peça do contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 부품 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰局部 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty] 用パーツ</Japanese>
+        <Turkish>Muhrip Parçası [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_hull_03_F">
+        <Original>Destroyer Part [USS Liberty]</Original>
+        <Chinese>驅逐艦（部分，USS Liberty）</Chinese>
+        <French>Élément de destroyer [USS Liberty]</French>
+        <Spanish>Parte de destructor [USS Liberty]</Spanish>
+        <Italian>Componente di cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Część niszczyciela [USS Liberty]</Polish>
+        <Russian>Деталь эсминца [USS Liberty]</Russian>
+        <German>Zerstörer-Teil [USS Liberty]</German>
+        <Czech>Část torpédoborce [USS Liberty]</Czech>
+        <English>Destroyer Part [USS Liberty]</English>
+        <Portuguese>Peça do contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 부품 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰局部 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty] 用パーツ</Japanese>
+        <Turkish>Muhrip Parçası [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_hull_04_F">
+        <Original>Destroyer Part [USS Liberty]</Original>
+        <Chinese>驅逐艦（部分，USS Liberty）</Chinese>
+        <French>Élément de destroyer [USS Liberty]</French>
+        <Spanish>Parte de destructor [USS Liberty]</Spanish>
+        <Italian>Componente di cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Część niszczyciela [USS Liberty]</Polish>
+        <Russian>Деталь эсминца [USS Liberty]</Russian>
+        <German>Zerstörer-Teil [USS Liberty]</German>
+        <Czech>Část torpédoborce [USS Liberty]</Czech>
+        <English>Destroyer Part [USS Liberty]</English>
+        <Portuguese>Peça do contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 부품 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰局部 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty] 用パーツ</Japanese>
+        <Turkish>Muhrip Parçası [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_hull_05_F">
+        <Original>Destroyer Part [USS Liberty]</Original>
+        <Chinese>驅逐艦（部分，USS Liberty）</Chinese>
+        <French>Élément de destroyer [USS Liberty]</French>
+        <Spanish>Parte de destructor [USS Liberty]</Spanish>
+        <Italian>Componente di cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Część niszczyciela [USS Liberty]</Polish>
+        <Russian>Деталь эсминца [USS Liberty]</Russian>
+        <German>Zerstörer-Teil [USS Liberty]</German>
+        <Czech>Část torpédoborce [USS Liberty]</Czech>
+        <English>Destroyer Part [USS Liberty]</English>
+        <Portuguese>Peça do contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 부품 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰局部 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty] 用パーツ</Japanese>
+        <Turkish>Muhrip Parçası [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_interior_02_F">
+        <Original>Destroyer Interior [USS Liberty]</Original>
+        <Chinese>驅逐艦（內部，USS Liberty）</Chinese>
+        <French>Intérieur de destroyer [USS Liberty]</French>
+        <Spanish>Interior del destructor [USS Liberty]</Spanish>
+        <Italian>Interno di cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Wnętrze niszczyciela [USS Liberty]</Polish>
+        <Russian>Интерьер эсминца [USS Liberty]</Russian>
+        <German>Zerstörer-Innenraum [USS Liberty]</German>
+        <Czech>Interiér torpédoborce [USS Liberty]</Czech>
+        <English>Destroyer Interior [USS Liberty]</English>
+        <Portuguese>Interior do contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 내부 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰内部 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty] 用内装</Japanese>
+        <Turkish>Muhrip İç Mekânı [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_interior_03_F">
+        <Original>Destroyer Interior [USS Liberty]</Original>
+        <Chinese>驅逐艦（內部，USS Liberty）</Chinese>
+        <French>Intérieur de destroyer [USS Liberty]</French>
+        <Spanish>Interior del destructor [USS Liberty]</Spanish>
+        <Italian>Interno di cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Wnętrze niszczyciela [USS Liberty]</Polish>
+        <Russian>Интерьер эсминца [USS Liberty]</Russian>
+        <German>Zerstörer-Innenraum [USS Liberty]</German>
+        <Czech>Interiér torpédoborce [USS Liberty]</Czech>
+        <English>Destroyer Interior [USS Liberty]</English>
+        <Portuguese>Interior do contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 내부 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰内部 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty] 用内装</Japanese>
+        <Turkish>Muhrip İç Mekânı [USS Liberty]</Turkish>
+      </Key>
+      <Key ID="STR_A3_Land_Destroyer_01_interior_04_F">
+        <Original>Destroyer Interior [USS Liberty]</Original>
+        <Chinese>驅逐艦（內部，USS Liberty）</Chinese>
+        <French>Intérieur de destroyer [USS Liberty]</French>
+        <Spanish>Interior del destructor [USS Liberty]</Spanish>
+        <Italian>Interno di cacciatorpediniere [USS Liberty]</Italian>
+        <Polish>Wnętrze niszczyciela [USS Liberty]</Polish>
+        <Russian>Интерьер эсминца [USS Liberty]</Russian>
+        <German>Zerstörer-Innenraum [USS Liberty]</German>
+        <Czech>Interiér torpédoborce [USS Liberty]</Czech>
+        <English>Destroyer Interior [USS Liberty]</English>
+        <Portuguese>Interior do contratorpedeiro [USS Liberty]</Portuguese>
+        <Korean>구축함 내부 [USS Liberty]</Korean>
+        <Chinesesimp>驱逐舰内部 [USS 自由号]</Chinesesimp>
+        <Japanese>駆逐艦 [USS Liberty] 用内装</Japanese>
+        <Turkish>Muhrip İç Mekânı [USS Liberty]</Turkish>
+      </Key>
+    </Container>
+  </Package>
+</Project>

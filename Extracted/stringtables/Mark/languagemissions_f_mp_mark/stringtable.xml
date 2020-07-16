@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?><Project name="Arma3">
+  <Package name="Languagemissions_MP_Mark">
+    <Container name="Missions">
+      <Container name="Scenarios">
+        <Container name="MP_Marksmen_01">
+          <Key ID="str_a3_mp_marksmen_01_situation">
+            <Original>You should expect both %1 and %2 to fire at you on sight.</Original>
+            <Chinese>請小心，%1 與 %2 一發現你就會開始攻擊。</Chinese>
+            <French>Vous devez vous attendre à ce que %1 et %2 tirent sur vous à vue.</French>
+            <Spanish>Deberías esperar que tanto %1 como %2 te disparen en cuanto te vean</Spanish>
+            <Italian>Puoi attenderti che sia %1 che %2 spareranno a vista.</Italian>
+            <Polish>Spodziewaj się, że zarówno %1, jak i %2 będą do ciebie strzelać bez ostrzeżenia.</Polish>
+            <Russian>Вам следует ожидать, что %1 и %2 сразу же откроют по вам огонь.</Russian>
+            <German>Sie müssen mit Beschuss sowohl durch %1 als auch %2 rechnen.</German>
+            <Czech>Měli byste očekávat, že %1 i %2 na vás budou okamžitě střílet.</Czech>
+            <English>You should expect both %1 and %2 to fire at you on sight.</English>
+            <Portuguese>Tenha em mente que ambos %1 e %2 irão atirar em você quando estiver à vista.</Portuguese>
+            <Korean>%1, %2 모두 당신을 보는 즉시 발포할 것입니다.</Korean>
+            <Chinesesimp>您应该想到 1 和 %2 一看到您就会向您射击。</Chinesesimp>
+            <Japanese> %1と%2は君を発見次第、発砲すると予測される。</Japanese>
+            <Turkish>Şunların seni görür görmez vuracağını bilmelisin: %1 ve %2.</Turkish>
+          </Key>
+          <Key ID="str_a3_mp_marksmen_01_missionname">
+            <Original>Kavala</Original>
+            <Chinese>Kavala</Chinese>
+            <French>Kavala</French>
+            <Spanish>Kavala</Spanish>
+            <Italian>Kavala</Italian>
+            <Polish>Kavala</Polish>
+            <Russian>Kavala</Russian>
+            <German>Kavala</German>
+            <Czech>Kavala</Czech>
+            <English>Kavala</English>
+            <Portuguese>Kavala</Portuguese>
+            <Korean>Kavala</Korean>
+            <Chinesesimp>Kavala</Chinesesimp>
+            <Japanese>Kavala</Japanese>
+            <Turkish>Kavala</Turkish>
+          </Key>
+          <Key ID="str_a3_mp_marksmen_01_missionnamelobby">
+            <Original>End Game 16 Kavala</Original>
+            <Chinese>End Game 16 Kavala</Chinese>
+            <French>End Game 16 Kavala</French>
+            <Spanish>End Game 16 Kavala</Spanish>
+            <Italian>End Game 16 Kavala</Italian>
+            <Polish>End Game 16 Kavala</Polish>
+            <Russian>End Game 16 Kavala</Russian>
+            <German>End Game 16 Kavala</German>
+            <Czech>End Game 16 Kavala</Czech>
+            <English>End Game 16 Kavala</English>
+            <Portuguese>End Game 16 Kavala</Portuguese>
+            <Korean>End Game 16 Kavala</Korean>
+            <Chinesesimp>End Game 16 Kavala</Chinesesimp>
+            <Japanese>End Game 16 Kavala</Japanese>
+            <Turkish>End Game 16 Kavala</Turkish>
+          </Key>
+          <Container name="50_Upload" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="50_Upload" dubbingLanguage="english" namePrefix="mp_marksmen_01_50_upload" note="" participants="MARK B HQ;MARK O HQ;" situation="hq registers that a player picked up the intel">
+            <Key ID="str_a3_mp_marksmen_01_50_upload_bhq_0">
+              <Original>Package secured. Proceed to the upload site ASAP. Out.</Original>
+              <Chinese>情資保住了。立即前往上傳區。結束通話。</Chinese>
+              <French>Paquet sécurisé. Poursuivez vers le site du chargement au plus vite. Terminé.</French>
+              <Spanish>Paquete asegurado. Dirígete al sitio de carga lo antes posible. Corto.</Spanish>
+              <Italian>Il pacco è al sicuro. Dirigetevi subito al luogo di upload. Chiudo.</Italian>
+              <Polish>Paczka zabezpieczona. Jak najszybciej udajcie się do miejsca przesyłania. Bez odbioru.</Polish>
+              <Russian>Пакет в безопасности. Отправляйтесь как можно скорее к месту загрузки. Конец связи.</Russian>
+              <German>Paket gesichert. Fahren Sie so schnell wie möglich zum Upload-Standort. Ende.</German>
+              <Czech>Balíček zajištěn. Co nejrychleji pokračujte na místo odeslání. Konec.</Czech>
+              <English>Package secured. Proceed to the upload site ASAP. Out.</English>
+              <Portuguese>Pacote adquirido. Prossiga para o local de transferência o mais rápido possível. Câmbio.</Portuguese>
+              <Korean>패키지 확보. 즉시 적재 지역으로 이동해라. 이상. </Korean>
+              <Chinesesimp>包裹已夺取。尽快前往上传地点。完毕。</Chinesesimp>
+              <Japanese>パッケージを確保した。大至急、アップロードサイトに移動せよ。以上。</Japanese>
+              <Turkish>Paket ele geçirildi. HEMEN yükleme bölgesine ilerle. Tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_50_upload_ohq_0">
+              <Original>Package secured. Proceed to the upload site ASAP. Out.</Original>
+              <Chinese>情資保住了。立即前往上傳區。結束通話。</Chinese>
+              <French>Paquet sécurisé. Poursuivez vers le site du chargement au plus vite. Terminé.</French>
+              <Spanish>Paquete asegurado. Dirígete al sitio de carga lo antes posible. Corto.</Spanish>
+              <Italian>Il pacco è al sicuro. Dirigetevi subito al luogo di upload. Chiudo.</Italian>
+              <Polish>Paczka zabezpieczona. Jak najszybciej udajcie się do miejsca przesyłania. Bez odbioru.</Polish>
+              <Russian>Пакет в безопасности. Отправляйтесь как можно скорее к месту загрузки. Конец связи.</Russian>
+              <German>Paket gesichert. Fahren Sie so schnell wie möglich zum Upload-Standort. Ende.</German>
+              <Czech>Balíček zajištěn. Co nejrychleji pokračujte na místo odeslání. Konec.</Czech>
+              <English>Package secured. Proceed to the upload site ASAP. Out.</English>
+              <Portuguese>Pacote adquirido. Prossiga para o local de transferência o mais rápido possível. Câmbio.</Portuguese>
+              <Korean>패키지 확보. 즉시 적재 지역으로 이동해라. 이상. </Korean>
+              <Chinesesimp>包裹已夺取。尽快前往上传地点。完毕。</Chinesesimp>
+              <Japanese>パッケージを確保した。大至急、アップロードサイトに移動せよ。以上。</Japanese>
+              <Turkish>Paket ele geçirildi. HEMEN yükleme bölgesine ilerle. Tamam.</Turkish>
+            </Key>
+          </Container>
+          <Container name="45_PreventUpload" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="45_PreventUpload" dubbingLanguage="english" namePrefix="mp_marksmen_01_45_preventupload" note="" participants="MARK B HQ;MARK O HQ;" situation="hq informs the players that the enemy has secured the intel">
+            <Key ID="str_a3_mp_marksmen_01_45_preventupload_bhq_0">
+              <Original>Be advised, the enemy has the package. Stop them at all costs.</Original>
+              <Chinese>請注意，情資在敵方手上。不管什麼方法，你一定要阻止他們。</Chinese>
+              <French>Notez que l'ennemi a le paquet. Arrêtez-les à tout prix.</French>
+              <Spanish>Atención, el enemigo tiene el paquete. Detenlo cueste lo que cueste.</Spanish>
+              <Italian>Attenzione, il nemico ha il pacco. Fermateli a ogni costo.</Italian>
+              <Polish>Uwaga, wróg przejął paczkę. Zatrzymać go za wszelką cenę.</Polish>
+              <Russian>Внимание, у противника пакет. Остановите их любой ценой.</Russian>
+              <German>Achtung, der Feind hat das Paket. Halten Sie ihn um jeden Preis auf.</German>
+              <Czech>Pozor, balíček má nepřítel. Zastavte jej za každou cenu.</Czech>
+              <English>Be advised, the enemy has the package. Stop them at all costs.</English>
+              <Portuguese>Estejam avisados, o inimigo está com o pacote. Detenham-nos a qualquer custo.</Portuguese>
+              <Korean>전달 사항이다. 적이 패키지를 가지고 있다. 무슨 수를 써서라도 놈들을 막아라.</Korean>
+              <Chinesesimp>请注意，敌军有包裹。不惜一切代价阻止他们。</Chinesesimp>
+              <Japanese>報告する、敵がパッケージを入手した。全力で彼らを阻止せよ。</Japanese>
+              <Turkish>Dikkatinize, düşman paketi ele geçirdi. Ne pahasına olursa olsun onları durdur.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_45_preventupload_ohq_0">
+              <Original>Be advised, the enemy has the package. Stop them at all costs.</Original>
+              <Chinese>請注意，情資在敵方手上。不管什麼方法，你一定要阻止他們。</Chinese>
+              <French>Notez que l'ennemi a le paquet. Arrêtez-les à tout prix.</French>
+              <Spanish>Atención, el enemigo tiene el paquete. Detenlo cueste lo que cueste.</Spanish>
+              <Italian>Attenzione, il nemico ha il pacco. Fermateli a ogni costo.</Italian>
+              <Polish>Uwaga, wróg przejął paczkę. Zatrzymać go za wszelką cenę.</Polish>
+              <Russian>Внимание, у противника пакет. Остановите их любой ценой.</Russian>
+              <German>Achtung, der Feind hat das Paket. Halten Sie ihn um jeden Preis auf.</German>
+              <Czech>Pozor, balíček má nepřítel. Zastavte jej za každou cenu.</Czech>
+              <English>Be advised, the enemy has the package. Stop them at all costs.</English>
+              <Portuguese>Estejam avisados, o inimigo está com o pacote. Detenham-nos a qualquer custo.</Portuguese>
+              <Korean>전달 사항이다. 적이 패키지를 가지고 있다. 무슨 수를 써서라도 놈들을 막아라.</Korean>
+              <Chinesesimp>请注意，敌军有包裹。不惜一切代价阻止他们。</Chinesesimp>
+              <Japanese>報告する、敵がパッケージを入手した。全力で彼らを阻止せよ。</Japanese>
+              <Turkish>Dikkatinize, düşman paketi ele geçirdi. Ne pahasına olursa olsun onları durdur.</Turkish>
+            </Key>
+          </Container>
+          <Container name="40_PickupSchematics" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="40_PickupSchematics" dubbingLanguage="english" namePrefix="mp_marksmen_01_40_pickupschematics" note="" participants="MARK B HQ;MARK O HQ;" situation="carrier drops the schematics and players are told to go there and pick it up">
+            <Key ID="str_a3_mp_marksmen_01_40_pickupschematics_bhq_0">
+              <Original>All elements, the package has been dropped. Do not let it fall into enemy hands. Out.</Original>
+              <Chinese>各部隊注意，情資遺落在戰場。別讓敵方得手。結束通話。</Chinese>
+              <French>À tous les éléments, le paquet a été déposé. Ne le laissez pas tomber dans les mains ennemies. Terminé.</French>
+              <Spanish>A todos los elementos, el paquete ha sido lanzado. No dejéis que caiga en manos del enemigo. Corto.</Spanish>
+              <Italian>A tutte le unità, pacco caduto. Non deve finire in mano nemica. Chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, paczka została zrzucona. Nie pozwólcie, aby dostała się w ręce wroga. Bez odbioru.</Polish>
+              <Russian>Всем подразделениям: пакет сброшен. Не допустите, чтобы он попал в руки противника. Конец связи.</Russian>
+              <German>An alle Einheiten, das Paket wurde abgeworfen. Es darf nicht dem Feind in die Hände fallen. Ende.</German>
+              <Czech>Všem jednotkám, balíček upuštěn. Nedovolte, aby se dostal do rukou nepříteli. Konec.</Czech>
+              <English>All elements, the package has been dropped. Do not let it fall into enemy hands. Out.</English>
+              <Portuguese>Todos os pelotões, o pacote foi deixado. Não deixem que ele caia em mãos inimigas. Câmbio.</Portuguese>
+              <Korean>전 병력에게 전달한다. 패키지가 투하되었다. 절대 적의 손에 넘어가면 안 된다. 이상.</Korean>
+              <Chinesesimp>全体部队，包裹已空投。不要让它落入敌军手里。完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ、パッケージの投下が終了した。敵の手に渡らないよう死守せよ。以上。</Japanese>
+              <Turkish>Tüm elemanlar paket düşürüldü. Paketin düşman eline geçmesine izin vermeyin. Tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_40_pickupschematics_ohq_0">
+              <Original>All elements, the package has been dropped. Do not let it fall into enemy hands. Out.</Original>
+              <Chinese>各部隊注意，情資遺落在戰場。別讓敵方得手。結束通話。</Chinese>
+              <French>À tous les éléments, le paquet a été déposé. Ne le laissez pas tomber dans les mains ennemies. Terminé.</French>
+              <Spanish>A todos los elementos, el paquete ha sido lanzado. No dejéis que caiga en manos del enemigo. Corto.</Spanish>
+              <Italian>A tutte le unità, pacco caduto. Non deve finire in mano nemica. Chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, paczka została zrzucona. Nie pozwólcie, aby dostała się w ręce wroga. Bez odbioru.</Polish>
+              <Russian>Всем подразделениям: пакет сброшен. Не допустите, чтобы он попал в руки противника. Конец связи.</Russian>
+              <German>An alle Einheiten, das Paket wurde abgeworfen. Es darf nicht dem Feind in die Hände fallen. Ende.</German>
+              <Czech>Všem jednotkám, balíček upuštěn. Nedovolte, aby se dostal do rukou nepříteli. Konec.</Czech>
+              <English>All elements, the package has been dropped. Do not let it fall into enemy hands. Out.</English>
+              <Portuguese>Todos os pelotões, o pacote foi deixado. Não deixem que ele caia em mãos inimigas. Câmbio.</Portuguese>
+              <Korean>전 병력에게 전달한다. 패키지가 투하되었다. 절대 적의 손에 넘어가면 안 된다. 이상.</Korean>
+              <Chinesesimp>全体部队，包裹已空投。不要让它落入敌军手里。完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ、パッケージの投下が終了した。敵の手に渡らないよう死守せよ。以上。</Japanese>
+              <Turkish>Tüm elemanlar paket düşürüldü. Paketin düşman eline geçmesine izin vermeyin. Tamam.</Turkish>
+            </Key>
+          </Container>
+          <Container name="35_PreventUpload" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="35_PreventUpload" dubbingLanguage="english" namePrefix="mp_marksmen_01_35_preventupload" note="" participants="MARK B HQ;MARK O HQ;" situation="hq informs the players that the enemy has taken the intel">
+            <Key ID="str_a3_mp_marksmen_01_35_preventupload_bhq_0">
+              <Original>All elements, priority message. Disregard all outstanding objectives. Recon indicates the enemy is carrying high value intelligence. Intercept and secure the package. Broadway out.</Original>
+              <Chinese>各部隊注意，優先訊息。忽略所有目標。有消息說，敵方握有高價值情資。攔截並搶回情資。Broadway 結束通話。</Chinese>
+              <French>À tous les éléments, message de priorité. Abandonnez tous les objectifs principaux. La reconnaissance indique que l'ennemi transporte des renseignements de grande valeur. Interceptez et sécurisez le paquet. Broadway terminé.</French>
+              <Spanish>A todos los elementos, mensaje prioritario. Ignorad todos los objetivos pendientes. El reconocimiento indica que el enemigo lleva inteligencia de gran valor. Interceptad el paquete y aseguradlo. Broadway corto.</Spanish>
+              <Italian>A tutte le unità, messaggio prioritario. Ignorate gli obiettivi rimasti. Secondo i ricognitori, il nemico è in possesso di informazioni di grande valore. Impadronitevi del pacco. Broadway chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, wiadomość priorytetowa. Zignorujcie wszystkie zaległe cele. Grupa zwiadowcza donosi, że wróg transportuje materiały o dużej wartości wywiadowczej. Przechwyćcie i zabezpieczcie paczkę. Broadway, bez odbioru.</Polish>
+              <Russian>Всем подразделениям: срочное сообщение. Отложите все невыполненные задачи. Разведка сообщает, что противник перевозит очень ценную информацию. Перехватите его и захватите пакет. Конец связи.</Russian>
+              <German>An alle Einheiten, Mitteilung mit Priorität. Ignorieren Sie alle ausstehenden Ziele. Die Aufklärung zeigt, dass der Feind Informationen von hohem Wert mit sich führt. Abfangen und Paket sichern. Broadway Ende.</German>
+              <Czech>Všem jednotkám, prioritní zpráva. Ignorujte všechny zbývající cíle. Průzkum hlásí, že nepřítel nese vysoce cenné informace. Zastavte jej a zajistěte balíček. Broadway končí.</Czech>
+              <English>All elements, priority message. Disregard all outstanding objectives. Recon indicates the enemy is carrying high value intelligence. Intercept and secure the package. Broadway out.</English>
+              <Portuguese>Todos os pelotões, mensagem de prioridade. Desconsiderem todos os objetivos pendentes. O reconhecimento indicou que o inimigo está transportando inteligência de grande valor. Interceptem e assegurem o pacote. Broadway, câmbio e desligo.</Portuguese>
+              <Korean>전 병력, 긴급 전달 사항이다. 모든 미완료 목표를 중단하라. 정찰에 따르면 적이 중요한 정보를 가지고 있는 것 같다. 패키지를 가로채서 안전하게 확보하라. 브로드웨이 이상.</Korean>
+              <Chinesesimp>全体部队，优先消息。忽略所有未完成的目标。侦察指示敌人携带高价值情报。拦截并夺取包裹。Broadway，完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ、重要情報。進行中の目標すべてを無視せよ。偵察によると、敵は重要情報を持っている。敵を遮り、パッケージを確保せよ。ブロードウェイより、以上。</Japanese>
+              <Turkish>Tüm elemanlar, acil mesaj. Tüm bekleyen hedefleri yok sayın. Keşif, düşmanın çok değerli istihbarat taşıdığını belirtiyor. Paketin yolunu kesin ve ele geçirin. Broadway tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_35_preventupload_ohq_0">
+              <Original>All elements, priority message. Disregard all outstanding objectives. Recon indicates the enemy is carrying high value intelligence. Intercept and secure the package. Griffin out.</Original>
+              <Chinese>各部隊注意，優先訊息。忽略所有目標。有消息說，敵方握有高價值情資。攔截並搶回情資。Griffin 結束通話。</Chinese>
+              <French>À tous les éléments, message de priorité. Abandonnez tous les objectifs principaux. La reconnaissance indique que l'ennemi transporte des renseignements de grande valeur. Interceptez et sécurisez le paquet. Griffin terminé.</French>
+              <Spanish>A todos los elementos, mensaje prioritario. Ignorad todos los objetivos pendientes. El reconocimiento indica que el enemigo lleva inteligencia de gran valor. Interceptad el paquete y aseguradlo. Griffin corto.</Spanish>
+              <Italian>A tutte le unità, messaggio prioritario. Ignorate gli obiettivi rimasti. Secondo i ricognitori, il nemico è in possesso di informazioni di grande valore. Impadronitevi del pacco. Griffin chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, wiadomość priorytetowa. Zignorujcie wszystkie zaległe cele. Wywiad informuje, że wróg transportuje materiały o dużej wartości wywiadowczej. Przechwyćcie i zabezpieczcie paczkę. Griffin, bez odbioru.</Polish>
+              <Russian>Всем подразделениям: срочное сообщение. Отложите все невыполненные задачи. Разведка сообщает, что противник перевозит очень ценную информацию. Перехватите его и захватите пакет. Грифон - конец связи.</Russian>
+              <German>An alle Einheiten, Mitteilung mit Priorität. Ignorieren Sie alle ausstehenden Ziele. Die Aufklärung zeigt, dass der Feind Informationen von hohem Wert mit sich führt. Abfangen und Paket sichern. Griffin Ende.</German>
+              <Czech>Všem jednotkám, prioritní zpráva. Ignorujte všechny zbývající cíle. Průzkum hlásí, že nepřítel nese vysoce cenné informace. Zastavte jej a zajistěte balíček. Griffin končí.</Czech>
+              <English>All elements, priority message. Disregard all outstanding objectives. Recon indicates the enemy is carrying high value intelligence. Intercept and secure the package. Griffin out.</English>
+              <Portuguese>Todos os pelotões, mensagem de prioridade. Desconsiderem todos os objetivos pendentes. O reconhecimento indicou que o inimigo está transportando inteligência de grande valor. Interceptem e assegurem o pacote. Grifo, câmbio e desligo.</Portuguese>
+              <Korean>전 병력, 긴급 전달 사항이다. 모든 미완료 목표를 중단하라. 정찰에 따르면 적이 중요한 정보를 가지고 있는 것 같다. 패키지를 가로채서 안전하게 확보하라. 그리핀 이상.</Korean>
+              <Chinesesimp>全体部队，优先消息。忽略所有未完成的目标。侦察指示敌人携带高价值情报。拦截和夺取包裹。Griffin，完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ、重要情報。進行中の目標すべてを無視せよ。偵察によると、敵は重要情報を持っている。敵を遮り、パッケージを確保せよ。グリフィンより、以上。</Japanese>
+              <Turkish>Tüm elemanlar, acil mesaj. Tüm bekleyen hedefleri yok sayın. Keşif, düşmanın çok değerli istihbarat taşıdığını belirtiyor. Paketin yolunu kesin ve ele geçirin. Griffin ayrıldı.</Turkish>
+            </Key>
+          </Container>
+          <Container name="30_PickupSchematicsFirst" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="30_PickupSchematicsFirst" dubbingLanguage="english" namePrefix="mp_marksmen_01_30_pickupschematicsfirst" note="" participants="MARK B HQ;MARK O HQ;" situation="hq informs the players of the need to disregard existing tasks and head for their priority assignment">
+            <Key ID="str_a3_mp_marksmen_01_30_pickupschematicsfirst_bhq_0">
+              <Original>Priority message. Disregard all outstanding objectives. Proceed to the designated location and secure any intel you find. Broadway out.</Original>
+              <Chinese>優先訊息。忽略所有目標。前往指定位置，守住發現的情資。Broadway 結束通話。</Chinese>
+              <French>Message de priorité. Abandonnez tous les objectifs principaux. Poursuivez vers l'emplacement désigné et sécurisé tout renseignement que vous pourrez trouver. Broadway terminé.</French>
+              <Spanish>Mensaje prioritario. Ignora todos los objetivos pendientes. Avanza hasta el lugar designado y asegura la inteligencia que encuentres. Broadway corto.</Spanish>
+              <Italian>Messaggio prioritario. Ignorate gli obiettivi rimasti. Andate al luogo designato e impadronitevi delle informazioni che trovate. Broadway chiudo.</Italian>
+              <Polish>Wiadomość priorytetowa. Zignorujcie wszystkie zaległe cele. Udajcie się do wyznaczonej lokalizacji i zabezpieczcie materiały wywiadowcze, które uda wam się znaleźć. Broadway, bez odbioru.</Polish>
+              <Russian>Срочное сообщение. Отложите все невыполненные задачи. Проследуйте в обозначенное место и обеспечьте безопасность любой найденной информации. Бродвей - конец связи.</Russian>
+              <German>Mitteilung mit Priorität. Ignorieren Sie alle ausstehenden Ziele. Fahren Sie zum ausgewiesenen Standort weiter und sichern Sie alle Informationen, die Sie finden können. Broadway Ende.</German>
+              <Czech>Prioritní zpráva. Ignorujte všechny zbývající cíle. Pokračujte na označené místo a zajistěte všechny informace, které najdete. Broadway končí.</Czech>
+              <English>Priority message. Disregard all outstanding objectives. Proceed to the designated location and secure any intel you find. Broadway out.</English>
+              <Portuguese>Mensagem de prioridade. Desconsiderem todos os objetivos pendentes. Prossigam para o local designado e assegurem qualquer dado de inteligência que encontrarem. Broadway, câmbio e desligo.</Portuguese>
+              <Korean>긴급 전달 사항이다. 모든 미완료 목표를 중단하라. 지정된 장소로 이동해서 모든 정보를 확보하라. 브로드웨이 이상.</Korean>
+              <Chinesesimp>优先消息。忽略所有未完成的目标。前往指定地点，并夺取发现的任何情报。Broadway，完毕。</Chinesesimp>
+              <Japanese>重要情報。進行中の目標すべてを無視せよ。指定位置に移動し、発見できる情報すべてを確保せよ。ブロードウェイより、以上。</Japanese>
+              <Turkish>Acil mesaj. Tüm bekleyen hedefleri yok sayın. Belirtilen konuma ilerleyin ve bulduğunuz tüm istihbaratları ele geçirin. Broadway tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_30_pickupschematicsfirst_ohq_0">
+              <Original>Priority message. Disregard all outstanding objectives. Proceed to the designated location and secure any intel you find. Griffin out.</Original>
+              <Chinese>優先訊息。忽略所有目標。前往指定位置，守住發現的情資。Griffin 結束通話。</Chinese>
+              <French>Message de priorité. Abandonnez tous les objectifs principaux. Poursuivez vers l'emplacement désigné et sécurisé tout renseignement que vous pourrez trouver. Griffin terminé.</French>
+              <Spanish>Mensaje prioritario. Ignora todos los objetivos pendientes. Avanza hasta el lugar designado y asegura la inteligencia que encuentres. Griffin corto.</Spanish>
+              <Italian>Messaggio prioritario. Ignorate gli obiettivi rimasti. Andate al luogo designato e impadronitevi delle informazioni che trovate. Griffin chiudo.</Italian>
+              <Polish>Wiadomość priorytetowa. Zignorujcie wszystkie zaległe cele. Udajcie się do wyznaczonej lokalizacji i zabezpieczcie materiały wywiadowcze, które uda wam się znaleźć. Griffin, bez odbioru.</Polish>
+              <Russian>Срочное сообщение. Отложите все невыполненные задачи. Проследуйте в обозначенное место и обеспечьте безопасность любой найденной информации. Грифон - конец связи.</Russian>
+              <German>Mitteilung mit Priorität. Ignorieren Sie alle ausstehenden Ziele. Fahren Sie zum ausgewiesenen Standort weiter und sichern Sie alle Informationen, die Sie finden können. Griffin Ende.</German>
+              <Czech>Prioritní zpráva. Ignorujte všechny zbývající cíle. Pokračujte na označené místo a zajistěte všechny informace, které najdete. Griffin končí.</Czech>
+              <English>Priority message. Disregard all outstanding objectives. Proceed to the designated location and secure any intel you find. Griffin out.</English>
+              <Portuguese>Mensagem de prioridade. Desconsiderem todos os objetivos pendentes. Prossigam para o local designado e assegurem qualquer dado de inteligência que encontrarem. Grifo, câmbio e desligo.</Portuguese>
+              <Korean>긴급 전달 사항이다. 모든 미완료 목표를 중단하라. 지정된 장소로 이동해서 모든 정보를 확보하라. 그리핀 이상.</Korean>
+              <Chinesesimp>优先消息。忽略所有未完成的目标。前往指定的位置，并夺取发现的任何情报。Griffin，完毕。</Chinesesimp>
+              <Japanese>重要情報。進行中の目標すべてを無視せよ。指定位置に移動し、発見できる情報すべてを確保せよ。グリフィンより、以上。</Japanese>
+              <Turkish>Acil mesaj. Tüm bekleyen hedefleri yok sayın. Belirtilen konuma ilerleyin ve bulduğunuz tüm istihbaratları ele geçirin. Griffin ayrıldı.</Turkish>
+            </Key>
+          </Container>
+          <Container name="25_EndGameStart" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="25_EndGameStart" dubbingLanguage="english" namePrefix="mp_marksmen_01_25_endgamestart" note="" participants="MARK B HQ;MARK O HQ;" situation="hq advises players of an incoming priority assignment">
+            <Key ID="str_a3_mp_marksmen_01_25_endgamestart_bhq_0">
+              <Original>All elements, standby for tasking.</Original>
+              <Chinese>各部隊注意，隨時準備出動。</Chinese>
+              <French>À tous les éléments, en attente de mission.</French>
+              <Spanish>A todos los elementos, esperad a recibir órdenes.</Spanish>
+              <Italian>A tutte le unità, restate in attesa di ordini.</Italian>
+              <Polish>Do wszystkich jednostek, czekajcie na zadanie.</Polish>
+              <Russian>Всем подразделениям: ждите дальнейших указаний</Russian>
+              <German>An alle Einheiten, auf Anweisungen warten.</German>
+              <Czech>Všem jednotkám, očekávejte rozkazy.</Czech>
+              <English>All elements, standby for tasking.</English>
+              <Portuguese>Todos os pelotões, fiquem a postos</Portuguese>
+              <Korean>전 병력, 임무 하달 대기하라.</Korean>
+              <Chinesesimp>全体部队，等待任务派遣。</Chinesesimp>
+              <Japanese>全員に告ぐ、任務に向けてスタンバイせよ。</Japanese>
+              <Turkish>Tüm elemanlar görevlendirme için beklemede kalın.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_25_endgamestart_ohq_0">
+              <Original>All elements, standby for tasking.</Original>
+              <Chinese>各部隊注意，隨時準備出動。</Chinese>
+              <French>À tous les éléments, en attente de mission.</French>
+              <Spanish>A todos los elementos, esperad a recibir órdenes.</Spanish>
+              <Italian>A tutte le unità, restate in attesa di ordini.</Italian>
+              <Polish>Do wszystkich jednostek, czekajcie na zadanie.</Polish>
+              <Russian>Всем подразделениям: ждите дальнейших указаний</Russian>
+              <German>An alle Einheiten, auf Anweisungen warten.</German>
+              <Czech>Všem jednotkám, očekávejte rozkazy.</Czech>
+              <English>All elements, standby for tasking.</English>
+              <Portuguese>Todos os pelotões, fiquem a postos.</Portuguese>
+              <Korean>전 병력, 임무 하달 대기하라.</Korean>
+              <Chinesesimp>全体部队，等待任务派遣。</Chinesesimp>
+              <Japanese>全員に告ぐ、任務に向けてスタンバイせよ。</Japanese>
+              <Turkish>Tüm elemanlar görevlendirme için beklemede kalın.</Turkish>
+            </Key>
+          </Container>
+          <Container name="20_IntelShouldDestroy" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="20_IntelShouldDestroy" dubbingLanguage="english" namePrefix="mp_marksmen_01_20_intelshoulddestroy" note="" participants="MARK B HQ;MARK O HQ;" situation="hq advises players to destroy the intel site to deny other players access">
+            <Key ID="str_a3_mp_marksmen_01_20_intelshoulddestroy_bhq_0">
+              <Original>All elements, be advised, recommend you destroy the storage device to prevent enemy access. Out.</Original>
+              <Chinese>各部隊，請注意，摧毀儲存設備，以免落入敵手。結束通話。</Chinese>
+              <French>À tous les éléments, détruisez l'appareil de stockage pour empêcher un accès ennemi. Terminé.</French>
+              <Spanish>A todos los elementos, atención, os recomiendo que destruyáis el dispositivo de almacenamiento para evitar que acceda el enemigo. Corto.</Spanish>
+              <Italian>A tutte le unità, attenzione: consigliamo di distruggere il dispositivo di archiviazione per impedirne l'accesso al nemico.</Italian>
+              <Polish>Do wszystkich jednostek, uwaga, zalecamy zniszczenie nośnika, aby zapobiec uzyskaniu dostępu przez wroga. Bez odbioru.</Polish>
+              <Russian>Внимание, всем подразделениям: рекомендую уничтожить устройство хранения, чтобы оно не досталось противнику. Конец связи.</Russian>
+              <German>An alle Einheiten, Achtung: Wir schlagen die Zerstörung des Speichermediums vor, um feindlichen Zugriff zu verhindern. Ende.</German>
+              <Czech>Všem jednotkám, pozor, doporučujeme zničit úložné zařízení, aby se k němu nedostal nepřítel. Konec.</Czech>
+              <English>All elements, be advised, recommend you destroy the storage device to prevent enemy access. Out.</English>
+              <Portuguese>Todos os pelotões, estejam avisados, recomendamos que destruam o dispositivo de armazenamento para evitar acesso inimigo. Câmbio.</Portuguese>
+              <Korean>전 병력에게 전달한다. 저장 장치를 파괴해서 적의 접근을 막는 것을 권장한다. 이상.</Korean>
+              <Chinesesimp>全体部队，请注意，建议摧毁存储设备以防敌人访问。完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ。敵のアクセスを防ぐため、保管デバイスを破壊せよ。以上。</Japanese>
+              <Turkish>Tüm elemanlar düşman erişimini önlemek için depolama cihazını yok etmeniz öneriliyor. Tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_20_intelshoulddestroy_ohq_0">
+              <Original>All elements, be advised, recommend you destroy the storage device to prevent enemy access. Out.</Original>
+              <Chinese>各部隊，請注意，摧毀儲存設備，以免落入敵手。結束通話。</Chinese>
+              <French>À tous les éléments, détruisez l'appareil de stockage pour empêcher un accès ennemi. Terminé.</French>
+              <Spanish>A todos los elementos, atención, os recomiendo que destruyáis el dispositivo de almacenamiento para evitar que acceda el enemigo. Corto.</Spanish>
+              <Italian>A tutte le unità, attenzione: consigliamo di distruggere il dispositivo di archiviazione per impedirne l'accesso al nemico.</Italian>
+              <Polish>Do wszystkich jednostek, uwaga, zalecamy zniszczenie nośnika, aby zapobiec uzyskaniu dostępu przez wroga. Bez odbioru.</Polish>
+              <Russian>Внимание, всем подразделениям: рекомендую уничтожить устройство хранения, чтобы оно не досталось противнику. Конец связи.</Russian>
+              <German>An alle Einheiten, Achtung: Wir schlagen die Zerstörung des Speichermediums vor, um feindlichen Zugriff zu verhindern. Ende.</German>
+              <Czech>Všem jednotkám, pozor, doporučujeme zničit úložné zařízení, aby se k němu nedostal nepřítel. Konec.</Czech>
+              <English>All elements, be advised, recommend you destroy the storage device to prevent enemy access. Out.</English>
+              <Portuguese>Todos os pelotões, estejam avisados, recomendamos que destruam o dispositivo de armazenamento para evitar acesso inimigo. Câmbio.</Portuguese>
+              <Korean>전 병력에게 전달한다. 저장 장치를 파괴해서 적의 접근을 막는 것을 권장한다. 이상.</Korean>
+              <Chinesesimp>全体部队，请注意，建议摧毁存储设备以防敌人访问。完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ。敵のアクセスを防ぐため、保管デバイスを破壊せよ。以上。</Japanese>
+              <Turkish>Tüm elemanlar düşman erişimini önlemek için depolama cihazını yok etmeniz öneriliyor. Tamam.</Turkish>
+            </Key>
+          </Container>
+          <Container name="18_IntelRevealed" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="18_IntelRevealed" dubbingLanguage="english" namePrefix="mp_marksmen_01_18_intelrevealed" note="" participants="MARK B HQ;MARK O HQ;" situation="hq has sent the players the coordinates of the tasks">
+            <Key ID="str_a3_mp_marksmen_01_18_intelrevealed_bhq_0">
+              <Original>Intel site coordinates uploaded. Secure any intel you find. Broadway out.</Original>
+              <Chinese>已上傳情資站坐標。守住發現的情資。Broadway 結束通話。</Chinese>
+              <French>Coordonnées du site de renseignements chargées. Sécurisez toute information que vous pouvez trouver. Broadway terminé.</French>
+              <Spanish>Coordenadas del lugar de la inteligencia cargadas. Asegura toda la inteligencia que encuentres. Broadway corto.</Spanish>
+              <Italian>Coordinate della posizione delle informazioni caricate. Impadronitevi delle informazioni che trovate. Broadway chiudo.</Italian>
+              <Polish>Przesłano współrzędne lokalizacji z materiałami wywiadowczymi. Zabezpieczcie materiały wywiadowcze, które uda się wam znaleźć. Broadway, bez odbioru.</Polish>
+              <Russian>Переданы координаты места доставки информации. Обеспечьте безопасность любой найденной информации. Бродвей - конец связи.</Russian>
+              <German>Standortkoordinaten für Informationen hochgeladen. Sichern Sie alle Informationen, die Sie finden können. Broadway Ende.</German>
+              <Czech>Souřadnice místa s informacemi odeslány. Zajistěte všechny nalezené informace. Broadway končí.</Czech>
+              <English>Intel site coordinates uploaded. Secure any intel you find. Broadway out.</English>
+              <Portuguese>Coordenadas do local dos dados transferidas. Assegurem qualquer dado de inteligência que encontrarem. Broadway, câmbio e desligo.</Portuguese>
+              <Korean>정보 지점 좌표 업로드 완료. 발견되는 정보를 모두 확보하라. 브로드웨이 이상.</Korean>
+              <Chinesesimp>情报地点坐标已上传。夺取发现的任何情报。Broadway，完毕。</Chinesesimp>
+              <Japanese>情報サイト座標がアップロードされた。発見できる情報すべてを確保せよ。ブロードウェイより、以上。</Japanese>
+              <Turkish>İstihbarat bölgesi koordinatları yüklendi. Bulduğun tüm istihbaratı ele geçir. Broadway tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_18_intelrevealed_ohq_0">
+              <Original>Intel site coordinates uploaded. Secure any intel you find. Griffin out.</Original>
+              <Chinese>已上傳情資站坐標。守住發現的情資。Griffin 結束通話。</Chinese>
+              <French>Coordonnées du site de renseignements chargées. Sécurisez toute information que vous pouvez trouver. Griffin terminé.</French>
+              <Spanish>Coordenadas del lugar de la inteligencia cargadas. Asegura toda la inteligencia que encuentres. Griffin corto.</Spanish>
+              <Italian>Coordinate della posizione delle informazioni caricate. Impadronitevi delle informazioni che trovate. Griffin chiudo.</Italian>
+              <Polish>Przesłano współrzędne lokalizacji z materiałami wywiadowczymi. Zabezpieczcie materiały wywiadowcze, które uda się wam znaleźć. Griffin, bez odbioru.</Polish>
+              <Russian>Переданы координаты места доставки информации. Обеспечьте безопасность любой найденной информации. Грифон - конец связи.</Russian>
+              <German>Standortkoordinaten für Informationen hochgeladen. Sichern Sie alle Informationen, die Sie finden können. Griffin Ende.</German>
+              <Czech>Souřadnice místa s informacemi odeslány. Zajistěte všechny nalezené informace. Griffin končí.</Czech>
+              <English>Intel site coordinates uploaded. Secure any intel you find. Griffin out.</English>
+              <Portuguese>Coordenadas do local dos dados transferidas. Assegurem qualquer dado de inteligência que encontrarem. Grifo, câmbio e desligo.</Portuguese>
+              <Korean>정보 지점 좌표 업로드 완료. 발견되는 정보를 모두 확보하라. 그리핀 이상.</Korean>
+              <Chinesesimp>情报地点坐标已上传。夺取发现的任何情报。Griffin，完毕。</Chinesesimp>
+              <Japanese>情報サイト座標がアップロードされた。発見できる情報すべてを確保せよ。グリフィンより、以上。</Japanese>
+              <Turkish>İstihbarat bölgesi koordinatları yüklendi. Bulduğun tüm istihbaratı ele geçir. Griffin ayrıldı.</Turkish>
+            </Key>
+          </Container>
+          <Container name="17_IntelWanted" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="17_IntelWanted" dubbingLanguage="english" namePrefix="mp_marksmen_01_17_intelwanted" note="" participants="MARK B HQ;MARK O HQ;" situation="hq advises players of incoming tasks">
+            <Key ID="str_a3_mp_marksmen_01_17_intelwanted_bhq_0">
+              <Original>Broadway to all elements, be advised, possible intel site located. Coordinates to follow. Out.</Original>
+              <Chinese>Broadway 呼叫所有分隊，請注意，發現敵方據點，可能是情資站。坐標隨後通知。結束通話。</Chinese>
+              <French>Broadway à tous les éléments, site potentiel de renseignements localisé. Coordonnées à suivre. Terminé.</French>
+              <Spanish>Broadway a todos los elementos, atención, se ha localizado el lugar donde posiblemente se encuentra la inteligencia. Se enviarán las coordenadas más tarde. Corto.</Spanish>
+              <Italian>Broadway a tutte le unità, attenzione, potenziali informazioni individuate. Seguono coordinate. Chiudo.</Italian>
+              <Polish>Broadway do wszystkich jednostek, uwaga, namierzono potencjalną lokalizację z materiałami wywiadowczymi. Za chwilę prześlemy współrzędne. Bez odbioru.</Polish>
+              <Russian>Бродвей - всем подразделениям: внимание, обнаружено возможное место доставки информации. Координаты будут переданы. Конец связи.</Russian>
+              <German>Broadway an alle Einheiten, Achtung: Möglicher Informationsstandort lokalisiert. Koordinaten folgen in Kürze. Ende.</German>
+              <Czech>Broadway všem jednotkám – pozor, byla zjištěna možná poloha místa s informacemi. Souřadnice budou následovat. Konec.</Czech>
+              <English>Broadway to all elements, be advised, possible intel site located. Coordinates to follow. Out.</English>
+              <Portuguese>Broadway para todos os pelotões, estejam avisados, possível local dos dados localizado. Coordenadas a seguir. Câmbio.</Portuguese>
+              <Korean>브로드웨이가 전 병력에게 전달한다. 정보 지점을 발견했다. 좌표를 전달하겠다. 이상.</Korean>
+              <Chinesesimp>Broadway 呼叫全体部队，请注意，找到可能的情报地点。随后报告坐标。完毕。</Chinesesimp>
+              <Japanese>ブロードウェイより全員に告ぐ。情報サイト位置が確認された模様。座標は後に通知する。以上。</Japanese>
+              <Turkish>Broadway, tüm elemanların bilgisine, olası istihbarat bölgesi tespit edildi. Takip edilecek koordinatlar. Tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_17_intelwanted_ohq_0">
+              <Original>Griffin to all elements, be advised, possible intel site located. Coordinates to follow. Out.</Original>
+              <Chinese>Griffin 呼叫所有分隊，請注意，發現敵方據點，可能是情資站。坐標隨後通知。結束通話。</Chinese>
+              <French>Griffin à tous les éléments, site potentiel de renseignements localisé. Coordonnées à suivre. Terminé.</French>
+              <Spanish>Griffin a todos los elementos, atención, se ha localizado el lugar donde posiblemente se encuentra la inteligencia. Se enviarán las coordenadas más tarde. Corto.</Spanish>
+              <Italian>Griffin a tutte le unità, attenzione, potenziali informazioni individuate. Seguono coordinate. Chiudo.</Italian>
+              <Polish>Griffin do wszystkich jednostek, uwaga, namierzono potencjalną lokalizację z materiałami wywiadowczymi. Za chwilę prześlemy współrzędne. Bez odbioru.</Polish>
+              <Russian>Грифон - всем подразделениям: внимание, обнаружено возможное место доставки информации. Координаты будут переданы. Конец связи.</Russian>
+              <German>Griffin an alle Einheiten, Achtung: Möglicher Informationsstandort lokalisiert. Koordinaten folgen in Kürze. Ende.</German>
+              <Czech>Griffin všem jednotkám – pozor, byla zjištěna možná poloha místa s informacemi. Souřadnice budou následovat. Konec.</Czech>
+              <English>Griffin to all elements, be advised, possible intel site located. Coordinates to follow. Out.</English>
+              <Portuguese>Grifo para todos os pelotões, estejam avisados, possível local dos dados localizado. Coordenadas a seguir. Câmbio.</Portuguese>
+              <Korean>그리핀이 전 병력에게 전달한다. 정보 지점을 발견했다. 좌표를 전달하겠다. 이상.</Korean>
+              <Chinesesimp>Griffin 呼叫全体部队，请注意，找到可能的情报地点。随后报告坐标。完毕。</Chinesesimp>
+              <Japanese>ブロードウェイより全員に告ぐ。情報サイト位置が確認された模様。座標は後に通知する。以上。</Japanese>
+              <Turkish>Griffin'den tüm elemanlara, olası istihbarat bölgesi tespit edildi. Takip edilecek koordinatlar. Tamam.</Turkish>
+            </Key>
+          </Container>
+          <Container name="15_IntelRetrieved" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="15_IntelRetrieved" dubbingLanguage="english" namePrefix="mp_marksmen_01_15_intelretrieved" note="" participants="MARK B HQ;MARK O HQ;" situation="hq commends the players for retrieving the intel">
+            <Key ID="str_a3_mp_marksmen_01_15_intelretrieved_bhq_0">
+              <Original>All elements, intel secured. Continue on mission. Out.</Original>
+              <Chinese>各部隊注意，情資守住了。繼續任務。結束通話。</Chinese>
+              <French>À tous les éléments, renseignements sécurisés. Continuez la mission. Terminé.</French>
+              <Spanish>A todos los elementos, inteligencia asegurada. Continuad con la misión. Corto.</Spanish>
+              <Italian>A tutte le unità, informazioni acquisite. Proseguite la missione. Chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, materiały wywiadowcze zabezpieczone. Kontynuować misję. Bez odbioru.</Polish>
+              <Russian>Всем подразделениям: информация в безопасности. Продолжайте выполнение заданий. Конец связи.</Russian>
+              <German>An alle Einheiten, Informationen gesichert. Mission fortsetzen. Ende.</German>
+              <Czech>Všem jednotkám, informace zajištěny. Pokračujte v misi. Konec.</Czech>
+              <English>All elements, intel secured. Continue on mission. Out.</English>
+              <Portuguese>Todos os pelotões, dados assegurados. Continuem a missão. Câmbio.</Portuguese>
+              <Korean>전 병력, 정보를 확보했다. 임무 속행하라. 이상.</Korean>
+              <Chinesesimp>全体部队，情报已夺取。继续执行任务。完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ、情報を確保した。ミッションを続行せよ。以上。</Japanese>
+              <Turkish>Tüm elemanlar, istihbarat ele geçirildi. Göreve devam. Tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_15_intelretrieved_ohq_0">
+              <Original>All elements, intel secured. Continue on mission. Out.</Original>
+              <Chinese>各部隊注意，情資守住了。繼續任務。結束通話。</Chinese>
+              <French>À tous les éléments, renseignements sécurisés. Continuez la mission. Terminé.</French>
+              <Spanish>A todos los elementos, inteligencia asegurada. Continuad con la misión. Corto.</Spanish>
+              <Italian>A tutte le unità, informazioni acquisite. Proseguite la missione. Chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, materiały wywiadowcze zabezpieczone. Kontynuować misję. Bez odbioru.</Polish>
+              <Russian>Всем подразделениям: информация в безопасности. Продолжайте выполнение заданий. Конец связи.</Russian>
+              <German>An alle Einheiten, Informationen gesichert. Mission fortsetzen. Ende.</German>
+              <Czech>Všem jednotkám, informace zajištěny. Pokračujte v misi. Konec.</Czech>
+              <English>All elements, intel secured. Continue on mission. Out.</English>
+              <Portuguese>Todos os pelotões, dados assegurados. Continuem a missão. Câmbio.</Portuguese>
+              <Korean>전 병력, 정보를 확보했다. 임무 속행하라. 이상.</Korean>
+              <Chinesesimp>全体部队，情报已夺取。继续执行任务。完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ、情報を確保した。ミッションを続行せよ。以上。</Japanese>
+              <Turkish>Tüm elemanlar, istihbarat ele geçirildi. Göreve devam. Tamam.</Turkish>
+            </Key>
+          </Container>
+          <Container name="10_FobControl" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="10_FobControl" dubbingLanguage="english" namePrefix="mp_marksmen_01_10_fobcontrol" note="" participants="MARK B HQ;MARK O HQ;" situation="hq commends the players for establishing the fob">
+            <Key ID="str_a3_mp_marksmen_01_10_fobcontrol_bhq_0">
+              <Original>Good work establishing the FOB. Support assets are en route. Out.</Original>
+              <Chinese>前進作戰基地完成了，做得很好。支援部隊正在路上。結束通話。</Chinese>
+              <French>Bon travail en établissant le FOB. Les forces de soutien sont en route. Terminé.</French>
+              <Spanish>Has hecho un buen trabajo estableciendo la BAO. Los elementos de apoyo están en camino. Corto.</Spanish>
+              <Italian>Ottimo lavoro con la FOB. Le squadre di supporto sono in viaggio. Chiudo.</Italian>
+              <Polish>Dobra robota z założeniem wysuniętej bazy operacyjnej. Wsparcie jest w drodze. Bez odbioru.</Polish>
+              <Russian>Спасибо за развертывание БПР. Поддержка в пути. Конец связи.</Russian>
+              <German>Gute Arbeit beim Einrichten des FOB. Unterstützung ist unterwegs. Ende.</German>
+              <Czech>Dobrá práce při vytvoření předsunuté základny. Podpora je na cestě. Konec.</Czech>
+              <English>Good work establishing the FOB. Support assets are en route. Out.</English>
+              <Portuguese>Bom trabalho estabelecendo a Base Avançada. O suporte já está a caminho. Câmbio.</Portuguese>
+              <Korean>전방작전기지를 구축하느라 수고했다. 지원 병력이 이동 중이다. 이상.</Korean>
+              <Chinesesimp>FOB 已建立，干得漂亮。支援资产正在途中。完毕。</Chinesesimp>
+              <Japanese>前線基地の設置成功を称える。支援軍需品を輸送中。以上。</Japanese>
+              <Turkish>İHÜ kurma işi başarılı. Destek öğeleri yolda. Tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_10_fobcontrol_ohq_0">
+              <Original>Good work establishing the FOB. Support assets are en route. Out.</Original>
+              <Chinese>前進作戰基地完成了，做得很好。支援部隊正在路上。結束通話。</Chinese>
+              <French>Bon travail en établissant le FOB. Les forces de soutien sont en route. Terminé.</French>
+              <Spanish>Has hecho un buen trabajo estableciendo la BAO. Los elementos de apoyo están en camino. Corto.</Spanish>
+              <Italian>Ottimo lavoro con la FOB. Le squadre di supporto sono in viaggio. Chiudo.</Italian>
+              <Polish>Dobra robota z założeniem wysuniętej bazy operacyjnej. Wsparcie jest w drodze. Bez odbioru.</Polish>
+              <Russian>Спасибо за развертывание БПР. Поддержка в пути. Конец связи.</Russian>
+              <German>Gute Arbeit beim Einrichten des FOB. Unterstützung ist unterwegs. Ende.</German>
+              <Czech>Dobrá práce při vytvoření předsunuté základny. Podpora je na cestě. Konec.</Czech>
+              <English>Good work establishing the FOB. Support assets are en route. Out.</English>
+              <Portuguese>Bom trabalho estabelecendo a Base Avançada. O suporte já está a caminho. Câmbio.</Portuguese>
+              <Korean>전방작전기지를 구축하느라 수고했다. 지원 병력이 이동 중이다. 이상.</Korean>
+              <Chinesesimp>FOB 已建立，干得漂亮。支援资产正在途中。完毕。</Chinesesimp>
+              <Japanese>前線基地の設置成功を称える。支援軍需品を輸送中。以上。</Japanese>
+              <Turkish>İHÜ kurma işi başarılı. Destek öğeleri yolda. Tamam.</Turkish>
+            </Key>
+          </Container>
+          <Container name="07_EndBad" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="07_EndBad" dubbingLanguage="english" namePrefix="mp_marksmen_01_07_endbad" note="" participants="MARK B HQ;MARK O HQ;" situation="hq reprimands the players for losing the round">
+            <Key ID="str_a3_mp_marksmen_01_07_endbad_bhq_0">
+              <Original>All elements - abort mission. I say again - abort mission. Return to base immediately. Broadway out.</Original>
+              <Chinese>各部隊注意－任務中止！我重複，任務中止！立刻返回基地。Broadway 結束通話。</Chinese>
+              <French>À tous les éléments, abandonnez la mission. Je répète, abandonnez la mission. Retournez à la base immédiatement. Broadway terminé.</French>
+              <Spanish>A todos los elementos: abortad la misión. Repito: abortad la misión. Regresad a la base de inmediato. Broadway corto.</Spanish>
+              <Italian>A tutte le unità, missione annullata. Ripeto: missione annullata. Rientrate subito alla base. Broadway chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, przerwać misję. Powtarzam, przerwać misję. Powrócić natychmiast do bazy. Broadway, bez odbioru.</Polish>
+              <Russian>Всем подразделениям: прекратить выполнение заданий. Повторяю: задания отменяются. Немедленно возвращайтесь на базу. Бродвей - конец связи.</Russian>
+              <German>An alle Einheiten – Mission abbrechen. Ich wiederhole – Mission abbrechen. Kehren Sie umgehend zum Stützpunkt zurück. Broadway Ende.</German>
+              <Czech>Všem jednotkám – zrušte misi. Opakuji – zrušte misi. Okamžitě se vraťte na základnu. Broadway končí.</Czech>
+              <English>All elements - abort mission. I say again - abort mission. Return to base immediately. Broadway out.</English>
+              <Portuguese>Todos os pelotões, abortar missão. Repito, abortar missão. Retornem à base imediatamente. Broadway, câmbio e desligo.</Portuguese>
+              <Korean>전 병력, 임무를 중단하라. 다시 전달한다. 임무를 중단하라. 즉시 기지로 복귀하라. 브로드웨이 이상.</Korean>
+              <Chinesesimp>全体部队 - 取消任务。我再说一次 - 取消任务。立即返回基地。Broadway，完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ - ミッションを中止せよ。繰り返す - ミッションを中止せよ。今すぐ基地へ帰還せよ。ブロードウェイより、以上。</Japanese>
+              <Turkish>Tüm elemanlar - görev iptal. Tekrar ediyorum - görev iptal. Hemen üsse dönün. Broadway tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_07_endbad_ohq_0">
+              <Original>All elements - abort mission. I say again - abort mission. Return to base immediately. Griffin out.</Original>
+              <Chinese>各部隊注意－任務中止！我重複，任務中止！立刻返回基地。Griffin 結束通話。</Chinese>
+              <French>À tous les éléments, abandonnez la mission. Je répète, abandonnez la mission. Retournez à la base immédiatement. Griffin terminé.</French>
+              <Spanish>A todos los elementos: abortad la misión. Repito: abortad la misión. Regresad a la base de inmediato. Griffin corto.</Spanish>
+              <Italian>A tutte le unità, missione annullata. Ripeto: missione annullata. Rientrate subito alla base. Griffin chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, przerwać misję. Powtarzam, przerwać misję. Powrócić natychmiast do bazy. Griffin, bez odbioru.</Polish>
+              <Russian>Всем подразделениям: прекратить выполнение заданий. Повторяю: задания отменяются. Немедленно возвращайтесь на базу. Грифон - конец связи.</Russian>
+              <German>An alle Einheiten – Mission abbrechen. Ich wiederhole – Mission abbrechen. Kehren Sie umgehend zum Stützpunkt zurück. Griffin Ende.</German>
+              <Czech>Všem jednotkám – zrušte misi. Opakuji – zrušte misi. Okamžitě se vraťte na základnu. Griffin končí.</Czech>
+              <English>All elements - abort mission. I say again - abort mission. Return to base immediately. Griffin out.</English>
+              <Portuguese>Todos os pelotões, abortar missão. Repito, abortar missão. Retornem à base imediatamente. Grifo, câmbio e desligo.</Portuguese>
+              <Korean>전 병력, 임무를 중단하라. 다시 전달한다. 임무를 중단하라. 즉시 기지로 복귀하라. 그리핀 이상.</Korean>
+              <Chinesesimp>全体部队 - 取消任务。我再说一次 - 取消任务。立即返回基地。Griffin，完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ - ミッションを中止せよ。繰り返す - ミッションを中止せよ。今すぐ基地へ帰還せよ。グリフィンより、以上。</Japanese>
+              <Turkish>Tüm elemanlar - görev iptal. Tekrar ediyorum - görev iptal. Hemen üsse dönün. Griffin ayrıldı.</Turkish>
+            </Key>
+          </Container>
+          <Container name="05_EndGood" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="05_EndGood" dubbingLanguage="english" namePrefix="mp_marksmen_01_05_endgood" note="" participants="MARK B HQ;MARK O HQ;" situation="hq commends the players for winning the round">
+            <Key ID="str_a3_mp_marksmen_01_05_endgood_bhq_0">
+              <Original>All elements, great work out there. Return to base. Broadway out.</Original>
+              <Chinese>各部隊注意，表現相當出色。返回基地。Broadway 結束通話。</Chinese>
+              <French>À tous les éléments, très bon travail. Retour à la base. Broadway terminé.</French>
+              <Spanish>A todos los elementos, buen trabajo. Volved a la base. Broadway corto.</Spanish>
+              <Italian>A tutte le unità, ottimo lavoro. Rientrate alla base. Broadway chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, dobra robota. Wracajcie do bazy. Broadway, bez odbioru.</Polish>
+              <Russian>Всем подразделениям: отлично сработано. Возвращайтесь на базу. Бродвей - конец связи.</Russian>
+              <German>An alle Einheiten, sehr gute Arbeit da draußen. Kehren Sie zum Stützpunkt zurück. Broadway Ende.</German>
+              <Czech>Všem jednotkám, dobrá práce. Vraťte se na základnu. Broadway končí.</Czech>
+              <English>All elements, great work out there. Return to base. Broadway out.</English>
+              <Portuguese>Todos os pelotões, ótimo trabalho. Retornem à base. Broadway, câmbio e desligo.</Portuguese>
+              <Korean>전 병력, 수고했다. 기지로 귀환하라. 브로드웨이 이상.</Korean>
+              <Chinesesimp>全体部队，干得漂亮。返回基地。Broadway，完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ、任務の成功を称える。基地に帰還せよ。ブロードウェイより、以上。</Japanese>
+              <Turkish>Tüm elemanlar harika iş çıkardınız. Üsse dönün. Broadway tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_05_endgood_ohq_0">
+              <Original>All elements, great work out there. Return to base. Griffin out.</Original>
+              <Chinese>各部隊注意，表現相當出色。返回基地。Griffin 結束通話。</Chinese>
+              <French>À tous les éléments, très bon travail. Retour à la base. Griffin terminé.</French>
+              <Spanish>A todos los elementos, buen trabajo. Volved a la base. Griffin corto.</Spanish>
+              <Italian>A tutte le unità, ottimo lavoro. Rientrate alla base. Griffin chiudo.</Italian>
+              <Polish>Do wszystkich jednostek, dobra robota. Wracajcie do bazy. Griffin, bez odbioru.</Polish>
+              <Russian>Всем подразделениям: отлично сработано. Возвращайтесь на базу. Грифон - конец связи.</Russian>
+              <German>An alle Einheiten, sehr gute Arbeit da draußen. Kehren Sie zum Stützpunkt zurück. Griffin Ende.</German>
+              <Czech>Všem jednotkám, dobrá práce. Vraťte se na základnu. Griffin končí.</Czech>
+              <English>All elements, great work out there. Return to base. Griffin out.</English>
+              <Portuguese>Todos os pelotões, ótimo trabalho. Retornem à base. Grifo, câmbio e desligo.</Portuguese>
+              <Korean>전 병력, 수고했다. 기지로 귀환하라. 그리핀 이상.</Korean>
+              <Chinesesimp>全体部队，干得漂亮。返回基地。Griffin，完毕。</Chinesesimp>
+              <Japanese>全員に告ぐ、任務の成功を称える。基地に帰還せよ。グリフィンより、以上。</Japanese>
+              <Turkish>Tüm elemanlar harika iş çıkardınız. Üsse dönün. Griffin ayrıldı.</Turkish>
+            </Key>
+          </Container>
+          <Container name="03_Start" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="03_Start" dubbingLanguage="english" namePrefix="mp_marksmen_01_03_start" note="" participants="MARK B HQ;MARK O HQ;" situation="hq gives the order for players to start completing their objectives">
+            <Key ID="str_a3_mp_marksmen_01_03_start_bhq_0">
+              <Original>Move out. Establish the FOB. Broadway out.</Original>
+              <Chinese>準備行動。搭建前進作戰基地。Broadway 結束通話。</Chinese>
+              <French>Rompez. Établissez la base avancée. Broadway terminé.</French>
+              <Spanish>Sal. Establece la BAO. Broadway corto.</Spanish>
+              <Italian>Muoversi. Stabilite la FOB. Broadway chiudo.</Italian>
+              <Polish>Ruszajcie. Załóżcie wysuniętą bazę operacyjną. Broadway, bez odbioru.</Polish>
+              <Russian>Выдвигайтесь. Разверните БПР. Бродвей - конец связи.</Russian>
+              <German>Ausrücken. Errichten Sie den FOB. Broadway Ende.</German>
+              <Czech>Přesuňte se. Vytvořte předsunutou základnu Broadway končí.</Czech>
+              <English>Move out. Establish the FOB. Broadway out.</English>
+              <Portuguese>Saiam. Estabeleçam a Base Avançada. Broadway, câmbio e desligo.</Portuguese>
+              <Korean>이동하라. 전방작전기지를 구축하라. 브로드웨이 이상.</Korean>
+              <Chinesesimp>出发。建立 FOB。Broadway，完毕。</Chinesesimp>
+              <Japanese>移動せよ。前線基地を設置せよ。ブロードウェイより、以上。</Japanese>
+              <Turkish>Çıkın. İHÜ’yü kur. Broadway tamam.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_03_start_ohq_0">
+              <Original>Move out. Establish the FOB. Griffin out.</Original>
+              <Chinese>準備行動。搭建前進作戰基地。Griffin 結束通話。</Chinese>
+              <French>Rompez. Établissez la base avancée. Griffin terminé.</French>
+              <Spanish>Sal. Establece la BAO. Griffin corto.</Spanish>
+              <Italian>Muoversi. Stabilite la FOB. Griffin chiudo.</Italian>
+              <Polish>Ruszajcie. Załóżcie wysuniętą bazę operacyjną. Griffin, bez odbioru.</Polish>
+              <Russian>Выдвигайтесь. Разверните БПР. Грифон - конец связи.</Russian>
+              <German>Ausrücken. Errichten Sie den FOB. Griffin Ende.</German>
+              <Czech>Přesuňte se. Vytvořte předsunutou základnu. Griffin končí.</Czech>
+              <English>Move out. Establish the FOB. Griffin out.</English>
+              <Portuguese>Saiam. Estabeleçam a Base Avançada. Grifo, câmbio e desligo.</Portuguese>
+              <Korean>이동하라. 전방작전기지를 구축하라. 그리핀 이상.</Korean>
+              <Chinesesimp>出发。建立 FOB。Griffin，完毕。</Chinesesimp>
+              <Japanese>移動せよ。前線基地を設置せよ。グリフィンより、以上。</Japanese>
+              <Turkish>Çıkın. İHÜ’yü kur. Griffin ayrıldı.</Turkish>
+            </Key>
+          </Container>
+          <Key ID="str_a3_mp_marksmen_01_overview">
+            <Original>Two forces compete to secure valuable schematics against a common enemy.</Original>
+            <Chinese>兩支部隊一同對抗共同敵人，守護珍貴的兵力計畫。</Chinese>
+            <French>Deux forces rivalisent pour sécuriser des schémas précieux contre un ennemi commun.</French>
+            <Spanish>Dos fuerzas compiten por proteger valiosos esquemas contra un enemigo común.</Spanish>
+            <Italian>Due forze competono tra loro per assicurarsi dei preziosi diagrammi contro un nemico commune.</Italian>
+            <Polish>Dwa oddziały walczą o zabezpieczenie cennych schematów przed wspólnym wrogiem.</Polish>
+            <Russian>Две команды соперничают друг с другом, чтобы добыть ценные схемы у общего врага.</Russian>
+            <German>Zwei Streitkräfte treten gegeneinander an, um wertvolle Schaltpläne vor einem gemeinsamen Feind zu sichern.</German>
+            <Czech>Dvě jednotky soupeří proti společnému nepříteli o získání cenných plánů.</Czech>
+            <English>Two forces compete to secure valuable schematics against a common enemy.</English>
+            <Portuguese>Duas forças competem para proteger esquemas valiosos contra um inimigo em comum.</Portuguese>
+            <Korean>두 세력이 공통의 적으로부터 중요한 도면을 확보하기 위해 경쟁합니다.</Korean>
+            <Chinesesimp>两支部队对抗共同的敌人，夺取有价值的图纸。</Chinesesimp>
+            <Japanese>2つの部隊が共通の敵を相手に重要な 図表を確保するため競い合います。</Japanese>
+            <Turkish>İki kuvvet, ortak bir düşmana karşı değerli şemaları ele geçirmek için rekabet ediyor.</Turkish>
+          </Key>
+          <Container name="01_Wait" audioFilePath="\a3\dubbing_f_mp_mark\mp_marksmen_01" dialogName="01_Wait" dubbingLanguage="english" namePrefix="mp_marksmen_01_01_wait" note="" participants="MARK B HQ;MARK O HQ;" situation="hq tells players to wait">
+            <Key ID="str_a3_mp_marksmen_01_01_wait_bhq_0">
+              <Original>All elements, stand by.</Original>
+              <Chinese>各部隊注意，隨時待命。</Chinese>
+              <French>À tous les éléments, tenez-vous prêts.</French>
+              <Spanish>A todos los elementos, permaneced a la espera.</Spanish>
+              <Italian>A tutte le unità, restate in attesa.</Italian>
+              <Polish>Do wszystkich jednostek, czekajcie w gotowości.</Polish>
+              <Russian>Всем подразделениям: ждите дальнейших указаний.</Russian>
+              <German>An alle Einheiten, bereithalten.</German>
+              <Czech>Všem jednotkám, čekejte.</Czech>
+              <English>All elements, stand by.</English>
+              <Portuguese>Todos os pelotões, fiquem a postos.</Portuguese>
+              <Korean>전 병력, 대기하라.</Korean>
+              <Chinesesimp>全体部队，待命。</Chinesesimp>
+              <Japanese>全員に告ぐ、スタンバイせよ。</Japanese>
+              <Turkish>Tüm elemanlar beklemede kalın.</Turkish>
+            </Key>
+            <Key ID="str_a3_mp_marksmen_01_01_wait_ohq_0">
+              <Original>All elements, stand by.</Original>
+              <Chinese>各部隊注意，隨時待命。</Chinese>
+              <French>À tous les éléments, tenez-vous prêts.</French>
+              <Spanish>A todos los elementos, permaneced a la espera.</Spanish>
+              <Italian>A tutte le unità, restate in attesa.</Italian>
+              <Polish>Do wszystkich jednostek, czekajcie w gotowości.</Polish>
+              <Russian>Всем подразделениям: ждите дальнейших указаний.</Russian>
+              <German>An alle Einheiten, bereithalten.</German>
+              <Czech>Všem jednotkám, čekejte.</Czech>
+              <English>All elements, stand by.</English>
+              <Portuguese>Todos os pelotões, fiquem a postos.</Portuguese>
+              <Korean>전 병력, 대기하라.</Korean>
+              <Chinesesimp>全体部队，待命。</Chinesesimp>
+              <Japanese>全員に告ぐ、スタンバイせよ。</Japanese>
+              <Turkish>Tüm elemanlar beklemede kalın.</Turkish>
+            </Key>
+          </Container>
+        </Container>
+        <Container name="MP_Marksmen_02"/>
+      </Container>
+    </Container>
+  </Package>
+</Project>
