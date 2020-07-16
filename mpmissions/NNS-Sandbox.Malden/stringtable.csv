@@ -26,6 +26,9 @@ STR_NNS_End_End1_sub, "STR_NNS_End_End1_sub_ENG", "STR_NNS_End_End1_sub_FRA"
 STR_NNS_End_End2_desc, "STR_NNS_End_End2_desc_ENG", "STR_NNS_End_End2_desc_FRA"
 STR_NNS_End_End2_sub, "STR_NNS_End_End2_sub_ENG", "STR_NNS_End_End2_sub_FRA"
 
+//credits
+STR_NNS_hold_skip_credits, "Hold key to skip credits", "Maintenir la touche pour passer les crédits"
+
 //params: generic
 STR_NNS_param_all, "All", "Tous"
 STR_NNS_param_normal, "Normal", "Normal"

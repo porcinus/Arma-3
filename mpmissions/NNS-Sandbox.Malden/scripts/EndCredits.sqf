@@ -36,6 +36,9 @@ Dependencies:
 				};
 			};
 		};
+		
+	in stringtable.csv:
+		STR_NNS_hold_skip_credits line
 
 	nns_functions folder:
 		fn_debugOutput.sqf
@@ -95,7 +98,7 @@ if (count _creditTextArray == 0) exitWith {["EndCredits.sqf: failed, no credits 
 
 _creditText = _creditTextArray joinString "<br/><br/>"; //array to string
 
-//declare key event handlers to allow skip credits, press key for 1.5sec
+//declare key event handlers to allow skip credits, press key for 2sec
 player setVariable ["EndCreditSkip", false]; //reset skipped variable
 player getVariable ["EndCreditKeyDown", -1]; //reset key down start time
 _missionDisplay = [] call BIS_fnc_displayMission; //found proper mission display
@@ -103,7 +106,7 @@ _missionDisplay = [] call BIS_fnc_displayMission; //found proper mission display
 _skipCreditKeyDownHandle = _missionDisplay displayAddEventHandler ["KeyDown", { //KeyDown event handler
 	if ((_this select 1) in [1, 57]) then { //from escape to space key : https://community.bistudio.com/wiki/DIK_KeyCodes
 		if (player getVariable ["EndCreditKeyDown", -1] == -1) then {player setVariable ["EndCreditKeyDown", time]}; //not already pressed, backup time
-		if ((time - (player getVariable ["EndCreditKeyDown", time])) > 1.5) then { //pressed for over 1.5sec
+		if ((time - (player getVariable ["EndCreditKeyDown", time])) > 2) then { //pressed for over 2sec
 			player setVariable ["EndCreditSkip", true]; //set EndCreditSkip variable
 			(_this select 0) displayRemoveEventHandler ["keyDown", (player getVariable ["EndCreditKeyDownHandle", 0])]; //remove keyDown handler
 			(_this select 0) displayRemoveEventHandler ["KeyUp", (player getVariable ["EndCreditKeyUpHandle", 0])]; //remove KeyUp handler
@@ -111,13 +114,12 @@ _skipCreditKeyDownHandle = _missionDisplay displayAddEventHandler ["KeyDown", { 
 	};
 }];
 
-_skipCreditKeyUpHandle = _missionDisplay displayAddEventHandler ["KeyUp", {if ((_this select 1) in [1, 57]) then {player setVariable ["EndCreditKeyDown", -1]}}]; //KeyUp event handler
+_skipCreditKeyUpHandle = _missionDisplay displayAddEventHandler ["KeyUp", {if ((_this select 1) in [1, 57]) then {player setVariable ["EndCreditKeyDown", -1];}}]; //KeyUp event handler
 
 player setVariable ["EndCreditKeyDownHandle", _skipCreditKeyDownHandle]; //backup keyDown handle
 player setVariable ["EndCreditKeyUpHandle", _skipCreditKeyUpHandle]; //backup KeyUp handle
 
-_creditsLayer = "credits" call bis_fnc_rscLayer; //register RSC layer
-_creditsLayer cutrsc ["RscDynamicText","plain"]; //display wanted rsc
+("credits" call bis_fnc_rscLayer) cutrsc ["RscDynamicText","plain"]; //register layer and display wanted rsc
 _display = uiNamespace getvariable ["BIS_dynamicText", displaynull]; //get proper display
 
 disableSerialization; //disable serialization
@@ -133,9 +135,31 @@ _ctrlBg ctrlsetfade 0; _ctrlBg ctrlcommit _fade; //opaque control then fade
 _ctrlText = _display displayctrl 9999; //recover text control
 _ctrlText ctrlsetstructuredtext (parsetext _creditText); //set control text
 _ctrlHeight = ctrlTextHeight _ctrlText; //get control height, width set to a oversized value
-_ctrlText ctrlsetposition [0, safeZoneY + 0.3, 1, _ctrlHeight]; //set control position
+_ctrlText ctrlsetposition [safeZoneX, safeZoneY + 0.3, safeZoneW, _ctrlHeight]; //set control position
 _ctrlText ctrlsetfade 1; _ctrlText ctrlcommit 0; //transparent control
 _ctrlText ctrlsetfade 0; _ctrlText ctrlcommit _fade; //opaque control then fade
+
+//skip credits text with its own layer
+("creditsskip" call bis_fnc_rscLayer) cutRsc ["RscDynamicText", "PLAIN"]; //register layer for credit skip and create control
+_display = uiNamespace getvariable ["BIS_dynamicText", displaynull]; //get proper display
+_ctrlSkip = _display ctrlCreate ["RscText", -1, _ctrlText]; //control
+_ctrlSkip ctrlSetFontHeight (0.032) * safezoneH; //set control font height
+_ctrlSkip ctrlSetText (localize "STR_NNS_hold_skip_credits"); //set control text
+_ctrlSkipWidth = ctrlTextWidth _ctrlSkip; _ctrlSkipHeight = ctrlTextHeight _ctrlSkip; //get control size
+_ctrlSkip ctrlSetPosition [safeZoneX + ((safeZoneW - _ctrlSkipWidth) / 2), (safeZoneY + safeZoneH - 0.05 - _ctrlSkipHeight), _ctrlSkipWidth, _ctrlSkipHeight]; //position and size
+_ctrlSkip ctrlSetBackgroundColor [0, 0, 0, 0.5]; //semi transparent background
+_ctrlSkip ctrlsetfade 1; _ctrlSkip ctrlcommit 0; //transparent control
+
+[_ctrlSkip] spawn { //display skip text
+	_ctrl = _this select 0; //recover control
+	while {sleep 0.1; !(player getVariable ["EndCreditSkip", false])} do { //loop until script end
+		waitUntil {(ctrlCommitted _ctrl) || (player getVariable ["EndCreditSkip", false])}; //wait for any fade to finish or user to skip
+		if (player getVariable ["EndCreditKeyDown", -1] == -1) then {_ctrl ctrlsetfade 1; _ctrl ctrlcommit 0.5; //transparent control then fade fast
+		} else {_ctrl ctrlsetfade 0; _ctrl ctrlcommit 0.5}; //opaque control then fade fast
+	};
+	waitUntil {ctrlCommitted _ctrl}; //wait for any fade to finish
+	_ctrl ctrlsetfade 1; _ctrl ctrlcommit 0; //transparent control
+};
 
 waitUntil {sleep 0.1; (ctrlCommitted _ctrlText) || (player getVariable ["EndCreditSkip", false])}; //wait for fade to finish or user to skip
 
@@ -164,4 +188,8 @@ if !(player getVariable ["EndCreditSkip", false]) then { //credits was not skipp
 if (_restore) then { //remove credits from screen
 	_ctrlBg ctrlsetfade 1; _ctrlBg ctrlcommit (_fade / 2); //transparent background, fade fast
 	_ctrlText ctrlsetfade 1; _ctrlText ctrlcommit (_fade / 2); //transparent text, fade fast
+	waitUntil {sleep 0.1; (ctrlCommitted _ctrlBg) && (ctrlCommitted _ctrlText)}; //wait for fade to finish
+	
 };
+
+player setVariable ["EndCreditSkip", true]; //set skipped variable
