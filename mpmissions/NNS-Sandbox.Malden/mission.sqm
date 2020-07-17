@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=641;
+	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=313;
+		nextID=324;
 	};
 	class MarkerIDProvider
 	{
@@ -16,11 +16,11 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=149;
+		nextID=154;
 	};
 	class Camera
 	{
-		pos[]={8044.7847,41.030289,10096.808};
+		pos[]={8060.9468,66.408699,10103.333};
 		dir[]={-0.56636351,-0.82405031,0.015502062};
 		up[]={-0.82375735,0.56649661,0.022547578};
 		aside[]={0.027365096,1.1191421e-006,0.99966168};
@@ -131,7 +131,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=40;
+		items=41;
 		class Item0
 		{
 			dataType="Group";
@@ -1482,8 +1482,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8044.1211,30.604332,10111.567};
-				angles[]={0.00076794485,3.1967101,6.2824173};
+				position[]={8047.5293,30.600279,10113.226};
+				angles[]={0.00077204045,3.1967101,6.2824135};
 			};
 			side="Empty";
 			flags=4;
@@ -1499,8 +1499,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8046.1777,30.602573,10111.71};
-				angles[]={0.00076794485,2.8460035,6.2824173};
+				position[]={8049.5859,30.59852,10113.368};
+				angles[]={0.00077204045,2.8460035,6.2824135};
 			};
 			side="Empty";
 			flags=4;
@@ -2405,7 +2405,7 @@ class Mission
 					name="Funcs/Scripts";
 					class Entities
 					{
-						items=22;
+						items=24;
 						class Item0
 						{
 							dataType="Marker";
@@ -2432,6 +2432,7 @@ class Mission
 							text="NNS_fnc_destroyZone (allow a bit of time)";
 							type="mil_unknown";
 							id=94;
+							atlOffset=0.35487938;
 						};
 						class Item3
 						{
@@ -2525,6 +2526,7 @@ class Mission
 							text="NNS_fnc_spawnFlare (night only)";
 							type="mil_unknown";
 							id=109;
+							atlOffset=0.34858131;
 						};
 						class Item13
 						{
@@ -2611,9 +2613,29 @@ class Mission
 							id=311;
 							atlOffset=-0.00049591064;
 						};
+						class Item22
+						{
+							dataType="Marker";
+							position[]={8038.7329,29.646,10108.661};
+							name="marker_39";
+							text="Debug menu (init.sqf)";
+							type="mil_unknown";
+							id=322;
+							atlOffset=-0.00025558472;
+						};
+						class Item23
+						{
+							dataType="Marker";
+							position[]={8051.6362,29.627001,10113.497};
+							name="marker_40";
+							text="DrawOnSurface.sqf";
+							type="mil_unknown";
+							id=323;
+							atlOffset=0.000415802;
+						};
 					};
 					id=299;
-					atlOffset=0.54973221;
+					atlOffset=0.15830994;
 				};
 				class Item3
 				{
@@ -2692,7 +2714,7 @@ class Mission
 				};
 			};
 			id=298;
-			atlOffset=-35.755104;
+			atlOffset=-35.062057;
 		};
 		class Item38
 		{
@@ -2727,6 +2749,24 @@ class Mission
 			};
 			id=312;
 			type="Land_SignWarning_01_CheckpointAhead_F";
+		};
+		class Item40
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8038.1821,30.781879,10108.723};
+				angles[]={0.0023911009,4.6526814,6.2807941};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this addAction [""Open debug menu, 'Debug' > 'Add to action menu' for persistent effect"", ""showCommandingMenu '#USER:MENU_COMMS_DEBUG'""];";
+			};
+			id=313;
+			type="Land_SignWarning_01_CheckpointAhead_F";
+			atlOffset=1.9073486e-006;
 		};
 	};
 	class Connections

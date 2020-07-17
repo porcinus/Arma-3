@@ -549,6 +549,7 @@ addMissionEventHandler ["EntityKilled", {
 
 //display credits demo
 [] spawn {
+	//start credits
 	[startCreditsObj, ["display credits (run once or glitch)", {[
 		[[
 		["bottom right","placeholder text",0],
@@ -559,15 +560,17 @@ addMissionEventHandler ["EntityKilled", {
 		]]
 	, "scripts\Credits.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
 	
-	[EndCreditsObj, ["display end credits (run once or glitch)", {[
-		[[
-		["bottom right","placeholder text",0],
-		["bottom left","placeholder text",1],
-		["top right","placeholder text",2],
-		["top left","placeholder text<br/>with<br/>multiple<br/>lines",3],
-		["<t font='PuristaBold' size='3'>Center</t>","preformatted title",4]
-		], "\A3\data_f\SteamPublisher\All\Arma3_workshop_scenario.jpg",-1,-1,-1,true]
-	, "scripts\EndCredits.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	//end credits
+	[EndCreditsObj, ["display end credits (run once or glitch)", {
+		_creditsArr = [[briefingName, getText (missionConfigFile >> "author")]]; //mission name and author
+		_playersList = allPlayers; _playersList sort true; //get players list and sort it
+		{_creditsArr pushBack ["", name _x, false]} forEach allPlayers; //add players to credits array as description
+		_creditsArr set [1, [localize "str_mptable_players", _creditsArr select 1 select 1, false]]; //add localized "players" as first player title
+		_missionImage = getText (missionConfigFile >> "overviewPicture"); //try to recover overviewPicture from Description.ext
+		if (_missionImage == "") then {_missionImage = getText (missionConfigFile >> "loadScreen")}; //failed, try with loadScreen
+		if (_missionImage == "") then {_missionImage = getText (configFile >> "CfgWorlds" >> worldName >> "pictureShot")}; //failed, try with default pictureShot from world class
+		[[_creditsArr, _missionImage,-1,-1,-1,true] , "scripts\EndCredits.sqf"] remoteExec ["execVM", 2]
+	}]] remoteExec ["addAction", 0, true];
 };
 
 //populate map buildings

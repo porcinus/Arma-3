@@ -6,22 +6,38 @@ Allow usage of preformatted text or plain text, can set "title" and "description
 Example :
 	Credits with a image at the beginning:
 		_null = [[
-		["bottom right","placeholder text1"],
-		["bottom left","placeholder text2"],
-		["top right","placeholder text3"],
-		["top left","placeholder text<br/>with<br/>multiple<br/>lines"],
+		["Title1","placeholder text1"],
+		["Title2","placeholder text2"],
+		["Title3","placeholder text3"],
+		["Yet another title","placeholder text<br/>with<br/>multiple<br/>lines"],
 		["<t font='PuristaBold' size='3'>Center</t>","preformatted title"]
 		], "\A3\data_f\SteamPublisher\All\Arma3_workshop_scenario.jpg"] execVM "scripts\EndCredits.sqf"
 		
+		
 	Previous example but remove credits from screen once done:
 		_null = [[
-		["bottom right","placeholder text1"],
-		["bottom left","placeholder text2"],
-		["top right","placeholder text3"],
-		["top left","placeholder text<br/>with<br/>multiple<br/>lines"],
+		["Title1","placeholder text1"],
+		["Title2","placeholder text2"],
+		["Title3","placeholder text3"],
+		["Yet another title","placeholder text<br/>with<br/>multiple<br/>lines"],
 		["<t font='PuristaBold' size='3'>Center</t>","preformatted title"]
 		], "\A3\data_f\SteamPublisher\All\Arma3_workshop_scenario.jpg",-1,-1,-1,true] execVM "scripts\EndCredits.sqf"
 		
+		
+	Mission image, name and author plus all players:
+		_creditsArr = [[briefingName,getText (missionConfigFile >> "author")]]; //mission name and author
+		
+		_playersList = allPlayers; _playersList sort true; //get players list and sort it
+		{_creditsArr pushBack ["", name _x, false]} forEach allPlayers; //add players to credits array as description
+		_creditsArr set [1, [localize "str_mptable_players", _creditsArr select 1 select 1, false]]; //add localized "players" as first player title
+		
+		_missionImage = getText (missionConfigFile >> "overviewPicture"); //try to recover overviewPicture from Description.ext
+		if (_missionImage == "") then {_missionImage = getText (missionConfigFile >> "loadScreen")}; //failed, try with loadScreen
+		if (_missionImage == "") then {_missionImage = getText (configFile >> "CfgWorlds" >> worldName >> "pictureShot")}; //failed, try with default pictureShot from world class
+		
+		_null = [_creditsArr, _missionImage,-1,-1,-1,true] execVM "scripts\EndCredits.sqf";
+		
+	
 	Simplified usage:
 		_null = [["title1",["title2","desc2"],"title3","title4"]] execVM "scripts\EndCredits.sqf"
 
@@ -48,7 +64,7 @@ Dependencies:
 */
 
 params [
-["_texts", []], //format : ["text0","text1",["texttitle","textdesc"],...]
+["_texts", []], //format : ["text0","text1",["texttitle","textdesc"],["texttitle","textdesc",false],...] note: false is used here to disable addition of new line used as spacer between each credits.
 ["_image", ""], //image to display at the very beginning
 ["_imageSize", 6], //image size
 ["_speed", 12], //time to scroll one screen height
@@ -91,16 +107,17 @@ if !(_image == "") then {_creditTextArray pushBack (format ["<img shadow='0' siz
 		if !([_tmpText] call fn_firstChar == "<") then {_text set [_arrayIndex, format ["<t size='0.8'>%1</t>", _tmpText]]}; //don't start with a tag, apply formating
 	} else {_text deleteAt _arrayIndex}; //description not set, delete array element
 	
+	if (count _x > 2 && {!(_x select 2)}) then {} else {_text set [_arrayIndex, format ["%1<br/>", _text select _arrayIndex]]}; //add new line if not disable
 	if (count _text > 0) then {_creditTextArray pushBack (_text joinString "<br/>")}; //add current text to credits array if title and/or description exist
 } forEach _texts;
 
 if (count _creditTextArray == 0) exitWith {["EndCredits.sqf: failed, no credits to display"] call NNS_fnc_debugOutput}; //debug
 
-_creditText = _creditTextArray joinString "<br/><br/>"; //array to string
+_creditText = _creditTextArray joinString "<br/>"; //array to string
 
 //declare key event handlers to allow skip credits, press key for 2sec
 player setVariable ["EndCreditSkip", false]; //reset skipped variable
-player getVariable ["EndCreditKeyDown", -1]; //reset key down start time
+player setVariable ["EndCreditKeyDown", -1]; //reset key down start time
 _missionDisplay = [] call BIS_fnc_displayMission; //found proper mission display
 
 _skipCreditKeyDownHandle = _missionDisplay displayAddEventHandler ["KeyDown", { //KeyDown event handler
