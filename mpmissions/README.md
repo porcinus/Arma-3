@@ -20,6 +20,8 @@ English and French localized for added elements.
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/rescue.jpg)](EscapeFromMaldenMOD.Malden%20preview/rescue.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/south-west-base.jpg)](EscapeFromMaldenMOD.Malden%20preview/south-west-base.jpg)
 [![prev](EscapeFromMaldenMOD.Malden%20preview/preview/whiteboard.jpg)](EscapeFromMaldenMOD.Malden%20preview/whiteboard.jpg)
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-map.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-map.jpg)
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-debrief.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-debrief.jpg)
   
 WIP, work but many things need to be redone the right way. I started this modification while lacking a lot of knowledge about ArmA scripting. Don't look at scripts, you will tear blood...
   
@@ -95,6 +97,8 @@ Enhanced Movement addon is recommended (https://steamcommunity.com/sharedfiles/f
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/city-fire.jpg)](EscapeFromMaldenZombie.Malden%20preview/city-fire.jpg)
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan1.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan1.jpg)
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan2.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan2.jpg)
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-map.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-map.jpg)
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-debrief.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-debrief.jpg)
   
 It still is a escape mission but now with zombies.  
 To be honest, I didn't keep track of codes coming from internet and I am pretty sure some stuff may need some credits.  
@@ -210,7 +214,12 @@ Can be useful to understand how specific functions like 'spawnVehicleOnRoad_Adv'
 [![prev](NNS-Sandbox.Malden%20preview/preview/spawnvehionroad01.jpg)](NNS-Sandbox.Malden%20preview/spawnvehionroad01.jpg)
 [![prev](NNS-Sandbox.Malden%20preview/preview/helisupportlanding01.jpg)](NNS-Sandbox.Malden%20preview/helisupportlanding01.jpg)
 [![prev](NNS-Sandbox.Malden%20preview/preview/helisupportlanding02.jpg)](NNS-Sandbox.Malden%20preview/helisupportlanding02.jpg)
-[![prev](NNS-Sandbox.Malden%20preview/preview/populatebuildings01.jpg)](NNS-Sandbox.Malden%20preview/populatebuildings01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/populatebuildings01.jpg)](NNS-Sandbox.Malden%20preview/populatebuildings01.jpg) 
+[![prev](EscapeFromMaldenMOD.Malden%20preview/preview/whiteboard.jpg)](EscapeFromMaldenMOD.Malden%20preview/whiteboard.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan1.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan1.jpg)
+[![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan2.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan2.jpg)
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-map.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-map.jpg)
+[![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-debrief.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-debrief.jpg)
   
 Helicopter airborne units support demo : [https://www.youtube.com/watch?v=D\_s5CR9jc58](https://www.youtube.com/watch?v=D_s5CR9jc58)  
 Populate map buildings demo : [https://www.youtube.com/watch?v=cdWG1WQz2b4](https://www.youtube.com/watch?v=cdWG1WQz2b4)  
