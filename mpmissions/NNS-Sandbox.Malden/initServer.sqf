@@ -558,7 +558,7 @@ addMissionEventHandler ["EntityKilled", {
 		["top left","placeholder text<br/>with<br/>multiple<br/>lines",3],
 		["<t font='PuristaBold' size='3'>Center</t>","preformatted title",4]
 		]]
-	, "scripts\Credits.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	, "scripts\Credits.sqf"] remoteExec ["execVM", 0]}]] remoteExec ["addAction", 0, true];
 	
 	//end credits
 	[EndCreditsObj, ["display end credits (run once or glitch)", {
@@ -569,7 +569,7 @@ addMissionEventHandler ["EntityKilled", {
 		_missionImage = getText (missionConfigFile >> "overviewPicture"); //try to recover overviewPicture from Description.ext
 		if (_missionImage == "") then {_missionImage = getText (missionConfigFile >> "loadScreen")}; //failed, try with loadScreen
 		if (_missionImage == "") then {_missionImage = getText (configFile >> "CfgWorlds" >> worldName >> "pictureShot")}; //failed, try with default pictureShot from world class
-		[[_creditsArr, _missionImage,-1,-1,-1,true] , "scripts\EndCredits.sqf"] remoteExec ["execVM", 2]
+		[[_creditsArr, _missionImage,-1,-1,-1,true] , "scripts\EndCredits.sqf"] remoteExec ["execVM", 0]
 	}]] remoteExec ["addAction", 0, true];
 };
 
@@ -585,8 +585,6 @@ addMissionEventHandler ["EntityKilled", {
 //vehicle lottery
 [] spawn {
 	[LotteryVehicleCommand, ["spawn a random vehicle (Car, Armored, Tank, Air)", {[[LotteryVehicleSpawner], "scripts\LotteryVehicle.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
-
-
 };
 
 

@@ -85,6 +85,18 @@ _lastVehiLength = 0; //backup current vehicle length for next loop
 _lastLane = 1; _consecutiveSameLane = 0; //used to shift lane
 _tmpVehiClasses = _vehiClasses; //store vehicle classes without last one used
 
+_VehiLength = []; //store vehicle length for each spawned class
+_VehiLengthIndex = []; //store length index for each spawned class
+
+{ //get all classes vehicle length
+	_tmpVehi = createSimpleObject [_x, [0,0,0], true]; //create a local simple object
+	_tmpVehibox = boundingBoxReal _tmpVehi; //bounding box of vehicle
+	deleteVehicle _tmpVehi; //delete vehicle
+	_tmpVehiLength = abs (((_tmpVehibox select 1) select 1) - ((_tmpVehibox select 0) select 1)) * 1.3; //vehicle length
+	_VehiLengthIndex pushBack _x; //add class to index
+	_VehiLength pushBack _tmpVehiLength; //add length to array
+} forEach _vehiClasses;
+
 _vehiMatIndex = []; //contain already recovered classname for materials
 _vehiMats = []; //contain materials, incl damage and destruct if exists
 
@@ -168,11 +180,13 @@ for "_i" from 0 to 999 do { //roads loop
 			if (count _tmpVehiClasses == 0) then {_tmpVehiClasses = _vehiClasses;}; //only one vehicle in main vehicle classes array
 			if (_tmpVehiClass in _vehiWreckClasses) then {_isWreck = true;};
 			_tmpVehi = objNull;
-			if (_simpleObject || _isWreck) then {_tmpVehi = createSimpleObject [_tmpVehiClass, [0,0,0]]; //create simple object
-			} else {_tmpVehi = createVehicle [_tmpVehiClass, [0,0,0], [], 0, "CAN_COLLIDE"]; /*_tmpVehiClass createVehicle [0,0,0];*/}; //create vehicle
+			if (_simpleObject || _isWreck) then {/*_tmpVehi = createSimpleObject [_tmpVehiClass, [0,0,0]];*/ //create simple object
+			} else {_tmpVehi = createVehicle [_tmpVehiClass, [0,0,0], [], 0, "CAN_COLLIDE"]}; //create vehicle
 			_tmpVehi allowDamage false; //disable in case server is having hard time
 			
-			_tmpVehibox = boundingBoxReal _tmpVehi; _tmpVehiLength = abs (((_tmpVehibox select 1) select 1) - ((_tmpVehibox select 0) select 1)) * 1.3; //vehicle length
+			_tmpLengthIndex = _VehiLengthIndex find _tmpVehiClass; //search if class already in bound array
+			_tmpVehiLength = _VehiLength select _tmpLengthIndex; //recover class vehicle length
+			
 			_tmpDirCorr = 0; if (_isWreck) then {_tmpVehiLength = _tmpVehiLength * 1.6; _tmpDirCorr = 180;}; //wreck vehicles size is a bit off and direction reversed
 			
 			_tmpLane = selectRandom [-1,1]; //select a lane
@@ -196,13 +210,10 @@ for "_i" from 0 to 999 do { //roads loop
 			
 			_tmpPos = _lastRoad getPos [2 + random 0.3, _roadDir + (90 * _tmpLane)]; //"select" random lane
 			_tmpNewPos = _tmpPos getPos [_currentdist, _roadDir];
-			
 			if ((_tmpNewPos distance2D _lastPos) > (_tmpVehiLength / 2)) then { //enough space to spawn vehicle
+				if (_simpleObject || _isWreck) then {_tmpVehi = createSimpleObject [_tmpVehiClass, [0,0,0]]}; //if simple object, create object as late as possible to avoid duplication glitch
 				_tmpVehi setDir (180 + (_roadDir - 45) + (random 45) + (random 45) + _tmpDirCorr); //vehicle direction, more randomness
 				if (_simpleObject || _isWreck) then { //simple object
-					_tmpNewPos set [2, getTerrainHeightASL _tmpNewPos]; //proper height
-					_tmpVehi setPosASL _tmpNewPos; //set position
-					_tmpVehi setVectorUp surfaceNormal position _tmpVehi; //proper vector up
 					if (_addWreckVehi && !_isWreck) then { //yes, this whole part is only here to add damaged effect to simple objects
 						_tmpVehiHasDamaged = false;
 						_tmpVehiHasDestroyed = false;
@@ -251,10 +262,14 @@ for "_i" from 0 to 999 do { //roads loop
 							};
 						};
 					};
+					
+					_tmpNewPos set [2, getTerrainHeightASL _tmpNewPos]; //proper height
+					_tmpVehi setPosASL _tmpNewPos; //set position
+					_tmpVehi setVectorUp surfaceNormal position _tmpVehi; //proper vector up
 				} else {_tmpVehi setPos _tmpNewPos;}; //set vehicle position
 				_tmpVehi allowDamage true; //re-enable damage
 				
-				if !(_isWreck) then { //not wreck
+				if (!(_simpleObject) && {!(_isWreck)}) then { //not wreck
 					_tmpVehi setFuel _vehiFuel; //set fuel
 					[_tmpVehi,[],_vehiDamageMin,_vehiDamageMax] call NNS_fnc_randomVehicleDamage; //set hitpoint damage
 					clearMagazineCargoGlobal _tmpVehi; clearWeaponCargoGlobal _tmpVehi; clearBackpackCargoGlobal _tmpVehi; clearItemCargoGlobal _tmpVehi; //empty vehicle

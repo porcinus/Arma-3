@@ -29,7 +29,7 @@ Notes:
 - Note all selected buildings will be populated, look at _populateChance,_buildingPosMin,_buildingPosMax params for this.
 - If groups count on the server goes over _groupsLimit, this script will continue to work but do nothing until everything goes back to normal.
 - if _oneGroupPerChunk set to true, weird behave could happen but highly decrease groups count.
-- If _populateChance set to -1, script will decide on its own the "right" chance value based on objects in chunk. 60% if objects count = median, 10% for highest objects count.
+- If _populateChance set to -1, script will decide on its own the "right" chance value based on objects in chunk. 50% if objects count = median, 10% for highest objects count.
 - To kill the script, set global NNSkillPopulatedMapLoop to true.
 
 Example :
@@ -74,8 +74,8 @@ params [
 	["_minObjectWH",10], //minimum X-Y object size
 	["_populatePadding",2], //chunk padding to populate, >0 needed
 	["_populateChance",-1], //amount of change to spawn units in a building
-	["_buildingPosMin",0.3], //minimum used position in building (can be round to 0)
-	["_buildingPosMax",0.7], //maximum used position in building
+	["_buildingPosMin",0.2], //minimum used position in building (can be round to 0)
+	["_buildingPosMax",0.5], //maximum used position in building
 	["_groupsLimit",220], //max 288 since v1.67
 	["_debug",false], //enable debug
 	["_debugSpawnEveryone",false] //spawn every units possible, use at your own risk
@@ -408,7 +408,7 @@ while {sleep _detectInterval; !(missionNamespace getVariable ["NNSkillPopulatedM
 			};
 			
 			if (_autoPopulateChance) then { //compute proper amount of chance for building populate
-				_populateChance = linearConversion [_medianObjectsPerChunk, _biggestChunkCount, _currentChunkObjectsCount, 0.6, 0.1]; //linear conversion
+				_populateChance = linearConversion [_medianObjectsPerChunk, _biggestChunkCount, _currentChunkObjectsCount, 0.5, 0.1]; //linear conversion
 			};
 			
 			{ //objects loop

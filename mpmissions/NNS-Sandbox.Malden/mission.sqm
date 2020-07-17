@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=324;
+		nextID=346;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=164;
+		nextID=179;
 	};
 	class Camera
 	{
-		pos[]={8060.9468,66.408699,10103.333};
-		dir[]={-0.56636351,-0.82405031,0.015502062};
-		up[]={-0.82375735,0.56649661,0.022547578};
-		aside[]={0.027365096,1.1191421e-006,0.99966168};
+		pos[]={8038.3813,34.561127,10126.56};
+		dir[]={-0.87876582,-0.31491011,0.35862455};
+		up[]={-0.2915687,0.94911826,0.11898918};
+		aside[]={0.37784854,-1.1207885e-007,0.92587107};
 	};
 };
 binarizationWanted=0;
@@ -39,7 +39,8 @@ addons[]=
 	"A3_Air_F_Heli_Light_01",
 	"A3_Structures_F_Civ_InfoBoards",
 	"A3_Structures_F_Oldman_Signs_Traffic",
-	"A3_Ui_F"
+	"A3_Ui_F",
+	"A3_Structures_F_Mil_Helipads"
 };
 class AddonsMetaData
 {
@@ -131,7 +132,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=41;
+		items=43;
 		class Item0
 		{
 			dataType="Group";
@@ -2405,7 +2406,7 @@ class Mission
 					name="Funcs/Scripts";
 					class Entities
 					{
-						items=24;
+						items=25;
 						class Item0
 						{
 							dataType="Marker";
@@ -2631,9 +2632,19 @@ class Mission
 							id=323;
 							atlOffset=0.000415802;
 						};
+						class Item24
+						{
+							dataType="Marker";
+							position[]={8032.1509,29.629,10131.036};
+							name="marker_41";
+							text="LotteryVehicle.sqf";
+							type="mil_dot";
+							id=345;
+							atlOffset=-0.00045013428;
+						};
 					};
 					id=299;
-					atlOffset=0.15830994;
+					atlOffset=0.080539703;
 				};
 				class Item3
 				{
@@ -2712,7 +2723,7 @@ class Mission
 				};
 			};
 			id=298;
-			atlOffset=-34.903564;
+			atlOffset=-34.364288;
 		};
 		class Item38
 		{
@@ -2765,6 +2776,41 @@ class Mission
 			id=313;
 			type="Land_SignWarning_01_CheckpointAhead_F";
 			atlOffset=1.9073486e-006;
+		};
+		class Item41
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8020.333,29.63509,10131.135};
+				angles[]={0.00069053395,4.7187362,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="LotteryVehicleSpawner";
+			};
+			id=327;
+			type="Land_JumpTarget_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8031.4883,30.421419,10131.02};
+				angles[]={0.00077204045,4.7120924,6.2824135};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="LotteryVehicleCommand";
+			};
+			id=328;
+			type="Land_Noticeboard_F";
 		};
 	};
 	class Connections
