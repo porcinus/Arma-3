@@ -581,3 +581,17 @@ addMissionEventHandler ["EntityKilled", {
 	//[1, west, configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry", true] execVM "scripts\PopulateMapBuildings.sqf";
 	[1, east, "", true] execVM "scripts\PopulateMapBuildings.sqf";
 };
+
+//vehicle lottery
+[] spawn {
+	[LotteryVehicleCommand, ["spawn a random vehicle (Car, Armored, Tank, Air)", {[[LotteryVehicleSpawner], "scripts\LotteryVehicle.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+
+
+};
+
+
+
+
+
+
+
