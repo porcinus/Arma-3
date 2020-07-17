@@ -80,6 +80,9 @@ STR_NNS_param_Stamina_title, "Stamina", "Endurance"
 //params: tk punish
 STR_NNS_param_PunishTK_title, "Punish teamkillers", "Punir les teamkillers"
 
+//params: invincibility
+STR_NNS_param_Invincibility_title, "Invincibility", "Invincibilité"
+
 //fuel canister
 STR_NNS_FuelCanister, "Jerrycan", "Jerrican"
 STR_NNS_TakeFuelCanister, "Take jerrycan", "Prendre le jerrican"

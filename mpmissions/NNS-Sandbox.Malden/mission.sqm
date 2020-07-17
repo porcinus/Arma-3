@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=154;
+		nextID=164;
 	};
 	class Camera
 	{
@@ -2432,7 +2432,6 @@ class Mission
 							text="NNS_fnc_destroyZone (allow a bit of time)";
 							type="mil_unknown";
 							id=94;
-							atlOffset=0.35487938;
 						};
 						class Item3
 						{
@@ -2526,7 +2525,6 @@ class Mission
 							text="NNS_fnc_spawnFlare (night only)";
 							type="mil_unknown";
 							id=109;
-							atlOffset=0.34858131;
 						};
 						class Item13
 						{
@@ -2683,7 +2681,7 @@ class Mission
 						class Item4
 						{
 							dataType="Marker";
-							position[]={7975.2778,29.620001,10169.982};
+							position[]={8046.1138,29.6,10168.675};
 							name="respawn_main";
 							type="Empty";
 							id=6;
@@ -2710,11 +2708,11 @@ class Mission
 						};
 					};
 					id=300;
-					atlOffset=-0.0032482147;
+					atlOffset=0.001203537;
 				};
 			};
 			id=298;
-			atlOffset=-35.062057;
+			atlOffset=-34.903564;
 		};
 		class Item38
 		{

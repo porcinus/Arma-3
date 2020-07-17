@@ -62,7 +62,7 @@ if (count _start_pos_list > 0) then { //at least one respawn marker found
 	_start_pos_rnd = selectRandom _start_pos_list; //select random marker
 	_pos = getMarkerPos _start_pos_rnd; //initial respawn position
 	"marker_initspawn" setMarkerPos _pos; //set initial marker position
-	"marker_respawn" setMarkerPos _pos; "marker_respawn" setMarkerAlpha 0; //set respawn marker position and hide it
+	"marker_respawn" setMarkerPos _pos; "marker_respawn" setMarkerAlpha 0.01; //set respawn marker position and hide it
 	{_x setpos (_pos getPos [5, random 360]);} forEach (units BIS_grpMain); //move all base units to respawn location
 	[BIS_playerSide,"marker_respawn","Respawn"] call BIS_fnc_addRespawnPosition; //add respawn point
 };

@@ -1,6 +1,3 @@
-//NNS : DEV, disable damage
-player allowDamage false;
-
 //NNS : varible to ignore unit for compute group center
 player setVariable ["recovery",true,true];
 [] spawn {sleep 5; player setVariable ["recovery",false,true];};
@@ -38,7 +35,10 @@ if (uniform player == "U_C_Poloshirt_stripped" && {count _tmp_saved_loadout > 0}
 //NNS : more realistic aim
 player setCustomAimCoef 0.75;
 player setUnitRecoilCoefficient 0.70;
-if !(BIS_stamina) then {player enablestamina false;};
+if !(BIS_stamina) then {player enablestamina false};
+
+//NNS : invincibility
+if (BIS_Invincibility) then {player allowDamage false};
 
 //NNS : allow player to heal and repair
 if (BIS_loadoutLevel < 2) then {

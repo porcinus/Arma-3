@@ -139,6 +139,17 @@ class Params {
 		file = "params\setTKpunish.sqf";
 	};
 	
+	class InvincibilityMenu {
+		title = $STR_NNS_param_Invincibility_title;
+		values[] = {0,1};
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_enable};
+		default = 1;
+		file = "params\setInvincibility.sqf";
+	};
+	
+	
+	
+	
 	#define DAYTIMEHOUR_DEFAULT				16
 	#define WEATHER_DEFAULT						0
 	#define DEBUGCONSOLE_DEFAULT			1
