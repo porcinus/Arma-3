@@ -109,7 +109,9 @@ STR_NNS_Debriefing_GroupStats_title, "Group statistics", "Statistiques du groupe
 STR_NNS_loadout_previous, "Previous Loadout", "Équipement précédent"
 STR_NNS_loadout_restore, "Restore Loadout", "Restorer l'équipement"
 
-
+//vehicle lottery
+STR_NNS_lottery_title, "Lottery", "Loterie"
+STR_NNS_lottery_vehicle_won, "You won a %1", "Vous avez gagner un %1"
 
 
 

@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=346;
+		nextID=348;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=179;
+		nextID=184;
 	};
 	class Camera
 	{
-		pos[]={8038.3813,34.561127,10126.56};
-		dir[]={-0.87876582,-0.31491011,0.35862455};
-		up[]={-0.2915687,0.94911826,0.11898918};
-		aside[]={0.37784854,-1.1207885e-007,0.92587107};
+		pos[]={8044.6826,44.289097,10131.114};
+		dir[]={-0.68094414,-0.7322619,0.012513567};
+		up[]={-0.73213661,0.68101645,0.013454577};
+		aside[]={0.018373678,-3.3425567e-007,0.99984932};
 	};
 };
 binarizationWanted=0;
@@ -132,7 +132,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=43;
+		items=44;
 		class Item0
 		{
 			dataType="Group";
@@ -2800,7 +2800,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8031.4883,30.421419,10131.02};
+				position[]={8031.8145,30.422371,10129.504};
 				angles[]={0.00077204045,4.7120924,6.2824135};
 			};
 			side="Empty";
@@ -2810,6 +2810,23 @@ class Mission
 				name="LotteryVehicleCommand";
 			};
 			id=328;
+			type="Land_Noticeboard_F";
+		};
+		class Item43
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8031.958,30.420479,10131.726};
+				angles[]={0.00076794485,4.7120924,6.2824173};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="LotteryVehicleCommandReset";
+			};
+			id=347;
 			type="Land_Noticeboard_F";
 		};
 	};

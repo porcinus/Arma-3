@@ -584,12 +584,8 @@ addMissionEventHandler ["EntityKilled", {
 
 //vehicle lottery
 [] spawn {
-	[LotteryVehicleCommand, ["spawn a random vehicle (Car, Armored, Tank, Air)", {[[LotteryVehicleSpawner], "scripts\LotteryVehicle.sqf"] remoteExec ["execVM", 2]}]] remoteExec ["addAction", 0, true];
+	[LotteryVehicleCommand, ["Try to win a vehicle", {missionNamespace setVariable ["LotteryVehReq", true, true]}]] remoteExec ["addAction", 0, true];
+	[LotteryVehicleCommandReset, ["Reset", {missionNamespace setVariable ["LotteryVehRes", true, true]}]] remoteExec ["addAction", 0, true];
+	[LotteryVehicleCommandForced, ["Try to win a vehicle (forced)", {missionNamespace setVariable ["LotteryVehRes", true, true]; missionNamespace setVariable ["LotteryVehReq", true, true]}]] remoteExec ["addAction", 0, true];
+	[LotteryVehicleSpawner] execVM "scripts\LotteryVehicle.sqf";
 };
-
-
-
-
-
-
-
