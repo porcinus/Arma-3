@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=348;
+		nextID=349;
 	};
 	class MarkerIDProvider
 	{
@@ -132,7 +132,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=44;
+		items=45;
 		class Item0
 		{
 			dataType="Group";
@@ -2800,7 +2800,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8031.8145,30.422371,10129.504};
+				position[]={8032.1426,30.42098,10130.913};
 				angles[]={0.00077204045,4.7120924,6.2824135};
 			};
 			side="Empty";
@@ -2817,8 +2817,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8031.958,30.420479,10131.726};
-				angles[]={0.00076794485,4.7120924,6.2824173};
+				position[]={8032.1689,30.419739,10132.441};
+				angles[]={0.00077204045,4.7120924,6.2824135};
 			};
 			side="Empty";
 			flags=4;
@@ -2827,6 +2827,23 @@ class Mission
 				name="LotteryVehicleCommandReset";
 			};
 			id=347;
+			type="Land_Noticeboard_F";
+		};
+		class Item44
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8032.1411,30.42218,10129.416};
+				angles[]={0.00076794485,4.7120924,6.2824173};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="LotteryVehicleCommandForced";
+			};
+			id=348;
 			type="Land_Noticeboard_F";
 		};
 	};
