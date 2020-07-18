@@ -30,7 +30,7 @@ class CfgRoles {
 
 class CfgRespawnInventory {
 	class O_Saved_Loadout {
-		show = "side group _this == east";
+		show = "true";
 		displayName = $STR_NNS_loadout_restore;
 		role = "Saved_Loadout";
 		icon = "\A3\ui_f\data\map\VehicleIcons\iconManLeader_ca.paa";
