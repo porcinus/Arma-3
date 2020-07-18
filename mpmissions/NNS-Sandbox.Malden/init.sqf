@@ -126,12 +126,6 @@ MENU_COMMS_DEBUG_EXTREME = [
 
 
 /*
-
-
-
-
-
-
 attack_ca.paa
 freelook_ca.paa
 iconComplex_ca.paa    ***
@@ -140,12 +134,4 @@ selectOver_ca.paa
 tactical_ca.paa
 weapon_ca.paa
 board_ca.paa
-
-
-
-
-
-
-
-
 */

@@ -589,3 +589,4 @@ addMissionEventHandler ["EntityKilled", {
 	[LotteryVehicleCommandForced, ["Try to win a vehicle (forced)", {missionNamespace setVariable ["LotteryVehRes", true, true]; missionNamespace setVariable ["LotteryVehReq", true, true]}]] remoteExec ["addAction", 0, true];
 	[LotteryVehicleSpawner] execVM "scripts\LotteryVehicle.sqf";
 };
+

@@ -28,7 +28,7 @@ Notes:
 - Avoid using _chunkSize under 200m², keep in mind the that dividing chunk size by 2 increase ressources usage (CPU,Memory,Network) by a factor of 4.
 - Note all selected buildings will be populated, look at _populateChance,_buildingPosMin,_buildingPosMax params for this.
 - If groups count on the server goes over _groupsLimit, this script will continue to work but do nothing until everything goes back to normal.
-- if _oneGroupPerChunk set to true, weird behave could happen but highly decrease groups count.
+- if _oneGroupPerChunk set to true, weird behave could happen but highly decrease groups count, this can also have some impact on server performance.
 - If _populateChance set to -1, script will decide on its own the "right" chance value based on objects in chunk. 50% if objects count = median, 10% for highest objects count.
 - To kill the script, set global NNSkillPopulatedMapLoop to true.
 
@@ -50,6 +50,7 @@ Dependencies:
 					file = "nns_functions";
 					class debugOutput {};
 					class AIskill {};
+					class serverFPS {};
 				};
 			};
 		};
@@ -57,6 +58,7 @@ Dependencies:
 	nns_functions folder:
 		fn_debugOutput.sqf
 		fn_AIskill.sqf
+		fn_serverFPS.sqf
 		
 	script folder:
 		LimitEquipment.sqf
@@ -312,6 +314,8 @@ while {sleep _detectInterval; !(missionNamespace getVariable ["NNSkillPopulatedM
 	_chunksToReset = +(_chunksToResetBase); //copy chunk to reset initial array
 	
 	if !(_debugSpawnEveryone) then {
+		_serverFPS = call NNS_fnc_serverFPS; //recover server framerate
+		
 		{ //players loop
 			_playerUID = getPlayerUID _x; //recover player UID
 			if (!(_playerUID == "") && {alive _x} && {!((vehicle _x) isKindOf "Ship")} && {!((vehicle _x) isKindOf "Air")}) then { //ignore dead players or players in air or ship kind vehicle
@@ -350,11 +354,18 @@ while {sleep _detectInterval; !(missionNamespace getVariable ["NNSkillPopulatedM
 									_chunksToReset set [_tmpChunk, false]; //disable reset for current chunk
 									if ((_tmpX == _playerChunksX) && (_tmpY == _playerChunksY)) then {_chunksBlacklist pushBack _tmpChunk}; //blacklist player chuck
 									if (abs (_playerChunksX - _tmpX) == _populatePadding || abs (_playerChunksY - _tmpY) == _populatePadding) then { //one chunk padding
+										_tmpChunkPos = [((_tmpX * _chunkSize) + (_chunkSize / 2)), ((_tmpY * _chunkSize) + (_chunkSize / 2)), 0]; //center position of current chunk
+										_tmpChunkDist = _playerPos distance2D _tmpChunkPos; //player distance from current chunk
 										if (!(_tmpChunk in _chunksEmpty) && {!(_tmpChunk in _chunksBlacklist)} && {!(_tmpChunk in _chunksToPopulate)} && {!(_tmpChunk in _chunksPopulated)}) then { //chunk not empty, blacklisted, to populate, populated
-											_tmpChunkPos = [((_tmpX * _chunkSize) + (_chunkSize / 2)), ((_tmpY * _chunkSize) + (_chunkSize / 2)), 0]; //center position of current chunk
-											_tmpChunkDist = _playerPos distance2D _tmpChunkPos; //player distance from current chunk
 											if ((_playerPos getPos [_tmpChunkDist, _playerDir]) inArea [_tmpChunkPos, _chunkSize / 2, _chunkSize / 2, 0, true]) then { //player direction cross current chunk
 												_chunksToPopulate pushBack _tmpChunk;
+											};
+										};
+										
+										if (_serverFPS < 30 && {!(_tmpChunk in _chunksEmpty)} && {!(_tmpChunk in _chunksBlacklist)} && {!(_tmpChunk in _chunksToPopulate)}) then { //server under 30fps, unpopulate chunk behind player
+											if (_debug) then {[format ["mrkPlayerDirOp%1",_playerIndex],_playerPos,_playerPos getPos [1000, _playerDir + 180],"ColorRed",1,1] call NNS_fnc_MapDrawLine}; //debug: draw direction line
+											if ((_playerPos getPos [_tmpChunkDist, _playerDir + 180]) inArea [_tmpChunkPos, _chunkSize / 2, _chunkSize / 2, 0, true]) then { //player oposite direction cross current chunk
+												_chunksToReset set [_tmpChunk, true]; //mark current chuck for reset
 											};
 										};
 									};
