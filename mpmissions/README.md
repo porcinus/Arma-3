@@ -275,7 +275,8 @@ What's done so far (missing some for sure):
 		- Look at script header for more info.
 	- Custom credits with various params (scripts\Credits.sqf), based on BIS credit.sqf.
 	- Custom End credits on black screen with various params (scripts\EndCredits.sqf).
-	- Vehicle "lottery" script (scripts\LotteryVehicle.sqf).
+	- Vehicle "lottery" script (scripts\LotteryVehicle.sqf), allow to set : allowed kind and side.
+	- Weapon "lottery" script (scripts\LotteryWeapon.sqf), allow to set allowed kind.
 	
 - Inventory:
 	- When respawn with previous loadout, refill primary weapon magazine to 25 rounds.
