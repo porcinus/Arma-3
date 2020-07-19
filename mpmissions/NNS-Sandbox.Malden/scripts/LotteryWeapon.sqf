@@ -11,6 +11,7 @@ Example:
 	On clients : 
 		missionNamespace setVariable ["LotteryWpnReq", true, true]; //request a "roll"
 		missionNamespace setVariable ["LotteryWpnRes", true, true]; //remove spawned weapon
+		missionNamespace setVariable ["LotteryWpnKill", true, true]; //kill the script loop
 	
 Dependencies:
 	in description.ext:
@@ -36,13 +37,20 @@ Dependencies:
 
 params [
 ["_spawnObject", objNull], //object to use as spawn point, table highly recommended
-["_allowedKind", ["Rifle_Base_F","Pistol_Base_F","Launcher_Base_F"]] //allowed kind
+["_allowedKind", ["Rifle_Base_F","Pistol_Base_F","Launcher_Base_F"]], //allowed kind
+["_allowedSlots", ["CowsSlot","MuzzleSlot","PointerSlot","UnderBarrelSlot"]] //allowed weapon accessories slot to place in ammobox
 ];
 
 if !(typeName _spawnObject == "OBJECT") exitWith {["LotteryWeapon.sqf : spawn object needed"] call NNS_fnc_debugOutput};
 
 if (count _allowedKind == 0) then {_allowedKind = ["Weapon_Base_F","Pistol_Base_F","Launcher_Base_F"]}; //allowed kind not set, set to default
 _allowedKind = _allowedKind apply {toLower _x}; //lowercase allowed kind
+
+fn_isKindOfParent = { //isKindOf equivalent compatible with CfgWeapons, case sensible. [class path, kinfOf array] call fn_isKindOfParent;
+	params ["_class","_kindArr"];
+	private _parents = [_class, true] call BIS_fnc_returnParents; //recover parent classes
+	!(_parents findIf {(toLower _x) in _kindArr} == -1);
+};
 
 _spawnDir = getDir _spawnObject; //object direction
 _spawnVectorDir = vectorDir _spawnObject; //object direction vector
@@ -63,7 +71,7 @@ if !(isSimpleObject _spawnObject) then { //not a simple object, required for pro
 	_spawnObject = _tmpObj; //replace spawn object pointer
 };
 
-LotteryWpnMag = createVehicle ["Box_NATO_Ammo_F", [0,0,0], [], 0, "CAN_COLLIDE"]; //create magazines holder
+LotteryWpnMag = createVehicle ["B_supplyCrate_F", _spawnLocation, [], 200, "NONE"]; //create magazines holder
 LotteryWpnMag allowDamage false; //disable damage
 LotteryWpnMag hideObjectGlobal true; //hide object
 LotteryWpnMag enableSimulationGlobal true; //hide object
@@ -81,23 +89,20 @@ _magsHolderVisual setVectorDir _magsHolderVisualDir; //set proper direction vect
 
 //set proper spawn location
 _spawnLocation = _spawnLocation getPos [_magsHolderVisualSizeX, _spawnDir - 90]; //offset x position
-_spawnLocation = _spawnLocation getPos [_spawnSizeY / 4, _spawnDir + 180]; //offset y position
+//_spawnLocation = _spawnLocation getPos [_spawnSizeY / 6, _spawnDir + 180]; //offset y position
 _spawnLocation set [2, _spawnSizeZ + 0.3]; //update Z position + 30cm
 
+//weapons
 _tmpAllowedClasses = "(getNumber (_x >> 'type') in [1,2,4]) && {getNumber (_x >> 'scope') == 2}" configClasses (configFile >> "CfgWeapons"); //extract all weapons
 _allowedClasses = [];
-{ //isKindOf equivalent for CfgWeapons
-	_parents = [configFile >> "CfgWeapons" >> (configName _x), true] call BIS_fnc_returnParents; //recover parent classes
-	if (_parents findIf {(toLower _x) in _allowedKind} == -1) then {} else {_allowedClasses pushBack _x}; //allowed kind
-} forEach _tmpAllowedClasses;
-
+{if ([configFile >> "CfgWeapons" >> (configName _x), _allowedKind] call fn_isKindOfParent) then {_allowedClasses pushBack _x}} forEach _tmpAllowedClasses; //allowed weapon kind	
 if ((count _allowedClasses) == 0) exitWith {[format ["LotteryWeapon.sqf : no class found for defined kind : %1", _allowedKind]] call NNS_fnc_debugOutput};
 [format ["LotteryWeapon.sqf : %1 classes found for defined kind : %2", count _allowedClasses, _allowedKind]] call NNS_fnc_debugOutput; //debug
 
-_magazines = []; //share same index as weapon class
-{_magazines pushBack (getArray (configfile >> "CfgWeapons" >> (configName _x) >> "magazines"))} forEach _allowedClasses; //magazines class
+//cleanup
+_tmpBox = nil; _tmpAllowedClasses = nil;
 
-while {sleep 0.5; true} do {
+while {sleep 0.5; !(missionNamespace getVariable ["LotteryWpnKill", false])} do {
 	_request = missionNamespace getVariable ["LotteryWpnReq", false]; //roll request
 	_reset = missionNamespace getVariable ["LotteryWpnRes", false]; //reset request
 	
@@ -116,18 +121,37 @@ while {sleep 0.5; true} do {
 		
 		if (count _conflitObjs == 0) then { //no objects in spawn area
 			_classToUse = selectRandom _allowedClasses; //select a random class
+			_tmpWpnClass = configName _classToUse; //current weapon class
 			_tmpWpn = createVehicle ["WeaponHolderSimulated", [0,0,0], [], 0, "CAN_COLLIDE"]; //create weapon holder
 			_tmpWpn setDir _spawnDir; //set vehicle direction and get direction vector
 			_tmpWpn setPos _spawnLocation; //set position
-			_tmpWpn addWeaponCargoGlobal [configName _classToUse, 1]; //add weapon to weapon holder
+			_tmpWpn addWeaponCargoGlobal [_tmpWpnClass, 1]; //add weapon to weapon holder
 			
-			_tmpMags = getArray (configfile >> "CfgWeapons" >> (configName _classToUse) >> "magazines"); //recover magazine classes
-			if (count _tmpMags > 0) then { //magazine classes found
-				_magsCount = 3; //will spawn 3 magazines
-				if !(_tmpWpn isKindOf "Launcher_Base_F") then {_magsCount = _magsCount + 3}; //add 3 if not launcher
-				clearMagazineCargoGlobal LotteryWpnMag; //clear magazines holder
-				LotteryWpnMag addMagazineCargoGlobal [_tmpMags select 0, _magsCount]; //add magazines to magazines holder
-			};
+			clearWeaponCargoGlobal LotteryWpnMag; clearMagazineCargoGlobal LotteryWpnMag; clearBackpackCargoGlobal LotteryWpnMag; clearItemCargoGlobal LotteryWpnMag; //clear magazines holder
+			
+			_tmpWpnMags = []; //store magazines classes
+			_tmpWpnAccs = []; //store accessories classes
+			_tmpWpnClasses = [_tmpWpnClass]; //array for class loop
+			_tmpWpnBase = getText (configFile >> "CfgWeapons" >> _tmpWpnClass >> "baseWeapon"); //base weapon class
+			if (!(_tmpWpnBase == "") && {!((configfile >> "CfgWeapons" >> _tmpWpnBase) isEqualTo (configfile >> "CfgWeapons" >> _tmpWpnClass))}) then {_tmpWpnClasses pushBack _tmpWpnBase}; //current weapon have a different base weapon, add to classes array
+			
+			{ //weapon classes loop
+				_tmpClass = _x; //backup weapon class
+				
+				_tmpMags = getArray (configfile >> "CfgWeapons" >> _tmpClass >> "magazines"); //recover magazine classes
+				{if !(_x in _tmpWpnMags) then {_tmpWpnMags pushBack _x}} forEach _tmpMags; //add magazine class to magazine array if not in array
+				
+				{ //weapon accessories slot loop
+					_tmpSlot = configfile >> "CfgWeapons" >> _tmpClass >> "WeaponSlotsInfo" >> _x >> "compatibleItems"; //config path to current slot
+					if (isArray _tmpSlot) then { //slot contain items
+						_tmpSlotItems = getArray _tmpSlot; //items array
+						{if !(_x in _tmpWpnAccs) then {_tmpWpnAccs pushBack _x}} forEach _tmpSlotItems; //add items class to items array if not in array
+					};
+				} forEach _allowedSlots;
+			} forEach _tmpWpnClasses;
+			
+			{LotteryWpnMag addMagazineCargoGlobal [_x, 10]} forEach _tmpWpnMags; //add 10 magazines per type to ammobox
+			{LotteryWpnMag addItemCargoGlobal [_x, 1]} forEach _tmpWpnAccs; //add accessories to ammobox
 			
 			[localize "STR_NNS_lottery_title", format [localize "STR_NNS_lottery_vehicle_won", [_classToUse] call BIS_fnc_displayName]] remoteExec ["BIS_fnc_showSubtitle",0];
 		} else {
@@ -135,3 +159,11 @@ while {sleep 0.5; true} do {
 		}
 	};
 };
+
+//final cleanup
+deleteVehicle _magsHolderVisual;
+deleteVehicle LotteryWpnMag;
+missionNamespace setVariable ["LotteryWpnMag", nil, true];
+missionNamespace setVariable ["LotteryWpnKill", nil, true];
+missionNamespace setVariable ["LotteryWpnReq", nil, true];
+missionNamespace setVariable ["LotteryWpnRes", nil, true];

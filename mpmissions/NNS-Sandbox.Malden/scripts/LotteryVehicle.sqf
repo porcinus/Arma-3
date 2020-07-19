@@ -8,6 +8,7 @@ Example:
 	On clients : 
 		missionNamespace setVariable ["LotteryVehReq", true, true]; //request a "roll"
 		missionNamespace setVariable ["LotteryVehRes", true, true]; //remove spawned vehicle
+		missionNamespace setVariable ["LotteryVehKill", true, true]; //kill the script loop
 	
 Dependencies:
 	in description.ext:
@@ -50,7 +51,7 @@ _allowedClasses = [];
 if (count _allowedClasses == 0) exitWith {[format ["LotteryVehicle.sqf : no class found for defined kind : %1", _allowedKind]] call NNS_fnc_debugOutput};
 [format ["LotteryVehicle.sqf : %1 classes found for defined kind:%2 and side:%3", count _allowedClasses, _allowedKind, _allowedSide]] call NNS_fnc_debugOutput; //debug
 
-while {sleep 0.5; true} do {
+while {sleep 0.5; !(missionNamespace getVariable ["LotteryVehKill", false])} do {
 	_request = missionNamespace getVariable ["LotteryVehReq", false]; //roll request
 	_reset = missionNamespace getVariable ["LotteryVehRes", false]; //reset request
 	
@@ -73,3 +74,8 @@ while {sleep 0.5; true} do {
 		};
 	};
 };
+
+//final cleanup
+missionNamespace setVariable ["LotteryVehKill", nil, true];
+missionNamespace setVariable ["LotteryVehReq", nil, true];
+missionNamespace setVariable ["LotteryVehRes", nil, true];
