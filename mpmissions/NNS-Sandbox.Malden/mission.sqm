@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=349;
+		nextID=407;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=204;
+		nextID=219;
 	};
 	class Camera
 	{
-		pos[]={8076.9297,83.419922,10130.325};
-		dir[]={-0.76459914,-0.64448601,-0.0097104469};
-		up[]={-0.64444894,0.76459485,-0.0081842411};
-		aside[]={-0.012699053,-4.6664172e-007,0.99994457};
+		pos[]={8048.5674,42.927341,10112.015};
+		dir[]={-0.6803574,-0.48037428,0.55360931};
+		up[]={-0.37272367,0.87698209,0.30328801};
+		aside[]={0.6312018,-8.0704922e-008,0.77571255};
 	};
 };
 binarizationWanted=0;
@@ -40,7 +40,9 @@ addons[]=
 	"A3_Structures_F_Civ_InfoBoards",
 	"A3_Structures_F_Oldman_Signs_Traffic",
 	"A3_Ui_F",
-	"A3_Structures_F_Mil_Helipads"
+	"A3_Structures_F_Mil_Helipads",
+	"A3_Structures_F_Civ_Camping",
+	"A3_Structures_F_Items_Electronics"
 };
 class AddonsMetaData
 {
@@ -132,7 +134,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=45;
+		items=50;
 		class Item0
 		{
 			dataType="Group";
@@ -2845,6 +2847,92 @@ class Mission
 			};
 			id=348;
 			type="Land_Noticeboard_F";
+		};
+		class Item45
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8033.0747,30.047941,10121.438};
+				angles[]={0.00077204045,4.3865309,6.2824135};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="LotteryWeaponSpawner";
+			};
+			id=349;
+			type="Land_CampingTable_F";
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8032.7104,30.607082,10123.004};
+				angles[]={0.00077204045,1.445387,6.2824135};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="LotteryWeaponCommandForced";
+			};
+			id=364;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=5.7220459e-006;
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8032.7026,30.606602,10123.633};
+				angles[]={0.00077204045,1.676092,6.2824135};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="LotteryWeaponCommand";
+			};
+			id=366;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item48
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8032.7705,30.606094,10124.222};
+				angles[]={0.00077204045,1.676092,6.2824135};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="LotteryWeaponCommandReset";
+			};
+			id=367;
+			type="Land_Laptop_unfolded_F";
+		};
+		class Item49
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8032.7075,30.046463,10123.652};
+				angles[]={0.00076794485,4.7152162,6.2824173};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=368;
+			type="Land_CampingTable_F";
 		};
 	};
 	class Connections

@@ -112,6 +112,8 @@ STR_NNS_loadout_restore, "Restore Loadout", "Restorer l'équipement"
 //vehicle lottery
 STR_NNS_lottery_title, "Lottery", "Loterie"
 STR_NNS_lottery_vehicle_won, "You won a %1", "Vous avez gagner un %1"
+STR_NNS_lottery_weapon_won, "You won a %1", "Vous avez gagner un %1"
+STR_NNS_lottery_weapon_pickAmmo, "Take some magazines", "Prendre quelques chargeurs"
 
 
 

@@ -590,3 +590,12 @@ addMissionEventHandler ["EntityKilled", {
 	[LotteryVehicleSpawner] execVM "scripts\LotteryVehicle.sqf";
 };
 
+//weapon lottery
+[] spawn {
+	player setPos [8036,10122,0];
+	player setDir 270;
+	[LotteryWeaponCommand, ["Try to win a weapon", {missionNamespace setVariable ["LotteryWpnReq", true, true]}]] remoteExec ["addAction", 0, true];
+	[LotteryWeaponCommandReset, ["Reset", {missionNamespace setVariable ["LotteryWpnRes", true, true]}]] remoteExec ["addAction", 0, true];
+	[LotteryWeaponCommandForced, ["Try to win a weapon (forced)", {missionNamespace setVariable ["LotteryWpnRes", true, true]; missionNamespace setVariable ["LotteryWpnReq", true, true]}]] remoteExec ["addAction", 0, true];
+	[LotteryWeaponSpawner] execVM "scripts\LotteryWeapon.sqf";
+};
