@@ -220,6 +220,8 @@ Can be useful to understand how functions/script works with examples already on 
 [![prev](EscapeFromMaldenZombie.Malden%20preview/preview/jerrycan2.jpg)](EscapeFromMaldenZombie.Malden%20preview/jerrycan2.jpg)
 [![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-map.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-map.jpg)
 [![prev](EscapeFromTanoaMOD.Tanoa%20preview/preview/stats-debrief.jpg)](EscapeFromTanoaMOD.Tanoa%20preview/stats-debrief.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/vehicle-lottery01.jpg)](NNS-Sandbox.Malden%20preview/vehicle-lottery01.jpg)
+[![prev](NNS-Sandbox.Malden%20preview/preview/weapon-lottery01.jpg)](NNS-Sandbox.Malden%20preview/weapon-lottery01.jpg) 
   
 Helicopter airborne units support demo : [https://www.youtube.com/watch?v=D\_s5CR9jc58](https://www.youtube.com/watch?v=D_s5CR9jc58)  
 Populate map buildings demo : [https://www.youtube.com/watch?v=cdWG1WQz2b4](https://www.youtube.com/watch?v=cdWG1WQz2b4)  
