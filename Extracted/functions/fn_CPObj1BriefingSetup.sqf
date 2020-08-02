@@ -1,0 +1,4 @@
+player createDiaryRecord ["Diary", [localize "STR_A3_combatpatrol_mission_7", localize "STR_A3_combatpatrol_mission_41"]];
+player createDiaryRecord ["Diary", [localize "STR_A3_showcase_infantry_briefing_execution_title", (localize "STR_A3_combatpatrol_mission_42") + "<br/>" + (localize "STR_A3_combatpatrol_mission_43") + "<br/>" + (localize "STR_A3_combatpatrol_mission_44")]];
+player createDiaryRecord ["Diary", [localize "STR_A3_showcase_infantry_briefing_mission_title", localize "STR_A3_combatpatrol_mission_45"]];
+player createDiaryRecord ["Diary", [localize "STR_A3_showcase_infantry_briefing_situation_title", localize "STR_A3_combatpatrol_mission_46"]];
