@@ -286,4 +286,58 @@ What's done so far (missing some for sure):
 
 - What still need to be done: You tell me :P
 ```
-
+  
+## NotMarioKartKnockoff.Malden  
+Even if the name is obvious, this "mission" is mostly a crossover between Mario Kart and Re-Volt.  
+Important note before start:  
+- It doesn't use any texture or sound of any kind from Nintendo IP.  
+- It isn't as optimized as I want, many things are manage on server and clients side (Arma scripter will undertand :P).  
+- Still WIP.  
+  
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/main.jpg)](NotMarioKartKnockoff.Malden%20preview/main.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/area0.jpg)](NotMarioKartKnockoff.Malden%20preview/area0.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/area0_eden.jpg)](NotMarioKartKnockoff.Malden%20preview/area0_eden.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/balloon.jpg)](NotMarioKartKnockoff.Malden%20preview/balloon.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/gameplay0.jpg)](NotMarioKartKnockoff.Malden%20preview/gameplay0.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/itembox.jpg)](NotMarioKartKnockoff.Malden%20preview/itembox.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/screen_daytime.jpg)](NotMarioKartKnockoff.Malden%20preview/screen_daytime.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/screen_areas.jpg)](NotMarioKartKnockoff.Malden%20preview/screen_areas.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/screen_gamemodes.jpg)](NotMarioKartKnockoff.Malden%20preview/screen_gamemodes.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/screen_gameparams.jpg)](NotMarioKartKnockoff.Malden%20preview/screen_gameparams.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/screen_teamdeathmatch.jpg)](NotMarioKartKnockoff.Malden%20preview/screen_teamdeathmatch.jpg)
+[![prev](NotMarioKartKnockoff.Malden%20preview/preview/items.jpg)](NotMarioKartKnockoff.Malden%20preview/items.png)
+  
+What's done so far (missing some for sure):
+```
+- Allow 16 players (this will destroy server performance)...
+- Vote for each aspect of the next round:
+	- Day or night (light source are added during night but you can use NVG if you want).
+	- Area selection : These can be edited easily via Eden, you can also remove or add more by scripting (just a tiny array manipulation).
+	- Multiple game modes (a time limit is applied to each) :
+		- Random : Obvious...
+		- Balloon : Same as Mario Kart, mostly based on the same rules, players without balloons became spectator.
+		- Deathmatch : First player hit the specified points limit win.
+		- Team Deathmatch : Same as deathmatch but in team (a screen will pop to allow player to choise).
+		- Free play : No limit execept of time.
+	- Game mode limits :
+		- All : 5, 10, 15 minutes (tide to following lines)
+		- Balloon : 3, 5, 10 balloons.
+		- Deathmatch : 10, 20, 30 points.
+		- Team Deathmatch : 15, 30, 45 points.
+	- Team Deathmatch team selection : Selected team color will be apply on players karts.
+- Items list :
+	- Boost : x1, x3.
+	- Explosive barrel : x1, x2, x3.
+	- Fake itembox : x1.
+	- Oil spill : x1, x3.
+	- Invincibility : run for 12sec.
+	- Mine : x1, x2, x3.
+	- Smoke grenade : x1.
+	- Missile : x1, x2, x3.
+	- Czech hedgehog : x1.
+	- Not enabled currently : Boost x2 x3 and inf for 5 sec, Oil spill x2. 
+- Additionnal note:
+	- When remaining time under 5min, most defensive items are disable.
+	- When testing mission via Eden in solo mode, many debug thing are enable to help area management and debug.
+```
+  
