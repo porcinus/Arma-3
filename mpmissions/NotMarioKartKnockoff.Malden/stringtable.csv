@@ -1,0 +1,135 @@
+LANGUAGE, "English", "French"
+
+//params: debug outputs
+STR_NNS_param_DebugOutputs_title, "Debug outputs (will spam Chatbox (Global) and/or Server logs)", "Infos de débuggage (va spammer la chatbox (Globale) et/ou les logs Serveur)"
+STR_NNS_param_DebugOutputs_chatbox, "Enable (Chatbox)", "Activé (Chatbox)"
+STR_NNS_param_DebugOutputs_logs, "Enable (Logs)", "Activé (Logs)"
+STR_NNS_param_DebugOutputs_both, "Enable (Chatbox/Logs)", "Activé (Chatbox/Logs)"
+
+//params: generic
+STR_NNS_param_disable, "Disable", "Désactivé"
+
+//Not Mario Kart Knockoff
+STR_MKK_name, "NNS Not Mario Kart Knockoff", "NNS Not Mario Kart Knockoff"
+STR_MKK_version, "v08-13-20-1", "v08-13-20-1"
+STR_MKK_desc, "Relive nostalgia from Mario Kart and Re-Volt into Arma.<br/>Have fun ;)", "Revivez la nostalgie de Mario Kart et Re-Volt dans Arma.<br/>Amusez-vous bien ;)"
+STR_MKK_help0, "Use vehicle Turbo key to use or throw items.<br/>Default key is Left Shift, it can be change in Settings > Controls > Keyboard > Commons : Vehicle Turbo.", "Utilisez la touche Turbo pour utiliser ou lancer les items.<br/>La touche par défault est Maj Gauche, elle peut être changer dans Options > Commandes > Clavier > Communes : Turbo véhicule."
+
+STR_MKK_server, "Server", "Serveur"
+STR_MKK_waitareagenerated, "Area %1 being generated, please wait...", "Zone %1 en cours de création, veuillez patienter..."
+STR_MKK_waitforplayers, "Waiting for players (%1)", "En attente de joueurs (%1)"
+STR_MKK_waitfordata, "Receiving data, please wait...", "Réception de données, veuillez patienter..."
+
+STR_MKK_Daytime_votefor, "Vote for the time of the round", "Votez pour l'heure de la partie"
+STR_MKK_Daytime_day, "Day", "Journée"
+STR_MKK_Daytime_night, "Night", "Nuit"
+
+STR_MKK_Area_title, "Area %1", "Zone %1"
+STR_MKK_Area_votefor, "Vote for a play area", "Votez pour une zone de jeu"
+STR_MKK_Area_areasize_title, "Area %1 : %2m2", "Zone %1 : %2m2"
+
+STR_MKK_Gamemode_random_title, "Random", "Aléatoire"
+STR_MKK_Gamemode_random_desc, "Let server with its legendary randomness choosing a game mode", "Laissez le serveur avec son aléatoire légendaire choisir un mode de jeu"
+STR_MKK_Gamemode_random_params, "Oups<br/>Someone haven't make his homework", "Oups<br/>Quelqu'un n'a pas fait ses devoirs"
+
+STR_MKK_Gamemode_balloon_title, "Balloons", "Ballons"
+STR_MKK_Gamemode_balloon_desc, "The last player with at least one remaining balloon wins the game", "Le dernier joueur avec au moins un ballon restant gagne la partie"
+STR_MKK_Gamemode_balloon_params, "%1 balloons per player<br/>%2 minutes limit", "%1 ballons par joueur<br/>Limité à %2 minutes"
+
+STR_MKK_Gamemode_deathmatch_title, "Deathmatch", "Match a mort"
+STR_MKK_Gamemode_deathmatch_desc, "The first player to reach the point limit wins the game", "Le premier joueur à atteindre la limite de point gagne la partie"
+STR_MKK_Gamemode_deathmatch_params, "Limited to %1 points<br/>%2 minutes", "Limité à %1 points<br/>%2 minutes"
+
+STR_MKK_Gamemode_teamdeathmatch_title, "Team Deathmatch", "Match a mort en équipe"
+STR_MKK_Gamemode_teamdeathmatch_desc, "The first team to reach the point limit wins the game", "Le premier équipe à atteindre la limite de point gagne la partie"
+STR_MKK_Gamemode_teamdeathmatch_blueteam, "Blue team", "Équipe Blue"
+STR_MKK_Gamemode_teamdeathmatch_redteam, "Red team", "Équipe Rouge"
+STR_MKK_Gamemode_teamdeathmatch_greenteam, "Green team", "Équipe Verte"
+STR_MKK_Gamemode_teamdeathmatch_yellowteam, "Yellow team", "Équipe Jaune"
+
+STR_MKK_Gamemode_freeplay_title, "Free play", "Mode libre"
+STR_MKK_Gamemode_freeplay_desc, "This game mode is only limited by time", "Ce mode de jeu est uniquement limité par le temps"
+STR_MKK_Gamemode_freeplay_params, "Limited to %1 minutes", "Limité à %1 minutes"
+
+STR_MKK_Gamemode_votefor, "Vote for a game mode", "Votez pour un mode de jeu"
+STR_MKK_Gamemode_voteends, "sec before vote ends", "sec avant la fin du vote"
+STR_MKK_Gamemode_selected, "Selected game mode", "Mode de jeu sélectionné"
+STR_MKK_Gamemode_voteforparams, "Vote for game parameters", "Votez pour les paramètres de jeu"
+
+STR_MKK_teamSelection_title, "Teams selection", "Sélection des équipes"
+STR_MKK_teamSelection_menuclosein, "Group menu will close in", "Le menu de groupe se fermera dans"
+STR_MKK_teamSelection_join, "Join", "Rejoindre"
+
+STR_MKK_seconds, "seconds", "secondes"
+STR_MKK_round_duration, "Round duration", "Durée du round"
+STR_MKK_round_finalscore, "Final score", "Score final"
+STR_MKK_round_nextroundstart, "Next round start in", "Le prochain round commence dans"
+
+STR_MKK_game_warn1stperson, "Warning, switching to 1st person view will mess audio", "Attention, la vue à la 1ère personne cause des problèmes de son"
+STR_MKK_game_waitscoreupdate, "Waiting for score update", "En attente de mis a jour du score"
+STR_MKK_game_roundendsin, "Round ends in %1", "Fin du round dans %1"
+STR_MKK_game_roundendsinagressive, "Round ends in %1, switching to aggressive mode", "Fin du round dans %1, passage en mode agressif"
+STR_MKK_game_remainingtime, "Remaining time", "Temps restant"
+STR_MKK_game_currentscore, "Current score", "Score actuel"
+
+STR_MKK_player_unstruck, "Request unstuck", "Demander un déblocage"
+STR_MKK_player_unstruckWait, "Unstick request only allowed every 30sec, please wait %1sec...", "Demande de déblocage autorisée uniquement toutes les 30 secondes, veuillez patienter %1sec..."
+STR_MKK_player_youpicked, "You picked", "Vous avez ramassez"
+
+STR_MKK_item_boost, "Boost", "Boost"
+STR_MKK_item_barrelexp, "Explosive barrel", "Bidon explosif"
+STR_MKK_item_fakebox, "Fake itembox", "Faux ballon"
+STR_MKK_item_oilspill, "Oil spill", "Flaque d'huile"
+STR_MKK_item_inv, "Invincibility", "Invincibilité"
+STR_MKK_item_mine, "Mine", "Mine"
+STR_MKK_item_smoke, "Smoke grenade", "Grenade fumigène"
+STR_MKK_item_missile, "Missile", "Missile"
+STR_MKK_item_hedgehog, "Czech hedgehog", "Hérisson tchèque"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STR_MKK_, "", ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

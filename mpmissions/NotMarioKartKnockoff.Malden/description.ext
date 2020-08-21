@@ -1,0 +1,79 @@
+enableDebugConsole = 2;
+respawn = 3;
+respawnDelay = 5;
+respawnOnStart = -1;
+allowFunctionsLog = 0;
+enableTeamSwitch = 0;
+
+respawnTemplates[] = {};
+
+class Header {
+	minPlayers = 1;
+	maxPlayers = 16;
+};
+
+dev = "NNS";
+briefingName = $STR_MKK_name;
+author = "NNS";
+overviewPicture = "notMarioKartKnockoff\img\loading_screen.paa";
+overviewText = $STR_MKK_desc;
+overviewTextLocked = $STR_MKK_desc;
+onLoadName = $STR_MKK_name;
+onLoadMission = $STR_MKK_desc;
+loadScreen = "notMarioKartKnockoff\img\loading_screen.paa";
+disabledAI = 1;
+
+class Params {
+	class DebugOutputs {
+		title = $STR_NNS_param_DebugOutputs_title;
+		values[] = {0,1,2,3};
+		texts[] = {$STR_NNS_param_disable,$STR_NNS_param_DebugOutputs_chatbox,$STR_NNS_param_DebugOutputs_logs,$STR_NNS_param_DebugOutputs_both};
+		default = 0;
+		file = "params\setDebugOutputs.sqf";
+	};
+	
+	#define DEBUGCONSOLE_DEFAULT			0
+
+	#include "\a3\functions_f\Params\paramDebugConsole.inc"
+};
+
+class CfgFunctions {
+	class NNS {
+		class Sandbox {
+			class preInit {file = "preInit.sqf"; preInit = 1;};
+			
+			file = "nns_functions";
+			class debugOutput {}; //debug
+		};
+	};
+	
+	class MKK {
+		class NotMarioKartKnockoff {
+			file = "notMarioKartKnockoff\functions";
+			class votes {};
+			class time {};
+			class switchKartColor {};
+			class strUnbreakSpace {};
+			class stringReplace {};
+			class angleDiff {};
+			class createRscControl {};
+			class createMarker {};
+			class lineIntersection {};
+			class objectRainbow {};
+			class displaySubtitle {};
+		};
+	};
+};
+
+class CfgSounds { //custom sound definition
+	sounds[] = {};
+	class MKK_itemboxhit 			{name = "MKK_itemboxhit"; sound[] = {"notMarioKartKnockoff\snd\itemboxhit.ogg", 1.75, 1, 75}; titles[]	= {};};
+	class MKK_boost 					{name = "MKK_boost"; sound[] = {"notMarioKartKnockoff\snd\boost.ogg", 3, 1, 75}; titles[]	= {};};
+	class MKK_itemselection 	{name = "MKK_itemselection"; sound[] = {"notMarioKartKnockoff\snd\itemselection.ogg", 3.5, 1, 75}; titles[]	= {};};
+	class MKK_spinout 				{name = "MKK_spinout"; sound[] = {"notMarioKartKnockoff\snd\spinout.ogg", 0.75, 1, 75}; titles[]	= {};};
+	class MKK_invincibility 	{name = "MKK_invincibility"; sound[] = {"notMarioKartKnockoff\snd\invincibility.ogg", 4.5, 1, 75}; titles[]	= {};};
+	class MKK_throw 					{name = "MKK_throw"; sound[] = {"notMarioKartKnockoff\snd\throw.ogg", 5, 1, 75}; titles[]	= {};};
+	class MKK_start_bip 			{name = "MKK_start_bip"; sound[] = {"notMarioKartKnockoff\snd\startbip.ogg", 3, 1, 75}; titles[]	= {};};
+	class MKK_start_go 				{name = "MKK_start_go"; sound[] = {"notMarioKartKnockoff\snd\startgo.ogg", 3.5, 1, 75}; titles[]	= {};};
+	
+};
