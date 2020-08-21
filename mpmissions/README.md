@@ -291,7 +291,7 @@ What's done so far (missing some for sure):
 Even if the name is obvious, this "mission" is mostly a crossover between Mario Kart and Re-Volt.  
 Important note before start:  
 - It doesn't use any texture or sound of any kind from Nintendo IP.  
-- It isn't as optimized as I want, many things are manage on server and clients side (Arma scripter will undertand :P).  
+- It isn't as optimized as I want, many things are manage on server and clients side (Arma scripter will understand :P).  
 - Still WIP.  
   
 [![prev](NotMarioKartKnockoff.Malden%20preview/preview/main.jpg)](NotMarioKartKnockoff.Malden%20preview/main.jpg)
