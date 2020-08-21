@@ -338,6 +338,6 @@ What's done so far (missing some for sure):
 	- Not enabled currently : Boost x2 x3 and inf for 5 sec, Oil spill x2. 
 - Additionnal note:
 	- When remaining time under 5min, most defensive items are disable.
-	- When testing mission via Eden in solo mode, many debug thing are enable to help area management and debug.
+	- When testing mission via Eden in solo mode, debug features are enabled to help areas management and debug (polygons outlines, obstacles position, many other things that drain a lot of power (not present in any way in multiplayer)).
 ```
   
