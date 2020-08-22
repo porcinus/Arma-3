@@ -32,6 +32,7 @@ _playersPointsStrArr pushBack format ["<t size='1'><t align='left'>&#160;%1:</t>
 
 _playersPointsStrArr pushBack format ["<t size='1' font='PuristaBold' underline='1' align='center'>&#160;%1&#160;</t>", [localize "STR_MKK_round_finalscore"] call MKK_fnc_strUnbreakSpace]; //player header
 
+_cupImg = "cup.paa";
 if (MKK_mode == 3) then { //team deathmatch mode
 	_playersPointsArr = [[], [], [], []]; //player points array: [[[points, player],...], [[points, player],...], ...]
 	_teamsPointsArr = [[-1, 0, _playersPointsArr select 0], [-1, 1, _playersPointsArr select 1], [-1, 2, _playersPointsArr select 2], [-1, 3, _playersPointsArr select 3]]; //teams scores array: [score, team index, player array pointer]
@@ -71,8 +72,16 @@ if (MKK_mode == 3) then { //team deathmatch mode
 		if (_tmpTeamPoints != -1) then { //not empty team
 			_tmpTeamName = _teamColorStrArr select (_x select 1); //team name
 			_tmpTeamColor = _teamColorArr select (_x select 1); //color name
-			if !(_firstTeam) then {_teamPaddingStr = "<br/>"}; _firstTeam = false; //allow to add a line return before team title
-			_playersPointsStrArr pushBack format ["%1<t size='1'><t align='left' color='%2'>&#160;%3</t>&#160;&#160;&#160;&#160;<t align='right'>%4&#160;</t></t>", _teamPaddingStr, _tmpTeamColor, [_tmpTeamName] call MKK_fnc_strUnbreakSpace, _tmpTeamPoints]; //add to str array
+			if !(_firstTeam) then {
+				_teamPaddingStr = "<br/>"
+			} else {
+				_cupImg = format ["&#160;<img image='notMarioKartKnockoff\img\generic\cup.paa' size='0.7' color='%1'/>", _tmpTeamColor];
+			};
+			
+			_firstTeam = false; //allow to add a line return before team title
+			
+			_playersPointsStrArr pushBack format ["%1<t size='1'><t align='left' color='%2'>%5&#160;%3</t>&#160;&#160;&#160;&#160;<t align='right'>%4&#160;</t></t>", _teamPaddingStr, _tmpTeamColor, [_tmpTeamName] call MKK_fnc_strUnbreakSpace, _tmpTeamPoints, _cupImg]; //add to str array
+			_cupImg = "";
 			
 			_tmpPlayersArr = _x select 2; //players array
 			{
@@ -100,8 +109,10 @@ if (MKK_mode == 3) then { //team deathmatch mode
 	{
 		_tmpPoints = _x select 0; //recover points
 		_tmpPlayerName = _x select 1; //player name
-		_playersPointsStrArr pushBack format ["<t size='1'><t align='left'>&#160;%1</t>&#160;&#160;&#160;&#160;<t align='right'>%2&#160;</t></t>",[_tmpPlayerName] call MKK_fnc_strUnbreakSpace, _tmpPoints]; //add to str array
+		_playersPointsStrArr pushBack format ["<t size='1'><t align='left'>&#160;<img image='notMarioKartKnockoff\img\generic\%3' size='0.7'/>&#160;%1</t>&#160;&#160;&#160;&#160;<t align='right'>%2&#160;</t></t>",[_tmpPlayerName] call MKK_fnc_strUnbreakSpace, _tmpPoints, _cupImg]; //add to str array
+		_cupImg = "null.paa";
 	} forEach _playersPointsArr;
+	
 	_playersPointsStr = _playersPointsStrArr joinString "<br/>"; //array to string
 };
 
