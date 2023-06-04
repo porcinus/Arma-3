@@ -3,7 +3,7 @@
 - All of missions on this repo have: 
   - Debug features enabled.  
   - AI enabled, AI units are removed once the server start. I use this trick to bypass JIP glitch that disallow player from joining when mission started (some time not work, depend on clients).  
-- Without other notice, theses missions are not tested on dedicated server.  
+- Theses missions have been tested on Windows and Linux dedicated server and should work fine BUT you need to take .pbo files, Linux server are a little broken if you take folders.  
 - Some missions share functions or scripts, this doesn't mean all are sync (uptodate).  
   
 ## EscapeFromMaldenMOD.Malden  
